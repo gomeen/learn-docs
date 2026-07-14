@@ -2,6 +2,17 @@
 
 > ruoyi-vue-pro 的部署、容器化、CI/CD、监控。
 
+## 🌐 公共部分
+
+| 主题 | 公共文档 | 本项目特定内容 |
+|------|---------|--------------|
+| Docker 基础 / Dockerfile / Compose | [_common/09-containerization/](../../_common/09-containerization/) | 05-09 章节（Java Docker 实战） |
+| Nginx 反向代理 / HTTPS | [_common/10-network-proxy/](../../_common/10-network-proxy/) | 10-12 章节（ruoyi 视角） |
+| CI/CD / GitHub Actions / GitLab CI / Jenkins | [_common/11-cicd/](../../_common/11-cicd/) | 14-17 章节（ruoyi 实战） |
+| 蓝绿 / 灰度部署 | [_common/12-deploy-strategies/](../../_common/12-deploy-strategies/) | 17-deploy-strategy.md |
+| 监控 / Actuator / Prometheus | 暂用 dify 文档 | 18-23 章节（ruoyi 监控） |
+| JVM 调优 | Java 专属（01-java-fundamentals/24） | 24-27 章节 |
+
 ## 模块 10.1 构建与打包
 
 - [ ] [1.1 Maven 多模块构建](./01-maven-build.md)

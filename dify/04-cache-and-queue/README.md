@@ -2,6 +2,18 @@
 
 > Dify 使用 Redis 做缓存 + Celery 做异步任务，理解这两者是构建可扩展后端的关键。
 
+## 🌐 公共部分
+
+> 以下主题的**通用原理**已抽取到 [`../../_common/`](../../_common/) 目录。
+
+| 主题 | 公共文档 | 本项目特定内容 |
+|------|---------|--------------|
+| Redis 数据结构 / 持久化 / 集群 | [_common/01-redis](../../_common/01-redis/) | 13-redis-in-dify.md（dify 实战） |
+| 消息队列概念 / Kafka / RabbitMQ | [_common/02-mq](../../_common/02-mq/) | 23-mq-concepts.md（概念补充） |
+| 缓存穿透 / 击穿 / 雪崩 | [_common/03-cache-patterns/02-three-problems](../../_common/03-cache-patterns/02-three-problems.md) | 09-cache-problems.md（dify 处理） |
+| 分布式锁 | [_common/04-distributed-locks/02-redis-redlock](../../_common/04-distributed-locks/02-redis-redlock.md) | 10-distributed-lock.md（dify 实现） |
+| 限流 | [_common/03-cache-patterns/04-rate-limiting](../../_common/03-cache-patterns/04-rate-limiting.md) | 11-rate-limit-redis.md（dify 实现） |
+
 ## 前置依赖
 
 - `01-fundamentals` 全部

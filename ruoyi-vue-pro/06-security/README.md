@@ -2,6 +2,20 @@
 
 > ruoyi-vue-pro 的核心能力：Spring Security + Token + 多租户 + 数据权限。
 
+## 🌐 公共部分
+
+| 主题 | 公共文档 | 本项目特定内容 |
+|------|---------|--------------|
+| HTTP 认证基础 | [_common/07-authentication/01-http-auth](../../_common/07-authentication/01-http-auth.md) | 01-filter-chain.md（Spring Security 视角） |
+| JWT 机制 | [_common/07-authentication/03-jwt](../../_common/07-authentication/03-jwt.md) | 09-jwt.md（ruoyi 实现） |
+| OAuth 2.0 / SSO | [_common/07-authentication/05-oauth2](../../_common/07-authentication/05-oauth2.md) | 14-oauth2.md, 15-sso.md |
+| RBAC | [_common/08-authorization/01-rbac](../../_common/08-authorization/01-rbac.md) | 16-rbac.md, 17-ruoyi-permission-tables.md |
+| 多租户 | [_common/08-authorization/05-multi-tenant](../../_common/08-authorization/05-multi-tenant.md) | 21-26 章节（ruoyi 核心亮点） |
+| CSRF / CORS | [_common/05-web-security/04-csrf](../../_common/05-web-security/04-csrf.md), [05-cors](../../_common/05-web-security/05-cors.md) | 08-csrf-cors.md（Spring Security 配置） |
+| XSS / SQL 注入 | [_common/05-web-security/02-xss](../../_common/05-web-security/02-xss.md), [03-sql-injection](../../_common/05-web-security/03-sql-injection.md) | 31-xss.md, 32-sql-injection.md |
+| 防重放 | [_common/05-web-security/07-replay-attack](../../_common/05-web-security/07-replay-attack.md) | 33-replay-attack.md |
+| 加密 | [_common/06-encryption/](../../_common/06-encryption/) | 35-encryption.md（ruoyi 国密） |
+
 ## 模块 6.1 Spring Security
 
 - [ ] [1.1 Spring Security 核心概念：Filter Chain](./01-filter-chain.md)

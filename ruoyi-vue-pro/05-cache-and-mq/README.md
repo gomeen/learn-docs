@@ -2,6 +2,19 @@
 
 > ruoyi-vue-pro 使用 Redisson 做缓存，支持 Redis/RabbitMQ/Kafka/RocketMQ 多种 MQ。
 
+## 🌐 公共部分
+
+| 主题 | 公共文档 | 本项目特定内容 |
+|------|---------|--------------|
+| Redis 数据结构 / 持久化 / 集群 | [_common/01-redis/](../../_common/01-redis/) | 01-redis-basics.md（ruoyi 视角） |
+| Redisson 客户端 | [_common/01-redis/](../../_common/01-redis/) | 02-redisson.md（ruoyi 特有） |
+| 消息队列概念 / Kafka / RabbitMQ / RocketMQ | [_common/02-mq/](../../_common/02-mq/) | 13-ruoyi-message.md（ruoyi 抽象） |
+| 缓存穿透 / 击穿 / 雪崩 | [_common/03-cache-patterns/02-three-problems](../../_common/03-cache-patterns/02-three-problems.md) | 23-cache-problems.md（ruoyi 视角） |
+| 分布式锁 | [_common/04-distributed-locks/02-redis-redlock](../../_common/04-distributed-locks/02-redis-redlock.md) | 03-redisson-lock.md（ruoyi Redisson） |
+| 限流 | [_common/03-cache-patterns/04-rate-limiting](../../_common/03-cache-patterns/04-rate-limiting.md) | 04-redisson-rate-limiter.md（Redisson） |
+| 分布式 Session | [_common/03-cache-patterns/05-distributed-session](../../_common/03-cache-patterns/05-distributed-session.md) | 20-distributed-session.md |
+| 分布式 ID | [_common/03-cache-patterns/06-distributed-id](../../_common/03-cache-patterns/06-distributed-id.md) | 21-snowflake.md |
+
 ## 模块 5.1 Redis 与 Redisson
 
 - [ ] [1.1 Redis 数据结构与命令](./01-redis-basics.md)

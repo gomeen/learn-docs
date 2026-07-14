@@ -2,6 +2,17 @@
 
 > 后端系统必须能稳定部署运行。本分类涵盖容器化、编排、CI/CD。
 
+## 🌐 公共部分
+
+| 主题 | 公共文档 | 本项目特定内容 |
+|------|---------|--------------|
+| Docker 基础 / Dockerfile / Compose | [_common/09-containerization/](../../_common/09-containerization/) | 07-dify-docker.md（dify 全家桶） |
+| K8s 核心 | [_common/09-containerization/](../../_common/09-containerization/) | 08-13 章节（K8s 完整） |
+| Nginx 反向代理 / HTTPS | [_common/10-network-proxy/](../../_common/10-network-proxy/) | 14-17 章节（dify 实战） |
+| CI/CD 概念 / GitHub Actions / GitLab CI | [_common/11-cicd/](../../_common/11-cicd/) | 18-21 章节（dify 实战） |
+| 蓝绿 / 灰度部署 | [_common/12-deploy-strategies/](../../_common/12-deploy-strategies/) | 22-deployment-strategies.md |
+| Terraform / Ansible | [_common/11-cicd/](../../_common/11-cicd/) | 24-25 章节（IaC） |
+
 ## 前置依赖
 
 - `01-fundamentals` 中的 Linux/Shell 基础

@@ -2,6 +2,21 @@
 
 > 后端系统必须考虑认证、授权、安全防护。Dify 实现了多租户认证 + RBAC。
 
+## 🌐 公共部分
+
+| 主题 | 公共文档 | 本项目特定内容 |
+|------|---------|--------------|
+| HTTP 认证基础 | [_common/07-authentication/01-http-auth](../../_common/07-authentication/01-http-auth.md) | 01-http-auth.md（dify 实战） |
+| JWT 机制 | [_common/07-authentication/03-jwt](../../_common/07-authentication/03-jwt.md) | 03-jwt-auth.md（dify 实现） |
+| OAuth 2.0 | [_common/07-authentication/05-oauth2](../../_common/07-authentication/05-oauth2.md) | 05-oauth2.md（dify 协议理解） |
+| SSO | [_common/07-authentication/06-oidc-sso](../../_common/07-authentication/06-oidc-sso.md) | 07-saml-sso.md（dify 企业 SSO） |
+| RBAC | [_common/08-authorization/01-rbac](../../_common/08-authorization/01-rbac.md) | 08-rbac.md（dify 实现） |
+| 多租户 | [_common/08-authorization/05-multi-tenant](../../_common/08-authorization/05-multi-tenant.md) | 11-resource-ownership.md, 12-auth-in-dify.md |
+| OWASP | [_common/05-web-security/01-owasp-top10](../../_common/05-web-security/01-owasp-top10.md) | 13-owasp-top10.md |
+| XSS / CSRF / SQL 注入 / SSRF | [_common/05-web-security/](../../_common/05-web-security/) | 14-20 章节（dify 实战） |
+| 对称/非对称加密 | [_common/06-encryption/](../../_common/06-encryption/) | 21-24 章节（dify 实战） |
+| 防重放 | [_common/05-web-security/07-replay-attack](../../_common/05-web-security/07-replay-attack.md) | 27-replay-attack.md |
+
 ## 前置依赖
 
 - `01-fundamentals` 全部
