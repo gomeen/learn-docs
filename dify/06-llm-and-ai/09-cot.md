@@ -15,7 +15,7 @@
 
 - [04-model-parameters.md](./04-model-parameters.md)
 - [05-llm-limitations.md](./05-llm-limitations.md)
-- [07-decorator.md](../01-fundamentals/07-decorator.md)
+- [07-decorator.md](../01-fundamentals/10-decorator.md)
 - 外部基础：提示词角色、基本概率和软件验证思维
 
 ## 1. 核心概念

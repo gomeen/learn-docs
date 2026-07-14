@@ -13,7 +13,7 @@
 ## 📚 前置知识
 
 - [3.4.1 Alembic 基础](./20-alembic-basics.md)
-- Git 分支基础：[`../01-fundamentals/24-git-advanced.md`](../01-fundamentals/24-git-advanced.md)
+- Git 分支基础：[`../01-fundamentals/30-git-advanced.md`](../01-fundamentals/30-git-advanced.md)
 
 ## 1. 核心概念
 

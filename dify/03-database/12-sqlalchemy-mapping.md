@@ -13,7 +13,7 @@
 ## 📚 前置知识
 
 - [3.2.2 主键、外键、唯一约束](./08-database-keys.md)
-- Python 类型标注：[`../01-fundamentals/01-python-typing-basics.md`](../01-fundamentals/01-python-typing-basics.md)
+- Python 类型标注：[`../01-fundamentals/07-python-typing-basics.md`](../01-fundamentals/07-python-typing-basics.md)
 
 ## 1. 核心概念
 

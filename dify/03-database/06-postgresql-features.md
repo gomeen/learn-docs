@@ -13,7 +13,7 @@
 ## 📚 前置知识
 
 - [3.1.3 索引原理](./03-sql-index.md)
-- JSON 基础：[`../01-fundamentals/11-json-processing.md`](../01-fundamentals/11-json-processing.md)
+- JSON 基础：[`../01-fundamentals/17-json-processing.md`](../01-fundamentals/17-json-processing.md)
 
 ## 1. 核心概念
 

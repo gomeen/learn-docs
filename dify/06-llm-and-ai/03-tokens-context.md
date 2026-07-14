@@ -15,7 +15,7 @@
 
 - [01-llm-overview.md](./01-llm-overview.md)
 - [02-transformer.md](./02-transformer.md)
-- [02-typeddict.md](../01-fundamentals/02-typeddict.md)
+- [02-typeddict.md](../01-fundamentals/08-typeddict.md)
 - 外部基础：Decimal、小数乘法与基本 API 计费概念
 
 ## 1. 核心概念

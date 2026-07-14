@@ -247,7 +247,7 @@ git rebase main  # 解决上百个冲突
 ## Commit Message Convention
 
 We use [Conventional Commits](https://www.conventionalcommits.org/).
-See [Conventional Commits guide](./26-conventional-commits.md).
+See [Conventional Commits guide](./32-conventional-commits.md).
 ```
 
 **解读**：

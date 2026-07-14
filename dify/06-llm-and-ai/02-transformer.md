@@ -14,7 +14,7 @@
 ## 📚 前置知识
 
 - [01-llm-overview.md](./01-llm-overview.md)
-- [08-generator.md](../01-fundamentals/08-generator.md)
+- [08-generator.md](../01-fundamentals/14-generator.md)
 - 外部基础：矩阵乘法、点积、Softmax 和神经网络前向传播
 
 ## 1. 核心概念

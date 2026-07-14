@@ -15,7 +15,6 @@
 
 - [02-transformer.md](./02-transformer.md)
 - [03-tokens-context.md](./03-tokens-context.md)
-- [06-enum.md](../01-fundamentals/06-enum.md)
 - 外部基础：概率、指数函数、Softmax 与字典操作
 
 ## 1. 核心概念

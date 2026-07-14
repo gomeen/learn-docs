@@ -13,7 +13,7 @@
 ## 📚 前置知识
 
 - [3.1.4 事务与隔离级别](./04-sql-transaction.md)
-- 上下文管理器：[`../01-fundamentals/05-context-manager.md`](../01-fundamentals/05-context-manager.md)
+- 上下文管理器：[`../01-fundamentals/11-context-manager.md`](../01-fundamentals/11-context-manager.md)
 
 ## 1. 核心概念
 

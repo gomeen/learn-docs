@@ -13,7 +13,7 @@
 ## 📚 前置知识
 
 - [3.3.2 select() 查询 API](./13-sqlalchemy-query.md)
-- 资源所有权：[`../05-auth-and-security/11-resource-ownership.md`](../05-auth-and-security/11-resource-ownership.md)
+- 资源所有权：[`../05-auth-and-security/11-resource-ownership.md`（dify 项目视角）](../05-auth-and-security/11-resource-ownership.md)
 
 ## 1. 核心概念
 
