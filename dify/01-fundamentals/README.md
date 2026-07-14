@@ -25,6 +25,16 @@
 - [ ] [1.1.14 生成器与 `yield`、异步生成器](./14-generator.md)
 - [ ] [1.1.15 Python 包管理：`uv` 与 `pyproject.toml`](./15-uv-package-management.md)
 - [ ] [1.1.16 魔术方法：`__init__` / `__repr__` / `__str__` / `__eq__`](./16-dunder-methods.md)
+- [ ] [1.1.17 元类（Metaclass）与类创建过程](./33-metaclass.md)
+- [ ] [1.1.18 描述符（Descriptor）协议](./34-descriptor.md)
+- [ ] [1.1.19 抽象基类（abc 模块）](./35-abc.md)
+- [ ] [1.1.20 `dataclass` 数据类](./36-dataclasses.md)
+- [ ] [1.1.21 `itertools` 模块：迭代器工具箱](./37-itertools.md)
+- [ ] [1.1.22 `functools` 模块：`lru_cache` / `partial` / `reduce` / `wraps`](./38-functools.md)
+- [ ] [1.1.23 多线程 vs 多进程 vs 异步](./39-concurrency.md)
+- [ ] [1.1.24 GIL 全局解释器锁](./40-gil.md)
+- [ ] [1.1.25 Python 内存管理与 GC](./41-memory-management.md)
+- [ ] [1.1.26 Python 性能调优：`cProfile` / `timeit` / `perf_counter`](./42-performance-tuning.md)
 
 ## 模块 1.2 数据序列化与配置
 
