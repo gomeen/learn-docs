@@ -12,9 +12,10 @@
 
 ## 📚 前置知识
 
-- 21-member-auth.md
-- 02-mvc-layers.md
-- 03-naming.md
+- 会员认证（详见 [会员认证](./21-member-auth.md)）
+- MVC 分层（详见 [MVC 分层](./02-mvc-layers.md)）
+- 命名规范（详见 [命名](./03-naming.md)）
+- 数据权限（详见 [数据权限实现](../06-security/29-ruoyi-data-permission.md)）
 
 ## 1. 核心概念
 

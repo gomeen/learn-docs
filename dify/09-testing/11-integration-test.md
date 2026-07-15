@@ -44,7 +44,7 @@
 ### 1.3 dify 的集成测试策略
 
 dify 通过**显式分层**解决这些挑战：
-- `integration_tests/`：需要 Docker middleware（PG、Redis）
+- `integration_tests/`：需要 Docker middleware（PG、Redis；容器编排详见 [Docker Compose](../../_common/09-containerization/04-compose.md)）
 - `test_containers_integration_tests/`：用 testcontainers 动态启动
 - `unit_tests/`：不依赖任何外部服务（默认跑）
 

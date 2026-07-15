@@ -15,6 +15,7 @@
 - [06-mybatis-starter.md](./06-mybatis-starter.md)
 - p6spy 原理（JDBC 拦截器）
 - MyBatis 拦截器
+- MySQL 慢查询分析见 [04-mysql-slow-query](../04-database/04-mysql-slow-query.md)
 
 ## 1. 核心概念
 

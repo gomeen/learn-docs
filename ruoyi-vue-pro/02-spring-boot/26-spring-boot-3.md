@@ -23,7 +23,7 @@
 | **Jakarta EE 9+** | `javax.*` → `jakarta.*`（包名空间迁移） |
 | **Java 17+** | 最低 Java 版本 17 |
 | **Spring Framework 6** | 大量 API 升级 |
-| **Spring Security 6** | 配置文件大改（lambda DSL） |
+| **Spring Security 6** | 配置文件大改（lambda DSL；Security 见 [20-spring-security](../03-spring-boot-starters/20-spring-security.md)） |
 | **GraalVM Native** | 原生镜像支持（启动快、内存小） |
 | **Observability** | Micrometer + OpenTelemetry 替代 Spring Cloud Sleuth |
 | **Logback 1.4** | 日志格式调整 |

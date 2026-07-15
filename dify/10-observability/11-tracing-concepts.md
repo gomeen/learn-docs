@@ -14,7 +14,7 @@
 
 - 10.1 日志相关（理解 trace_id 的来源）
 - 微服务基本概念
-- 异步编程基础（`01-fundamentals/12-async-asyncio.md`）
+- 异步编程基础（详见 [async/await 与 asyncio](../01-fundamentals/12-async-asyncio.md)）
 
 ## 1. 核心概念
 

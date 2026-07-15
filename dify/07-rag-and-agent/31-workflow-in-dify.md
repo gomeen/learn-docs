@@ -12,7 +12,8 @@
 
 ## 📚 前置知识
 
-- 07-rag-and-agent/24-workflow-engine.md 至 30-custom-nodes.md
+- 工作流系列（详见 [Workflow Engine](./24-workflow-engine.md)、[变量系统](./26-workflow-variables.md)、[执行模型](./28-workflow-execution.md)、[自定义节点](./30-custom-nodes.md)）
+- 异步任务分发（详见 [Celery in dify](../04-cache-and-queue/22-celery-in-dify.md)）
 
 ## 1. 核心概念
 

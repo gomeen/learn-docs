@@ -23,7 +23,7 @@
 
 ```
 写入路径：
-1. 写入内存的 MemTable（通常用跳表）→ O(1) 写入
+1. 写入内存的 MemTable（通常用[跳表](./19-skiplist.md)）→ O(1) 写入
 2. MemTable 满时，flush 到磁盘成为 SSTable（不可变）
 3. 后台 Compaction 合并 SSTable，控制文件数
 
@@ -34,7 +34,7 @@
 
 ### 1.2 LSM 树 vs B+ 树
 
-| 维度 | LSM 树 | B+ 树 |
+| 维度 | LSM 树 | [B+ 树](./10-b-tree.md) |
 |------|--------|--------|
 | 写入 | **顺序写**，O(1) 内存 | 随机写，O(log n) 磁盘 IO |
 | 读取 | 多次磁盘 IO（多个 SSTable） | **单次**磁盘 IO |
@@ -46,7 +46,7 @@
 
 #### MemTable
 
-内存中的有序数据结构（通常用**跳表**），支持 O(log n) 读写。
+内存中的有序数据结构（通常用**跳表**，详见 [19-skiplist](./19-skiplist.md)），支持 O(log n) 读写。
 
 #### SSTable（Sorted String Table）
 
@@ -57,7 +57,7 @@ SSTable 结构：
 ┌─────────────────────────┐
 │ Data Block（数据块）       │  ← 排序后的 key-value
 ├─────────────────────────┤
-│ Filter Block（布隆过滤器）  │  ← 加速查找（避免不必要的磁盘读）
+│ Filter Block（[布隆过滤器](./16-bloom-filter.md)）  │  ← 加速查找（避免不必要的磁盘读）
 ├─────────────────────────┤
 │ Index Block（索引块）       │  ← 稀疏索引，加速 SSTable 内查找
 ├─────────────────────────┤

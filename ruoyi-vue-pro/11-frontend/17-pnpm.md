@@ -13,7 +13,7 @@
 ## 📚 前置知识
 
 - npm 基础
-- 11-frontend/15-vite.md
+- Vite（详见 [Vite](./15-vite.md)）
 
 ## 1. 核心概念
 

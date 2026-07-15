@@ -12,8 +12,9 @@
 
 ## 📚 前置知识
 
-- 19-dynamic-datasource.md
-- 20-ds-annotation.md
+- [19-dynamic-datasource.md](./19-dynamic-datasource.md)
+- [20-ds-annotation.md](./20-ds-annotation.md)
+- 多租户见 [多租户](../../_common/08-authorization/05-multi-tenant.md)
 
 ## 1. 核心概念
 

@@ -12,8 +12,8 @@
 
 ## 📚 前置知识
 
-- Spring Boot 基础
-- `03-external-config.md`（推荐先看）
+- Spring Profile（详见 [Profile](../02-spring-boot/06-profile.md)）
+- 外部化配置（详见 [外部配置](./03-external-config.md)）
 
 ## 1. 核心概念
 

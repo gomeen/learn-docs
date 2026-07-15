@@ -12,8 +12,8 @@
 
 ## 📚 前置知识
 
-- 02-backend/08-flask-basics.md（Flask 基础）
-- Python 线程局部变量基础（threading.local）
+- [Flask 基础](./08-flask-basics.md)
+- Python 线程局部变量基础（`threading.local`）
 
 ## 1. 核心概念
 
@@ -46,12 +46,12 @@ Request Context（请求上下文）
 
 **关键约束**：
 - 在没有请求时（如 CLI 命令、Celery 任务）访问 `request` 会报 `RuntimeError`
-- 必须用 `with app.app_context():` 或 `with app.test_request_context():` 手动激活
+- 必须用 `with app.app_context():` 或 `with app.test_request_context():` 手动激活（`with` 是上下文管理器语法，详见 [上下文管理器](../01-fundamentals/11-context-manager.md)）
 
 ### 1.3 dify 的特殊使用
 
 dify 通过 Flask 上下文传递：
-- `g`：存储当前用户、租户、trace_id 等
+- `g`：存储当前用户、租户、trace_id 等（多租户上下文详见 [多租户架构](./20-multi-tenancy.md)）
 - `current_user`：通过 `flask-login` 的 `current_user` proxy
 - `current_account_with_tenant()`：dify 自定义的 helper，从 `g` 取出账号和租户
 
@@ -64,7 +64,7 @@ from flask import g, request
 
 @app.before_request
 def load_user():
-    """每个请求前把用户加载到 g"""
+    """每个请求前把用户加载到 g（before_request 详见 [请求钩子](./12-flask-hooks.md)）"""
     user_id = request.headers.get("X-User-Id")
     if user_id:
         g.current_user = User.query.get(user_id)
@@ -203,7 +203,7 @@ def current_account_with_tenant() -> tuple[Account | None, str | None]:
 - 第 12-13 行：再看 `current_user`（flask-login 标准登录）
 - 第 14-15 行：最后看 `g.login_user`
 - 第 18 行：tenant_id 始终从 `g.current_tenant_id` 拿
-- **设计**：dify 把上下文获取封装成一个函数，Controller 层通过 `@with_current_user`、`@with_current_tenant_id` 装饰器自动注入
+- **设计**：dify 把上下文获取封装成一个函数，Controller 层通过 `@with_current_user`、`@with_current_tenant_id` 装饰器自动注入（装饰器原理详见 [装饰器](../01-fundamentals/10-decorator.md)）
 
 ### 3.3 g 对象的实际使用
 

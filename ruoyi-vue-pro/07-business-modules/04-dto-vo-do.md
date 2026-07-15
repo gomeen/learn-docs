@@ -14,7 +14,8 @@
 
 - Java Bean 规范
 - Lombok 基础（@Data、@Builder）
-- 02-mvc-layers.md
+- MVC 分层（详见 [MVC 分层](./02-mvc-layers.md)）
+- MapStruct 实战（详见 [MapStruct](./05-mapstruct-practice.md)）
 
 ## 1. 核心概念
 

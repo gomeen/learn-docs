@@ -12,10 +12,10 @@
 
 ## 📚 前置知识
 
-- 06-llm-and-ai/14-function-calling.md
-- 06-llm-and-ai/16-multi-tool-routing.md
-- 06-llm-and-ai/17-tool-error-handling.md
-- Python `asyncio` / `concurrent.futures` 基础
+- [Function Calling](./14-function-calling.md)
+- [多工具路由](./16-multi-tool-routing.md)
+- [工具错误处理](./17-tool-error-handling.md)
+- Python `asyncio` / `concurrent.futures`（详见 [async/asyncio](../01-fundamentals/12-async-asyncio.md)、[并发模型](../01-fundamentals/39-concurrency.md)）
 
 ## 1. 核心概念
 

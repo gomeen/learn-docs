@@ -14,7 +14,7 @@
 
 - Java 基础语法
 - Maven 多模块项目基础
-- Spring Boot 基础概念
+- Spring Boot 基础概念（详见 [IoC](../02-spring-boot/01-ioc.md)、[自动配置](../02-spring-boot/08-auto-config.md)）
 
 ## 1. 核心概念
 
@@ -24,15 +24,15 @@ ruoyi-vue-pro 采用 **Maven 多模块 + 业务垂直拆分** 的方式组织代
 
 **核心设计思想**：
 - **业务模块（yudao-module-xxx）**：具体的业务实现（用户、订单、商品）
-- **框架层（yudao-framework）**：通用能力（日志、安全、Redis、Web）
+- **框架层（yudao-framework）**：通用能力（日志、安全、Redis、Web；Starter 机制详见 [03-spring-boot-starters](../03-spring-boot-starters/)）
 - **启动模块（yudao-server）**：把所有模块打包成一个 Spring Boot 应用
 
 ```
 ruoyi-vue-pro/
 ├── yudao-framework/          # 框架层：通用能力
 │   ├── yudao-spring-boot-starter-web/        # Web 相关
-│   ├── yudao-spring-boot-starter-security/   # 安全
-│   ├── yudao-spring-boot-starter-redis/      # Redis
+│   ├── yudao-spring-boot-starter-security/   # 安全（详见 [06-security](../06-security/)）
+│   ├── yudao-spring-boot-starter-redis/      # Redis（详见 [05-cache-and-mq](../05-cache-and-mq/)）
 │   ├── yudao-spring-boot-starter-mybatis/    # MyBatis
 │   └── ...
 ├── yudao-module-*/           # 业务模块层

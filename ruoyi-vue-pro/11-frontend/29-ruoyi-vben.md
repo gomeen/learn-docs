@@ -12,9 +12,9 @@
 
 ## 📚 前置知识
 
-- 11-frontend/13-vben.md
-- 11-frontend/19-axios.md
-- 11-frontend/25-ruoyi-button-permission.md
+- Vben（详见 [Vben](./13-vben.md)）
+- Axios（详见 [Axios](./19-axios.md)）
+- 按钮权限（详见 [按钮权限](./25-ruoyi-button-permission.md)）
 
 ## 1. 核心概念
 

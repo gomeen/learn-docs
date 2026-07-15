@@ -13,7 +13,8 @@
 ## 📚 前置知识
 
 - [Token 用量统计与计费](./30-token-tracking.md)
-- Redis ZSET、TTL 和原子操作基础
+- Redis ZSET、TTL 和原子操作（详见 [Redis 数据结构](../../_common/01-redis/01-data-structures.md)；Lua 原子性见 [Redis 事务与 Lua](../04-cache-and-queue/06-redis-transaction.md)）
+- 限流算法通识（详见 [限流算法](../../_common/03-cache-patterns/04-rate-limiting.md)）
 - HTTP 429、幂等键与异常处理基础
 
 ## 1. 核心概念

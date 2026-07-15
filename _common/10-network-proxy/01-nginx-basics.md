@@ -13,7 +13,7 @@
 ## 📚 前置知识
 
 - HTTP 协议基础（请求 / 响应 / 状态码）
-- /Users/xu/code/gomeen/learn-docs/_common/09-containerization/05-network-volume.md
+- 容器网络可参考 [Docker 网络与卷](../09-containerization/05-network-volume.md)；反代见 [02-reverse-proxy](./02-reverse-proxy.md)
 
 ## 1. 核心概念
 

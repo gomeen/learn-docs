@@ -12,9 +12,10 @@
 
 ## 📚 前置知识
 
-- 阅读过 `05-template-group.md`
+- 模板分组（详见 [模板分组](./05-template-group.md)）
 - 数据库外键基础
 - `CodegenTemplateTypeEnum` 枚举
+- 主子表生成（详见 [主子表生成](./17-gen-master-slave.md)）
 
 ## 1. 核心概念
 

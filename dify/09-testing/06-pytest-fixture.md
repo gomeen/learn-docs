@@ -13,7 +13,8 @@
 ## 📚 前置知识
 
 - 09-testing/05-pytest-basics.md
-- Python 装饰器、上下文管理器
+- Python 装饰器（详见 [装饰器](../01-fundamentals/10-decorator.md)）
+- 上下文管理器（详见 [上下文管理器](../01-fundamentals/11-context-manager.md)）——fixture 的 `yield` 清理与之类似
 
 ## 1. 核心概念
 

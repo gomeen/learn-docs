@@ -16,9 +16,9 @@
 
 ## 📚 前置知识
 
-- Git 分支、Commit 与 GitHub Pull Request 基础
+- Git 分支、Commit 与 GitHub Pull Request 基础（工作流详见 [Git 工作流](../01-fundamentals/31-git-workflow.md)；提交规范详见 [Conventional Commits](../01-fundamentals/32-conventional-commits.md)）
 - Markdown 标题、列表、任务清单和表格语法
-- 了解 Issue、CI、Lint、Type Check 和自动化测试
+- 了解 Issue、CI（详见 [CI/CD 概念](../../_common/11-cicd/01-concepts.md)）、Lint、Type Check 和自动化测试
 - 建议先学习：[Code Review 的价值与流程](./11-code-review.md)
 - 建议配合：[Reviewer 检查清单](./12-review-checklist.md)
 

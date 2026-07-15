@@ -13,7 +13,7 @@
 ## 📚 前置知识
 
 - Java 命名规范
-- 01-module-structure.md、02-mvc-layers.md
+- 模块结构 / 分层（详见 [模块结构](./01-module-structure.md)、[MVC 分层](./02-mvc-layers.md)）
 
 ## 1. 核心概念
 

@@ -12,9 +12,10 @@
 
 ## 📚 前置知识
 
-- 33-process-def.md
+- 流程定义（详见 [流程定义](./33-process-def.md)）
+- 工作流动态表单专题（详见 [动态表单](../09-workflow/08-dynamic-form.md)）
 - JSON Schema 基础
-- 04-dto-vo-do.md
+- DTO/VO/DO（详见 [DTO/VO/DO](./04-dto-vo-do.md)）
 
 ## 1. 核心概念
 

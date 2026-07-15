@@ -12,7 +12,7 @@
 
 ## 📚 前置知识
 
-- 07-rag-and-agent/19-react-deep-dive.md
+- ReAct 深入（详见 [ReAct 深入](./19-react-deep-dive.md)）
 
 ## 1. 核心概念
 

@@ -12,9 +12,9 @@
 
 ## 📚 前置知识
 
-- 02-backend/15-pydantic-basics.md（Pydantic 基础）
-- 02-backend/14-flask-in-dify.md（dify Controller 设计）
-- DDD 基础（聚合根、实体）
+- [Pydantic 基础](./15-pydantic-basics.md)
+- [dify Controller 设计](./14-flask-in-dify.md)
+- DDD 基础（聚合根、实体；详见 [DDD 核心概念](./01-ddd-concepts.md)）
 
 ## 1. 核心概念
 
@@ -91,7 +91,7 @@ class ArticleListQuery(BaseModel):
     author: str | None = None
 
 
-# 3. 响应（DTO）
+# 3. 响应（DTO；ConfigDict 详见 [Pydantic 配置](./18-pydantic-config.md)）
 class ArticleResponse(BaseModel):
     id: str
     title: str

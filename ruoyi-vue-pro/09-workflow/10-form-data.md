@@ -12,9 +12,8 @@
 
 ## 📚 前置知识
 
-- 08-dynamic-form.md（动态表单基础）
-- 09-form-components.md（表单组件）
-- 02-flowable-concepts.md（RuntimeService / TaskService）
+- 动态表单 / 组件（详见 [动态表单](./08-dynamic-form.md)、[表单组件](./09-form-components.md)）
+- RuntimeService / TaskService（详见 [Flowable 概念](./02-flowable-concepts.md)）
 
 ## 1. 核心概念
 

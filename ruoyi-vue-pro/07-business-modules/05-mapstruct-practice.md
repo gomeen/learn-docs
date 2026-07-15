@@ -13,7 +13,7 @@
 ## 📚 前置知识
 
 - Java 8 Lambda
-- 04-dto-vo-do.md
+- DTO/VO/DO（详见 [DTO/VO/DO](./04-dto-vo-do.md)）
 - MapStruct 基础概念
 
 ## 1. 核心概念

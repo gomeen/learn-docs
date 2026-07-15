@@ -14,7 +14,7 @@
 
 - [08-base-mapper.md](./08-base-mapper.md)
 - MyBatis 拦截器（Interceptor）原理
-- 数据库分页 SQL（MySQL `LIMIT offset, size`、Oracle `ROWNUM`）
+- 数据库分页 SQL（MySQL `LIMIT`；MP 分页深水区见 [13-mp-pagination](../04-database/13-mp-pagination.md)）
 
 ## 1. 核心概念
 

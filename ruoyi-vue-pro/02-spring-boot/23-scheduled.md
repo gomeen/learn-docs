@@ -12,8 +12,9 @@
 
 ## 📚 前置知识
 
-- 22-async.md
-- 04-transaction.md
+- [22-async.md](./22-async.md)
+- [04-transaction.md](./04-transaction.md)
+- 集群环境下更复杂的调度见 [34-xxl-job](../03-spring-boot-starters/34-xxl-job.md)
 
 ## 1. 核心概念
 

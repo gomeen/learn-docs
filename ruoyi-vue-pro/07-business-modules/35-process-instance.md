@@ -12,9 +12,9 @@
 
 ## 📚 前置知识
 
-- 33-process-def.md
-- 34-dynamic-form.md
-- Flowable API
+- 流程定义（详见 [流程定义](./33-process-def.md)）
+- 动态表单（详见 [动态表单](./34-dynamic-form.md)）
+- Flowable API（详见 [启动流程](../09-workflow/12-start-process.md)、[审批](../09-workflow/14-approval.md)）
 
 ## 1. 核心概念
 

@@ -11,8 +11,8 @@
 
 ## 📚 前置知识
 
-- 01-fundamentals 中的 Python 基础与文件 I/O
-- 07-rag-and-agent/01-rag-overview.md
+- Python 基础与文件 I/O
+- RAG 全流程概览（详见 [RAG 概览](./01-rag-overview.md)）
 
 ## 1. 核心概念
 

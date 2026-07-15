@@ -14,6 +14,7 @@
 
 - ES Module 基础
 - 命令行与 npm 基础
+- pnpm（详见 [pnpm](./17-pnpm.md)）
 
 ## 1. 核心概念
 

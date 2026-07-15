@@ -12,9 +12,9 @@
 
 ## 📚 前置知识
 
-- 01-bpmn.md（BPMN 规范）
-- 02-flowable-concepts.md（Model / Deployment 对象）
-- 前端基础：知道 bpmn.js、Vue
+- BPMN 规范（详见 [BPMN](./01-bpmn.md)）
+- Model / Deployment（详见 [Flowable 概念](./02-flowable-concepts.md)）
+- 前端基础：bpmn.js、Vue（详见 [Vue3 基础](../11-frontend/01-vue3-basics.md)、[Flowable UI](../11-frontend/27-ruoyi-flowable-ui.md)）
 
 ## 1. 核心概念
 

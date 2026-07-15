@@ -12,8 +12,8 @@
 
 ## 📚 前置知识
 
-- 06-llm-and-ai/07-prompt-basics.md（Prompt 三要素）
-- 06-llm-and-ai/12-prompt-template.md（变量替换语法）
+- Prompt 三要素（详见 [Prompt 基础](./07-prompt-basics.md)）
+- 变量替换语法（详见 [Prompt 模板](./12-prompt-template.md)）
 
 ## 1. 核心概念
 

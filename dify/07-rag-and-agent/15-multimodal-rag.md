@@ -12,8 +12,8 @@
 
 ## 📚 前置知识
 
-- 07-rag-and-agent/04-embedding-selection.md
-- 06-llm-and-ai 中关于多模态模型
+- Embedding 选型（详见 [Embedding 选型](./04-embedding-selection.md)）
+- 多模态模型背景（详见 [主流大模型对比](../06-llm-and-ai/01-llm-overview.md)）
 
 ## 1. 核心概念
 

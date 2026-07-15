@@ -13,7 +13,7 @@
 ## 📚 前置知识
 
 - [3.3.1 声明式映射](./12-sqlalchemy-mapping.md)
-- Python dataclass 基础
+- Python dataclass 基础（详见 [dataclass](../01-fundamentals/36-dataclasses.md)）
 
 ## 1. 核心概念
 
@@ -27,7 +27,7 @@
 
 ### 1.3 UUIDv7 与统一 metadata
 
-UUIDv7 有时间有序前缀，相比随机 UUIDv4 对 B-tree 插入局部性更友好。所有模型绑定同一个 metadata，Alembic 才能稳定发现表和约束。
+UUIDv7 有时间有序前缀，相比随机 UUIDv4 对 B-tree 插入局部性更友好（B-tree 索引详见 [索引原理](./03-sql-index.md)）。所有模型绑定同一个 metadata，Alembic 才能稳定发现表和约束（详见 [Alembic 基础](./20-alembic-basics.md)）。
 
 ## 2. 代码示例
 

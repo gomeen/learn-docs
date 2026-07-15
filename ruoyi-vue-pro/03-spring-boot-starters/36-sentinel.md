@@ -14,6 +14,7 @@
 
 - [17-distributed-lock.md](./17-distributed-lock.md)
 - [18-rate-limiter.md](./18-rate-limiter.md)
+- 限流算法见 [限流](../../_common/03-cache-patterns/04-rate-limiting.md)
 - Sentinel 基础
 
 ## 1. 核心概念

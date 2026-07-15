@@ -12,7 +12,7 @@
 
 ## 📚 前置知识
 
-- 11-frontend/07-ts-basics.md
+- TypeScript 基础（详见 [TS 基础](./07-ts-basics.md)）
 
 ## 1. 核心概念
 

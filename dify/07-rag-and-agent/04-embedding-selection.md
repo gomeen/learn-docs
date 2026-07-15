@@ -12,8 +12,9 @@
 
 ## 📚 前置知识
 
-- 06-llm-and-ai 中关于 Embedding 基础
-- 07-rag-and-agent/03-chunking-strategies.md
+- Embedding 原理与选型（详见 [Embedding 模型](../06-llm-and-ai/06-embedding-models.md)）
+- 切片策略（详见 [Chunking 策略](./03-chunking-strategies.md)）
+- 向量空间与相似度（详见 [向量检索基础](../03-database/25-vector-search.md)）
 
 ## 1. 核心概念
 

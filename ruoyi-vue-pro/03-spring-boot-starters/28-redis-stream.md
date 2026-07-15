@@ -13,8 +13,8 @@
 ## 📚 前置知识
 
 - [27-message.md](./27-message.md)
-- Redis 5.0+ 的 Stream 数据类型
-- 消息队列基础
+- Redis 5.0+ 的 Stream 数据类型（详见 [Redis Pub/Sub 与 Stream](../../_common/01-redis/06-pubsub-stream.md)）
+- 消息队列基础（详见 [MQ 概念](../../_common/02-mq/01-concepts.md)）
 
 ## 1. 核心概念
 

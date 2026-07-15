@@ -12,8 +12,9 @@
 
 ## 📚 前置知识
 
-- 09-jwt.md
-- Redis 基础（String、TTL）
+- JWT 机制（详见 [JWT](../../_common/07-authentication/03-jwt.md)）
+- Token 刷新语义（详见 [Token 刷新](../../_common/07-authentication/04-token-refresh.md)）
+- Redis 基础（String、TTL，详见 [Redis 数据结构](../../_common/01-redis/01-data-structures.md)）
 - Spring Data Redis
 
 ## 1. 核心概念
@@ -50,6 +51,8 @@ oauth2_refresh_token:{token}       -> accessTokenId（30 天）
 ```
 
 **好处**：活跃用户永远不退出，僵尸用户自动释放。
+
+工具类封装与生命周期管理详见 [自研 TokenUtils](./11-token-utils.md)；登录入口如何创建 Token 详见 [登录流程](./12-login-flow.md)。
 
 ## 2. 代码示例
 

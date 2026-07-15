@@ -12,9 +12,11 @@
 
 ## 📚 前置知识
 
-- Redis Stream 命令（参见 `01-redis-basics.md`）
-- ruoyi 消息抽象（参见 `13-ruoyi-message.md`）
-- Spring 容器和 Bean 生命周期
+- Redis Stream 命令（详见 [Pub/Sub 与 Stream](../../_common/01-redis/06-pubsub-stream.md)）
+- ruoyi 消息抽象（详见 [ruoyi 消息抽象](./13-ruoyi-message.md)）
+- Spring 容器和 Bean 生命周期（详见 [Bean 生命周期](../02-spring-boot/02-bean-lifecycle.md)）
+- 消息可靠性语义（详见 [消息可靠性](../../_common/02-mq/05-reliability.md)）
+- 死信与重试（详见 [死信队列](../../_common/02-mq/06-dead-letter.md)）
 
 ## 1. 核心概念
 

@@ -12,8 +12,8 @@
 
 ## 📚 前置知识
 
-- 分布式锁基本要求（`04-distributed-locks/01-requirements.md`）
-- Redis 分布式锁（`04-distributed-locks/02-redis-redlock.md`）
+- [分布式锁基本要求](./01-requirements.md)
+- [Redis 分布式锁](./02-redis-redlock.md)
 - CAP 定理
 
 ## 1. 核心概念
@@ -97,7 +97,7 @@
 
 ### 1.6 在 dify 中的应用
 
-dify **不用** ZK / etcd，而是用 Redis 锁（详见 `04-distributed-locks/02-redis-redlock.md`）。原因：
+dify **不用** ZK / etcd，而是用 Redis 锁（详见 [02-redis-redlock](./02-redis-redlock.md)）。原因：
 - dify 是 SaaS 服务，Redis 已部署
 - 锁场景都是**非关键路径**（触发器刷新）
 - 引入 ZK/etcd 增加运维成本
@@ -243,7 +243,7 @@ client.put_if_not_exists("/locks/order", b"locked", lease=lease)
 
 ### 3.1 dify 用 Redis 锁，不用 ZK/etcd
 
-**说明**：dify 是 SaaS 应用，**全部锁用 Redis**（用 `SETNX`），核心代码在 `04-distributed-locks/01-requirements.md` 中已分析。
+**说明**：dify 是 SaaS 应用，**全部锁用 Redis**（用 `SETNX`），核心代码在 [01-requirements](./01-requirements.md) 中已分析。
 
 **文件位置**：`/Users/xu/code/github/dify/api/core/trigger/utils/locks.py`
 **核心代码**（行 5-12）：

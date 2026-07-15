@@ -23,7 +23,7 @@
 ```
 api/tests/
 ├── conftest.py                          # 全局 fixture（绑 workflow file runtime）
-├── pytest_dify.py                       # Docker 中间件管理工具
+├── pytest_dify.py                       # Docker 中间件管理工具（Compose 详见 [Docker Compose](../../_common/09-containerization/04-compose.md)）
 ├── workflow_test_utils.py               # 工作流测试工具
 ├── unit_tests/                          # 单元测试（默认 make test 跑）
 │   ├── conftest.py                      # 单元测试 fixture（Redis mock、SQLite）
@@ -34,7 +34,7 @@ api/tests/
 │   ├── services/                        # services/ 测试
 │   └── tools/ utils/ fields/ ...         # 工具类测试
 ├── integration_tests/                   # 集成测试（需要 Docker middleware）
-│   ├── conftest.py                      # 真实账号、tenant、JWT
+│   ├── conftest.py                      # 真实账号、tenant、JWT（详见 [JWT](../../_common/07-authentication/03-jwt.md)）
 │   ├── workflow/                        # 工作流集成测试
 │   └── ...
 └── test_containers_integration_tests/   # testcontainers 动态容器测试

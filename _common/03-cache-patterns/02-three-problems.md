@@ -12,8 +12,8 @@
 
 ## 📚 前置知识
 
-- 缓存基本概念（`03-cache-patterns/01-strategies.md`）
-- Redis 基础操作
+- 缓存基本概念（[01-strategies](./01-strategies.md)）
+- [Redis 基础操作](../01-redis/01-data-structures.md)
 - 数据库索引原理
 
 ## 1. 核心概念
@@ -39,7 +39,7 @@
 | 方案 | 实现 | 优缺点 |
 |------|------|-------|
 | **空值缓存** | 查 DB 返回 None 也缓存（短 TTL） | 简单，但恶意攻击时大量空 key |
-| **布隆过滤器** | DB 数据先入布隆过滤器，不在则直接返回 | 高效，但有误判率 |
+| **布隆过滤器** | DB 数据先入布隆过滤器（原理见 [16-bloom-filter](../../_fundamentals/01-data-structures/16-bloom-filter.md)），不在则直接返回 | 高效，但有误判率 |
 | **参数校验** | 拦截非法 ID | 治本，但需要业务配合 |
 
 ### 1.3 缓存击穿（Cache Breakdown / Hotspot Invalid）

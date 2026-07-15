@@ -12,9 +12,10 @@
 
 ## 📚 前置知识
 
-- 消息队列基础（参见 `12-mq-concepts.md`）
-- Spring 事件机制
+- 消息队列基础（详见 [MQ 核心概念](../../_common/02-mq/01-concepts.md)）
+- Spring 事件机制（详见 [Spring Event](../02-spring-boot/05-event.md)）
 - Java 泛型
+- Redis Pub/Sub 与 Stream（详见 [Pub/Sub 与 Stream](../../_common/01-redis/06-pubsub-stream.md)）
 
 ## 1. 核心概念
 
@@ -22,13 +23,13 @@
 
 ruoyi 把消息当作 Java 类来设计：
 - `AbstractRedisChannelMessage`：广播消息父类（Pub/Sub）
-- `AbstractRedisStreamMessage`：集群消费消息父类（Stream）
+- `AbstractRedisStreamMessage`：集群消费消息父类（Stream，实现详见 [Redis Stream 实现](./14-redis-stream-impl.md)）
 - `AbstractRedisMessage`：公共父类（含 headers）
 
 **好处**：
 - 类型安全，IDE 自动补全
 - Channel / Stream Key 默认用类名，避免硬编码
-- 多 MQ 后端共用一套消息结构
+- 多 MQ 后端共用一套消息结构（Kafka / RabbitMQ / RocketMQ 原理详见 [_common/02-mq](../../_common/02-mq/)）
 
 ### 1.2 消息发送流程
 

@@ -12,8 +12,9 @@
 
 ## 📚 前置知识
 
-- 11-frontend/19-axios.md
-- 11-frontend/23-ruoyi-vue3-structure.md
+- Axios（详见 [Axios](./19-axios.md)）
+- 项目结构（详见 [Vue3 结构](./23-ruoyi-vue3-structure.md)）
+- 代码生成后端（详见 [代码生成总览](../08-code-generation/01-overview.md)）
 
 ## 1. 核心概念
 

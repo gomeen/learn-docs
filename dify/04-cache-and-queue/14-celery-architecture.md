@@ -13,8 +13,8 @@
 ## 📚 前置知识
 
 - Python 基础
-- 消息队列概念
-- Redis 基础（作为 Broker）
+- 消息队列概念（详见 [MQ 核心概念](../../_common/02-mq/01-concepts.md)）
+- Redis 基础（作为 Broker；详见 [Redis 数据结构](../../_common/01-redis/01-data-structures.md)）
 
 ## 1. 核心概念
 
@@ -23,7 +23,7 @@
 Celery 是**分布式任务队列**，核心思想：
 - **异步执行**：API 立即返回，任务在后台跑
 - **分布式**：多个 Worker 并行处理
-- **可靠性**：任务持久化（不丢）+ 重试机制
+- **可靠性**：任务持久化（不丢）+ 重试机制（详见 [任务重试与死信队列](./21-celery-retry.md)）
 
 ### 1.2 四大组件
 
@@ -45,15 +45,15 @@ Beat（定时调度） ──→ Broker ──→ Worker
 | 组件 | 职责 |
 |------|------|
 | **Producer** | 发起任务（应用代码）|
-| **Broker** | 任务队列（Redis / RabbitMQ）|
+| **Broker** | 任务队列（Redis / RabbitMQ；RabbitMQ 详见 [RabbitMQ](../../_common/02-mq/03-rabbitmq.md)）|
 | **Worker** | 执行任务（多个进程）|
-| **Backend** | 存储任务结果（Redis / DB）|
-| **Beat** | 定时任务调度器（可选）|
+| **Backend** | 存储任务结果（Redis / DB；详见 [任务结果存储](./19-celery-result.md)）|
+| **Beat** | 定时任务调度器（可选；详见 [Celery Beat](./18-celery-beat.md)）|
 
 ### 1.3 任务生命周期
 
 ```python
-# 1. 定义任务
+# 1. 定义任务（@shared_task 是装饰器，详见 [装饰器](../01-fundamentals/10-decorator.md)；任务参数详见 [任务定义](./15-celery-tasks.md)）
 @shared_task
 def add(x, y):
     return x + y
@@ -71,6 +71,8 @@ print(result.get(timeout=10))  # 8
 ```
 
 ### 1.4 gevent 并发模式
+
+> 📌 **Sighting**：进程 / 线程 / 协程等并发模型对比见 [并发模型](../01-fundamentals/39-concurrency.md)；此处只说明 dify Worker 选用 gevent 的原因。
 
 dify 用 **gevent** 协程而不是多进程：
 
@@ -132,6 +134,8 @@ celery -A tasks worker -Q dataset,workflow
 
 ### 2.3 启动 Beat 定时任务
 
+> 定时调度细节（crontab / 高可用）见 [Celery Beat](./18-celery-beat.md)。
+
 ```bash
 # Beat 调度器（独立进程）
 celery -A tasks beat --loglevel=info
@@ -146,6 +150,8 @@ app.conf.beat_schedule = {
 ```
 
 ### 2.4 多队列路由
+
+> 路由与优先级完整配置见 [任务路由](./17-celery-routing.md)。
 
 ```python
 app.conf.task_routes = {

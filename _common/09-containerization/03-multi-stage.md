@@ -12,9 +12,8 @@
 
 ## 📚 前置知识
 
-- 9.2 Dockerfile 编写最佳实践
+- [9.2 Dockerfile 编写最佳实践](./02-dockerfile.md)
 - 编译型语言 vs 解释型语言的区别
-- /Users/xu/code/gomeen/learn-docs/_common/09-containerization/02-dockerfile.md
 
 ## 1. 核心概念
 

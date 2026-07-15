@@ -12,8 +12,9 @@
 
 ## 📚 前置知识
 
-- 10-acl.md
-- 01-fundamentals/05-sqlalchemy-orm.md
+- 多租户与资源所有权理论（详见 [多租户架构](../../_common/08-authorization/05-multi-tenant.md)、[资源所有权](../../_common/08-authorization/04-resource-ownership.md)）
+- ACL 背景（详见 [ACL](../../_common/08-authorization/03-acl.md)）
+- SQLAlchemy 查询基础（详见 [SQLAlchemy 查询](../03-database/13-sqlalchemy-query.md)）
 
 ## 1. 核心概念
 
@@ -55,7 +56,7 @@ dify 的隔离分两层：
 ```
 资源访问检查流程：
 1. tenant_id 匹配？否则 404
-2. user 是 owner（created_by）？否则走 RBAC
+2. user 是 owner（created_by）？否则走 RBAC（详见 [RBAC](../../_common/08-authorization/01-rbac.md)）
 ```
 
 ## 2. 代码示例

@@ -194,8 +194,8 @@ logger.warning(
 为以下场景选择合适的日志级别，并写一段伪代码：
 1. 用户登录成功
 2. 数据库连接失败
-3. 第三方 API 返回 429（限流），开始重试
-4. Redis 缓存未命中，触发数据库查询
+3. 第三方 API 返回 429（限流，详见 [限流](../../_common/03-cache-patterns/04-rate-limiting.md)），开始重试
+4. Redis 缓存未命中（详见 [Redis 数据结构](../../_common/01-redis/01-data-structures.md)），触发数据库查询
 5. 配置文件加载完成
 
 ### 练习 2：进阶

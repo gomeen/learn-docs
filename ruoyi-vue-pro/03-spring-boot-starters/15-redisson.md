@@ -13,14 +13,14 @@
 ## 📚 前置知识
 
 - [14-redis-starter.md](./14-redis-starter.md)
-- Redis 基础命令
+- Redis 基础命令（详见 [Redis 数据结构](../../_common/01-redis/01-data-structures.md)）
 - 分布式系统基础
 
 ## 1. 核心概念
 
 ### 1.1 Redisson 是什么？
 
-**Redisson** 是 Redis 客户端，提供**分布式对象**、**分布式集合**、**分布式锁**等高级 API。yudao 同时使用：
+**Redisson** 是 Redis 客户端，提供**分布式对象**、**分布式集合**、**分布式锁**等高级 API（分布式锁见 [17-distributed-lock](./17-distributed-lock.md) / [Redis Redlock](../../_common/04-distributed-locks/02-redis-redlock.md)）。yudao 同时使用：
 - **Spring Data Redis**（RedisTemplate）— 普通 KV
 - **Redisson**（RedissonClient）— 高级特性
 

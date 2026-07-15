@@ -12,9 +12,10 @@
 
 ## 📚 前置知识
 
-- 33-process-def.md
-- 35-process-instance.md
-- 08-role.md
+- 流程定义（详见 [流程定义](./33-process-def.md)）
+- 流程实例（详见 [流程实例](./35-process-instance.md)）
+- 角色（详见 [角色](./08-role.md)）
+- 任务分配策略专题（详见 [任务分配](../09-workflow/21-task-assign.md)）
 
 ## 1. 核心概念
 

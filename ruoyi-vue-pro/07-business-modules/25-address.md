@@ -12,8 +12,8 @@
 
 ## 📚 前置知识
 
-- 21-member-auth.md
-- 04-dto-vo-do.md
+- 会员认证（详见 [会员认证](./21-member-auth.md)）
+- DTO/VO/DO（详见 [DTO/VO/DO](./04-dto-vo-do.md)）
 
 ## 1. 核心概念
 

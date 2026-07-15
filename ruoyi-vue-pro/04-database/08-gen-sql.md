@@ -12,9 +12,9 @@
 
 ## 📚 前置知识
 
-- 01-mysql-basics.md
-- 09-mybatis-vs-mp.md
-- MyBatis Plus 注解（`@TableName`、`@TableId`）
+- [01-mysql-basics.md](./01-mysql-basics.md)
+- [09-mybatis-vs-mp.md](./09-mybatis-vs-mp.md)
+- MyBatis Plus 注解（`@TableName`、`@TableId`；注解原理见 [04-annotation](../01-java-fundamentals/04-annotation.md)）
 
 ## 1. 核心概念
 

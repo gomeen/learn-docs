@@ -12,8 +12,8 @@
 
 ## 📚 前置知识
 
-- 阅读过 `05-template-group.md`、`15-gen-single.md`
-- 了解树形结构（递归、子父关系）
+- 模板分组 / 单表生成（详见 [模板分组](./05-template-group.md)、[单表生成](./15-gen-single.md)）
+- 树形结构（递归、子父关系，业务参考 [部门](../07-business-modules/10-dept.md)）
 
 ## 1. 核心概念
 

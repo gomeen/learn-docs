@@ -40,9 +40,9 @@ OSI 模型              TCP/IP 模型
 
 | 协议 | 端口 | 说明 |
 |------|------|------|
-| HTTP | 80 | 超文本传输 |
-| HTTPS | 443 | HTTP + TLS |
-| DNS | 53 | 域名解析 |
+| [HTTP](./04-http-versions.md) | 80 | 超文本传输 |
+| [HTTPS](./08-https.md) | 443 | HTTP + TLS |
+| [DNS](./10-dns.md) | 53 | 域名解析 |
 | FTP | 21 | 文件传输 |
 | SSH | 22 | 远程登录 |
 | SMTP | 25 | 邮件发送 |

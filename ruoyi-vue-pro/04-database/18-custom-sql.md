@@ -12,8 +12,9 @@
 
 ## 📚 前置知识
 
-- 09-mybatis-vs-mp.md
-- 12-query-wrapper.md
+- [09-mybatis-vs-mp.md](./09-mybatis-vs-mp.md)
+- [12-query-wrapper.md](./12-query-wrapper.md)
+- 防 SQL 注入见 [SQL 注入](../../_common/05-web-security/03-sql-injection.md)
 
 ## 1. 核心概念
 

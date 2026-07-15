@@ -12,8 +12,9 @@
 
 ## 📚 前置知识
 
-- 07-rag-and-agent/01-rag-overview.md
-- Python 异步编程基础
+- [RAG 概览](./01-rag-overview.md)（工作流常组合检索与生成）
+- Python 异步编程（详见 [async/asyncio](../01-fundamentals/12-async-asyncio.md)）
+- 图执行 / 控制流直觉（节点与边将在后文展开，详见 [Workflow Nodes](./25-workflow-nodes.md)）
 
 ## 1. 核心概念
 

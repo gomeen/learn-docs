@@ -18,14 +18,14 @@
 
 ### 1.1 dify 的服务分层
 
-dify 的 `docker-compose.yaml` 包含 25+ 个 service，按职责分为四类：
+dify 的 `docker-compose.yaml` 包含 25+ 个 service（Docker Compose 概念详见 [Docker Compose：本地多容器编排](../../_common/09-containerization/04-compose.md)），按职责分为四类：
 
 | 类别 | 核心服务 | 数量 |
 |------|----------|------|
 | **应用核心** | api、worker、worker_beat、web、api_websocket | 5 |
 | **AI 引擎** | sandbox、plugin_daemon、agent_backend、local_sandbox | 4 |
 | **数据存储** | db_postgres、db_mysql、redis、weaviate、qdrant、milvus、couchbase、pgvector、oceanbase、seekdb、tidb、iris、elasticsearch、opensearch、opengauss、myscale、matrixone、vastbase、oracle、pgvecto-rs、chroma | 20+ |
-| **基础设施** | nginx、ssrf_proxy、certbot、unstructured | 4 |
+| **基础设施** | nginx（详见 [Nginx 基础](../../_common/10-network-proxy/01-nginx-basics.md)）、ssrf_proxy、certbot、unstructured | 4 |
 | **初始化** | init_permissions | 1 |
 
 ### 1.2 核心服务的依赖关系
@@ -39,7 +39,7 @@ dify 的 `docker-compose.yaml` 包含 25+ 个 service，按职责分为四类：
                       ┌──────┐         ┌────────────┐
                       │nginx │◄────────┤ certbot    │ (可选)
                       └──┬───┘         └────────────┘
-                         │ reverse proxy
+                         │ reverse proxy（详见 [Nginx 反向代理](../../_common/10-network-proxy/02-reverse-proxy.md)）
               ┌──────────┼──────────┐
               ▼          ▼          ▼
           ┌──────┐   ┌──────┐  ┌──────────┐
@@ -69,13 +69,13 @@ dify 把可选服务放进 `profiles`，用户按需启动：
 | `postgresql` / `mysql` | 主数据库 | `--profile postgresql up` |
 | `weaviate` / `qdrant` / `milvus` | 向量数据库 | `--profile weaviate up` |
 | `elasticsearch` / `opensearch` | 全文检索 | `--profile elasticsearch up` |
-| `certbot` | HTTPS 证书自动签发 | `--profile certbot up` |
+| `certbot` | HTTPS 证书自动签发（详见 [HTTPS / Let's Encrypt](../../_common/10-network-proxy/03-https.md)） | `--profile certbot up` |
 | `collaboration` | WebSocket 协同 | `--profile collaboration up` |
 
 ### 1.4 安全隔离三道防线
 
 1. **ssrf_proxy_network（internal: true）**：API 容器无法直连外网
-2. **ssrf_proxy（squid）**：所有外部 HTTP 请求走代理，dify 检查白名单
+2. **ssrf_proxy（squid）**：所有外部 HTTP 请求走代理，dify 检查白名单（SSRF 防护详见 [SSRF](../../_common/05-web-security/06-ssrf.md)）
 3. **sandbox**：执行用户自定义代码的隔离环境
 
 ## 2. 代码示例

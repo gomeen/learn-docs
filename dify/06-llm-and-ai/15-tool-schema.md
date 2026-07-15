@@ -12,9 +12,9 @@
 
 ## 📚 前置知识
 
-- JSON Schema 基础（type / properties / required / enum）
-- Python Pydantic / TypedDict
-- 06-llm-and-ai/14-function-calling.md（理解 FC 协议）
+- JSON Schema 基础（type / properties / required / enum；JSON 处理详见 [JSON](../01-fundamentals/17-json-processing.md)）
+- Python Pydantic / TypedDict（详见 [Pydantic 基础](../02-backend/15-pydantic-basics.md)、[TypedDict](../01-fundamentals/08-typeddict.md)）
+- Function Calling 协议（详见 [Function Calling](./14-function-calling.md)）
 
 ## 1. 核心概念
 

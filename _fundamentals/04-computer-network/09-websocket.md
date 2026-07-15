@@ -28,7 +28,7 @@
 
 ### 1.2 WebSocket vs HTTP
 
-| 特性 | HTTP | WebSocket |
+| 特性 | [HTTP](./04-http-versions.md) | WebSocket |
 |------|------|-----------|
 | 连接 | 短连接 / 持久 | **持久** |
 | 通信方向 | 单向（请求-响应） | **双向** |

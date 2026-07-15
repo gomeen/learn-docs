@@ -12,9 +12,10 @@
 
 ## 📚 前置知识
 
-- Spring IoC 容器基本概念（Bean、@Configuration、@Bean）
-- Maven 多模块项目结构
-- Java 注解基础
+- Spring IoC 容器基本概念（详见 [01-ioc](../02-spring-boot/01-ioc.md)）
+- Maven 多模块项目结构（详见 [11-maven-modules](../01-java-fundamentals/11-maven-modules.md)）
+- Java 注解基础（详见 [04-annotation](../01-java-fundamentals/04-annotation.md)）
+- 自动配置入门见 [08-auto-config](../02-spring-boot/08-auto-config.md) / [09-custom-starter](../02-spring-boot/09-custom-starter.md)
 
 ## 1. 核心概念
 

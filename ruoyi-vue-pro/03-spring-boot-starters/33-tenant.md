@@ -13,7 +13,7 @@
 ## 📚 前置知识
 
 - [11-tenant-interceptor.md](./11-tenant-interceptor.md)
-- SaaS 多租户架构
+- SaaS 多租户架构（详见 [多租户](../../_common/08-authorization/05-multi-tenant.md)）
 
 ## 1. 核心概念
 

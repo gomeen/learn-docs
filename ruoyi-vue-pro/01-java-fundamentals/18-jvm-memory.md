@@ -152,11 +152,11 @@ public class GcDemo {
 
 - **DO / VO / DTO 大量对象**：堆的主要消费者
 - **缓存框架 Redisson**：本地缓存对象驻留老年代
-- **Spring Bean 容器**：所有单例 Bean 都在堆中常驻
+- **Spring Bean 容器**：所有单例 Bean 都在堆中常驻（单例模式详见 [单例](../../_fundamentals/06-design-patterns/01-singleton.md)）
 
 ### 3.2 推荐 JVM 参数（按生产环境）
 
-参考值（仅供参考，实际根据压测调整）：
+参考值（仅供参考，实际根据压测调整；GC 基础见 [19-gc](./19-gc.md)，参数专题见 [25-jvm-tuning](./25-jvm-tuning.md)）：
 
 ```
 -server

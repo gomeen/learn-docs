@@ -12,8 +12,9 @@
 
 ## 📚 前置知识
 
-- Spring IoC / AOP 基础
-- Redis 基础（参见 `01-redis-basics.md`）
+- Spring IoC / AOP 基础（详见 [IoC](../02-spring-boot/01-ioc.md)、[AOP](../02-spring-boot/03-aop.md)）
+- Redis 基础（详见 [Redis 数据结构](../../_common/01-redis/01-data-structures.md)）
+- Spring Boot Cache 入门（详见 [Spring Cache](../02-spring-boot/24-cache.md)）
 
 ## 1. 核心概念
 
@@ -23,9 +24,9 @@
 - 和 Redis 强耦合，换缓存后端（→ Caffeine / Hazelcast）要改业务
 - 缓存逻辑（key 设计、TTL、序列化）和业务代码混在一起
 
-Spring Cache 提供**注解 + 后端解耦**：
+Spring Cache 提供**注解 + 后端解耦**（注解细节详见 [@Cacheable / @CacheEvict / @CachePut](./09-cache-annotation.md)）：
 - `@Cacheable` / `@CacheEvict` / `@CachePut` 是和后端无关的语义
-- 底层用哪个（Redis / Caffeine / 内存 Map）由 `CacheManager` 决定
+- 底层用哪个（Redis / Caffeine / 内存 Map）由 `CacheManager` 决定；Redis 后端配置详见 [Redis 作为 Spring Cache 后端](./10-spring-cache-redis.md)
 
 ### 1.2 核心接口
 

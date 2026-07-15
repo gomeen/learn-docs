@@ -12,8 +12,9 @@
 
 ## 📚 前置知识
 
-- 11-frontend/15-vite.md
-- 工作流基础（BPMN 2.0 规范）
+- 工作流基础（详见 [BPMN](../09-workflow/01-bpmn.md)、[ruoyi 工作流](../09-workflow/03-ruoyi-workflow.md)）
+- Vue3 / Element（详见 [Vue3 基础](./01-vue3-basics.md)、[Element Plus](./10-element-plus.md)）
+- Vite（详见 [Vite](./15-vite.md)）
 
 ## 1. 核心概念
 

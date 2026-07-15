@@ -12,9 +12,9 @@
 
 ## 📚 前置知识
 
-- HTTP Cookie / Session 基础
-- 跨域与同源策略
-- 5.1 OWASP Top 10 概览
+- [HTTP Cookie / Session 基础](../07-authentication/02-session-cookie.md)
+- 跨域与同源策略（详见 [05-cors](./05-cors.md)）
+- [5.1 OWASP Top 10 概览](./01-owasp-top10.md)
 
 ## 1. 核心概念
 

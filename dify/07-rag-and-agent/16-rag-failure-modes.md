@@ -12,8 +12,8 @@
 
 ## 📚 前置知识
 
-- 07-rag-and-agent/01-rag-overview.md
-- 07-rag-and-agent/13-rag-evaluation.md
+- [RAG 概览](./01-rag-overview.md)
+- [RAG Evaluation](./13-rag-evaluation.md)
 
 ## 1. 核心概念
 

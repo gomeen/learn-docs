@@ -12,8 +12,7 @@
 
 ## 📚 前置知识
 
-- Redis 基础命令
-- 01-redis-data-structures.md
+- Redis 基础命令（详见 [Redis 数据结构](../../_common/01-redis/01-data-structures.md)）
 
 ## 1. 核心概念
 
@@ -24,7 +23,7 @@
 | 原子性 | ✅ 命令打包执行 | ✅ |
 | 一致性 | ❌（不支持回滚）| ✅ |
 | 隔离性 | ✅（串行执行）| ✅ |
-| 持久性 | 取决于持久化策略 | ✅ |
+| 持久性 | 取决于持久化策略（详见 [Redis 持久化](../../_common/01-redis/02-persistence.md)） | ✅ |
 | 回滚 | ❌ 不支持 | ✅ |
 
 **Redis 事务的"原子性"是"打包执行"而非"全部成功"**——如果中间命令失败，后续命令仍会执行。
@@ -73,6 +72,8 @@ EVAL "return redis.call('GET', KEYS[1])" 1 mykey
 3. **可复用**：`EVALSHA` 用 SHA1 缓存脚本
 
 ### 1.5 Lua 脚本：限流示例
+
+> 📌 **Sighting**：限流算法（固定窗口 / 滑动窗口 / 令牌桶）完整原理见 [限流算法](../../_common/03-cache-patterns/04-rate-limiting.md)；此处只演示用 Lua 保证「读-改-写」原子性。
 
 ```lua
 -- KEYS[1] = 限流 key

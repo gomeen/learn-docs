@@ -12,8 +12,8 @@
 
 ## 📚 前置知识
 
-- RESTful API 基础
-- 11-frontend/19-axios.md
+- Axios（详见 [Axios](./19-axios.md)）
+- HTTP / REST 基础
 
 ## 1. 核心概念
 

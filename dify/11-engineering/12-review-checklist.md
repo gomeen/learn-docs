@@ -285,7 +285,7 @@ Quick checks while iterating:
 - Lint (includes auto-fix): `make lint`
 - Type check: `make type-check`
 - Unit tests: `make test`
-- Full backend tests, including Docker-backed suites: `make test-all`
+- Full backend tests, including Docker-backed suites（详见 [Docker Compose](../../_common/09-containerization/04-compose.md)）: `make test-all`
 - Targeted tests: `make test TARGET_TESTS=./api/tests/<target_tests>`
 
 Before opening a PR / submitting:

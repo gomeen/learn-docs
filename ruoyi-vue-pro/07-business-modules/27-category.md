@@ -12,8 +12,8 @@
 
 ## 📚 前置知识
 
-- 10-dept.md（部门树形）
-- 26-spu-sku.md
+- 树形结构参考（详见 [部门](./10-dept.md)）
+- SPU/SKU（详见 [SPU/SKU](./26-spu-sku.md)）
 
 ## 1. 核心概念
 

@@ -14,7 +14,7 @@
 
 - HTML / JavaScript 基础
 - HTTP 请求/响应模型
-- 5.1 OWASP Top 10 概览
+- [5.1 OWASP Top 10 概览](./01-owasp-top10.md)；Cookie 窃取相关见 [CSRF](./04-csrf.md) / [Session](../07-authentication/02-session-cookie.md)
 
 ## 1. 核心概念
 

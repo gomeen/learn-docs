@@ -12,9 +12,9 @@
 
 ## 📚 前置知识
 
-- 01-bpmn.md（BPMN 基础）
-- 16-process-vars.md（流程变量）
-- 17-multi-instance.md（多实例）
+- BPMN 基础（详见 [BPMN](./01-bpmn.md)）
+- 流程变量（详见 [流程变量](./16-process-vars.md)）
+- 多实例（详见 [多实例](./17-multi-instance.md)）
 
 ## 1. 核心概念
 

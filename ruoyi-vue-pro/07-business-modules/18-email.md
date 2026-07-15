@@ -14,7 +14,8 @@
 
 - JavaMailSender 基础
 - SMTP 协议基础
-- 16-api-log.md
+- API 日志（详见 [API 日志](./16-api-log.md)）
+- 异步 / 消息发送（详见 [ruoyi Message](../05-cache-and-mq/13-ruoyi-message.md)）
 
 ## 1. 核心概念
 

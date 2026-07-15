@@ -78,6 +78,8 @@ a.cry();                // 调用的是 Dog 重写的方法（动态分派）
 
 ### 2.1 抽象类 + 模板方法模式
 
+> 📌 **Sighting**：完整「模板方法」模式（钩子、与策略模式对比）见 [模板方法](../../_fundamentals/06-design-patterns/14-template-method.md)。此处只把它当作「父类定流程、子类填步骤」的用法。
+
 ```java
 // 文件：AbstractPayService.java
 public abstract class AbstractPayService {
@@ -177,8 +179,8 @@ public class AdminUserDO extends TenantBaseDO {
 
 **解读**：
 - 第 7 行：继承 `TenantBaseDO`（多租户基础 DO），复用通用的 `tenantId`、`createTime`、`updateTime` 等审计字段
-- 第 4 行：`@EqualsAndHashCode(callSuper = true)` 告诉 Lombok 在生成 equals/hashCode 时把父类字段也算上
-- 第 5 行：`@Builder` 生成建造者模式，便于"链式赋值"，是面向对象"封装"的好示例
+- 第 4 行：`@EqualsAndHashCode(callSuper = true)` 告诉 Lombok 在生成 equals/hashCode 时把父类字段也算上（Lombok 详见 [14-lombok](./14-lombok.md)）
+- 第 5 行：`@Builder` 生成建造者模式，便于"链式赋值"，是面向对象"封装"的好示例（建造者模式详见 [建造者](../../_fundamentals/06-design-patterns/04-builder.md)）
 
 ## 4. 关键要点总结
 

@@ -163,7 +163,7 @@ E     {'tags': ['admin', 'user']} != {'tags': ['admin']}
 
 import json
 import logging
-from unittest.mock import MagicMock, patch
+from unittest.mock import MagicMock, patch  # mock 详见 [pytest Mock](./08-pytest-mock.md)
 
 import httpx
 import pytest

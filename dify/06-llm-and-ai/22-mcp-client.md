@@ -12,10 +12,9 @@
 
 ## 📚 前置知识
 
-- Python 异步编程（参见 `../01-fundamentals/12-async-asyncio.md`）
-- OAuth 2.0 基础（access token / refresh token / WWW-Authenticate header）
-- 阅读 6.20 MCP 协议概述（`./20-mcp-overview.md`）
-- 阅读 6.21 MCP Server 开发（`./21-mcp-server.md`）
+- Python 异步编程（详见 [async/asyncio](../01-fundamentals/12-async-asyncio.md)）
+- OAuth 2.0 基础（access token / refresh token；详见 [OAuth 2.0](../../_common/07-authentication/05-oauth2.md)、[Token 刷新](../../_common/07-authentication/04-token-refresh.md)）
+- MCP 协议与 Server（详见 [MCP 概述](./20-mcp-overview.md)、[MCP Server](./21-mcp-server.md)）
 
 ## 1. 核心概念
 

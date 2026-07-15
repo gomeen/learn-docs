@@ -12,7 +12,7 @@
 
 ## 📚 前置知识
 
-- 阅读过 `01-overview.md`、`03-table-import.md`
+- 总览与导入表（详见 [总览](./01-overview.md)、[导入表](./03-table-import.md)）
 - MySQL / Java 基本类型（`VARCHAR` / `INT` / `DATETIME`）
 
 ## 1. 核心概念

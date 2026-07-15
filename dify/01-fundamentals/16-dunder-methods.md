@@ -31,7 +31,7 @@
 | `__len__` | 长度 | `len(obj)` |
 | `__getitem__` | 索引 | `obj[0]` |
 | `__iter__` | 迭代 | `for x in obj` |
-| `__enter__` / `__exit__` | with 块 | `with obj:` |
+| `__enter__` / `__exit__` | with 块（详见 [11-context-manager](./11-context-manager.md)） | `with obj:` |
 | `__call__` | 调用 | `obj()` |
 
 ### 1.2 `__init__`：构造函数

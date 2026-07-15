@@ -12,8 +12,9 @@
 
 ## 📚 前置知识
 
-- 01-mysql-basics.md
-- Spring AOP 基础概念
+- [01-mysql-basics.md](./01-mysql-basics.md)
+- Spring AOP 基础概念（详见 [03-aop](../02-spring-boot/03-aop.md)）
+- Spring 事务声明式管理见 [04-transaction](../02-spring-boot/04-transaction.md)
 
 ## 1. 核心概念
 
@@ -63,6 +64,8 @@ COMMIT;  -- 或 ROLLBACK;
 ```
 
 ### 2.2 Spring `@Transactional` 注解
+
+> 📌 **Sighting**：传播行为、失效场景、自调用完整讲解见 [04-transaction](../02-spring-boot/04-transaction.md)。此处配合 MySQL 隔离级别理解。
 
 ```java
 @Service
@@ -166,7 +169,7 @@ public void processRoleDeleted(Long roleId) {
 - MySQL 默认隔离级别是 **REPEATABLE READ**
 - Spring 中**永远显式声明** `rollbackFor = Exception.class`，避免 Checked Exception 不回滚
 - `@Transactional` 必须通过代理对象调用才生效（避免同类内部调用）
-- 多数据源场景使用 `@DSTransactional` 代替 `@Transactional`
+- 多数据源场景使用 `@DSTransactional` 代替 `@Transactional`（详见 [20-ds-annotation](./20-ds-annotation.md)）
 - ruoyi 中事务 + 缓存清理经常组合使用：事务回滚时缓存也要避免脏读
 
 ## 5. 练习题

@@ -46,7 +46,7 @@ hash("abc") % 16 = 3
 hash("xyz") % 16 = 3   ← 冲突！
 ```
 
-**解决方式**（详见 14-hash-collision.md）：
+**解决方式**（详见 [14-hash-collision](./14-hash-collision.md)）：
 1. **链地址法**：每个桶挂一个链表（Java HashMap）
 2. **开放地址法**：冲突时找下一个空位（Python dict）
 

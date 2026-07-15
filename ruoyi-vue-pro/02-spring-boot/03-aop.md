@@ -12,14 +12,14 @@
 
 ## 📚 前置知识
 
-- 01-ioc.md（IoC 容器）
-- Java 反射、动态代理
+- [01-ioc.md](./01-ioc.md)（IoC 容器）
+- Java 反射、动态代理（反射详见 [05-reflection](../01-java-fundamentals/05-reflection.md)；代理模式详见 [代理](../../_fundamentals/06-design-patterns/08-proxy.md)）
 
 ## 1. 核心概念
 
 ### 1.1 什么是 AOP？
 
-AOP（Aspect-Oriented Programming，面向切面编程）把**横跨多个模块的重复逻辑**（日志、权限、事务）抽取成"切面"，集中管理。
+AOP（Aspect-Oriented Programming，面向切面编程）把**横跨多个模块的重复逻辑**（日志、权限、事务）抽取成"切面"，集中管理（事务管理详见 [04-transaction](./04-transaction.md)）。
 
 **OOP vs AOP**：
 - OOP：按"业务维度"纵向切分（User、Order、Product）

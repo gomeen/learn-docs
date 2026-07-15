@@ -12,8 +12,8 @@
 
 ## 📚 前置知识
 
-- 01-ioc.md（IoC 容器基础）
-- Java 注解与反射
+- [01-ioc.md](./01-ioc.md)（IoC 容器基础）
+- Java 注解与反射（详见 [04-annotation](../01-java-fundamentals/04-annotation.md) / [05-reflection](../01-java-fundamentals/05-reflection.md)）
 
 ## 1. 核心概念
 
@@ -34,13 +34,13 @@
 | JSR-250 | `@PostConstruct` / `@PreDestroy` | **推荐**，不依赖 Spring 接口 |
 | Spring 接口 | `InitializingBean` / `DisposableBean` | 侵入式，但可读性高 |
 | XML / `@Bean` | `init-method` / `destroy-method` | 第三方类无法改源码时使用 |
-| BeanPostProcessor | `postProcessBeforeInitialization` / `postProcessAfterInitialization` | AOP 代理生成在这里 |
+| BeanPostProcessor | `postProcessBeforeInitialization` / `postProcessAfterInitialization` | AOP 代理生成在这里（AOP 详见 [03-aop](./03-aop.md)） |
 
 ### 1.3 Bean 作用域
 
 | 作用域 | 说明 | 使用场景 |
 |--------|------|---------|
-| **singleton**（默认） | 容器中只存在一个实例 | 无状态 Service、DAO、Config |
+| **singleton**（默认） | 容器中只存在一个实例（单例模式详见 [单例](../../_fundamentals/06-design-patterns/01-singleton.md)） | 无状态 Service、DAO、Config |
 | **prototype** | 每次获取都创建新实例 | 有状态对象、线程不安全 |
 | **request** | 每个 HTTP 请求一个实例 | Web 请求上下文 |
 | **session** | 每个 HTTP Session 一个实例 | 用户登录信息 |

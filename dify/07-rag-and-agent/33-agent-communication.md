@@ -12,8 +12,10 @@
 
 ## 📚 前置知识
 
-- 07-rag-and-agent/32-multi-agent.md
-- 07-rag-and-agent/26-workflow-variables.md
+- [多 Agent](./32-multi-agent.md)
+- [变量系统](./26-workflow-variables.md)
+- 消息队列概念（详见 [MQ 核心概念](../../_common/02-mq/01-concepts.md)）
+- Python 异步（详见 [async/asyncio](../01-fundamentals/12-async-asyncio.md)）
 
 ## 1. 核心概念
 
@@ -23,7 +25,7 @@
 |------|------|------|
 | **直接调用** | Agent A 调 Agent B 的方法 | 紧密耦合 |
 | **共享变量池** | 通过 VariablePool 读写 | dify 工作流 |
-| **消息队列** | Redis/RabbitMQ 异步消息 | 分布式 |
+| **消息队列** | Redis/RabbitMQ 异步消息（详见 [Redis Pub/Sub 与 Stream](../../_common/01-redis/06-pubsub-stream.md)、[RabbitMQ](../../_common/02-mq/03-rabbitmq.md)） | 分布式 |
 | **事件总线** | 发布/订阅模式 | 松耦合 |
 
 ### 1.2 dify 的通信模式

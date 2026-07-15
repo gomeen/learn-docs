@@ -7,14 +7,14 @@
 完成本文档后，你将能够：
 - 区分内置注解、第三方注解、元注解
 - 自定义一个注解（含 `@Retention` 和 `@Target`）
-- 用反射机制读取注解信息
+- 用反射机制读取注解信息（反射机制详见 [05-reflection](./05-reflection.md)，此处只当「运行时读元数据」来用）
 - 理解 ruoyi 中 MyBatis-Plus、Bean Validation 的注解工作原理
 
 ## 📚 前置知识
 
 - 面向对象基础
 - 了解什么是接口、反射的概念
-- 02-oop.md、05-reflection.md（即将阅读）
+- 02-oop.md、[05-reflection.md](./05-reflection.md)（即将阅读）
 
 ## 1. 核心概念
 
@@ -124,7 +124,7 @@ public class UserSaveReqVO {
 }
 ```
 
-Spring MVC 接收到请求后，会通过 `RequestMappingHandlerAdapter` 调用校验器自动检查这些注解。
+Spring MVC 接收到请求后，会通过 `RequestMappingHandlerAdapter` 调用校验器自动检查这些注解（参数校验专题见 [21-validation](../02-spring-boot/21-validation.md)）。
 
 ## 3. ruoyi-vue-pro 仓库源码解读
 
@@ -168,7 +168,7 @@ private Integer pageSize = PAGE_SIZE;
 - `@Schema` 是 Swagger/OpenAPI 注解，自动生成 API 文档字段说明
 - `@NotNull` / `@Min` / `@Max` 属于 `javax.validation.constraints`（Bean Validation 标准）
 - Spring MVC + `MethodValidationPostProcessor` 在 Controller 调用方法时自动执行校验
-- 如果 `pageNo = 0`，校验失败时 Spring 会抛 `MethodArgumentNotValidException`，被全局异常处理器捕获
+- 如果 `pageNo = 0`，校验失败时 Spring 会抛 `MethodArgumentNotValidException`，被全局异常处理器捕获（全局异常处理见 [17-exception-handler](../02-spring-boot/17-exception-handler.md)）
 
 ## 4. 关键要点总结
 
@@ -185,11 +185,11 @@ private Integer pageSize = PAGE_SIZE;
 
 ### 练习 2：进阶
 
-阅读 `AdminUserDO.java`，列出所有注释（包括 MyBatis-Plus 和 Lombok 注解），并说明每个注解的作用。
+阅读 `AdminUserDO.java`，列出所有注解（包括 MyBatis-Plus 和 Lombok 注解），并说明每个注解的作用。Lombok 见 [14-lombok](./14-lombok.md)。
 
 ### 练习 3：挑战（选做）
 
-实现一个简单的"权限校验框架"：自定义 `@RequiresRole("admin")` 注解，用反射在调用方法前检查当前用户角色，模拟 Spring AOP 的拦截功能。
+> 学完 [03-aop](../02-spring-boot/03-aop.md) 与 [05-reflection](./05-reflection.md) 后再做：实现一个简单的"权限校验框架"：自定义 `@RequiresRole("admin")` 注解，用反射在调用方法前检查当前用户角色，模拟 Spring AOP 的拦截功能。
 
 ## 6. 参考资料
 

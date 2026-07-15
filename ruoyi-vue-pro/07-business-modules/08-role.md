@@ -12,9 +12,10 @@
 
 ## 📚 前置知识
 
-- 07-user.md（用户管理）
+- 用户管理（详见 [用户管理](./07-user.md)）
+- RBAC 通用模型（详见 [RBAC](../../_common/08-authorization/01-rbac.md)）
 - 数据库多对多关联基础
-- 03-naming.md
+- 命名规范（详见 [命名](./03-naming.md)）
 
 ## 1. 核心概念
 

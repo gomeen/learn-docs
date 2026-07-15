@@ -12,9 +12,9 @@
 
 ## 📚 前置知识
 
-- 6.1 对称加密
+- [6.1 对称加密](./01-symmetric.md)
 - 数学基础（质数、模运算、椭圆曲线）
-- HTTPS / TLS 协议
+- HTTPS / TLS 协议；签名见 [04-digital-signature](./04-digital-signature.md)
 
 ## 1. 核心概念
 

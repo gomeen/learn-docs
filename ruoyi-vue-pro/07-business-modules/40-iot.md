@@ -12,9 +12,10 @@
 
 ## 📚 前置知识
 
-- 21-member-auth.md
+- 会员认证（详见 [会员认证](./21-member-auth.md)）
 - EMQX/MQTT 基础
-- WebSocket 基础
+- WebSocket 基础（详见 [WebSocket Starter](../03-spring-boot-starters/38-websocket.md)）
+- MQ / Stream（设备上报异步处理，详见 [MQ 概念](../../_common/02-mq/01-concepts.md)）
 
 ## 1. 核心概念
 

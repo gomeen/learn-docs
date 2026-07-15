@@ -12,9 +12,9 @@
 
 ## 📚 前置知识
 
-- 22-druid.md
-- 19-dynamic-datasource.md
-- 20-ds-annotation.md
+- [22-druid.md](./22-druid.md)
+- [19-dynamic-datasource.md](./19-dynamic-datasource.md)
+- [20-ds-annotation.md](./20-ds-annotation.md)
 
 ## 1. 核心概念
 

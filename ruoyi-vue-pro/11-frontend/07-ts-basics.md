@@ -13,7 +13,7 @@
 ## 📚 前置知识
 
 - JavaScript ES6+ 基础
-- 11-frontend/01-vue3-basics.md
+- Vue3 基础（详见 [Vue3 基础](./01-vue3-basics.md)）
 
 ## 1. 核心概念
 

@@ -40,7 +40,7 @@ Replica                              Master
   |----- 1. PSYNC ? -1 ------------->|  (请求全量同步)
   |<---- 2. +FULLRESYNC <replid> ----|  (返回 replid + offset)
   |                                    |
-  |----- 3. BGSAVE 生成 RDB --------->|
+  |----- 3. BGSAVE 生成 RDB（持久化见 [02-persistence](./02-persistence.md)）--------->|
   |<---- 4. 发送 RDB 文件 ------------|
   |<---- 5. 发送缓冲区新写命令 -------|
   |                                    |

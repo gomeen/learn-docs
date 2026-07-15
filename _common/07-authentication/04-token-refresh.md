@@ -12,9 +12,9 @@
 
 ## 📚 前置知识
 
-- 7.3 JWT 机制
-- Redis 基础
-- HTTP 认证基础
+- [7.3 JWT 机制](./03-jwt.md)
+- [Redis 基础](../01-redis/01-data-structures.md)
+- [HTTP 认证基础](./01-http-auth.md)
 
 ## 1. 核心概念
 

@@ -12,8 +12,8 @@
 
 ## 📚 前置知识
 
-- 线性代数基础（向量点积、范数）
-- 07-rag-and-agent/04-embedding-selection.md
+- 线性代数基础（向量点积、范数；详见 [向量检索基础](../03-database/25-vector-search.md)）
+- Embedding 选型（详见 [Embedding 选型](./04-embedding-selection.md)）
 
 ## 1. 核心概念
 

@@ -12,8 +12,9 @@
 
 ## 📚 前置知识
 
-- 01-fundamentals/01-flask-basics.md
-- 14-sql-injection.md
+- Flask 基础（详见 [Flask 基础](../02-backend/08-flask-basics.md)）
+- SQL 注入与参数化（详见 [SQL 注入](../../_common/05-web-security/03-sql-injection.md)）——输入校验是防注入的第一道关
+- Pydantic 模型（详见 [Pydantic 基础](../02-backend/15-pydantic-basics.md)）
 
 ## 1. 核心概念
 
@@ -26,7 +27,7 @@
 - 文件上传
 - 第三方 API 响应
 
-**基本原则**：白名单优于黑名单 —— **明确允许什么**比**禁止什么**更安全。
+**基本原则**：白名单优于黑名单 —— **明确允许什么**比**禁止什么**更安全。OWASP 视角下输入校验还关联 XSS 输出编码等（详见 [OWASP Top 10](../../_common/05-web-security/01-owasp-top10.md)、[XSS](../../_common/05-web-security/02-xss.md)）。
 
 ### 1.2 输入校验的位置
 

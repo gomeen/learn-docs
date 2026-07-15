@@ -12,9 +12,10 @@
 
 ## 📚 前置知识
 
-- Redis 基础
+- Redis 基础（详见 [Redis 数据结构](../../_common/01-redis/01-data-structures.md)）
+- 缓存策略（详见 [缓存策略](../../_common/03-cache-patterns/01-strategies.md)）
 - dify 整体架构
-- 01-redis-data-structures.md、08-redis-cache.md
+- [Celery 架构](./14-celery-architecture.md)（Broker / Backend 角色）
 
 ## 1. 核心概念
 
@@ -35,6 +36,12 @@ Redis in dify ────┼── 业务缓存（配置、token、限流计数
                   │
                   └── 分布式锁 / 协调
 ```
+
+> 📌 **Sighting**（本篇只列场景，不展开原理）：
+> - 限流计数 → [限流算法](../../_common/03-cache-patterns/04-rate-limiting.md)
+> - Session / Token 存储 → [分布式 Session](../../_common/03-cache-patterns/05-distributed-session.md)、[Session 与 Cookie](../../_common/07-authentication/02-session-cookie.md)
+> - Pub/Sub → [Redis Pub/Sub 与 Stream](../../_common/01-redis/06-pubsub-stream.md)
+> - 分布式锁 → [Redis 分布式锁](../../_common/04-distributed-locks/02-redis-redlock.md)
 
 ### 1.2 Redis 不可用时的降级
 
@@ -87,6 +94,8 @@ redis_client.set("foo", "bar")
 | `account_hour_limit:{email}` | 每小时计数 | 10 分钟 |
 
 ### 2.3 Celery Broker（任务队列）
+
+> Celery 四大组件与任务生命周期见 [Celery 架构](./14-celery-architecture.md)。
 
 **文件位置**：`/Users/xu/code/github/dify/api/extensions/ext_celery.py`
 
@@ -176,6 +185,8 @@ docker start redis
 ## 4. dify 仓库源码解读
 
 ### 4.1 redis_fallback：通用降级
+
+> `@redis_fallback` 是装饰器写法（详见 [装饰器](../01-fundamentals/10-decorator.md)），此处只把它当作「包住 Redis 调用、失败时返回默认值」的保护层。
 
 **文件位置**：`/Users/xu/code/github/dify/api/extensions/ext_redis.py`
 **核心代码**（行 476-496）：

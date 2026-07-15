@@ -12,8 +12,9 @@
 
 ## 📚 前置知识
 
-- 07-rag-and-agent/08-hybrid-search.md
-- 06-llm-and-ai 中关于 Prompt 工程
+- 混合检索（详见 [Hybrid Search](./08-hybrid-search.md)）
+- Prompt 工程（详见 [Prompt 基础](../06-llm-and-ai/07-prompt-basics.md)）
+- Function Calling 路由场景（详见 [Function Calling](../06-llm-and-ai/14-function-calling.md)）
 
 ## 1. 核心概念
 
@@ -167,7 +168,7 @@ Extract the metadata filter conditions in JSON format.
 
 ```python
 class FunctionCallMultiDatasetRouter:
-    """用 LLM 的 Function Calling 能力，决定检索哪些 Dataset
+    """用 LLM 的 Function Calling 能力（详见 [Function Calling](../06-llm-and-ai/14-function-calling.md)），决定检索哪些 Dataset
 
     用户问题 → LLM 选择相关 Dataset → 只检索选中的 Dataset
     """

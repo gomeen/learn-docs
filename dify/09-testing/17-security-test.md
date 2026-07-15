@@ -12,7 +12,7 @@
 
 ## 📚 前置知识
 
-- Web 安全基础（SQL 注入、XSS、CSRF）
+- Web 安全基础（OWASP 概览详见 [OWASP Top 10](../../_common/05-web-security/01-owasp-top10.md)；SQL 注入 / XSS / CSRF 详见同目录专题）
 - Python 类型提示与代码分析
 
 ## 1. 核心概念
@@ -35,13 +35,13 @@ dify 防御的主要威胁类别：
 
 | 编号 | 威胁 | dify 关注点 |
 |------|------|------------|
-| A01 | Broken Access Control | RBAC、API 鉴权 |
+| A01 | Broken Access Control | RBAC（详见 [RBAC](../../_common/08-authorization/01-rbac.md)）、API 鉴权 |
 | A02 | Cryptographic Failures | SECRET_KEY、密码哈希 |
-| A03 | Injection | SQLAlchemy 防注入、Prompt 注入 |
-| A04 | Insecure Design | SSRF 防护（dify 的 `SSRFProxy`） |
-| A05 | Security Misconfiguration | CORS、debug 模式 |
+| A03 | Injection | SQLAlchemy 防注入（详见 [SQL 注入](../../_common/05-web-security/03-sql-injection.md)）、Prompt 注入 |
+| A04 | Insecure Design | SSRF 防护（dify 的 `SSRFProxy`，详见 [SSRF](../../_common/05-web-security/06-ssrf.md)） |
+| A05 | Security Misconfiguration | CORS（详见 [CORS](../../_common/05-web-security/05-cors.md)）、debug 模式 |
 | A06 | Vulnerable Components | 依赖扫描 |
-| A07 | Authentication Failures | JWT、登录流程 |
+| A07 | Authentication Failures | JWT（详见 [JWT](../../_common/07-authentication/03-jwt.md)）、登录流程 |
 | A08 | Data Integrity Failures | Workflow 持久化 |
 | A09 | Logging Failures | 审计日志 |
 | A10 | SSRF | **dify 重点**（LLM 调用外部 API） |
@@ -50,9 +50,9 @@ dify 防御的主要威胁类别：
 
 | 工具 | 用途 | 在 dify 中的位置 |
 |------|------|------------------|
-| **Bandit** | Python 静态扫描 | 可作为 pre-commit hook |
+| **Bandit** | Python 静态扫描 | 可作为 pre-commit hook（详见 [Pre-commit Hook](./21-pre-commit.md)） |
 | **Ruff S 规则** | 内置安全 lint | `api/.ruff.toml` |
-| **Trivy** | 容器镜像扫描 | CI 阶段 |
+| **Trivy** | 容器镜像扫描 | CI 阶段（详见 [CI/CD 概念](../../_common/11-cicd/01-concepts.md)） |
 | **Safety** | Python 依赖漏洞 | 未来可集成 |
 
 ## 2. 代码示例
@@ -175,7 +175,7 @@ select = [
 ### 3.2 dify 的 SSRF 防护（OWASP A10）
 
 **文件位置**：`/Users/xu/code/github/dify/api/core/helper/ssrf_proxy.py`
-**核心代码**（参考 `12-async-asyncio.md` 第 248-265 行）：
+**核心代码**（async 用法详见 [async/await 与 asyncio](../01-fundamentals/12-async-asyncio.md)）：
 
 ```python
 class SSRFProxy:

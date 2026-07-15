@@ -13,8 +13,9 @@
 
 ## 📚 前置知识
 
-- 01-ioc.md
-- 07-startup.md
+- [01-ioc.md](./01-ioc.md)
+- [07-startup.md](./07-startup.md)
+- 事件机制见 [05-event](./05-event.md)
 
 ## 1. 核心概念
 

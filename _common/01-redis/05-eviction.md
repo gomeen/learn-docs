@@ -12,8 +12,8 @@
 
 ## 📚 前置知识
 
-- Redis 基础数据结构（`01-redis/01-data-structures.md`）
-- 缓存的基本概念（命中率、淘汰）
+- [Redis 基础数据结构](./01-data-structures.md)
+- 缓存的基本概念（命中率、淘汰；策略见 [01-strategies](../03-cache-patterns/01-strategies.md)）
 - 操作系统虚拟内存与内存压力
 
 ## 1. 核心概念

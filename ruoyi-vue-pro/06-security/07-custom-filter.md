@@ -12,9 +12,9 @@
 
 ## 📚 前置知识
 
-- 01-filter-chain.md
-- Servlet Filter 规范
-- Spring Bean 管理
+- Spring Security 过滤器链（详见 [Spring Security](../03-spring-boot-starters/20-spring-security.md)）
+- Servlet Filter 规范（详见 [Filter](../02-spring-boot/19-filter.md)）
+- Spring Bean 管理（详见 [IoC](../02-spring-boot/01-ioc.md)）
 
 ## 1. 核心概念
 
@@ -42,11 +42,11 @@ http.addFilterAfter(myFilter, AuthorizationFilter.class);
 
 ### 1.3 常见自定义 Filter 场景
 
-- 租户上下文（解析 `tenant-id` Header）
+- 租户上下文（解析 `tenant-id` Header，多租户模型详见 [多租户](../../_common/08-authorization/05-multi-tenant.md)）
 - 请求日志（记录访问日志）
-- 防重放（校验 nonce）
+- 防重放（校验 nonce，详见 [防重放攻击](../../_common/05-web-security/07-replay-attack.md)）
 - IP 黑名单
-- 接口限流
+- 接口限流（详见 [限流与防刷](./34-rate-limit.md)）
 
 ## 2. 代码示例
 

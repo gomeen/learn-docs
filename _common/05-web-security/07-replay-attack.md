@@ -13,8 +13,8 @@
 ## 📚 前置知识
 
 - HTTP 协议基础
-- HMAC 签名原理
-- 5.1 OWASP Top 10 概览
+- HMAC 签名原理（见 [哈希](../06-encryption/03-hash.md) / [数字签名](../06-encryption/04-digital-signature.md)）
+- [5.1 OWASP Top 10 概览](./01-owasp-top10.md)
 
 ## 1. 核心概念
 

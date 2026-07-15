@@ -198,7 +198,7 @@ public static <T, U> List<U> convertList(Collection<T> from, Function<T, U> func
 
 ### 练习 1：基础（必做）
 
-编写一个泛型方法 `<T> Optional<T> first(List<T> list)`：返回列表第一个元素的 `Optional`（避免空列表时返回 null）。
+编写一个泛型方法 `<T> Optional<T> first(List<T> list)`：返回列表第一个元素的 `Optional`（避免空列表时返回 null）。`Optional` 用法见 [09-optional](./09-optional.md)，此处只需会用 `Optional.of` / `Optional.empty`。
 
 ### 练习 2：进阶
 

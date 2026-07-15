@@ -13,7 +13,7 @@
 ## 📚 前置知识
 
 - WebSocket 基础
-- Redis Pub/Sub
+- Redis Pub/Sub（详见 [Redis Pub/Sub 与 Stream](../../_common/01-redis/06-pubsub-stream.md)）
 - Spring Messaging
 
 ## 1. 核心概念

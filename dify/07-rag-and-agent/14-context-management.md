@@ -12,8 +12,8 @@
 
 ## 📚 前置知识
 
-- 06-llm-and-ai 中关于 LLM 上下文窗口
-- 07-rag-and-agent/13-rag-evaluation.md
+- Token 与上下文窗口（详见 [Tokens 与上下文](../06-llm-and-ai/03-tokens-context.md)）
+- RAG 评测（详见 [RAG Evaluation](./13-rag-evaluation.md)）
 
 ## 1. 核心概念
 

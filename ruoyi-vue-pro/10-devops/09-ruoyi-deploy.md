@@ -13,8 +13,10 @@
 ## 📚 前置知识
 
 - Shell 基础（bash 函数、变量、信号）
-- `02-spring-boot-jar.md`
-- `08-docker-compose.md`
+- 可执行 JAR（详见 [Spring Boot JAR](./02-spring-boot-jar.md)）
+- Docker Compose（详见 [Compose](../../_common/09-containerization/04-compose.md)）
+- CI/CD 与 Jenkins（详见 [CI/CD 概念](../../_common/11-cicd/01-concepts.md)、[Jenkins](../../_common/11-cicd/04-jenkins.md)）
+- 部署策略（蓝绿/滚动，详见 [蓝绿](../../_common/12-deploy-strategies/01-blue-green.md)、[滚动](../../_common/12-deploy-strategies/03-rolling-and-ab.md)）
 
 ## 1. 核心概念
 
@@ -23,7 +25,7 @@
 | 方式 | 工具 | 适用场景 |
 |------|------|---------|
 | 传统部署 | `deploy.sh` + Jenkins | 单机/虚拟机，自建机房 |
-| 容器化部署 | `docker-compose` | 容器平台（开发/测试） |
+| 容器化部署 | `docker-compose`（Dockerfile 详见 [Dockerfile](../../_common/09-containerization/02-dockerfile.md)） | 容器平台（开发/测试） |
 
 ### 1.2 deploy.sh 的核心流程
 

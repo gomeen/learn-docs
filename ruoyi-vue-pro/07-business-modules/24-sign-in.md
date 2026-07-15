@@ -12,8 +12,8 @@
 
 ## 📚 前置知识
 
-- 23-points.md（积分联动）
-- Redis 基础
+- 积分联动（详见 [积分](./23-points.md)）
+- Redis 基础（详见 [Redis 数据结构](../../_common/01-redis/01-data-structures.md)）
 
 ## 1. 核心概念
 

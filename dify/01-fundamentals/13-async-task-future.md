@@ -214,7 +214,7 @@ except Exception:
 **解读**：
 - 第 5-9 行：`execute_workflow_*.delay()` 返回 `AsyncResult`，是 Celery 的 Future-like 对象
 - `AsyncResult` 提供 `task.id`（任务 ID）、`task.status`（状态）、`task.get()`（阻塞获取结果）等接口
-- **关键设计**：dify 把"Future 模式"应用到分布式任务队列——API 调用立即返回 task id，前端轮询或 WebSocket 推送获取结果
+- **关键设计**：dify 把"Future 模式"应用到分布式任务队列——API 调用立即返回 task id，前端轮询或 WebSocket 推送获取结果（WebSocket 协议见 [27-websocket](./27-websocket.md)）
 
 ### 3.2 异步工作流的错误处理
 
@@ -265,7 +265,7 @@ except QuotaExceededError as e:
 
 ### 练习 3：挑战（选做）
 
-实现一个 `pool` 装饰器：用信号量（`asyncio.Semaphore`）限制并发任务数不超过 N，所有任务排队进入。
+> 学完 [10-decorator](./10-decorator.md) 后再做：实现一个 `pool` 装饰器：用信号量（`asyncio.Semaphore`）限制并发任务数不超过 N，所有任务排队进入。
 
 ## 6. 参考资料
 

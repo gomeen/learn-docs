@@ -13,7 +13,7 @@
 ## 📚 前置知识
 
 - [3.5.3 专用向量库](./27-vector-databases.md)
-- 工厂与适配器模式
+- 工厂与适配器模式（详见 [策略与工厂](../02-backend/23-strategy-factory.md)、[适配器模式](../02-backend/22-adapter-pattern.md)；经典定义亦可参考 [工厂方法](../../_fundamentals/06-design-patterns/02-factory-method.md)、[适配器](../../_fundamentals/06-design-patterns/06-adapter.md)）
 - Python entry point 基础
 
 ## 1. 核心概念

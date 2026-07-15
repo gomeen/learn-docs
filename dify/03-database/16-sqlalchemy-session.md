@@ -8,7 +8,7 @@
 - 解释 Session 的身份映射与工作单元职责
 - 使用 with 与 session.begin 管理事务
 - 理解 flush、commit、rollback 和 expire_on_commit
-- 分析 dify 仓储中的 Session 生命周期
+- 分析 dify 仓储中的 Session 生命周期（仓储模式详见 [仓储模式](../02-backend/03-repository-pattern.md)）
 
 ## 📚 前置知识
 

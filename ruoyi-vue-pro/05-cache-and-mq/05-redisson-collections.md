@@ -12,8 +12,8 @@
 
 ## 📚 前置知识
 
-- Redis 基础数据结构（参见 `01-redis-basics.md`）
-- Redisson 客户端（参见 `02-redisson.md`）
+- Redis 基础数据结构（详见 [Redis 数据结构](../../_common/01-redis/01-data-structures.md)）
+- Redisson 客户端（详见 [Redisson 客户端](./02-redisson.md)）
 - Java 集合框架
 
 ## 1. 核心概念

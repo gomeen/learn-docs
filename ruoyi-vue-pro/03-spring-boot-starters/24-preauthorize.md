@@ -15,6 +15,7 @@
 - [23-security-config.md](./23-security-config.md)
 - SpEL 表达式
 - [22-rbac-model.md](./22-rbac-model.md)
+- AOP 实现权限切面的原理见 [03-aop](../02-spring-boot/03-aop.md)
 
 ## 1. 核心概念
 

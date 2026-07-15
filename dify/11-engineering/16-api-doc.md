@@ -16,7 +16,7 @@
 ## 📚 前置知识
 
 - HTTP 方法、状态码、Header、Query String 和 JSON
-- Python 类、类型注解与装饰器
+- Python 类、类型注解与装饰器（详见 [装饰器](../01-fundamentals/10-decorator.md)）
 - YAML 或 JSON 基础语法
 - Pydantic `BaseModel` 的基本用法
 - Flask 路由与 REST API 的基本概念

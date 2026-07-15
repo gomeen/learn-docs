@@ -12,8 +12,9 @@
 
 ## 📚 前置知识
 
-- 07-rag-and-agent/18-agent-concepts.md
-- 06-llm-and-ai 中关于 Prompt Engineering
+- [Agent 概念](./18-agent-concepts.md)
+- Prompt 与 ReAct 入门（详见 [Prompt 基础](../06-llm-and-ai/07-prompt-basics.md)、[ReAct](../06-llm-and-ai/10-react.md)）
+- Function Calling 对比（详见 [Function Calling](../06-llm-and-ai/14-function-calling.md)）
 
 ## 1. 核心概念
 

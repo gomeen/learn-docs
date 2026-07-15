@@ -12,8 +12,8 @@
 
 ## 📚 前置知识
 
-- Maven 基础（`pom.xml`、`<build>` 配置）
-- `01-maven-build.md`（推荐先看）
+- Maven 基础（`pom.xml`、`<build>` 配置，详见 [Maven 多模块](./01-maven-build.md)）
+- Spring Boot 启动与打包（详见 [启动流程](../02-spring-boot/07-startup.md)）
 
 ## 1. 核心概念
 

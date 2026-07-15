@@ -15,10 +15,11 @@
 - [10-data-permission.md](./10-data-permission.md)
 - [19-security-starter.md](./19-security-starter.md)
 - 关系型数据库设计
-
 ## 1. 核心概念
 
 ### 1.1 RBAC 的三种模型
+
+> 📌 **Sighting**：RBAC/ABAC/ACL 对比见 [RBAC](../../_common/08-authorization/01-rbac.md) / [ABAC](../../_common/08-authorization/02-abac.md) / [ACL](../../_common/08-authorization/03-acl.md)。本文聚焦 yudao 表结构。
 
 | 模型 | 特点 | 适用场景 |
 |------|------|---------|

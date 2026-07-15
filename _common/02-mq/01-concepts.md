@@ -7,7 +7,7 @@
 完成本文档后，你将能够：
 - 区分 Producer / Consumer / Broker / Queue / Topic 五大概念
 - 理解点对点（Queue）和发布订阅（Topic）两种消息模型
-- 掌握消息的 at-most-once / at-least-once / exactly-once 三种语义
+- 掌握消息的 at-most-once / at-least-once / exactly-once 三种语义（详解见 [05-reliability](./05-reliability.md)）
 - 能在 dify 中找到 Celery 任务的实际应用
 
 ## 📚 前置知识
@@ -15,6 +15,7 @@
 - 进程间通信基础（Socket / 共享内存）
 - 数据库事务的 ACID 概念
 - 分布式系统基本思想
+- 具体产品：[Kafka](./02-kafka.md) / [RabbitMQ](./03-rabbitmq.md) / [RocketMQ](./04-rocketmq.md)；失败处理见 [死信](./06-dead-letter.md)
 
 ## 1. 核心概念
 

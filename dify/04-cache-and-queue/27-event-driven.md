@@ -12,9 +12,8 @@
 
 ## 📚 前置知识
 
-- 消息队列基础
-- Pub/Sub 与 Stream
-- 23-mq-concepts.md、26-redis-pubsub-stream.md
+- 消息队列基础（详见 [MQ 核心概念](../../_common/02-mq/01-concepts.md)）
+- Pub/Sub 与 Stream（详见 [Redis Pub/Sub 与 Stream](../../_common/01-redis/06-pubsub-stream.md)）
 
 ## 1. 核心概念
 
@@ -66,7 +65,7 @@ Producer ──→ Event Stream (Kafka) ──→ Consumer 1
 
 - **持久化**事件流
 - Consumer 可以**回放历史**
-- 典型实现：Kafka、Pulsar
+- 典型实现：Kafka（详见 [Kafka](../../_common/02-mq/02-kafka.md)）、Pulsar
 
 ### 1.3 EDA 核心组件
 

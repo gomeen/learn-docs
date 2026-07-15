@@ -12,9 +12,9 @@
 
 ## 📚 前置知识
 
-- /Users/xu/code/gomeen/learn-docs/_common/09-containerization/04-compose.md
-- 11.4 节 Jenkins 流水线基础
-- Docker / K8s 基本概念
+- [Docker Compose](../09-containerization/04-compose.md)
+- [Jenkins 流水线](../11-cicd/04-jenkins.md)
+- Docker / K8s 基本概念（[容器化](../09-containerization/01-concepts.md)）
 
 ## 1. 核心概念
 

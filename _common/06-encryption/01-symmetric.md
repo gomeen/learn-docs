@@ -13,7 +13,7 @@
 ## 📚 前置知识
 
 - 二进制与编码（Base64、Hex）
-- 6 加密系列前置
+- 系列后续：[非对称加密](./02-asymmetric.md)、[哈希](./03-hash.md)、[数字签名](./04-digital-signature.md)、[密钥管理](./05-key-management.md)
 - 任意一门编程语言基础
 
 ## 1. 核心概念

@@ -12,9 +12,9 @@
 
 ## 📚 前置知识
 
-- Redis 基础（参见 `01-redis-basics.md`）
-- Redisson 客户端（参见 `02-redisson.md`）
-- Spring Data Redis
+- Redis 基础（详见 [Redis 数据结构](../../_common/01-redis/01-data-structures.md)）
+- Redisson 客户端（详见 [Redisson 客户端](./02-redisson.md)）
+- Spring Data Redis / Spring Cache（详见 [Spring Cache 抽象](./08-spring-cache.md)）
 
 ## 1. 核心概念
 
@@ -22,7 +22,7 @@
 
 ruoyi 没有提供业务层的 `RedisUtils`（像 Hutool 那样），而是直接用 Spring Data Redis 的 `RedisTemplate`。ruoyi 在框架层做的事：
 1. **配置 RedisTemplate**：JSON 序列化 + String key
-2. **扩展 RedisCacheManager**：支持自定义过期时间
+2. **扩展 RedisCacheManager**：支持自定义过期时间（与 Spring Cache 后端配置详见 [Redis 作为 Spring Cache 后端](./10-spring-cache-redis.md)）
 3. **提供本地缓存工具**：用于不跨 JVM 的高速缓存
 
 ### 1.2 业务层调用方式

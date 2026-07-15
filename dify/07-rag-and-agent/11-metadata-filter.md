@@ -12,8 +12,9 @@
 
 ## 📚 前置知识
 
-- 07-rag-and-agent/10-query-rewriting.md
-- SQL WHERE 子句基础
+- 查询改写（详见 [Query Rewriting](./10-query-rewriting.md)）
+- SQL WHERE 子句基础（详见 [SQL 基础](../03-database/01-sql-basics.md)）
+- Pydantic 校验（详见 [Pydantic 基础](../02-backend/15-pydantic-basics.md)）
 
 ## 1. 核心概念
 
@@ -145,7 +146,7 @@ results = vector_store.semantic_search_in(query, candidates, top_k=5)
 **核心代码**：
 
 ```python
-from pydantic import BaseModel
+from pydantic import BaseModel  # Pydantic 详见 [Pydantic 基础](../02-backend/15-pydantic-basics.md)
 
 
 class MetadataFilteringCondition(BaseModel):

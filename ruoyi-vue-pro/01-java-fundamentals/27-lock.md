@@ -164,6 +164,8 @@ try {
 
 ### 2.1 DCL 单例（synchronized 经典案例）
 
+> 📌 **Sighting**：完整单例模式变体（饿汉/懒汉/枚举/静态内部类）见 [单例](../../_fundamentals/06-design-patterns/01-singleton.md)。此处只演示 `synchronized` + `volatile` 的 DCL 写法。
+
 ```java
 // 文件：DclSingleton.java
 public class DclSingleton {
@@ -440,7 +442,7 @@ public class ReadWriteCache<K, V> {
 ```
 
 **解读**：
-- **`@Lock4j`** 是 MyBatis-Plus 生态的注解式分布式锁（基于 Redisson）
+- **`@Lock4j`** 是 MyBatis-Plus 生态的注解式分布式锁（基于 Redisson；分布式锁理论见 [分布式锁要求](../../_common/04-distributed-locks/01-requirements.md) / [Redis Redlock](../../_common/04-distributed-locks/02-redis-redlock.md)，ruoyi 封装见 [17-distributed-lock](../03-spring-boot-starters/17-distributed-lock.md)）
 - ruoyi-vue-pro 在框架层面提供了**统一失败策略**：获取不到锁时抛出 `ServiceException`（业务异常），转换为统一的 `LOCKED` 错误码返回给前端
 - **典型用法**：
   ```java

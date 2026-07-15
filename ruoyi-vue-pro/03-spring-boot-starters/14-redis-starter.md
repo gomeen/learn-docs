@@ -13,8 +13,8 @@
 ## 📚 前置知识
 
 - Spring Data Redis
-- Redisson 基础
-- Redis 序列化（String、JSON、JDK）
+- Redisson 基础（详见 [15-redisson](./15-redisson.md)）
+- Redis 数据结构（详见 [Redis 数据结构](../../_common/01-redis/01-data-structures.md)）
 
 ## 1. 核心概念
 
@@ -23,8 +23,8 @@
 Redis 是分布式系统的基石，但**默认配置不够用**：
 - 默认 `RedisTemplate` 用 JDK 序列化（不可读）
 - 没有 `RedisUtils` 工具类
-- 缺少分布式锁、限流等高级特性
-- 多租户场景下缓存需要隔离
+- 缺少分布式锁、限流等高级特性（锁见 [17-distributed-lock](./17-distributed-lock.md)，限流见 [18-rate-limiter](./18-rate-limiter.md)）
+- 多租户场景下缓存需要隔离（多租户见 [多租户](../../_common/08-authorization/05-multi-tenant.md) / [33-tenant](./33-tenant.md)）
 
 yudao 的 Redis Starter 解决了所有这些问题。
 
@@ -33,7 +33,7 @@ yudao 的 Redis Starter 解决了所有这些问题。
 | 组件 | 职责 |
 |------|------|
 | `YudaoRedisAutoConfiguration` | 装配自定义 `RedisTemplate` |
-| `YudaoCacheAutoConfiguration` | 装配 `RedisCacheManager` |
+| `YudaoCacheAutoConfiguration` | 装配 `RedisCacheManager`（Spring Cache 见 [24-cache](../02-spring-boot/24-cache.md)） |
 | `TimeoutRedisCacheManager` | 支持自定义 TTL |
 | `YudaoCacheProperties` | 缓存配置 |
 | `TenantRedisCacheManager` | 多租户缓存隔离（由 tenant starter 提供） |
@@ -215,7 +215,7 @@ public class YudaoCacheProperties {
 
 ### 练习 3：挑战（选做）
 
-实现"缓存击穿保护"：当缓存失效瞬间，**只有一个线程**能查 DB，其他线程等待。提示：Redisson 的 `RLock`。
+> 学完 [缓存三大问题](../../_common/03-cache-patterns/02-three-problems.md) 与 [17-distributed-lock](./17-distributed-lock.md) 后再做：实现"缓存击穿保护"：当缓存失效瞬间，**只有一个线程**能查 DB，其他线程等待。提示：Redisson 的 `RLock`。
 
 ## 6. 参考资料
 

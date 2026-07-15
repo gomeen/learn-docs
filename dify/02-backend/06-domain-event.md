@@ -12,8 +12,8 @@
 
 ## 📚 前置知识
 
-- 02-backend/01-ddd-concepts.md（聚合根）
-- 02-backend/04-domain-service.md（领域服务）
+- [聚合根](./01-ddd-concepts.md)
+- [领域服务](./04-domain-service.md)
 - Python 函数与回调基础
 
 ## 1. 核心概念
@@ -22,7 +22,9 @@
 
 领域事件是**过去发生过的业务事实**。它的命名是过去式（`OrderPlaced`、`UserRegistered`），表示已经发生的事情。
 
-**核心思想**：当一个聚合状态改变时，发布一个事件，**其他模块订阅并响应**。发布者不知道订阅者是谁，解耦业务逻辑。
+**核心思想**：当一个聚合状态改变时，发布一个事件，**其他模块订阅并响应**。发布者不知道订阅者是谁，解耦业务逻辑（观察者模式详见 [观察者](../../_fundamentals/06-design-patterns/15-observer.md)）。
+
+事件体常用不可变数据载体表达（`@dataclass` 详见 [dataclass](../01-fundamentals/36-dataclasses.md)）：
 
 ```python
 # 事件定义
@@ -74,7 +76,7 @@ def app_was_created(app: App):
 
 事件总线的实现：
 - **进程内同步事件**：通过简单的 handler 注册表
-- **异步事件**：通过 Celery 任务（见 `api/tasks/`）
+- **异步事件**：通过 Celery 任务（见 `api/tasks/`；Celery 架构详见 [Celery 架构](../04-cache-and-queue/14-celery-architecture.md)）
 
 ### 1.4 同步 vs 异步事件
 

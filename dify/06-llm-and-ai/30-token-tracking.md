@@ -14,7 +14,7 @@
 
 - [Token、上下文窗口与计费](./03-tokens-context.md)
 - [dify 的模型适配层](./28-model-runtime.md)
-- Python `Decimal`、Pydantic 和数据库事务基础
+- Python `Decimal`、Pydantic 和数据库事务（详见 [Pydantic 基础](../02-backend/15-pydantic-basics.md)）
 
 ## 1. 核心概念
 

@@ -12,8 +12,8 @@
 
 ## 📚 前置知识
 
-- 01-ioc.md
-- 观察者模式基础
+- [01-ioc.md](./01-ioc.md)
+- 观察者模式基础（详见 [观察者](../../_fundamentals/06-design-patterns/15-observer.md)）
 
 ## 1. 核心概念
 
@@ -42,7 +42,7 @@ applicationEventPublisher.publishEvent(new UserRegisteredEvent(user));
 ### 1.3 同步 vs 异步
 
 - **同步事件**（默认）：发布者线程同步执行所有监听器，监听器慢会阻塞发布者
-- **异步事件**：监听器上加 `@Async`，需要 `@EnableAsync`
+- **异步事件**：监听器上加 `@Async`，需要 `@EnableAsync`（`@Async` 详见 [22-async](./22-async.md)）
 
 ## 2. 代码示例
 

@@ -13,9 +13,9 @@
 ## 📚 前置知识
 
 - Git 基本操作（分支 / 合并 / PR）
-- Docker 镜像构建与推送
+- [Docker 镜像构建与推送](../09-containerization/01-concepts.md)
 - 单元测试与集成测试基本概念
-- /Users/xu/code/gomeen/learn-docs/_common/09-containerization/01-concepts.md
+- 工具专篇：[GitHub Actions](./02-github-actions.md) / [GitLab CI](./03-gitlab-ci.md) / [Jenkins](./04-jenkins.md)；发布策略见 [12-deploy-strategies](../12-deploy-strategies/)
 
 ## 1. 核心概念
 

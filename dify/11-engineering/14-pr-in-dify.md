@@ -15,7 +15,7 @@
 
 ## 📚 前置知识
 
-- GitHub Issue、Fork、Branch 与 Pull Request 基础
+- GitHub Issue、Fork、Branch 与 Pull Request 基础（详见 [Git 工作流](../01-fundamentals/31-git-workflow.md)）
 - Markdown 注释、表格和任务清单语法
 - 了解 Lint、Type Check、测试和文档更新
 - 建议先学习：[提 PR 的最佳实践](./13-pr-best-practices.md)

@@ -12,9 +12,8 @@
 
 ## 📚 前置知识
 
-- 11.1 - 11.2 节 CI/CD 概念
+- [11.1 CI/CD 概念](./01-concepts.md) / [11.2 GitHub Actions](./02-github-actions.md)
 - GitLab / GitHub 平台的基本使用
-- /Users/xu/code/gomeen/learn-docs/_common/11-cicd/02-github-actions.md
 
 ## 1. 核心概念
 

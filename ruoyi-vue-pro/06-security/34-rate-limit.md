@@ -12,8 +12,10 @@
 
 ## 📚 前置知识
 
-- Redis 基础
-- 算法基础
+- Redis 基础（详见 [Redis 数据结构](../../_common/01-redis/01-data-structures.md)）
+- 限流算法通用原理（详见 [限流算法](../../_common/03-cache-patterns/04-rate-limiting.md)）
+- Redisson 限流器（详见 [RRateLimiter](../05-cache-and-mq/04-redisson-rate-limiter.md)）
+- 防重放攻击（与限流不同，详见 [防重放](../../_common/05-web-security/07-replay-attack.md)）
 
 ## 1. 核心概念
 

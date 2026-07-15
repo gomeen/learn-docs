@@ -34,7 +34,7 @@ Maven 多模块通过"父子项目 + 模块拆分"解决：
 | 关系         | 描述                                               |
 |------------|--------------------------------------------------|
 | **聚合（aggregation）** | 父 POM 用 `<modules>` 聚合多个子模块，用于统一构建（一个 `mvn install` 编译所有子项目） |
-| **继承（inheritance）** | 父 POM 通过 `<dependencyManagement>` 配置，子模块自动继承默认版本号 |
+| **继承（inheritance）** | 父 POM 通过 `<dependencyManagement>` 配置，子模块自动继承默认版本号（BOM 与版本统一详见 [12-maven-bom](./12-maven-bom.md)） |
 
 二者经常组合——一个父 POM 既聚合又管理依赖。
 

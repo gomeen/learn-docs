@@ -28,7 +28,7 @@ print(sys.getswitchinterval())  # 默认 0.005 秒（线程切换间隔）
 
 ### 1.2 GIL 的存在原因
 
-CPython 使用**引用计数**管理内存（`sys.getrefcount`）：
+CPython 使用**引用计数**管理内存（`sys.getrefcount`；内存管理全景见 [41-memory-management](./41-memory-management.md)）：
 
 ```python
 a = [1, 2, 3]  # refcount = 1

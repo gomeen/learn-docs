@@ -12,7 +12,8 @@
 
 ## 📚 前置知识
 
-- 13-controller.md
+- [13-controller.md](./13-controller.md)
+- 泛型（详见 [03-generics](../01-java-fundamentals/03-generics.md)）
 
 ## 1. 核心概念
 

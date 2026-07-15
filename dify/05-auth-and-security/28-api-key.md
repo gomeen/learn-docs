@@ -12,9 +12,9 @@
 
 ## 📚 前置知识
 
-- 25-key-management.md
-- 11-resource-ownership.md
-- 03-jwt-auth.md
+- 密钥管理（详见 [密钥管理](../../_common/06-encryption/05-key-management.md)）
+- 租户隔离（详见 [资源所有权与租户隔离](./11-resource-ownership.md)）
+- JWT / OAuth 对比背景（详见 [JWT](../../_common/07-authentication/03-jwt.md)、[OAuth 2.0](../../_common/07-authentication/05-oauth2.md)）
 
 ## 1. 核心概念
 
@@ -27,6 +27,8 @@
 | 撤销 | 删记录即可 | 删记录即可 | 等 exp |
 | 寿命 | 长（可永久） | 中等 | 短 |
 | 携带 | Header / Query | Header | Header |
+
+> 📌 **Sighting**：Bearer / HTTP 认证头语义见 [HTTP 认证基础](../../_common/07-authentication/01-http-auth.md)；JWT 结构与无状态见 [JWT](../../_common/07-authentication/03-jwt.md)。
 
 ### 1.2 API Key 设计原则
 
@@ -44,7 +46,7 @@ dify 区分两种 API Key：
 | 应用 API Key | `app-` | 调用 dify 应用（开发者） |
 | 数据源 API Key | 内部存 | 第三方平台（Notion 等） |
 
-应用 API Key 由 dify 自己签发，数据源 API Key 由用户手动填入（dify 加密存储）。
+应用 API Key 由 dify 自己签发，数据源 API Key 由用户手动填入（dify 加密存储；哈希与对称加密详见 [哈希算法](../../_common/06-encryption/03-hash.md)、[对称加密](../../_common/06-encryption/01-symmetric.md)）。
 
 ## 2. 代码示例
 

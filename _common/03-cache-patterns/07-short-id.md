@@ -12,9 +12,9 @@
 
 ## 📚 前置知识
 
-- 分布式 ID 生成（`03-cache-patterns/06-distributed-id.md`）
+- [分布式 ID 生成](./06-distributed-id.md)
 - Base64 / Hex 编码基础
-- 哈希函数（MD5 / SHA）
+- 哈希函数（MD5 / SHA，见 [加密哈希](../06-encryption/03-hash.md)）
 
 ## 1. 核心概念
 

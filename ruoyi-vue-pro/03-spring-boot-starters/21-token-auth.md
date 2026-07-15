@@ -14,7 +14,8 @@
 
 - [19-security-starter.md](./19-security-starter.md)
 - [20-spring-security.md](./20-spring-security.md)
-- OAuth2 基础（AccessToken、RefreshToken）
+- OAuth2 基础（AccessToken、RefreshToken；详见 [OAuth2](../../_common/07-authentication/05-oauth2.md)）
+- JWT 原理见 [JWT](../../_common/07-authentication/03-jwt.md)；Token 刷新见 [Token 刷新](../../_common/07-authentication/04-token-refresh.md)
 
 ## 1. 核心概念
 

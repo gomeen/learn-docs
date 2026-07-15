@@ -12,9 +12,9 @@
 
 ## 📚 前置知识
 
-- 阅读过 `10-velocity.md`
-- 阅读过 `01-overview.md`
-- Spring Boot 三层架构（Controller / Service / DAO）
+- Velocity（详见 [Velocity](./10-velocity.md)）
+- 总览（详见 [总览](./01-overview.md)）
+- Spring Boot 三层架构（详见 [MVC 分层](../07-business-modules/02-mvc-layers.md)）
 
 ## 1. 核心概念
 

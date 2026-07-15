@@ -12,9 +12,9 @@
 
 ## 📚 前置知识
 
-- Spring AOP 基础
-- 消息队列（Redis Stream / RabbitMQ）
-- 09-menu.md
+- Spring AOP（详见 [AOP](../02-spring-boot/03-aop.md)）
+- 消息队列（详见 [MQ 概念](../../_common/02-mq/01-concepts.md)、[Redis Stream 实现](../05-cache-and-mq/14-redis-stream-impl.md)）
+- 菜单权限（详见 [菜单](./09-menu.md)）
 
 ## 1. 核心概念
 

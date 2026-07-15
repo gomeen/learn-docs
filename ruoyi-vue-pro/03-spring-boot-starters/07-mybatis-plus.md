@@ -7,13 +7,13 @@
 完成本文档后，你将能够：
 - 理解 MyBatis Plus 的核心组件（BaseMapper、IService、Wrapper）
 - 掌握 `LambdaQueryWrapper` 链式 API
-- 理解 `@TableField`、`@TableLogic`、`@TableName` 等注解
+- 理解 `@TableField`、`@TableLogic`、`@TableName` 等注解（逻辑删除详见 [15-logic-delete](../04-database/15-logic-delete.md)）
 - 能在 yudao 中熟练使用 MyBatis Plus 进行 CRUD
 
 ## 📚 前置知识
 
-- MyBatis 基础（Mapper.xml 方式）
-- Java 8 Lambda 表达式
+- MyBatis 基础（Mapper.xml 方式；对比见 [09-mybatis-vs-mp](../04-database/09-mybatis-vs-mp.md)）
+- Java 8 Lambda 表达式（详见 [08-stream-lambda](../01-java-fundamentals/08-stream-lambda.md)）
 - [06-mybatis-starter.md](./06-mybatis-starter.md)
 
 ## 1. 核心概念

@@ -1,6 +1,6 @@
 # 1.3.5 线程池：ExecutorService
 
-> 掌握 Java 线程池的核心参数、工作原理与拒绝策略，能在 Spring Boot 中合理配置 `@Async` 的线程池。
+> 掌握 Java 线程池的核心参数、工作原理与拒绝策略，能在 Spring Boot 中合理配置 `@Async` 的线程池（`@Async` 用法详见 [22-async](../02-spring-boot/22-async.md)）。
 
 ## 🎯 学习目标
 

@@ -13,7 +13,7 @@
 ## 📚 前置知识
 
 - 09-testing/03-coverage.md
-- 01-fundamentals/12-async-asyncio.md
+- Python 异步编程（详见 [async/await 与 asyncio](../01-fundamentals/12-async-asyncio.md)）
 - 09-testing/05-pytest-basics.md
 
 ## 1. 核心概念
@@ -54,7 +54,7 @@ pytest-cov 注入覆盖率收集
 ```python
 import pytest
 
-# 模式 1：装饰器（推荐）
+# 模式 1：装饰器写法（推荐；装饰器原理详见 [装饰器](../01-fundamentals/10-decorator.md)）
 @pytest.mark.asyncio
 async def test_async_func():
     result = await async_operation()

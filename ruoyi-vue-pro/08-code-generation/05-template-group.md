@@ -12,8 +12,8 @@
 
 ## 📚 前置知识
 
-- 阅读过 `01-overview.md`
-- 了解基本的 CRUD 业务
+- 总览（详见 [总览](./01-overview.md)）
+- 基本 CRUD 业务（详见 [MVC 分层](../07-business-modules/02-mvc-layers.md)）
 
 ## 1. 核心概念
 

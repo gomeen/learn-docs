@@ -194,7 +194,7 @@ def init_app(app: DifyApp):
 
 **解读**：
 - 第 5-13 行：可选的文件 handler，按大小切割
-- 第 16-17 行：始终有 stdout handler（Docker / K8s 友好）
+- 第 16-17 行：始终有 stdout handler（Docker / K8s 友好，详见 [Docker 核心概念](../../_common/09-containerization/01-concepts.md)）
 - 第 20-24 行：**所有 handler 都加两个 filter**——确保 trace_id 和 identity 始终注入
 - 第 27-31 行：每个 handler 设置统一的 formatter
 - 第 34-38 行：`basicConfig(level=..., handlers=..., force=True)` 重置 root logger

@@ -12,9 +12,10 @@
 
 ## 📚 前置知识
 
-- 06-llm-and-ai/14-function-calling.md
-- 06-llm-and-ai/15-tool-schema.md
-- 06-llm-and-ai/01-llm-overview.md（理解 dify LLM 抽象层）
+- [Function Calling](./14-function-calling.md)
+- [Tool Schema](./15-tool-schema.md)
+- dify LLM 抽象层（详见 [主流大模型对比](./01-llm-overview.md)）
+- CoT / ReAct 背景（详见 [CoT](./09-cot.md)、[ReAct](./10-react.md)）
 
 ## 1. 核心概念
 

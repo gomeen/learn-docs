@@ -370,7 +370,7 @@ def node_execution_trace(self, **kwargs) -> WorkflowNodeTraceInfo | dict[str, An
 
 ### 练习 1：基础（必做）
 
-实现一个 `LLMCallTracer` 装饰器：自动捕获 LLM 调用的 prompt、response、token 数、延迟，并写入 dify 的 `WorkflowNodeExecutionModel.outputs`。
+> 学完 [装饰器](../01-fundamentals/10-decorator.md) 后再做：实现一个 `LLMCallTracer` 装饰器，自动捕获 LLM 调用的 prompt、response、token 数、延迟，并写入 dify 的 `WorkflowNodeExecutionModel.outputs`。
 
 ### 练习 2：进阶
 

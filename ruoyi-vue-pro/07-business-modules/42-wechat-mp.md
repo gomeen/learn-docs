@@ -14,7 +14,8 @@
 
 - 微信公众平台文档
 - XML 处理
-- 21-member-auth.md
+- 会员认证（详见 [会员认证](./21-member-auth.md)）
+- OAuth / 社交登录（详见 [OAuth 2.0](../../_common/07-authentication/05-oauth2.md)、[社交登录](../06-security/13-social-login.md)）
 
 ## 1. 核心概念
 

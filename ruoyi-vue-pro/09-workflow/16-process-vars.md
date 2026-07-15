@@ -12,9 +12,9 @@
 
 ## 📚 前置知识
 
-- 10-form-data.md（表单数据持久化）
-- 12-start-process.md（启动流程）
-- 14-approval.md（审批操作）
+- 表单数据持久化（详见 [表单数据](./10-form-data.md)）
+- 启动流程（详见 [启动流程](./12-start-process.md)）
+- 审批操作（详见 [审批](./14-approval.md)）
 
 ## 1. 核心概念
 

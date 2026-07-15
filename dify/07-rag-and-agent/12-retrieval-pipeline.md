@@ -12,7 +12,7 @@
 
 ## 📚 前置知识
 
-- 07-rag-and-agent/06-knowledge-base-in-dify.md 至 11-metadata-filter.md
+- 知识库与检索子步骤（详见 [知识库 in dify](./06-knowledge-base-in-dify.md)、[相似度检索](./07-similarity-search.md)、[Hybrid Search](./08-hybrid-search.md)、[Rerank](./09-rerank.md)、[元数据过滤](./11-metadata-filter.md)）
 
 ## 1. 核心概念
 

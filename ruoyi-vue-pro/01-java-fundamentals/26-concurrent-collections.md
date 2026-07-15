@@ -235,7 +235,7 @@ public class SimpleThreadPool {
 
 **文件位置**：`/Users/xu/code/github/ruoyi-vue-pro/yudao-framework/yudao-spring-boot-starter-protection/src/main/java/cn/iocoder/yudao/framework/ratelimiter/core/annotation/RateLimiter.java`（实际类路径视模块而定）
 
-> ruoyi-vue-pro 在幂等性、限流等模块内部用 `ConcurrentHashMap` 做本地缓存，下面是框架中典型的 RateLimiter / Idempotent 切面实现。
+> ruoyi-vue-pro 在幂等性、限流等模块内部用 `ConcurrentHashMap` 做本地缓存，下面是框架中典型的 RateLimiter / Idempotent 切面实现（限流模式见 [限流](../../_common/03-cache-patterns/04-rate-limiting.md)，ruoyi 封装见 [18-rate-limiter](../03-spring-boot-starters/18-rate-limiter.md)）。
 
 **文件位置**：`/Users/xu/code/github/ruoyi-vue-pro/yudao-framework/yudao-spring-boot-starter-protection/src/main/java/cn/iocoder/yudao/framework/ratelimiter/core/key/RateLimiterKeyResolver.java`（抽象类参考）
 **核心代码**（抽象类 + 默认实现，节选）：

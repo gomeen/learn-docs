@@ -12,9 +12,11 @@
 
 ## 📚 前置知识
 
-- 02-mvc-layers.md（三层架构）
-- 04-dto-vo-do.md（对象转换）
-- 06-common-result.md（统一响应）
+- 三层架构（详见 [MVC 分层](./02-mvc-layers.md)）
+- 对象转换（详见 [DTO/VO/DO](./04-dto-vo-do.md)）
+- 统一响应（详见 [CommonResult](./06-common-result.md)）
+- RBAC 与权限标识（详见 [RBAC](../../_common/08-authorization/01-rbac.md)）
+- 密码哈希（详见 [哈希](../../_common/06-encryption/03-hash.md)）
 
 ## 1. 核心概念
 
@@ -68,7 +70,7 @@ public class AdminUserDO extends TenantBaseDO {
 
 ### 1.3 关键设计点
 
-1. **多租户**：继承 `TenantBaseDO`，自动支持多租户隔离
+1. **多租户**：继承 `TenantBaseDO`，自动支持多租户隔离（详见 [多租户](../../_common/08-authorization/05-multi-tenant.md)）
 2. **密码加密**：使用 `BCryptPasswordEncoder`，自带 salt
 3. **JSON 字段**：`postIds` 用 `JacksonTypeHandler` 存储到 MySQL 的 JSON 列
 4. **逻辑删除**：继承 `TenantBaseDO` 后自动获得 createTime、updateTime、creator、updater 等字段

@@ -242,6 +242,7 @@ def login_required(func):
 ```
 
 **解读**：
+- 用装饰器统一检查 Header（装饰器原理见 [10-decorator](./10-decorator.md)）；本文关注 **Authorization Header 语义**
 - 第 12 行：所有受保护端点必须带 `Authorization: Bearer <key>`
 - 第 13-14 行：缺失或格式错误返回 401 Unauthorized
 - 第 16-18 行：API key 无效返回 401

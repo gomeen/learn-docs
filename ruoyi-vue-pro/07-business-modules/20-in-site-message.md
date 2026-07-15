@@ -12,9 +12,9 @@
 
 ## 📚 前置知识
 
-- 19-sms.md
-- WebSocket 基础
-- 06-common-result.md
+- 短信（详见 [短信](./19-sms.md)）
+- WebSocket 基础（详见 [WebSocket Starter](../03-spring-boot-starters/38-websocket.md)）
+- 统一响应（详见 [CommonResult](./06-common-result.md)）
 
 ## 1. 核心概念
 

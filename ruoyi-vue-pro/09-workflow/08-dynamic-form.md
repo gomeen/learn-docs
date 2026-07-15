@@ -12,8 +12,9 @@
 
 ## 📚 前置知识
 
-- 03-ruoyi-workflow.md（ruoyi BPM 模块结构）
+- ruoyi BPM 模块结构（详见 [ruoyi 工作流](./03-ruoyi-workflow.md)）
 - JSON 基础
+- 业务侧动态表单概述（详见 [业务动态表单](../07-business-modules/34-dynamic-form.md)）
 
 ## 1. 核心概念
 

@@ -35,8 +35,8 @@
 | 方案 | 优点 | 缺点 |
 |------|------|------|
 | **服务器内存** | 最快 | 不跨服务器 |
-| **Redis 集中存储** | 跨服务器、TTL 自动清理 | 多一次网络 IO |
-| **JWT 无状态 Token** | 无需存储 | 无法主动失效 |
+| **[Redis](../01-redis/01-data-structures.md) 集中存储** | 跨服务器、TTL 自动清理 | 多一次网络 IO |
+| **[JWT](../07-authentication/03-jwt.md) 无状态 Token** | 无需存储 | 无法主动失效 |
 
 ### 1.3 Session 与 Token 的对比
 
@@ -200,9 +200,9 @@ def login():
     response.set_cookie(
         "session_id",
         session_id,
-        httponly=True,        # 防 XSS 窃取
+        httponly=True,        # 防 [XSS](../05-web-security/02-xss.md) 窃取
         secure=True,          # 仅 HTTPS
-        samesite="Lax",       # 防 CSRF
+        samesite="Lax",       # 防 [CSRF](../05-web-security/04-csrf.md)
         max_age=3600,
     )
     return response

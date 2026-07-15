@@ -12,7 +12,7 @@
 
 ## 📚 前置知识
 
-- 11-frontend/10-element-plus.md
+- Element Plus（详见 [Element Plus](./10-element-plus.md)）
 - React/Vue 组件库基础知识
 
 ## 1. 核心概念

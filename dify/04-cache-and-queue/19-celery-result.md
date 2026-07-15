@@ -12,14 +12,13 @@
 
 ## 📚 前置知识
 
-- Celery 基础架构
-- 14-celery-architecture.md
+- Celery 基础架构（详见 [Celery 架构](./14-celery-architecture.md)）
 
 ## 1. 核心概念
 
 ### 1.1 什么是 Result Backend？
 
-任务执行完毕后，Celery 把**返回值**存到 Backend（如 Redis），客户端可以通过 `task_id` 查询。
+任务执行完毕后，Celery 把**返回值**存到 Backend（如 Redis，详见 [Redis 数据结构](../../_common/01-redis/01-data-structures.md)），客户端可以通过 `task_id` 查询。
 
 ```
 Worker 执行 → 存结果到 Backend (Redis)

@@ -7,13 +7,13 @@
 完成本文档后，你将能够：
 - 理解 DP 的两个关键：状态定义 + 状态转移
 - 掌握自顶向下（记忆化）和自底向上（迭代）两种实现
-- 区分 DP 与分治、贪心的取舍
-- 能在 dify 中识别 DP 的应用
+- 区分 DP 与[分治](./18-divide-conquer.md)、[贪心](./17-greedy.md)的取舍
+- 能在 dify 中识别 DP 的应用；进阶题型见 [14-knapsack](./14-knapsack.md) / [15-lcs-lis](./15-lcs-lis.md) / [16-interval-dp](./16-interval-dp.md)
 
 ## 📚 前置知识
 
-- 09-recursion.md
-- 18-divide-conquer.md
+- [09-recursion](./09-recursion.md)
+- [18-divide-conquer](./18-divide-conquer.md)
 
 ## 1. 核心概念
 

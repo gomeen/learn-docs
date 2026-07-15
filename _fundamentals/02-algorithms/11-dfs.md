@@ -7,12 +7,12 @@
 完成本文档后，你将能够：
 - 掌握 DFS 的递归和迭代两种实现
 - 理解 DFS 在图遍历、连通分量、环检测中的应用
-- 区分 DFS vs BFS 的应用场景
+- 区分 DFS vs [BFS](./12-bfs.md) 的应用场景
 - 能在 dify 中识别 DFS 的应用
 
 ## 📚 前置知识
 
-- 17-graph.md
+- [17-graph](../01-data-structures/17-graph.md)
 - 09-recursion.md
 
 ## 1. 核心概念

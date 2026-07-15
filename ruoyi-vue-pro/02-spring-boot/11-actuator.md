@@ -12,8 +12,9 @@
 
 ## 📚 前置知识
 
-- 08-auto-config.md（自动配置）
-- 10-config.md（配置文件）
+- [08-auto-config.md](./08-auto-config.md)（自动配置）
+- [10-config.md](./10-config.md)（配置文件）
+- 更完整的监控集成见 [35-monitor](../03-spring-boot-starters/35-monitor.md)
 
 ## 1. 核心概念
 

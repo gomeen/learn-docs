@@ -14,8 +14,8 @@
 
 ## 📚 前置知识
 
-- `08-devops/01-docker-concepts.md`
-- `08-devops/04-docker-compose.md`
+- Docker 镜像 / 容器（详见 [Docker 核心概念](../../_common/09-containerization/01-concepts.md)）
+- Docker Compose 多容器编排（详见 [Docker Compose](../../_common/09-containerization/04-compose.md)）
 
 ## 1. 核心概念
 
@@ -65,7 +65,7 @@ kubectl apply -f deployment.yaml
 | 规模 | 单机 | 跨节点集群 |
 | 自愈 | 弱（仅 restart） | 强（自动重启/迁移） |
 | 扩缩容 | 手动 | 自动（HPA） |
-| 滚动更新 | 不支持 | 内置（RollingUpdate） |
+| 滚动更新 | 不支持 | 内置（RollingUpdate，详见 [滚动发布](../../_common/12-deploy-strategies/03-rolling-and-ab.md)） |
 | 服务发现 | 容器名 DNS | Service + kube-dns |
 | 配置管理 | .env 文件 | ConfigMap / Secret |
 | 学习曲线 | 平缓 | 陡峭 |

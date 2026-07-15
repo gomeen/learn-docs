@@ -20,7 +20,7 @@
 
 ### 1.1 为什么需要 Cluster？
 
-主从 + Sentinel 解决的是**高可用**，但单 Master 的内存和 QPS 仍有上限。Cluster 通过**数据分片**突破单机限制。
+主从 + [Sentinel](./03-replication-sentinel.md) 解决的是**高可用**，但单 Master 的内存和 QPS 仍有上限。Cluster 通过**数据分片**突破单机限制。
 
 ### 1.2 核心概念：16384 个 slot
 

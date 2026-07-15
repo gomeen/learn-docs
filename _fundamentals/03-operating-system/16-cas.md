@@ -7,11 +7,11 @@
 完成本文档后，你将能够：
 - 理解 CAS 的原理和 ABA 问题
 - 掌握 Java AtomicInteger 等原子类的实现
-- 能在 dify 中识别 CAS 的应用（Redis 原子操作）
+- 能在 dify 中识别 CAS 的应用（Redis 原子操作）；可见性相关见 [17-memory-model](./17-memory-model.md) / [18-volatile](./18-volatile.md)
 
 ## 📚 前置知识
 
-- 15-lock-types.md
+- [15-lock-types](./15-lock-types.md)
 
 ## 1. 核心概念
 

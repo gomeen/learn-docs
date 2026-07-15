@@ -13,8 +13,8 @@
 ## 📚 前置知识
 
 - [01-starter-mechanism.md](./01-starter-mechanism.md)
-- Spring 条件注解（@ConditionalOnClass、@ConditionalOnBean）
-- Spring Boot 启动流程（SpringApplication.run）
+- Spring 条件注解（@ConditionalOnClass、@ConditionalOnBean；详见 [04-conditional](./04-conditional.md)）
+- Spring Boot 启动流程（详见 [07-startup](../02-spring-boot/07-startup.md) / [08-auto-config](../02-spring-boot/08-auto-config.md)）
 
 ## 1. 核心概念
 

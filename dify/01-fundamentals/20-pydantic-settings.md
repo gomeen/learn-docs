@@ -84,7 +84,7 @@ class AppSettings(BaseSettings):
 
 ### 1.4 自定义配置源：TOML / Apollo / Nacos
 
-dify 的 `DifyConfig` 用 `TomlConfigSettingsSource` 从 TOML 加载，并支持 Apollo、Nacos 远程配置中心：
+dify 的 `DifyConfig` 用 `TomlConfigSettingsSource` 从 TOML 加载（YAML/TOML 语法见 [18-config-file-format](./18-config-file-format.md)），并支持 Apollo、Nacos 远程配置中心：
 
 ```python
 from pydantic_settings import BaseSettings, TomlConfigSettingsSource
@@ -277,7 +277,7 @@ class RemoteSettingsSourceFactory(PydanticBaseSettingsSource):
 
 ### 练习 3：挑战（选做）
 
-实现一个 `YAMLConfigSettingsSource`，让 `pydantic-settings` 能从 YAML 文件加载配置（dify 暂未实现，可以贡献）。
+实现一个 `YAMLConfigSettingsSource`，让 `pydantic-settings` 能从 YAML 文件加载配置（YAML 语法见 [18-config-file-format](./18-config-file-format.md)；dify 暂未实现，可以贡献）。
 
 ## 6. 参考资料
 

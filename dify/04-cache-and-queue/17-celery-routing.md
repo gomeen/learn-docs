@@ -12,9 +12,8 @@
 
 ## 📚 前置知识
 
-- Celery 任务定义与调用
-- 队列概念
-- 14-celery-architecture.md、15-celery-tasks.md、16-celery-invoke.md
+- Celery 任务定义与调用（详见 [Celery 架构](./14-celery-architecture.md)、[任务定义](./15-celery-tasks.md)、[任务调用](./16-celery-invoke.md)）
+- 队列概念（详见 [MQ 核心概念](../../_common/02-mq/01-concepts.md)）
 
 ## 1. 核心概念
 
@@ -41,7 +40,7 @@ app.conf.task_routes = {
 }
 ```
 
-**任务装饰器配置**（推荐）：
+**任务装饰器配置**（推荐；`@shared_task` 写法详见 [装饰器](../01-fundamentals/10-decorator.md)）：
 ```python
 @shared_task(queue="email", bind=True)
 def send_email(self, to):
@@ -63,8 +62,8 @@ celery worker -Q priority --concurrency=20
 
 ### 1.4 队列优先级
 
-**RabbitMQ**：原生支持队列优先级（`x-max-priority`）。
-**Redis**：不支持原生优先级，但可以用 Sorted Set 模拟。
+**RabbitMQ**：原生支持队列优先级（`x-max-priority`；详见 [RabbitMQ](../../_common/02-mq/03-rabbitmq.md)）。
+**Redis**：不支持原生优先级，但可以用 Sorted Set 模拟（详见 [Redis 数据结构](../../_common/01-redis/01-data-structures.md)）。
 
 dify 的"订阅级别"队列本质上是一种**业务优先级**：
 - PROFESSIONAL 队列资源最多

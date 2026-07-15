@@ -13,10 +13,10 @@
 
 ## 📚 前置知识
 
-- [04-model-parameters.md](./04-model-parameters.md)
-- [05-llm-limitations.md](./05-llm-limitations.md)
-- [07-decorator.md](../01-fundamentals/10-decorator.md)
-- 外部基础：提示词角色、基本概率和软件验证思维
+- [模型参数](./04-model-parameters.md)
+- [LLM 局限](./05-llm-limitations.md)
+- Prompt 角色与基础写法（详见 [Prompt 基础](./07-prompt-basics.md)）
+- 外部基础：基本概率和软件验证思维
 
 ## 1. 核心概念
 

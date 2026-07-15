@@ -12,9 +12,9 @@
 
 ## 📚 前置知识
 
-- 阅读过 `10-velocity.md`、`11-java-template.md`
+- Velocity / Java 模板（详见 [Velocity](./10-velocity.md)、[Java 模板](./11-java-template.md)）
 - 基本的 SQL 语法（INSERT）
-- 了解 ruoyi 菜单表 `system_menu` / 角色表 `system_role_menu`
+- ruoyi 菜单 / 角色表（详见 [菜单](../07-business-modules/09-menu.md)、[角色](../07-business-modules/08-role.md)）
 
 ## 1. 核心概念
 

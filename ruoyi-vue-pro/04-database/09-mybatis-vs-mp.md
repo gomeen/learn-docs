@@ -13,7 +13,8 @@
 ## 📚 前置知识
 
 - MyBatis 基础（可选）
-- Java 反射机制（可选）
+- Java 反射机制（可选，详见 [05-reflection](../01-java-fundamentals/05-reflection.md)）
+- Starter 架构见 [06-mybatis-starter](../03-spring-boot-starters/06-mybatis-starter.md)
 
 ## 1. 核心概念
 

@@ -11,9 +11,9 @@
 - 看懂 dify 如何引导首次贡献者、Bug 报告者和 PR 作者
 
 ## 📚 前置知识
-- Git 分支、提交、Fork 和 Pull Request 基础
+- Git 分支、提交、Fork 和 Pull Request 基础（详见 [Git 工作流](../01-fundamentals/31-git-workflow.md)、[Conventional Commits](../01-fundamentals/32-conventional-commits.md)）
 - Markdown 标题、列表、链接与代码块语法
-- 基本的软件测试和持续集成概念
+- 基本的软件测试和持续集成概念（详见 [CI/CD 概念](../../_common/11-cicd/01-concepts.md)）
 - 建议先阅读 `./13-pr-best-practices.md`
 - 建议结合 `./19-issue-management.md` 理解 Issue 与 PR 的衔接
 

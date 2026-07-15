@@ -189,7 +189,7 @@ public class OrderService {
 - 4 角色：Command、ConcreteCommand、Invoker、Receiver
 - Celery 任务、Spring Retry 都是命令模式
 - 适用：撤销/重做、队列化、宏命令
-- 与策略区别：策略关注算法切换，命令关注请求封装
+- 与 [策略](./13-strategy.md) 区别：策略关注算法切换，命令关注请求封装
 
 ## 5. 练习题
 

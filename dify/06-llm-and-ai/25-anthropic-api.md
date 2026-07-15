@@ -12,9 +12,9 @@
 
 ## 📚 前置知识
 
-- HTTP / JSON 基础
-- 阅读 6.23 MCP vs Function Calling（`./23-mcp-vs-function-calling.md`）
-- 阅读 `./01-llm-overview.md` 了解 Anthropic 模型家族
+- HTTP / JSON 基础（详见 [HTTP 协议](../01-fundamentals/25-http-protocol.md)、[JSON](../01-fundamentals/17-json-processing.md)）
+- MCP vs Function Calling（详见 [MCP vs Function Calling](./23-mcp-vs-function-calling.md)）
+- Anthropic 模型家族（详见 [主流大模型对比](./01-llm-overview.md)）
 
 ## 1. 核心概念
 
@@ -45,14 +45,14 @@ Body:
 | `max_tokens` | **必填**，限制输出长度 |
 | `messages` | 对话历史，role 必须是 `user` / `assistant`（不能 `system`！） |
 | `system` | 系统提示，独立字段（不在 messages 里） |
-| `tools` | 工具定义（Function Calling） |
-| `stream` | true 时返回 SSE 流 |
+| `tools` | 工具定义（Function Calling，详见 [Function Calling](./14-function-calling.md)） |
+| `stream` | true 时返回 SSE 流（协议详见 [SSE](../01-fundamentals/28-sse.md)；实践见 [流式输出](./27-streaming-sse.md)） |
 | `temperature` / `top_p` / `top_k` | 采样参数 |
 | `stop_sequences` | 自定义停止符 |
 
 ### 1.3 Prompt Caching 原理
 
-Claude 支持**显式 prompt caching**，可以缓存 prompt 前缀降低费用：
+Claude 支持**显式 prompt caching**，可以缓存 prompt 前缀降低费用（完整策略详见 [Prompt Caching](./31-prompt-caching.md)）：
 
 ```json
 {

@@ -12,8 +12,8 @@
 
 ## 📚 前置知识
 
-- Java 基础语法（注解、反射、泛型）
-- Maven 多模块项目结构（`yudao-server`、`yudao-module-*`、`yudao-framework`）
+- Java 基础语法（注解详见 [04-annotation](../01-java-fundamentals/04-annotation.md)，反射详见 [05-reflection](../01-java-fundamentals/05-reflection.md)，泛型详见 [03-generics](../01-java-fundamentals/03-generics.md)）
+- Maven 多模块项目结构（详见 [11-maven-modules](../01-java-fundamentals/11-maven-modules.md)）
 
 ## 1. 核心概念
 
@@ -47,7 +47,7 @@ public class UserService {
 | **Setter 注入** | `@Autowired void setXxx(Xxx xxx) {...}` | 灵活、可选依赖 | 容易忘记注入导致 NPE |
 | **字段注入** | `@Autowired private Xxx xxx;` | 简洁 | 不易测试、隐藏依赖、不可变对象无法用 |
 
-**最佳实践**：强制依赖用构造器注入，可选依赖用 Setter，**避免字段注入**（ruoyi-vue-pro 大量使用 Lombok `@RequiredArgsConstructor` 实现构造器注入）。
+**最佳实践**：强制依赖用构造器注入，可选依赖用 Setter，**避免字段注入**（ruoyi-vue-pro 大量使用 Lombok `@RequiredArgsConstructor` 实现构造器注入，详见 [14-lombok](../01-java-fundamentals/14-lombok.md)）。
 
 ### 1.3 常用注入注解
 
@@ -159,7 +159,7 @@ public WebFrameworkUtils webFrameworkUtils(WebProperties webProperties) {
 - 第 84 行：`@Bean` 注解告诉 Spring：这个方法的返回值是一个 Bean，请注册到容器
 - 第 85 行：方法参数 `ApiErrorLogCommonApi` 由 Spring 自动注入
 - 第 87 行：`@SuppressWarnings` 抑制 IDEA 对"非 @Component 但被 @Bean 注入"的告警
-- **关键设计**：使用 Java Config（`@Bean`）代替 XML，把所有 Web 相关 Bean 集中在 `YudaoWebAutoConfiguration` 中，符合 ruoyi 的"按模块自动装配"风格
+- **关键设计**：使用 Java Config（`@Bean`）代替 XML，把所有 Web 相关 Bean 集中在 `YudaoWebAutoConfiguration` 中，符合 ruoyi 的"按模块自动装配"风格（自动配置原理详见 [08-auto-config](./08-auto-config.md)）
 
 ## 4. 关键要点总结
 

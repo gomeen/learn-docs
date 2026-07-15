@@ -12,7 +12,8 @@
 
 ## 📚 前置知识
 
-- 07-rag-and-agent/01-rag-overview.md
+- [RAG 概览](./01-rag-overview.md)
+- Token 与上下文窗口（详见 [Tokens 与上下文](../06-llm-and-ai/03-tokens-context.md)）
 - Python 字符串操作
 
 ## 1. 核心概念
@@ -22,7 +23,7 @@
 LLM 有上下文长度限制（如 4K、8K、32K tokens）。把整本书一次性塞给 LLM：
 1. 超出上下文长度
 2. 检索时粒度太粗，召回精度低
-3. Embedding 模型对长文本向量化效果差
+3. Embedding 模型对长文本向量化效果差（详见 [Embedding 模型](../06-llm-and-ai/06-embedding-models.md)）
 
 所以必须**把长文档切成短片段（chunk）**，每个片段独立 Embedding、独立检索。
 

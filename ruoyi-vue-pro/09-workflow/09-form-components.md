@@ -12,8 +12,8 @@
 
 ## 📚 前置知识
 
-- 08-dynamic-form.md（动态表单基础）
-- Vue / 前端表单基础
+- 动态表单基础（详见 [动态表单](./08-dynamic-form.md)）
+- Vue / 前端表单（详见 [Element Form](../11-frontend/11-element-form.md)）
 
 ## 1. 核心概念
 

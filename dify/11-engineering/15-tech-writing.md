@@ -16,7 +16,7 @@
 ## 📚 前置知识
 
 - Markdown 基础语法：标题、列表、链接和代码块
-- Git 与 Pull Request 的基本流程
+- Git 与 Pull Request 的基本流程（详见 [Git 工作流](../01-fundamentals/31-git-workflow.md)）
 - 软件项目中的开发、测试、部署和故障处理常识
 - 建议先浏览 `/Users/xu/code/github/dify/README.md`
 
@@ -89,10 +89,10 @@ README 应明确许可证名称并指向仓库中的许可证正文。
 
 ### ADR：保留决策上下文
 
-ADR 是 **Architecture Decision Record**，即架构决策记录。
+ADR 是 **Architecture Decision Record**，即架构决策记录（完整写法详见 [ADR](./17-adr.md)）。
 它记录一个重要决策的背景、最终选择和后果，而不是复述代码当前长什么样。
 
-只看代码通常能知道“系统采用了 Redis”，却无法知道：
+只看代码通常能知道“系统采用了 Redis”（详见 [Redis 数据结构](../../_common/01-redis/01-data-structures.md)），却无法知道：
 
 - 为什么没有采用数据库队列？
 - 当时有哪些约束？

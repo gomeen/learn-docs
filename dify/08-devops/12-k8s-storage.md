@@ -13,7 +13,7 @@
 
 ## 📚 前置知识
 
-- `08-devops/06-docker-volume.md`（Docker 卷）
+- Docker 卷与 bind mount（详见 [Docker 网络与卷](../../_common/09-containerization/05-network-volume.md)）
 - `08-devops/09-k8s-workloads.md`（StatefulSet）
 
 ## 1. 核心概念
@@ -207,7 +207,7 @@ volumes/
 ├── redis/data/         # Redis 数据
 ├── sandbox/conf/       # sandbox 配置
 ├── sandbox/dependencies/  # sandbox 依赖
-├── certbot/conf/       # 证书
+├── certbot/conf/       # 证书（HTTPS 签发详见 [HTTPS / Let's Encrypt](../../_common/10-network-proxy/03-https.md)）
 └── certbot/www/        # HTTP-01 验证
 ```
 

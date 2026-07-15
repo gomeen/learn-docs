@@ -77,9 +77,9 @@
 
 **❌ 不适合**：
 - **CPU 密集型**：虚拟线程无法让 CPU 密集任务变快（CPU 核数是物理上限）
-- **使用 `synchronized` 阻塞**：JDK 21 修复了大部分 `synchronized` 与虚拟线程的兼容问题，但仍有边界情况
+- **使用 `synchronized` 阻塞**：JDK 21 修复了大部分 `synchronized` 与虚拟线程的兼容问题，但仍有边界情况（锁机制详见 [27-lock](./27-lock.md)）
 - **使用 JNI / 第三方 native 阻塞调用**：虚拟线程在 native 阻塞时仍占着载体线程
-- **线程局部变量（ThreadLocal）过多**：每个虚拟线程都有自己的 ThreadLocal 副本
+- **线程局部变量（ThreadLocal）过多**：每个虚拟线程都有自己的 ThreadLocal 副本（详见 [30-threadlocal](./30-threadlocal.md)）
 
 ### 1.5 JDK 21 虚拟线程的语法
 
@@ -364,7 +364,7 @@ public AsyncTaskExecutor redisStreamExecutor() {
 | **`@Async` 任务** | `ThreadPoolTaskExecutor` | 替换为 `Executors.newVirtualThreadPerTaskExecutor` |
 | **MQ 消费者** | `MessageListenerContainer` | 同上 |
 | **定时任务** | Quartz 线程池 | 不适合（任务少且非阻塞） |
-| **Netty / Redis 客户端** | 独立的事件循环 | 不适合（已经是异步） |
+| **Netty / Redis 客户端** | 独立的事件循环 | 不适合（已经是异步；Netty 见 [32-netty](./32-netty.md)） |
 | **ThreadLocal（TTL）** | TransmittableThreadLocal | 虚拟线程场景下仍是 TTL，因为 TTL 是框架无关的 |
 
 > ⚠️ ruoyi-vue-pro 的 `TransmittableThreadLocal` 在虚拟线程下仍有效，但需要 JDK 21+ 的 `-Djdk.tracePinnedThreads=full` 排查 `synchronized` 阻塞导致的 pinning 问题。

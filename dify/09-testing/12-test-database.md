@@ -1,6 +1,6 @@
 # 12 测试数据库：事务回滚与 fixture
 
-> 掌握测试数据库的核心模式：事务回滚、夹具（fixture）复用、隔离策略。
+> 掌握测试数据库的核心模式：事务回滚、夹具（fixture，详见 [pytest Fixture](./06-pytest-fixture.md)）复用、隔离策略。
 
 ## 🎯 学习目标
 

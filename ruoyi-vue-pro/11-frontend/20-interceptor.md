@@ -12,8 +12,9 @@
 
 ## 📚 前置知识
 
-- 11-frontend/19-axios.md
+- Axios 封装（详见 [Axios](./19-axios.md)）
 - Promise 链式调用
+- JWT / Token 鉴权（请求头携带，详见 [JWT](../../_common/07-authentication/03-jwt.md)、[Token + Redis](../06-security/10-token-redis.md)）
 
 ## 1. 核心概念
 

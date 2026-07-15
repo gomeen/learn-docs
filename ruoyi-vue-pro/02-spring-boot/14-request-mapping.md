@@ -12,7 +12,7 @@
 
 ## 📚 前置知识
 
-- 13-controller.md
+- [13-controller.md](./13-controller.md)
 
 ## 1. 核心概念
 

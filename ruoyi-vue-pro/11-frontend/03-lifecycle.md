@@ -12,7 +12,7 @@
 
 ## 📚 前置知识
 
-- 11-frontend/01-vue3-basics.md
+- Vue3 基础（详见 [Vue3 基础](./01-vue3-basics.md)）
 - JavaScript 同步/异步基础
 
 ## 1. 核心概念

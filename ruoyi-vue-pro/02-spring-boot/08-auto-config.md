@@ -12,8 +12,8 @@
 
 ## 📚 前置知识
 
-- 01-ioc.md
-- 07-startup.md
+- [01-ioc.md](./01-ioc.md)
+- [07-startup.md](./07-startup.md)
 
 ## 1. 核心概念
 
@@ -34,7 +34,7 @@ public @interface SpringBootApplication { ... }
 
 1. `@EnableAutoConfiguration` 导入 `AutoConfigurationImportSelector`
 2. 扫描所有 jar 包的 `META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports`
-3. 根据 `@Conditional` 注解决定是否启用某个自动配置类
+3. 根据 `@Conditional` 注解决定是否启用某个自动配置类（条件装配深水区见 [04-conditional](../03-spring-boot-starters/04-conditional.md)）
 4. 启用后，自动配置类中的 `@Bean` 方法被调用，注册到 Spring 容器
 
 ### 1.3 常见 `@Conditional` 注解
@@ -173,10 +173,10 @@ public class YudaoCacheAutoConfiguration {
 ```
 
 **解读**：
-- 第 17 行：`@AutoConfiguration` 注册到 Spring Boot 自动配置 SPI
+- 第 17 行：`@AutoConfiguration` 注册到 Spring Boot 自动配置 SPI（SPI 机制详见 [03-spi](../03-spring-boot-starters/03-spi.md)）
 - 第 18 行：启用 Spring Boot 内置的 `CacheProperties` 和 ruoyi 自定义的 `YudaoCacheProperties`
-- 第 19 行：`@EnableCaching` 开启 Spring Cache 注解支持（`@Cacheable` 等）
-- **设计模式**：一个 Starter 一个 `AutoConfiguration` + 一个 `Properties`，是 ruoyi-vue-pro 的标准结构
+- 第 19 行：`@EnableCaching` 开启 Spring Cache 注解支持（`@Cacheable` 等，详见 [24-cache](./24-cache.md)）
+- **设计模式**：一个 Starter 一个 `AutoConfiguration` + 一个 `Properties`，是 ruoyi-vue-pro 的标准结构（自定义 Starter 见 [09-custom-starter](./09-custom-starter.md)）
 
 ## 4. 关键要点总结
 

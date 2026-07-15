@@ -58,7 +58,7 @@ CAS(V, E, N):
 **翻译成 x86 指令**：`CMPXCHG`（compare-and-exchange）
 
 **乐观 vs 悲观**：
-- 悲观锁（synchronized/ReentrantLock）：先加锁，再操作
+- 悲观锁（synchronized/ReentrantLock，详见 [27-lock](./27-lock.md)）：先加锁，再操作
 - 乐观锁（CAS）：无锁操作，失败就重试
 
 ### 1.3 CAS 的三大问题
@@ -271,7 +271,7 @@ public class AdderVsAtomicBench {
 
 ### 3.1 Redisson 分布式限流中的 AtomicLong
 
-> ruoyi-vue-pro 通过 Redisson 间接使用 JDK 原子类。Redisson 内部的分布式限流、分布式计数器底层基于 `AtomicLong`。
+> ruoyi-vue-pro 通过 Redisson 间接使用 JDK 原子类。Redisson 内部的分布式限流、分布式计数器底层基于 `AtomicLong`（限流见 [限流](../../_common/03-cache-patterns/04-rate-limiting.md) / [18-rate-limiter](../03-spring-boot-starters/18-rate-limiter.md)）。
 
 **文件位置**：`/Users/xu/code/github/ruoyi-vue-pro/yudao-framework/yudao-spring-boot-starter-redis/src/main/java/cn/iocoder/yudao/framework/redis/config/YudaoRedisAutoConfiguration.java`
 **核心代码**（行 18-35）：

@@ -12,9 +12,9 @@
 
 ## 📚 前置知识
 
-- 了解 LLM 的基本调用方式（参见 `01-llm-overview.md`）
+- 了解 LLM 的基本调用方式（详见 [主流大模型对比](./01-llm-overview.md)）
 - Python 基础语法
-- 06-llm-and-ai/12-prompt-template.md（推荐先看，了解 `{{}}` 变量语法）
+- Prompt 模板变量语法（详见 [Prompt 模板](./12-prompt-template.md)）
 
 ## 1. 核心概念
 
@@ -92,9 +92,9 @@
 
 **三种粒度**：
 
-1. **自然语言描述**："请用 JSON 格式返回，字段包括 name、age" —— 最简单但模型可能不严格遵守
+1. **自然语言描述**："请用 JSON 格式返回，字段包括 name、age" —— 最简单但模型可能不严格遵守（JSON 处理详见 [JSON](../01-fundamentals/17-json-processing.md)）
 2. **Schema 约束**：用 JSON Schema 描述输出结构（dify 的 `SYSTEM_STRUCTURED_OUTPUT_GENERATE`）
-3. **工具调用**（Function Calling）：把输出绑定到函数签名，模型只能按签名填充
+3. **工具调用**（Function Calling，详见 [Function Calling](./14-function-calling.md)）：把输出绑定到函数签名，模型只能按签名填充
 
 ```text
 请按以下 JSON Schema 输出：
@@ -157,7 +157,7 @@ print(final_prompt)
 - 第 7-12 行：明确指令（做什么、不能做什么）
 - 第 14-16 行：用 `<context>` 标签把检索结果隔离，避免模型直接当指令执行
 - 第 24-30 行：明确 JSON 输出结构，下游可直接 `json.loads()` 解析
-- 这是 RAG（检索增强生成）场景的标准范式
+- 这是 RAG（检索增强生成，详见 [RAG 概览](../07-rag-and-agent/01-rag-overview.md)）场景的标准范式
 
 ### 2.2 常见错误
 

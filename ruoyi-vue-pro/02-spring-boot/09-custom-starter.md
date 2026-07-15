@@ -12,8 +12,8 @@
 
 ## 📚 前置知识
 
-- 08-auto-config.md
-- Maven 多模块项目
+- [08-auto-config.md](./08-auto-config.md)
+- Maven 多模块项目（详见 [11-maven-modules](../01-java-fundamentals/11-maven-modules.md)）
 
 ## 1. 核心概念
 
@@ -126,7 +126,7 @@ yudao-spring-boot-starter-web/
     │   ├── encrypt/     # API 加密
     │   ├── jackson/     # JSON 序列化
     │   ├── swagger/     # 接口文档
-    │   └── xss/         # XSS 防护
+    │   └── xss/         # XSS 防护（XSS 原理见 [XSS](../../_common/05-web-security/02-xss.md)）
     └── resources/
         └── META-INF/spring/
             └── org.springframework.boot.autoconfigure.AutoConfiguration.imports

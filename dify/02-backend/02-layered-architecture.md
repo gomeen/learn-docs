@@ -12,9 +12,9 @@
 
 ## 📚 前置知识
 
-- 02-backend/01-ddd-concepts.md（DDD 基础概念）
-- Flask 路由基础（详见 02-backend/08-flask-basics.md）
-- SQLAlchemy ORM 基础（详见 03-database 系列）
+- [DDD 基础概念](./01-ddd-concepts.md)
+- Flask 路由基础（详见 [Flask 基础](./08-flask-basics.md)）
+- SQLAlchemy ORM 基础（详见 [SQLAlchemy 映射](../03-database/12-sqlalchemy-mapping.md)）
 
 ## 1. 核心概念
 
@@ -38,7 +38,7 @@
 |---|------|---------|
 | **Controller** | 解析 HTTP 请求、参数校验、调用 Service、序列化响应 | 直接操作数据库、包含业务规则 |
 | **Service** | 编排多个 Repository 操作、管理事务、跨领域协调 | 处理 HTTP 相关逻辑（request/response） |
-| **Repository** | 封装数据访问（CRUD）、领域对象与 ORM 映射 | 包含业务流程、调用其他 Repository |
+| **Repository** | 封装数据访问（CRUD）、领域对象与 ORM 映射（模式详见 [仓储模式](./03-repository-pattern.md)） | 包含业务流程、调用其他 Repository |
 | **Domain** | 业务规则、领域模型不变性、领域事件 | 依赖任何具体技术（数据库、HTTP 框架） |
 
 ### 1.2 dify 的目录映射
@@ -58,7 +58,7 @@ dify 的实际目录结构对应分层架构：
 **关键约束**：
 - Controller → Service → Repository → Domain
 - 上层依赖下层，**下层不能依赖上层**
-- Domain 层定义接口（Protocol），Repository 层实现接口（依赖倒置）
+- Domain 层定义接口（Protocol，详见 [Protocol 与 Generic](../01-fundamentals/09-protocol-generic.md)），Repository 层实现接口（依赖倒置；DI 详见 [依赖注入](./05-dependency-injection.md)）
 
 这样设计的好处：
 - 测试时可注入 Mock Repository
@@ -193,11 +193,11 @@ class AppApi(Resource):
 ```
 
 **解读**：
-- 第 7-13 行：多个装饰器叠加完成**横切关注点**（鉴权、权限、租户注入）
+- 第 7-13 行：多个装饰器叠加完成**横切关注点**（鉴权、权限、租户注入；装饰器原理详见 [装饰器](../01-fundamentals/10-decorator.md)）
 - 第 14 行：`get_app_model` 装饰器从 URL 中提取 `app_id` 并查询 App
 - 第 16 行：`AppService()` 创建服务实例（注意：dify 习惯直接 `AppService()`）
 - 第 18-21 行：调用 Service 获取 App，然后做权限补充
-- 第 24-26 行：把 ORM 对象转为 Pydantic Response Model 再返回
+- 第 24-26 行：把 ORM 对象转为 Pydantic Response Model 再返回（详见 [Pydantic 基础](./15-pydantic-basics.md)）
 
 ### 3.2 Service 层：`AppService.get_app()`
 
@@ -229,7 +229,7 @@ class AppService:
 ```
 
 **解读**：
-- 第 7-8 行：业务校验放在 Service 层（权限校验属于业务规则）
+- 第 7-8 行：业务校验放在 Service 层（权限校验属于业务规则；多租户隔离详见 [多租户架构](./20-multi-tenancy.md)）
 - 第 11-12 行：填充关联实体（site、model_config）—— Service 层负责编排
 - **不直接操作 SQL**：Service 层不调用 `session.query()`，而是通过 ORM 关系或 Repository 加载
 

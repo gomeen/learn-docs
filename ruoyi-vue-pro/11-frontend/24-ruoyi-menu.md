@@ -12,9 +12,10 @@
 
 ## 📚 前置知识
 
-- 11-frontend/05-vue-router.md
-- 11-frontend/06-pinia.md
-- 11-frontend/23-ruoyi-vue3-structure.md
+- Vue Router（详见 [Vue Router](./05-vue-router.md)）
+- Pinia（详见 [Pinia](./06-pinia.md)）
+- 项目结构（详见 [Vue3 结构](./23-ruoyi-vue3-structure.md)）
+- 后端菜单 / RBAC（详见 [菜单](../07-business-modules/09-menu.md)、[RBAC](../../_common/08-authorization/01-rbac.md)）
 
 ## 1. 核心概念
 

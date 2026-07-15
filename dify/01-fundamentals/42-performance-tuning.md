@@ -93,8 +93,8 @@ python -m timeit '"-".join(str(n) for n in range(100))'
 | 列表推导代替循环 append | ~10-30% |
 | `dict.get()` 代替 `try/except KeyError` | ~3x |
 | 局部变量代替全局变量 | ~10-20% |
-| `__slots__` 节省内存 | ~30% 内存 |
-| `lru_cache` 缓存重复计算 | 数量级加速 |
+| `__slots__` 节省内存（见 [41-memory-management](./41-memory-management.md)） | ~30% 内存 |
+| `lru_cache` 缓存重复计算（见 [38-functools](./38-functools.md)） | 数量级加速 |
 | 用 C 扩展（numpy、pandas） | 10x-100x |
 
 > **永远先 profile，再优化**——大多数优化的「直觉」都是错的。
@@ -317,7 +317,7 @@ print(f"[]: {t1:.4f}s, list(): {t2:.4f}s, listcomp: {t3:.4f}s")
 
 ### 练习 3：挑战（选做）
 
-实现一个 `profile_decorator`：装饰一个函数后，每次调用都打印耗时，并把超过 100ms 的调用记录到日志文件。
+> 学完 [10-decorator](./10-decorator.md) 后再做：实现一个 `profile_decorator`：装饰一个函数后，每次调用都打印耗时，并把超过 100ms 的调用记录到日志文件。
 
 ```python
 import functools, time, logging

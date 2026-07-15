@@ -5,6 +5,7 @@
 ## 🎯 学习目标
 
 完成本文档后，你将能够：
+
 - 理解装饰器的本质（闭包 + 高阶函数）
 - 编写带参数的装饰器
 - 使用 `functools.wraps` 保留元信息
@@ -109,7 +110,7 @@ print(greet("Alice"))
 
 ### 1.4 类装饰器
 
-装饰器也可以是类，只要实现 `__call__`：
+装饰器也可以是类，只要实现 `__call__`（魔术方法见 [16-dunder-methods](./16-dunder-methods.md)）：
 
 ```python
 from functools import wraps
@@ -256,6 +257,7 @@ def account_initialization_required(func):
 ```
 
 **解读**：
+
 - 第 9 行：`@wraps(func)` 保留原函数名/文档，方便 Flask 路由注册
 - 第 11-12 行：未登录时直接返回错误响应，不进入业务函数
 - **关键设计**：用装饰器把"鉴权逻辑"从业务代码中抽离，保持 Controller 层清爽
@@ -293,6 +295,7 @@ def retry(
 ```
 
 **解读**：
+
 - 第 7 行：参数化装饰器，接收 `max_retries`/`delay`/`exceptions`
 - 第 9 行：内层 `decorator(func)` 才是真正的装饰器
 - 第 17 行：只捕获指定的异常类型，避免吞掉所有错误
@@ -311,6 +314,7 @@ def retry(
 ### 练习 1：基础（必做）
 
 实现一个 `@cache` 装饰器，对函数结果做内存缓存（同样的参数直接返回之前的结果）。要求：
+
 1. 用 `functools.wraps` 保留元信息
 2. 支持任意参数（`*args, **kwargs`）
 
@@ -333,3 +337,4 @@ def retry(
 
 **文档版本**：v1.0
 **最后更新**：2026-07-13
+

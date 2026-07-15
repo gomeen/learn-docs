@@ -67,7 +67,7 @@
 | 命名约定 | snake_case | camelCase（变量/函数）、PascalCase（组件） |
 | 类型系统 | 动态类型 + 强制类型注解 | 静态类型（TypeScript strict） |
 | 状态管理 | DB + Redis + Celery | useState / Jotai / feature store |
-| 并发模型 | Celery 异步任务 | React 渲染周期 + async/await |
+| 并发模型 | Celery 异步任务 | React 渲染周期 + async/await（Python async 详见 [async/await](../01-fundamentals/12-async-asyncio.md)） |
 | 异步调度 | Celery worker | 无（直接 Promise） |
 | 日志 | logging（结构化） | console（开发）/ Sentry（生产） |
 | 错误处理 | 领域异常 + 控制器翻译 | ErrorBoundary + try/catch |
@@ -81,7 +81,7 @@
 ```python
 # 文件：example_backend_style.py
 from datetime import datetime
-from typing import NotRequired, TypedDict
+from typing import NotRequired, TypedDict  # TypedDict 详见 [TypedDict](../01-fundamentals/08-typeddict.md)
 
 from pydantic import BaseModel, ConfigDict, field_validator
 

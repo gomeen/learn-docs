@@ -12,8 +12,9 @@
 
 ## 📚 前置知识
 
-- 09-jwt.md
-- 10-token-redis.md
+- JWT / Bearer 认证（详见 [JWT](../../_common/07-authentication/03-jwt.md)、[HTTP 认证](../../_common/07-authentication/01-http-auth.md)）
+- Token + Redis 存储（详见 [Token + Redis](./10-token-redis.md)）
+- Token 刷新（详见 [Token 刷新](../../_common/07-authentication/04-token-refresh.md)）
 - Hutool 工具库
 
 ## 1. 核心概念
@@ -31,7 +32,7 @@ public class TokenUtils {
 
 ### 1.2 ruoyi 的 RPC 设计
 
-ruoyi 把 Token 服务**独立**成一个 RPC 服务（`OAuth2TokenService`）：
+ruoyi 把 Token 服务**独立**成一个 RPC 服务（`OAuth2TokenService`，命名来自 OAuth2 语义，协议详见 [OAuth 2.0](../../_common/07-authentication/05-oauth2.md)）：
 - Controller 通过 RPC 调用（同进程内 Dubbo）
 - 业务层（`yudao-module-system`）提供实现
 - 框架层（`yudao-framework/security`）定义接口

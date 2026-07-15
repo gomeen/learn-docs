@@ -11,7 +11,9 @@
 
 ## 📚 前置知识
 
-- `08-devops/18-cicd-concepts.md` ~ `22-deployment-strategies.md`
+- CI/CD 概念与流水线（详见 [CI/CD 概念](../../_common/11-cicd/01-concepts.md)）
+- GitHub Actions 工作流机制（详见 [GitHub Actions 实战](../../_common/11-cicd/02-github-actions.md)）
+- 部署策略：蓝绿 / 金丝雀 / 滚动（详见 [蓝绿部署](../../_common/12-deploy-strategies/01-blue-green.md)、[灰度发布](../../_common/12-deploy-strategies/02-canary.md)、[滚动发布](../../_common/12-deploy-strategies/03-rolling-and-ab.md)）
 
 ## 1. 核心概念
 
@@ -23,7 +25,7 @@ dify 维护 20+ 个 GitHub Actions 工作流，按职责分为 4 类：
 |------|------|------|
 | **核心 CI** | `main-ci.yml` | PR 触发的智能分派测试 |
 | **专项测试** | `api-tests.yml` / `cli-tests.yml` / `vdb-tests.yml` / `db-migration-test.yml` | 各类测试 |
-| **构建** | `docker-build.yml` / `build-push.yml` | Docker 镜像构建和推送 |
+| **构建** | `docker-build.yml` / `build-push.yml` | Docker 镜像构建和推送（Dockerfile 详见 [Dockerfile 编写](../../_common/09-containerization/02-dockerfile.md)） |
 | **部署** | `deploy-dev.yml` / `deploy-saas.yml` / `deploy-enterprise.yml` | 多环境部署 |
 | **自动化** | `style.yml` / `autofix.yml` / `labeler.yml` / `translate-i18n-claude.yml` | 代码质量自动化 |
 | **运维** | `stale.yml` / `post-merge.yml` / `hotfix-cherry-pick.yml` | 仓库运维 |

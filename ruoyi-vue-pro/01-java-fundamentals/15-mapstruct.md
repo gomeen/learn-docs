@@ -12,7 +12,7 @@
 
 ## 📚 前置知识
 
-- Lombok 注解
+- Lombok 注解（详见 [14-lombok](./14-lombok.md)）
 - Maven 编译期插件
 - 14-lombok.md
 

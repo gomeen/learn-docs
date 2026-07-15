@@ -30,7 +30,7 @@
 - 适合：API 服务、前端、Nginx
 - 特点：Pod 名字随机（`api-7d8f9c-b2x4y`），可任意替换
 - 扩缩容：直接改 `replicas`
-- 滚动更新：旧 Pod 逐步替换为新 Pod
+- 滚动更新：旧 Pod 逐步替换为新 Pod（详见 [滚动发布](../../_common/12-deploy-strategies/03-rolling-and-ab.md)）
 
 ### 1.3 StatefulSet：有状态服务
 
@@ -286,7 +286,7 @@ spec:
 
 ### 练习 2：进阶
 
-阅读 dify `docker-compose.yaml`，列出每个服务并标注如果用 K8s 部署应该用哪种工作负载。考虑 `worker_beat` 应该如何处理？
+阅读 dify `docker-compose.yaml`（Compose 语法详见 [Docker Compose](../../_common/09-containerization/04-compose.md)），列出每个服务并标注如果用 K8s 部署应该用哪种工作负载。考虑 `worker_beat` 应该如何处理？
 
 ### 练习 3：挑战（选做）
 

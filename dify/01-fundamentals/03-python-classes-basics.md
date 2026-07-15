@@ -5,6 +5,7 @@
 ## 🎯 学习目标
 
 完成本文档后，你将能够：
+
 - 定义类、创建实例、理解 `self` 的含义
 - 掌握实例方法、类方法、静态方法的区别
 - 理解继承与 `super()` 的用法
@@ -36,11 +37,14 @@ print(user.greet())  # "Hello, I'm Alice"
 ```
 
 要点：
+
 - `__init__` 是**构造方法**，创建实例时自动调用
 - `self` 指代**当前实例**，必须作为第一个参数
 - 属性通过 `self.xxx` 访问
 
 ### 1.2 三种方法类型
+
+`@classmethod` / `@staticmethod` 是装饰器写法（详见 [装饰器](./10-decorator.md)），此处只把它们当作「挂在类上的方法标记」来理解。
 
 ```python
 class Counter:
@@ -64,11 +68,11 @@ class Counter:
         return 0 <= n < 1000
 ```
 
-| 类型 | 第一个参数 | 访问 | 何时用 |
-|------|----------|------|--------|
-| 实例方法 | `self` | 实例 + 类 | 需要操作实例状态 |
-| 类方法 | `cls` | 类（不能访问实例） | 工厂方法、备选构造 |
-| 静态方法 | 无 | 无 | 与类相关但不依赖状态的工具函数 |
+| 类型     | 第一个参数 | 访问               | 何时用                         |
+| -------- | ---------- | ------------------ | ------------------------------ |
+| 实例方法 | `self`     | 实例 + 类          | 需要操作实例状态               |
+| 类方法   | `cls`      | 类（不能访问实例） | 工厂方法、备选构造             |
+| 静态方法 | 无         | 无                 | 与类相关但不依赖状态的工具函数 |
 
 ### 1.3 继承与 `super()`
 
@@ -155,11 +159,14 @@ class ApiKey:
 ```
 
 **说明**：
+
 - 第 13-17 行：dify 风格——实例变量在 `__init__` 前显式声明类型
 - 第 24 行：`@classmethod` 作为工厂方法，cls 自动指向 `ApiKey` 类
 - 第 32 行：`__repr__` 让调试时输出更有意义（`<ApiKey tenant=...>`）
 
 ### 2.2 属性装饰器 `@property`
+
+`@property` 同样是装饰器写法（原理见上文链接的装饰器篇）；底层描述符机制见 [34-descriptor](./34-descriptor.md)。此处只掌握「方法当属性用」。
 
 ```python
 class Temperature:
@@ -229,6 +236,7 @@ class Account(TypeBase):
 ```
 
 **解读**：
+
 - 第 14 行：`__tablename__` 是 SQLAlchemy 必需的，指定数据库表名
 - 第 17-18 行：`Mapped[str]` 是 SQLAlchemy 2.x 新风格类型注解
 - 第 20-25 行：每个字段都用 `mapped_column(...)` 声明类型与约束
@@ -271,6 +279,7 @@ class AccountService:
 ```
 
 **解读**：
+
 - 第 4 行：`AccountService` 是普通类（无继承），所有方法都是 `@staticmethod`
 - **为什么不继承 BaseService？** dify 选择简洁——服务类只是「业务方法集合」，不需要共享状态
 - 第 17 行：`filter_by(email=email)` 是 SQLAlchemy 的过滤语法
@@ -293,9 +302,31 @@ class AccountService:
 
 定义一个 `ApiKey` 类（参考 2.1 示例），并写一个 `@classmethod` 工厂方法 `generate()`，生成的 key 必须以 `dify_` 开头。
 
+```python
+from typing import ClassVar
+import secrets
+
+class ApiKey:
+
+    PREFIX: ClassVar[str] = 'dify_'
+    def __init__(self, tenant_id:str, key: str, created_by:str) => None:
+      self.tenant_id : str = tenant_id;
+
+  '''apikey类'''
+  @classmethod
+  def generate(cls, tenant_id: str, created_by: str) => "ApiKey":
+    return f'dify_{key}'
+
+```
+
+```
+
+```
+
 ### 练习 2：进阶
 
 阅读 `/Users/xu/code/github/dify/api/models/account.py` 中的 `Account` 类：
+
 1. 它继承自哪个类？
 2. 哪些字段有 `default`？
 3. `status` 字段默认值是什么？

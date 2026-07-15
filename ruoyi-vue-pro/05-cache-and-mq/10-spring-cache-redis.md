@@ -12,8 +12,9 @@
 
 ## 📚 前置知识
 
-- Spring Cache 抽象（参见 `08-spring-cache.md`）
-- Redis 基础（参见 `01-redis-basics.md`）
+- Spring Cache 抽象（详见 [Spring Cache 抽象](./08-spring-cache.md)）
+- Redis 基础（详见 [Redis 数据结构](../../_common/01-redis/01-data-structures.md)）
+- 缓存策略与 TTL 思路（详见 [缓存策略](../../_common/03-cache-patterns/01-strategies.md)）
 
 ## 1. 核心概念
 
@@ -23,6 +24,8 @@ Spring Cache 把每个 `Cache` 映射到 Redis 的一个命名空间：
 - `Cache name = "user"` → Redis key 前缀 `user:`
 - 缓存值用配置的 `RedisSerializer` 序列化（默认 JDK 二进制，ruoyi 改成 JSON）
 - 默认 TTL 从 `spring.cache.redis.time-to-live` 读
+
+> 📌 **Sighting**：`cache-null-values` 与穿透/雪崩等缓存问题详见 [缓存三大问题](../../_common/03-cache-patterns/02-three-problems.md)。
 
 ### 1.2 application.yml 关键配置
 

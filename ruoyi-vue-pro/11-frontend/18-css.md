@@ -13,7 +13,7 @@
 ## 📚 前置知识
 
 - CSS 基础（选择器、盒模型）
-- 11-frontend/15-vite.md
+- Vite（详见 [Vite](./15-vite.md)）
 
 ## 1. 核心概念
 

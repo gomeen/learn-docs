@@ -12,8 +12,8 @@
 
 ## 📚 前置知识
 
-- 01-bpmn.md（BPMN 2.0 基础）
-- Spring Bean / 依赖注入
+- BPMN 2.0 基础（详见 [BPMN](./01-bpmn.md)）
+- Spring Bean / 依赖注入（详见 [IoC](../02-spring-boot/01-ioc.md)）
 - 关系型数据库基础（表、主外键）
 
 ## 1. 核心概念

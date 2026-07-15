@@ -85,7 +85,7 @@ return idx if idx < len(nums) and nums[idx] == target else -1
 ### 1.5 应用场景
 
 1. **有序数组查找**：O(log n)
-2. **数据库索引**：B+ 树叶子节点内的查找
+2. **数据库索引**：B+ 树叶子节点内的查找（见 [10-b-tree](../01-data-structures/10-b-tree.md)）
 3. **寻找边界**：第一个 ≥ target、最后一个 ≤ target
 4. **旋转数组**：变形应用
 5. **二分答案**：最大化最小值、最小化最大值

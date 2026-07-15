@@ -12,9 +12,9 @@
 
 ## 📚 前置知识
 
-- 43-report.md
+- 报表（详见 [报表](./43-report.md)）
 - ECharts / DataV 基础
-- WebSocket 基础
+- WebSocket 基础（详见 [WebSocket Starter](../03-spring-boot-starters/38-websocket.md)）
 
 ## 1. 核心概念
 

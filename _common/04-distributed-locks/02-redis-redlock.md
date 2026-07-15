@@ -12,8 +12,8 @@
 
 ## 📚 前置知识
 
-- 分布式锁基本要求（`04-distributed-locks/01-requirements.md`）
-- Redis 基础命令
+- [分布式锁基本要求](./01-requirements.md)
+- [Redis 基础命令](../01-redis/01-data-structures.md)
 - 时钟同步与 NTP
 
 ## 1. 核心概念

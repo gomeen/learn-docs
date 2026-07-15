@@ -12,8 +12,8 @@
 
 ## 📚 前置知识
 
-- 15-param-binding.md
-- 17-exception-handler.md
+- [15-param-binding.md](./15-param-binding.md)
+- [17-exception-handler.md](./17-exception-handler.md)（校验失败异常由此捕获）
 
 ## 1. 核心概念
 

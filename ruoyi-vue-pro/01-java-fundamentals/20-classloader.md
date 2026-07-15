@@ -12,7 +12,7 @@
 
 ## 📚 前置知识
 
-- Java 反射基础
+- Java 反射基础（详见 [05-reflection](./05-reflection.md)）
 - JVM 内存模型
 - 05-reflection.md、18-jvm-memory.md
 

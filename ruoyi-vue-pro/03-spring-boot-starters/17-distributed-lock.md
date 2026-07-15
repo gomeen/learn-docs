@@ -14,7 +14,8 @@
 
 - [15-redisson.md](./15-redisson.md)
 - [16-redis-utils.md](./16-redis-utils.md)
-- CAP 理论与分布式一致性
+- 分布式锁理论（详见 [分布式锁要求](../../_common/04-distributed-locks/01-requirements.md) / [Redis Redlock](../../_common/04-distributed-locks/02-redis-redlock.md)）
+- 本地锁对比见 [27-lock](../01-java-fundamentals/27-lock.md)
 
 ## 1. 核心概念
 

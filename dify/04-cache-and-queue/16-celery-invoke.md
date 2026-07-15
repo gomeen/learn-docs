@@ -12,9 +12,8 @@
 
 ## 📚 前置知识
 
-- Celery 任务定义
+- Celery 任务定义（详见 [任务定义](./15-celery-tasks.md)）
 - Python 基础
-- 15-celery-tasks.md
 
 ## 1. 核心概念
 

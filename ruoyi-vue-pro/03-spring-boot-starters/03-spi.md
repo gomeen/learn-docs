@@ -12,8 +12,8 @@
 
 ## 📚 前置知识
 
-- Java 类加载机制（ClassLoader）
-- Spring Boot 启动流程
+- Java 类加载机制（ClassLoader，详见 [20-classloader](../01-java-fundamentals/20-classloader.md)）
+- Spring Boot 启动流程（详见 [07-startup](../02-spring-boot/07-startup.md)）
 - [01-starter-mechanism.md](./01-starter-mechanism.md)
 
 ## 1. 核心概念

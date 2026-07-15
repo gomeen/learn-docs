@@ -12,9 +12,9 @@
 
 ## 📚 前置知识
 
-- 09-mybatis-vs-mp.md
-- Java 反射（MetaObject）
-- Spring Security 上下文（基础）
+- [09-mybatis-vs-mp.md](./09-mybatis-vs-mp.md)
+- Java 反射（MetaObject，详见 [05-reflection](../01-java-fundamentals/05-reflection.md)）
+- Spring Security 上下文（基础，详见 [20-spring-security](../03-spring-boot-starters/20-spring-security.md) / [30-threadlocal](../01-java-fundamentals/30-threadlocal.md)）
 
 ## 1. 核心概念
 

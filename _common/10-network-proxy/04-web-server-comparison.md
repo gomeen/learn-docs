@@ -12,7 +12,7 @@
 
 ## 📚 前置知识
 
-- 10.1 - 10.3 节的 Nginx 概念
+- [10.1 Nginx 基础](./01-nginx-basics.md) / [10.2 反向代理](./02-reverse-proxy.md) / [10.3 HTTPS](./03-https.md)
 - HTTPS / TLS 基础知识
 - 操作系统级进程 / 文件描述符概念
 

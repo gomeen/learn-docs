@@ -14,7 +14,7 @@
 
 - HTTP 协议基础（Header、状态码）
 - Base64 编码
-- 7 认证系列前置
+- 后续：[Session/Cookie](./02-session-cookie.md)、[JWT](./03-jwt.md)、[OAuth2](./05-oauth2.md)
 
 ## 1. 核心概念
 

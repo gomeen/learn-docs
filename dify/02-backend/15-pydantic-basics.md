@@ -12,8 +12,8 @@
 
 ## 📚 前置知识
 
-- Python 类型提示基础（type hints）
-- 01-fundamentals/02-typeddict.md（TypedDict vs Pydantic）
+- Python 类型提示基础（type hints；详见 [typing 基础](../01-fundamentals/07-python-typing-basics.md)）
+- [TypedDict](../01-fundamentals/08-typeddict.md)（TypedDict vs Pydantic）
 
 ## 1. 核心概念
 
@@ -33,7 +33,7 @@ user = User(name="Alice", age=30)  # OK
 user = User(name="Alice", age="abc")  # ValidationError
 ```
 
-**对比 dataclass**：
+**对比 dataclass**（详见 [dataclass](../01-fundamentals/36-dataclasses.md)）：
 
 | 维度 | dataclass | Pydantic BaseModel |
 |------|-----------|-------------------|
@@ -237,7 +237,7 @@ class AppListBaseQuery(BaseModel):
 - 第 2-9 行：所有字段带详细 `description`（用于 Swagger 文档）
 - 第 2-3 行：`Field(default, ge, le)` 设置数值范围约束
 - 第 8-10 行：`list[str] | None = None` 是 Python 3.10+ 的新写法
-- 第 14-15 行：`field_validator` 自定义校验器（mode="before" 在类型转换前执行）
+- 第 14-15 行：`field_validator` 自定义校验器（mode="before" 在类型转换前执行；详见 [字段校验器](./16-pydantic-validators.md)）
 
 ### 3.2 领域对象：`DifyRunContext`
 

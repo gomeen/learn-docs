@@ -14,7 +14,7 @@
 
 - [26-mq-starter.md](./26-mq-starter.md)
 - [27-message.md](./27-message.md)
-- RocketMQ 基础
+- RocketMQ 基础（详见 [RocketMQ](../../_common/02-mq/04-rocketmq.md)）
 
 ## 1. 核心概念
 

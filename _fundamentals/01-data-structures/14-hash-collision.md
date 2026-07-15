@@ -41,7 +41,7 @@
 - 最坏：O(n)（所有 key 冲突到同一个桶）
 
 **实现要点**：
-- Java HashMap 用链表 + 红黑树（链表 > 8 转红黑树）
+- Java HashMap 用链表 + [红黑树](./09-red-black-tree.md)（链表 > 8 转红黑树）
 - Java HashMap 的桶数组是 `Node<K,V>[]`
 
 ### 1.3 开放地址法（Open Addressing）

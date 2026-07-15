@@ -12,13 +12,15 @@
 
 ## 📚 前置知识
 
-- 12-login-flow.md
-- OAuth 2.0 基础（14-oauth2.md 推荐先看）
+- 账号密码登录流程（详见 [登录流程](./12-login-flow.md)）
+- OAuth 2.0 授权码模式（详见 [OAuth 2.0](../../_common/07-authentication/05-oauth2.md)）
 - HTTP 重定向
 
 ## 1. 核心概念
 
 ### 1.1 社交登录的授权码模式
+
+> 📌 **Sighting**：OIDC / SSO 扩展见 [OIDC 与 SSO](../../_common/07-authentication/06-oidc-sso.md)。
 
 ```
 [1] 用户点击"微信登录"

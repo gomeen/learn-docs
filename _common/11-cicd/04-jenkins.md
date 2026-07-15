@@ -12,9 +12,8 @@
 
 ## 📚 前置知识
 
-- 11.1 - 11.3 节 CI/CD 概念
+- [11.1 CI/CD 概念](./01-concepts.md) / [11.2 GitHub Actions](./02-github-actions.md) / [11.3 GitLab CI](./03-gitlab-ci.md)
 - Groovy 基础（DSL 不需要深入）
-- /Users/xu/code/gomeen/learn-docs/_common/11-cicd/01-concepts.md
 
 ## 1. 核心概念
 
@@ -408,11 +407,11 @@ sh 'bash ${APP_DEPLOY_BASE_DIR}/${APP_NAME}/deploy.sh'
 ```
 
 四步：
-1. 复制 `deploy.sh` 脚本到部署目录（详见 12 章部署策略）
+1. 复制 `deploy.sh` 脚本到部署目录（详见 [12 章部署策略](../12-deploy-strategies/)）
 2. 复制 jar 包到部署 build 目录
 3. **archiveArtifacts**——这是 Jenkins 关键字，把 jar 存档到 Jenkins UI
 4. 给 `deploy.sh` 加执行权限
-5. **执行 deploy.sh**——这是手工脚本（备份、停止、启动、健康检查），详见 12 章
+5. **执行 deploy.sh**——这是手工脚本（备份、停止、启动、健康检查），详见 [12 章](../12-deploy-strategies/01-blue-green.md)
 
 **总结 ruoyi 的 Jenkins 设计**：
 

@@ -73,7 +73,7 @@ product = reduce(lambda acc, x: acc * x, nums, 1)  # 120
 
 ### 1.4 `@wraps`：保留原函数元信息
 
-装饰器会覆盖原函数的 `__name__` / `__doc__`，用 `@wraps` 保留：
+装饰器会覆盖原函数的 `__name__` / `__doc__`，用 `@wraps` 保留（装饰器完整原理见 [10-decorator](./10-decorator.md)；本文聚焦 `functools` 工具箱）：
 
 ```python
 from functools import wraps
@@ -96,7 +96,7 @@ print(hello.__doc__)   # 'Say hello.'
 
 ### 1.5 `@cached_property`：缓存属性
 
-`@cached_property` 是基于描述符的属性缓存，第一次访问时计算，之后用缓存：
+`@cached_property` 是基于描述符的属性缓存（描述符协议见 [34-descriptor](./34-descriptor.md)），第一次访问时计算，之后用缓存：
 
 ```python
 from functools import cached_property

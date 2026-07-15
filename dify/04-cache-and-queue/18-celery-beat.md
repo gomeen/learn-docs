@@ -12,9 +12,8 @@
 
 ## 📚 前置知识
 
-- Celery 基础
+- Celery 基础（详见 [Celery 架构](./14-celery-architecture.md)）
 - Cron 表达式
-- 14-celery-architecture.md
 
 ## 1. 核心概念
 

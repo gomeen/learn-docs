@@ -26,7 +26,7 @@
                 └────────┬────────┘
                          ↓
               ┌──────────────────────┐
-              │   pre-commit hook    │
+              │   pre-commit hook    │  ← 详见 [Pre-commit Hook](./21-pre-commit.md)
               │   (Ruff auto-fix)    │
               └──────────┬───────────┘
                          ↓
@@ -35,8 +35,8 @@
                 └────────┬────────┘
                          ↓
        ┌─────────────────────────────────────┐
-       │             CI Pipeline             │
-       │                                     │
+       │             CI Pipeline             │  ← 详见 [CI/CD 概念](../../_common/11-cicd/01-concepts.md)
+       │                                     │     / [GitHub Actions](../../_common/11-cicd/02-github-actions.md)
        │   1. make lint     ← 风格 / 错误    │
        │   2. make type-check ← 类型一致性   │
        │   3. make test      ← 行为正确性    │

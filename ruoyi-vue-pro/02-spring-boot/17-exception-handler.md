@@ -20,7 +20,7 @@
 
 是 `@ControllerAdvice` + `@ResponseBody` 的组合，用于：
 - 全局处理 Controller 抛出的异常
-- 把异常转换为统一的 `CommonResult` 返回
+- 把异常转换为统一的 `CommonResult` 返回（`CommonResult` 详见 [16-result-wrapper](./16-result-wrapper.md)；Java 异常体系见 [06-exception](../01-java-fundamentals/06-exception.md)）
 
 ### 1.2 三种异常处理方式
 
@@ -168,7 +168,7 @@ public class GlobalExceptionHandler {
 
 ```java
 /**
- * 处理所有异常，主要是提供给 Filter 使用
+ * 处理所有异常，主要是提供给 Filter 使用（Filter 详见 [19-filter](./19-filter.md)）
  * 因为 Filter 不走 SpringMVC 的流程，但是我们又需要兜底处理异常，所以这里提供一个全量的异常处理过程，保持逻辑统一。
  *
  * @param request 请求

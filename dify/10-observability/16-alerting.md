@@ -257,7 +257,7 @@ sentry_sdk.init(
 | HTTP P99 延迟 | `histogram_quantile(0.99, ...)` | > 3s 持续 5m | P1 |
 | 流量突降 | `rate(...) / rate(... offset 1d) < 0.5` | 持续 10m | P1 |
 | Celery 队列积压 | `celery_queue_length > 1000` | 持续 10m | P1 |
-| Redis 连接失败 | `rate(redis_errors_total[5m]) > 0` | 立即 | P0 |
+| Redis 连接失败（Redis 详见 [Redis 数据结构](../../_common/01-redis/01-data-structures.md)） | `rate(redis_errors_total[5m]) > 0` | 立即 | P0 |
 
 ## 4. 关键要点总结
 

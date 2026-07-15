@@ -47,11 +47,11 @@
 
 | 层 | 职责 | 协议 |
 |----|------|------|
-| **应用层** | 用户接口、应用程序 | HTTP, FTP, SMTP, DNS |
-| **表示层** | 数据格式、加密 | TLS, JSON, XML |
+| **应用层** | 用户接口、应用程序 | [HTTP](./04-http-versions.md), FTP, SMTP, [DNS](./10-dns.md) |
+| **表示层** | 数据格式、加密 | [TLS](./08-https.md), JSON, XML |
 | **会话层** | 会话管理 | RPC, NetBIOS |
-| **传输层** | 端到端连接、可靠传输 | TCP, UDP |
-| **网络层** | 路由、IP 地址 | IP, ICMP, OSPF |
+| **传输层** | 端到端连接、可靠传输 | [TCP](./02-tcp-ip.md), [UDP](./14-udp.md) |
+| **网络层** | 路由、IP 地址 | IP, ICMP, OSPF（路由见 [18-routing](./18-routing.md)） |
 | **数据链路层** | 帧传输、MAC 地址 | Ethernet, ARP |
 | **物理层** | 比特传输 | 网线、光纤、WiFi |
 

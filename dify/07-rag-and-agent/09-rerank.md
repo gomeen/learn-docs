@@ -12,8 +12,8 @@
 
 ## 📚 前置知识
 
-- 07-rag-and-agent/08-hybrid-search.md
-- 06-llm-and-ai 中关于 Embedding 模型
+- 混合检索（详见 [Hybrid Search](./08-hybrid-search.md)）
+- Embedding / Rerank 模型分工（详见 [Embedding 模型](../06-llm-and-ai/06-embedding-models.md)）
 
 ## 1. 核心概念
 

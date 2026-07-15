@@ -29,7 +29,7 @@ api/migrations/
 
 ### 1.2 与 Flask 应用集成
 
-env.py 从 `current_app.extensions['migrate']` 取得 Engine 和 configure_args，因此迁移使用与应用一致的数据库配置。连接 URL 会保留密码用于内部配置，同时转义 `%` 以避免 ConfigParser 解释。
+env.py 从 `current_app.extensions['migrate']` 取得 Engine 和 configure_args，因此迁移使用与应用一致的数据库配置（Flask 应用上下文详见 [Flask 上下文](../02-backend/09-flask-context.md)）。连接 URL 会保留密码用于内部配置，同时转义 `%` 以避免 ConfigParser 解释。
 
 ### 1.3 项目特征
 

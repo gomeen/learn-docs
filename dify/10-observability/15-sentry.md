@@ -199,7 +199,7 @@ def init_app(app: DifyApp):
 **解读**：
 - 第 5 行：**DSN 为空时跳过整个初始化**——本地开发无需 Sentry
 - 第 6-9 行：延迟导入——只在配置 Sentry 时才加载 sentry_sdk（节省启动开销）
-- 第 11 行：导入 `InvokeRateLimitError`（dify 限流错误），准备忽略
+- 第 11 行：导入 `InvokeRateLimitError`（dify 限流错误，限流策略详见 [限流](../../_common/03-cache-patterns/04-rate-limiting.md)），准备忽略
 - 第 13-22 行：尝试导入 Langfuse 默认错误响应字符串
   - 第 14 行：用 `try/except` 兜底，避免 langfuse 未安装时崩溃
   - 第 21-22 行：Langfuse 未安装时使用 fallback 字符串

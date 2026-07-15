@@ -12,8 +12,9 @@
 
 ## 📚 前置知识
 
-- Spring Cache 抽象层（参见 `08-spring-cache.md`）
+- Spring Cache 抽象层（详见 [Spring Cache 抽象](./08-spring-cache.md)）
 - SpEL 表达式基础
+- AOP 代理原理（详见 [AOP](../02-spring-boot/03-aop.md)，缓存注解依赖方法级代理）
 
 ## 1. 核心概念
 

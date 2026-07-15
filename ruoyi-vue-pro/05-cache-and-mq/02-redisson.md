@@ -12,17 +12,17 @@
 
 ## 📚 前置知识
 
-- Redis 基础（参见 `01-redis-basics.md`）
-- Spring Boot 自动装配原理
+- Redis 基础（详见 [Redis 数据结构](../../_common/01-redis/01-data-structures.md)）
+- Spring Boot 自动装配原理（详见 [自动配置](../02-spring-boot/08-auto-config.md)）
 
 ## 1. 核心概念
 
 ### 1.1 什么是 Redisson
 
 Redisson 是 Redis 官方推荐的 Java 客户端，提供**分布式**和**可伸缩**的 Java 数据结构：
-- 分布式锁 `RLock`、分布式集合 `RMap`、分布式队列 `RQueue`
-- 限流器 `RRateLimiter`、布隆过滤器 `RBloomFilter`
-- 主题发布订阅 `RTopic`
+- 分布式锁 `RLock`（详见 [Redisson 分布式锁](./03-redisson-lock.md)）、分布式集合 `RMap`、分布式队列 `RQueue`（详见 [Redisson 集合](./05-redisson-collections.md)）
+- 限流器 `RRateLimiter`（详见 [Redisson 限流](./04-redisson-rate-limiter.md)）、布隆过滤器 `RBloomFilter`
+- 主题发布订阅 `RTopic`（Redis Pub/Sub 原理详见 [Pub/Sub 与 Stream](../../_common/01-redis/06-pubsub-stream.md)）
 - 远程调用 `RRemoteService`
 
 它底层**基于 Netty**，性能比 Jedis 高，比 Lettuce 功能丰富得多。

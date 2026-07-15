@@ -12,15 +12,16 @@
 
 ## 📚 前置知识
 
-- 02-backend/02-layered-architecture.md（分层架构）
-- 02-backend/03-repository-pattern.md（Repository 模式）
-- SQLAlchemy 基础（详见 03-database 系列）
+- [分层架构](./02-layered-architecture.md)
+- [Repository 模式](./03-repository-pattern.md)
+- SQLAlchemy 基础（详见 [SQLAlchemy 映射](../03-database/12-sqlalchemy-mapping.md)）
+- 查询层 `tenant_id` 过滤实践（详见 [多租户查询](../03-database/19-multi-tenant-query.md)）
 
 ## 1. 核心概念
 
 ### 1.1 什么是多租户？
 
-**多租户（Multi-tenancy）** 是 SaaS 产品的标配：一个软件实例服务多个客户（租户），每个客户的数据必须严格隔离。
+**多租户（Multi-tenancy）** 是 SaaS 产品的标配：一个软件实例服务多个客户（租户），每个客户的数据必须严格隔离（通用多租户概念亦可参考 [`_common` 多租户](../../_common/08-authorization/05-multi-tenant.md)）。
 
 ```
 SaaS 应用（dify）
@@ -55,7 +56,7 @@ Tenant（租户/工作空间）
 App, Workflow, Dataset, ...（所有业务数据）
 ```
 
-每个业务表都有 `tenant_id` 列，通过它做数据隔离。
+每个业务表都有 `tenant_id` 列，通过它做数据隔离。请求上下文中的当前租户通常经 Flask `g` / 装饰器注入（详见 [Flask 上下文](./09-flask-context.md)）。
 
 ## 2. 代码示例
 

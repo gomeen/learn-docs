@@ -12,9 +12,10 @@
 
 ## 📚 前置知识
 
-- Spring Boot 基础（Controller、Service、Repository）
-- MyBatis 基础
-- 01-module-structure.md（推荐先看）
+- Spring Boot Web（详见 [Controller](../02-spring-boot/13-controller.md)、[参数绑定](../02-spring-boot/15-param-binding.md)）
+- 事务（详见 [事务](../02-spring-boot/04-transaction.md)）
+- MyBatis 基础（详见 [MyBatis Starter](../03-spring-boot-starters/06-mybatis-starter.md)）
+- 模块划分（详见 [模块结构](./01-module-structure.md)）
 
 ## 1. 核心概念
 
@@ -51,7 +52,7 @@ public void createUser(UserDTO dto) {
     String pwd = encrypt(dto.getPassword());
     // 3. 写数据库（拼接 SQL）
     jdbc.update("INSERT INTO ...");
-    // 4. 发送 MQ 消息
+    // 4. 发送 MQ 消息（详见 [MQ 概念](../../_common/02-mq/01-concepts.md)）
     rabbitTemplate.send(...);
 }
 ```
@@ -201,8 +202,8 @@ public CommonResult<Long> createUser(@Valid @RequestBody UserSaveReqVO reqVO) {
 
 **解读**：
 - 第 1 行：`@PostMapping("/create")` 定义路由
-- 第 3 行：`@PreAuthorize` 鉴权，需要 `system:user:create` 权限
-- 第 4 行：`@Valid` 自动校验 `UserSaveReqVO` 的字段约束
+- 第 3 行：`@PreAuthorize` 鉴权，需要 `system:user:create` 权限（详见 [@PreAuthorize](../06-security/06-preauthorize.md)）
+- 第 4 行：`@Valid` 自动校验 `UserSaveReqVO` 的字段约束（详见 [Validation](../02-spring-boot/21-validation.md)）
 - 第 5 行：调用 Service，**不做任何业务**
 
 ### 3.2 Service 层：用户创建
@@ -235,9 +236,9 @@ public Long createUser(UserSaveReqVO reqVO) {
 ```
 
 **解读**：
-- 第 2 行：`@Transactional` 开启事务，任何异常都会回滚
+- 第 2 行：`@Transactional` 开启事务，任何异常都会回滚（详见 [事务](../02-spring-boot/04-transaction.md)）
 - 第 4-6 行：业务校验（唯一性、关联性）
-- 第 10 行：调用 `UserConvert` 进行对象转换
+- 第 10 行：调用 `UserConvert` 进行对象转换（详见 [DTO/VO/DO](./04-dto-vo-do.md)）
 - 第 11-15 行：业务规则（默认密码）
 - 第 17 行：调用 Mapper 写入数据库
 - **Service 层只关心"业务"，不关心 HTTP**

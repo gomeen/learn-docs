@@ -12,8 +12,8 @@
 
 ## 📚 前置知识
 
-- 05-architecture.md
-- 事务概念（16-acid.md）
+- [05-architecture](./05-architecture.md)
+- 事务概念（[16-acid](./16-acid.md)）；索引见 [11-b-plus-tree](./11-b-plus-tree.md) / [12-clustered-index](./12-clustered-index.md)
 
 ## 1. 核心概念
 

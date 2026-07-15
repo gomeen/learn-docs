@@ -12,10 +12,9 @@
 
 ## 📚 前置知识
 
-- Python 基础语法（生成器、字典）
-- LLM 的消息结构（system / user / assistant / tool）
-- 06-llm-and-ai/01-llm-overview.md（理解 dify 的 LLM 抽象层）
-- 06-llm-and-ai/02-prompt-anatomy.md（理解 PromptMessage 角色）
+- Python 基础语法（生成器详见 [生成器](../01-fundamentals/14-generator.md)；JSON 详见 [JSON](../01-fundamentals/17-json-processing.md)）
+- LLM 的消息结构（system / user / assistant / tool；详见 [Prompt 基础](./07-prompt-basics.md)）
+- dify 的 LLM 抽象层（详见 [主流大模型对比](./01-llm-overview.md)）
 
 ## 1. 核心概念
 
@@ -38,6 +37,8 @@ sequenceDiagram
     LLM-->>App: 7. 给出最终自然语言回答
     App-->>U: 8. 输出
 ```
+
+> 📌 **Sighting**：Agent 循环与 ReAct 范式完整展开见 [Agent 概念](../07-rag-and-agent/18-agent-concepts.md)、[ReAct](./10-react.md)；工具参数 schema 见 [Tool Schema](./15-tool-schema.md)。
 
 关键洞察：
 - **模型只是"决定"调哪个函数、传什么参数**；具体执行由客户端负责

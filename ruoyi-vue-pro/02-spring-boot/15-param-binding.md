@@ -8,12 +8,12 @@
 - 区分 `@RequestParam`、`@PathVariable`、`@RequestBody` 的使用场景
 - 掌握 `@RequestHeader`、`@CookieValue`、`@ModelAttribute` 的用法
 - 能在 ruoyi-vue-pro 中读懂 VO（View Object）参数的接收
-- 掌握 `@Valid` 参数校验的基本用法
+- 掌握 `@Valid` 参数校验的基本用法（完整校验专题见 [21-validation](./21-validation.md)）
 
 ## 📚 前置知识
 
-- 13-controller.md
-- 14-request-mapping.md
+- [13-controller.md](./13-controller.md)
+- [14-request-mapping.md](./14-request-mapping.md)
 
 ## 1. 核心概念
 

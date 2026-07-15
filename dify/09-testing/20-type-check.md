@@ -12,8 +12,7 @@
 
 ## 📚 前置知识
 
-- 01-fundamentals/01-type-hints.md
-- Python typing 模块
+- Python 类型注解（详见 [typing 基础](../01-fundamentals/07-python-typing-basics.md)）
 - 09-testing/19-lint-tools.md
 
 ## 1. 核心概念

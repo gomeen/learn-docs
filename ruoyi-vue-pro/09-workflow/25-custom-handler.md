@@ -12,9 +12,9 @@
 
 ## 📚 前置知识
 
-- 17-multi-instance.md（多实例）
-- 20-listener.md（监听器）
-- 21-task-assign.md（候选策略）
+- 多实例（详见 [多实例](./17-multi-instance.md)）
+- 监听器（详见 [监听器](./20-listener.md)）
+- 候选策略（详见 [任务分配](./21-task-assign.md)）
 
 ## 1. 核心概念
 

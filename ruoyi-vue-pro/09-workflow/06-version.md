@@ -12,8 +12,8 @@
 
 ## 📚 前置知识
 
-- 05-deploy.md（部署原理）
-- 02-flowable-concepts.md（Deployment / ProcessDefinition）
+- 部署原理（详见 [部署](./05-deploy.md)）
+- Deployment / ProcessDefinition（详见 [Flowable 概念](./02-flowable-concepts.md)）
 
 ## 1. 核心概念
 

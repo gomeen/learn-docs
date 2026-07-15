@@ -13,10 +13,10 @@
 
 ## 📚 前置知识
 
-- [01-llm-overview.md](./01-llm-overview.md)
-- [02-transformer.md](./02-transformer.md)
-- [03-tokens-context.md](./03-tokens-context.md)
-- 外部基础：向量、点积、范数、余弦相似度和基本检索概念
+- [主流大模型对比](./01-llm-overview.md)
+- [Transformer](./02-transformer.md)
+- [Tokens 与上下文](./03-tokens-context.md)
+- 向量检索与相似度度量（详见 [向量检索基础](../03-database/25-vector-search.md)）
 
 ## 1. 核心概念
 
@@ -30,7 +30,7 @@ $$
 \operatorname{cos}(a,b)=\frac{a\cdot b}{\|a\|\|b\|}
 $$
 
-若向量已归一化，余弦相似度就等于点积。Embedding 擅长快速召回，但它把整段文本压缩成一个向量，细粒度条件可能丢失。因此 RAG 常采用“两阶段检索”：Embedding 从大量文档中召回候选，Rerank 模型再同时阅读 query-document 对并精排。
+若向量已归一化，余弦相似度就等于点积。Embedding 擅长快速召回，但它把整段文本压缩成一个向量，细粒度条件可能丢失。因此 RAG（详见 [RAG 概览](../07-rag-and-agent/01-rag-overview.md)）常采用“两阶段检索”：Embedding 从大量文档中召回候选，Rerank 模型再同时阅读 query-document 对并精排（详见 [Rerank](../07-rag-and-agent/09-rerank.md)）。
 
 ### 1.2 模型选型与生命周期
 

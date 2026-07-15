@@ -12,9 +12,10 @@
 
 ## 📚 前置知识
 
-- 02-backend/08-flask-basics.md（Flask 基础）
-- 02-backend/10-flask-blueprint.md（Blueprint）
-- 02-backend/15-pydantic-basics.md（Pydantic BaseModel）
+- [Flask 基础](./08-flask-basics.md)
+- [Blueprint](./10-flask-blueprint.md)
+- [Pydantic BaseModel](./15-pydantic-basics.md)
+- REST 设计基础（详见 [REST API 设计](../01-fundamentals/26-rest-api-design.md)）
 
 ## 1. 核心概念
 

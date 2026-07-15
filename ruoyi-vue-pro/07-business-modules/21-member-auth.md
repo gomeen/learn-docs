@@ -12,9 +12,10 @@
 
 ## 📚 前置知识
 
-- 07-user.md（管理员登录）
-- 19-sms.md（短信验证码）
-- JWT 基础
+- 管理员登录（详见 [用户管理](./07-user.md)、[登录流程](../06-security/12-login-flow.md)）
+- 短信验证码（详见 [短信](./19-sms.md)）
+- JWT / Token（详见 [JWT](../../_common/07-authentication/03-jwt.md)、[Token + Redis](../06-security/10-token-redis.md)）
+- 社交登录（详见 [社交登录](../06-security/13-social-login.md)）
 
 ## 1. 核心概念
 

@@ -12,8 +12,7 @@
 
 ## 📚 前置知识
 
-- 11-frontend/01-vue3-basics.md
-- Vue 3 组合式 API 基础
+- Vue3 基础 / 组合式 API（详见 [Vue3 基础](./01-vue3-basics.md)）
 
 ## 1. 核心概念
 

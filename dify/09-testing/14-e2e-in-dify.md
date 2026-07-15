@@ -53,7 +53,7 @@ Feature: Bug Repro
 Feature: Reset Tests
 ```
 
-默认只跑"无 external 依赖"的测试，CI 完整跑时通过 `E2E_CUCUMBER_TAGS` 配置。
+默认只跑"无 external 依赖"的测试，CI 完整跑时通过 `E2E_CUCUMBER_TAGS` 配置（CI 流水线详见 [CI/CD 概念](../../_common/11-cicd/01-concepts.md) / [GitHub Actions](../../_common/11-cicd/02-github-actions.md)）。
 
 ### 1.3 dify E2E 的 "API seed + UI 验证" 策略
 
@@ -192,7 +192,7 @@ export async function stopWebServer() {
 **解读**：
 - E2E 测试前需要先启动 dify 后端 + 前端 Web 服务器
 - `process.ts` 负责启动/停止子进程
-- **设计意图**：E2E 测试把"被测对象"也当作 fixture 管理
+- **设计意图**：E2E 测试把"被测对象"也当作 fixture 管理（fixture 详见 [pytest Fixture](./06-pytest-fixture.md)）
 
 ### 3.3 dify 的 CI E2E workflow
 
@@ -249,7 +249,7 @@ jobs:
 
 ### 练习 3：挑战（选做）
 
-阅读 `e2e/support/api.ts`，找出 dify E2E 如何用 API 客户端登录获取 JWT，然后用 `page.setExtraHTTPHeaders({ Authorization: ... })` 让浏览器自动带上认证头，理解"绕过登录 UI 直接进入测试场景"的设计模式。
+阅读 `e2e/support/api.ts`，找出 dify E2E 如何用 API 客户端登录获取 JWT（详见 [JWT](../../_common/07-authentication/03-jwt.md)），然后用 `page.setExtraHTTPHeaders({ Authorization: ... })` 让浏览器自动带上认证头，理解"绕过登录 UI 直接进入测试场景"的设计模式。
 
 ## 6. 参考资料
 

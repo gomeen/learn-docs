@@ -12,9 +12,9 @@
 
 ## 📚 前置知识
 
-- Celery 任务定义与调用
-- 异常处理基础
-- 15-celery-tasks.md、20-celery-idempotency.md
+- Celery 任务定义与调用（详见 [任务定义](./15-celery-tasks.md)）
+- 异常处理基础（详见 [异常](../01-fundamentals/06-python-exceptions.md)）
+- 任务幂等性（详见 [任务幂等性设计](./20-celery-idempotency.md)）——重试会放大重复执行风险
 
 ## 1. 核心概念
 
@@ -23,7 +23,7 @@
 外部依赖**不稳定**：
 - 网络抖动（API 调用失败）
 - 临时资源不足（DB 连接池满）
-- 服务临时不可用（第三方 API 限流）
+- 服务临时不可用（第三方 API 限流，详见 [限流算法](../../_common/03-cache-patterns/04-rate-limiting.md)）
 
 直接失败 → 用户体验差。**智能重试** → 成功率大幅提升。
 
@@ -38,6 +38,8 @@
   ↓
 人工处理 / 报警 / 丢弃
 ```
+
+> 📌 **Sighting**：死信队列（DLQ）与通用消息重试语义见 [死信队列与重试机制](../../_common/02-mq/06-dead-letter.md)；下文聚焦 Celery 侧配置。
 
 ### 1.3 重试策略
 

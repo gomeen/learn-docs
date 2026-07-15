@@ -13,10 +13,10 @@
 
 ## 📚 前置知识
 
-- JSON-RPC 2.0 协议基础
-- HTTP 长连接 / SSE（Server-Sent Events）基础
-- LLM Function Calling / Tool Use 概念
-- Python 异步编程（参见 `../01-fundamentals/12-async-asyncio.md`）
+- JSON-RPC 2.0 协议基础（JSON 处理详见 [JSON](../01-fundamentals/17-json-processing.md)）
+- HTTP 长连接 / SSE（详见 [SSE](../01-fundamentals/28-sse.md)；HTTP 见 [HTTP 协议](../01-fundamentals/25-http-protocol.md)）
+- LLM Function Calling / Tool Use（详见 [Function Calling](./14-function-calling.md)）
+- Python 异步编程（详见 [async/asyncio](../01-fundamentals/12-async-asyncio.md)）
 
 ## 1. 核心概念
 

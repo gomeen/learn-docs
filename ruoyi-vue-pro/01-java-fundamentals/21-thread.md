@@ -12,9 +12,9 @@
 
 ## 📚 前置知识
 
-- Lambda 表达式
-- 集合基础
-- 08-stream-lambda.md
+- Lambda 表达式（详见 [08-stream-lambda](./08-stream-lambda.md)）
+- 集合基础（详见 [07-collections](./07-collections.md)）
+- [08-stream-lambda.md](./08-stream-lambda.md)
 
 ## 1. 核心概念
 
@@ -145,7 +145,7 @@ public class CompletableFutureDemo {
 
 ### 3.1 ruoyi 中无直接线程池示例
 
-> ruoyi 主要依赖 Spring @Async 与线程池配置。但理解 Thread / Runnable 概念仍是阅读源码的基础。
+> ruoyi 主要依赖 Spring `@Async` 与线程池配置（`@Async` 详见 [22-async](../02-spring-boot/22-async.md)）。但理解 Thread / Runnable 概念仍是阅读源码的基础。
 
 ### 3.2 Spring Boot 异步任务
 
@@ -174,7 +174,7 @@ public class UserService {
 - **复用**：避免反复创建/销毁线程的开销
 - **异常处理**：线程池统一捕获 setUncaughtExceptionHandler
 
-这是即将阅读的 1.3.5（线程池）的内容。
+> 📌 **Sighting**：线程池参数与拒绝策略见 [22-thread-pool](./22-thread-pool.md)。
 
 ## 4. 关键要点总结
 

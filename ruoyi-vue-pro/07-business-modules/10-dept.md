@@ -12,9 +12,10 @@
 
 ## 📚 前置知识
 
-- 09-menu.md（树形结构）
-- Spring Cache 基础（@Cacheable / @CacheEvict）
-- Redis 基础
+- 树形结构（详见 [菜单](./09-menu.md)）
+- Spring Cache（详见 [@Cacheable 等](../05-cache-and-mq/09-cache-annotation.md)）
+- Redis 基础（详见 [Redis 数据结构](../../_common/01-redis/01-data-structures.md)）
+- 数据权限与部门范围（详见 [数据权限](../06-security/29-ruoyi-data-permission.md)）
 
 ## 1. 核心概念
 

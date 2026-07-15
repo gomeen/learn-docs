@@ -12,11 +12,13 @@
 
 ## 📚 前置知识
 
-- 13 ~ 19 全部文档
+- [13-controller](./13-controller.md) ~ [19-filter](./19-filter.md) 全部文档
 
 ## 1. 核心概念
 
 ### 1.1 ruoyi Web 架构总览
+
+> 📌 **Sighting**：Filter 链细节见 [19-filter](./19-filter.md)；CORS 原理见 [CORS](../../_common/05-web-security/05-cors.md)；异常处理见 [17-exception-handler](./17-exception-handler.md)。
 
 ```
 HTTP 请求

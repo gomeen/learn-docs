@@ -12,9 +12,9 @@
 
 ## 📚 前置知识
 
-- 02-flowable-concepts.md（Flowable Service/对象）
-- Spring Boot 模块化（多 maven module）
-- yudao 框架的 Controller / Service / DAO 三层结构
+- Flowable Service/对象（详见 [Flowable 概念](./02-flowable-concepts.md)）
+- Spring Boot 模块化（详见 [模块结构](../07-business-modules/01-module-structure.md)）
+- Controller / Service / DAO 三层（详见 [MVC 分层](../07-business-modules/02-mvc-layers.md)）
 
 ## 1. 核心概念
 

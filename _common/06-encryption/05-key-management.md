@@ -12,8 +12,8 @@
 
 ## 📚 前置知识
 
-- 6.1 对称加密、6.2 非对称加密、6.3 哈希
-- Docker / 容器化基础
+- [6.1 对称加密](./01-symmetric.md)、[6.2 非对称加密](./02-asymmetric.md)、[6.3 哈希](./03-hash.md)
+- Docker / 容器化基础（见 [09-containerization](../09-containerization/01-concepts.md)）
 - Linux 环境变量
 
 ## 1. 核心概念

@@ -26,12 +26,12 @@ Spring Security 6 开始，`WebSecurityConfigurerAdapter` 被废弃，改用 `Se
 
 yudao 在 `YudaoWebSecurityConfigurerAdapter` 中定义了**核心 SecurityFilterChain**：
 
-- 关闭 CSRF
+- 关闭 CSRF（CSRF 原理见 [CSRF](../../_common/05-web-security/04-csrf.md)）
 - 关闭 FormLogin
 - 关闭 HttpBasic
-- 关闭 Session
+- 关闭 Session（Session 见 [Session/Cookie](../../_common/07-authentication/02-session-cookie.md)）
 - 关闭 Logout
-- 添加 TokenAuthenticationFilter
+- 添加 TokenAuthenticationFilter（详见 [21-token-auth](./21-token-auth.md)）
 - 自定义异常处理
 
 ### 1.3 业务方扩展

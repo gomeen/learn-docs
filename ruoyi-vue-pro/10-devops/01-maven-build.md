@@ -13,8 +13,9 @@
 ## 📚 前置知识
 
 - Maven 基础（pom.xml、依赖、坐标）
-- Spring Boot 起步
-- `02-spring-boot-jar.md`（推荐先看）
+- Spring Boot 起步（详见 [IoC](../02-spring-boot/01-ioc.md)）
+- 可执行 JAR（详见 [Spring Boot JAR](./02-spring-boot-jar.md)）
+- 业务多模块划分（详见 [模块结构](../07-business-modules/01-module-structure.md)）
 
 ## 1. 核心概念
 

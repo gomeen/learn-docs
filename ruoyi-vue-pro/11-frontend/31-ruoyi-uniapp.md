@@ -12,8 +12,9 @@
 
 ## 📚 前置知识
 
-- 11-frontend/30-uniapp.md
-- 11-frontend/23-ruoyi-vue3-structure.md
+- uni-app（详见 [uni-app](./30-uniapp.md)）
+- Vue3 结构（详见 [Vue3 结构](./23-ruoyi-vue3-structure.md)）
+- 会员认证（详见 [会员认证](../07-business-modules/21-member-auth.md)）
 
 ## 1. 核心概念
 

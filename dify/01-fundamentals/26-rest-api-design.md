@@ -7,7 +7,7 @@
 完成本文档后，你将能够：
 - 理解 REST 的六大约束
 - 掌握 RESTful 资源命名规范
-- 设计符合 REST 的 API（路径、HTTP 方法、状态码）
+- 设计符合 REST 的 API（路径、HTTP 方法、状态码；HTTP 细节见 [25-http-protocol](./25-http-protocol.md)）
 - 识别 dify 中 REST 设计的优点与不足
 
 ## 📚 前置知识
@@ -289,7 +289,7 @@ class WorkflowRunApi(Resource):
 
         返回：
         - blocking 模式：完整结果
-        - streaming 模式：SSE 流
+        - streaming 模式：SSE 流（详见 [28-sse](./28-sse.md)）
         """
         ...
 

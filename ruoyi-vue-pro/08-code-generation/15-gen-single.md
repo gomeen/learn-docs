@@ -11,8 +11,8 @@
 
 ## 📚 前置知识
 
-- 阅读过 `01-overview.md`、`03-table-import.md`
-- 了解 Spring Boot 项目结构
+- 总览 / 导入表（详见 [总览](./01-overview.md)、[导入表](./03-table-import.md)）
+- Spring Boot 项目结构（详见 [模块结构](../07-business-modules/01-module-structure.md)）
 
 ## 1. 核心概念
 

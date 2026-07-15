@@ -14,7 +14,7 @@
 
 - [10-data-permission.md](./10-data-permission.md)
 - [24-preauthorize.md](./24-preauthorize.md)
-- AOP 原理
+- AOP 原理（详见 [03-aop](../02-spring-boot/03-aop.md)）
 
 ## 1. 核心概念
 

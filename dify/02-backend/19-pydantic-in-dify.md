@@ -12,8 +12,8 @@
 
 ## 📚 前置知识
 
-- 02-backend/15-pydantic-basics.md 至 02-backend/18-pydantic-config.md（Pydantic 全套）
-- 02-backend/17-pydantic-dto.md（DTO 三层 Schema）
+- [Pydantic 基础](./15-pydantic-basics.md) 至 [Pydantic 配置](./18-pydantic-config.md)（Pydantic 全套）
+- [DTO 三层 Schema](./17-pydantic-dto.md)
 
 ## 1. 核心概念
 
@@ -341,9 +341,9 @@ class DifyConfig(BaseSettings):
 ```
 
 **解读**：
-- 第 4 行：`BaseSettings`——自动从环境变量读取
+- 第 4 行：`BaseSettings`——自动从环境变量读取（详见 [pydantic-settings](../01-fundamentals/20-pydantic-settings.md)）
 - 第 6-10 行：`SettingsConfigDict` 配置环境变量读取行为
-- 第 7 行：`env_file=".env"`——从 .env 文件读取
+- 第 7 行：`env_file=".env"`——从 .env 文件读取（环境变量约定详见 [环境变量](../01-fundamentals/19-env-vars.md)）
 - 第 13 行：`Field(default)` 设置默认值
 - 第 17-21 行：`Field(...)` 表示必填（无默认值时）
 - 第 33-36 行：通过环境变量切换 Repository 实现（依赖倒置）

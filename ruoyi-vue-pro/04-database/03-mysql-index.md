@@ -12,8 +12,9 @@
 
 ## 📚 前置知识
 
-- 01-mysql-basics.md
+- [01-mysql-basics.md](./01-mysql-basics.md)
 - B-Tree / B+Tree 数据结构（基础）
+- 慢查询分析见 [04-mysql-slow-query](./04-mysql-slow-query.md)
 
 ## 1. 核心概念
 

@@ -12,9 +12,9 @@
 
 ## 📚 前置知识
 
-- 09-mybatis-vs-mp.md
-- 12-query-wrapper.md
-- SQL JOIN（见 01-mysql-basics.md）
+- [09-mybatis-vs-mp.md](./09-mybatis-vs-mp.md)
+- [12-query-wrapper.md](./12-query-wrapper.md)
+- SQL JOIN（见 [01-mysql-basics.md](./01-mysql-basics.md)）
 
 ## 1. 核心概念
 

@@ -12,8 +12,8 @@
 
 ## 📚 前置知识
 
-- 22-druid.md
-- Spring Boot 自动配置
+- [22-druid.md](./22-druid.md)
+- Spring Boot 自动配置（详见 [08-auto-config](../02-spring-boot/08-auto-config.md)）
 
 ## 1. 核心概念
 

@@ -13,7 +13,8 @@
 ## 📚 前置知识
 
 - JDBC 基础
-- 19-dynamic-datasource.md
+- [19-dynamic-datasource.md](./19-dynamic-datasource.md)
+- 慢 SQL 见 [04-mysql-slow-query](./04-mysql-slow-query.md)
 
 ## 1. 核心概念
 
@@ -28,6 +29,7 @@
 
 1. **连接池**：管理数据库连接的生命周期
 2. **监控**：SQL 执行统计、慢 SQL 记录、Web 监控页面
+3. **防火墙**：WallFilter 防 SQL 注入（SQL 注入见 [SQL 注入](../../_common/05-web-security/03-sql-injection.md)）
 3. **防 SQL 注入**：WallFilter（基于 SQL 语法解析）
 4. **扩展性**：Filter 链机制（stat、wall、slf4j、log4j 等）
 

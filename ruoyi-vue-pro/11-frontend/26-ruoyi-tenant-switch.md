@@ -12,8 +12,9 @@
 
 ## 📚 前置知识
 
-- 11-frontend/06-pinia.md
-- 11-frontend/19-axios.md
+- Pinia（详见 [Pinia](./06-pinia.md)）
+- Axios（详见 [Axios](./19-axios.md)）
+- 多租户模型（详见 [多租户](../../_common/08-authorization/05-multi-tenant.md)）
 
 ## 1. 核心概念
 

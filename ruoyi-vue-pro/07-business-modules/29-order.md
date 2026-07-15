@@ -12,9 +12,10 @@
 
 ## 📚 前置知识
 
-- 26-spu-sku.md、28-cart.md
-- 状态机模式
-- 分布式事务基础
+- 商品 / 购物车（详见 [SPU/SKU](./26-spu-sku.md)、[购物车](./28-cart.md)）
+- 状态机模式（详见 [状态模式](../../_fundamentals/06-design-patterns/19-state.md)）
+- 事务 / 分布式事务基础（详见 [事务](../02-spring-boot/04-transaction.md)）
+- 支付集成（详见 [支付](./30-payment.md)）
 
 ## 1. 核心概念
 

@@ -12,8 +12,8 @@
 
 ## 📚 前置知识
 
-- 01-bpmn.md（BPMN 基础）
-- 02-flowable-concepts.md（Flowable 核心对象）
+- BPMN 基础（详见 [BPMN](./01-bpmn.md)）
+- Flowable 核心对象（详见 [Flowable 概念](./02-flowable-concepts.md)）
 
 ## 1. 核心概念
 

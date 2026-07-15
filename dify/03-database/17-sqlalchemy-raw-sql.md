@@ -19,11 +19,11 @@
 
 ### 1.1 为什么仍需要原生 SQL
 
-复杂报表、窗口函数、数据库专有语法或大批量迁移有时用 SQL 更清楚。原生 SQL 仍应复用 Session、连接和事务。
+复杂报表、窗口函数、数据库专有语法或大批量迁移有时用 SQL 更清楚。原生 SQL 仍应复用 Session、连接和事务（Session 边界详见 [Session 与 with](./16-sqlalchemy-session.md)；事务详见 [事务与隔离级别](./04-sql-transaction.md)）。
 
 ### 1.2 值参数与结构参数
 
-`text("... WHERE id=:id")` 可绑定值。表名、列名和排序方向不能当普通值参数；动态结构只能从固定白名单映射。
+`text("... WHERE id=:id")` 可绑定值。表名、列名和排序方向不能当普通值参数；动态结构只能从固定白名单映射（禁止拼接用户输入，详见 [SQL 注入](../../_common/05-web-security/03-sql-injection.md)）。
 
 ### 1.3 混合查询
 

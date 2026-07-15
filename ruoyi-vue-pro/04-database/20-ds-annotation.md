@@ -12,8 +12,9 @@
 
 ## 📚 前置知识
 
-- 19-dynamic-datasource.md
-- 02-mysql-transaction.md
+- [19-dynamic-datasource.md](./19-dynamic-datasource.md)
+- [02-mysql-transaction.md](./02-mysql-transaction.md)
+- Spring `@Transactional` 见 [04-transaction](../02-spring-boot/04-transaction.md)
 
 ## 1. 核心概念
 

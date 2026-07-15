@@ -8,12 +8,12 @@
 - 理解 `@Controller` 与 `@RestController` 的差异
 - 掌握 Controller 的标准写法（路径、方法、返回类型）
 - 能在 ruoyi-vue-pro 中读懂 Controller 的代码结构
-- 掌握 `CommonResult<T>` 统一返回类型的使用
+- 掌握 `CommonResult<T>` 统一返回类型的使用（统一返回专题见 [16-result-wrapper](./16-result-wrapper.md)）
 
 ## 📚 前置知识
 
-- 01-ioc.md
-- 10-config.md
+- [01-ioc.md](./01-ioc.md)
+- [10-config.md](./10-config.md)
 
 ## 1. 核心概念
 

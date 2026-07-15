@@ -156,7 +156,7 @@ public static <T> CommonResult<T> error(ServiceException serviceException) {
 
 **解读**：
 - 第 9-12 行：`getCheckedData` 是空安全数据获取模式——结合"成功返回 data，失败抛异常"的语义
-- **为什么不直接用 Optional？** 因为这是 RPC 远程调用场景，错误必须以**异常**抛出（异常能被 Spring MVC 切面捕获），而不是返回 Optional
+- **为什么不直接用 Optional？** 因为这是 RPC 远程调用场景，错误必须以**异常**抛出（异常能被 Spring MVC 切面捕获，见 [17-exception-handler](../02-spring-boot/17-exception-handler.md)），而不是返回 Optional
 - 第 14 行：把异常转换为 `CommonResult` 错误响应
 - **设计意图**：业务代码简化写法，避免每个方法都先 `checkError()` 再 `getData()`：
   ```java

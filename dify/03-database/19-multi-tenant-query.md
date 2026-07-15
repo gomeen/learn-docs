@@ -13,6 +13,7 @@
 ## 📚 前置知识
 
 - [3.3.2 select() 查询 API](./13-sqlalchemy-query.md)
+- 后端多租户全链路（详见 [多租户架构](../02-backend/20-multi-tenancy.md)）
 - 资源所有权：[`../05-auth-and-security/11-resource-ownership.md`（dify 项目视角）](../05-auth-and-security/11-resource-ownership.md)
 
 ## 1. 核心概念
@@ -27,11 +28,13 @@
 
 ### 1.3 索引与约束
 
-高频查询常以 `(tenant_id, resource_id/status/created_at)` 建复合索引。业务唯一性通常也限定在租户内，如 `UNIQUE (tenant_id, name)`。
+高频查询常以 `(tenant_id, resource_id/status/created_at)` 建复合索引（复合索引与最左前缀详见 [索引原理](./03-sql-index.md)）。业务唯一性通常也限定在租户内，如 `UNIQUE (tenant_id, name)`。
 
 ## 2. 代码示例
 
 ### 2.1 封装强制租户作用域的仓储
+
+仓储模式把过滤封装在数据访问层（详见 [仓储模式](../02-backend/03-repository-pattern.md)）；此处用 `@dataclass` 承载查询上下文（详见 [dataclass](../01-fundamentals/36-dataclasses.md)）。
 
 ```python
 from dataclasses import dataclass

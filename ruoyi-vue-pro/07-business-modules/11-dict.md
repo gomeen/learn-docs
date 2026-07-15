@@ -12,9 +12,9 @@
 
 ## 📚 前置知识
 
-- 06-common-result.md
-- Redis 缓存基础
-- 10-dept.md
+- 统一响应（详见 [CommonResult](./06-common-result.md)）
+- Redis / 本地缓存（详见 [ruoyi 缓存场景](../05-cache-and-mq/11-ruoyi-cache-usage.md)）
+- 部门树（详见 [部门](./10-dept.md)）
 
 ## 1. 核心概念
 

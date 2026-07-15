@@ -58,7 +58,7 @@ Coupling（耦合）描述模块之间的依赖程度。
 
 降低耦合的常见方法：
 
-- 依赖 Protocol 或领域接口，而不是具体客户端
+- 依赖 Protocol 或领域接口（详见 [Protocol 与 Generic](../01-fundamentals/09-protocol-generic.md)），而不是具体客户端
 - 只传递所需数据，不暴露巨大上下文对象
 - 避免跨层读取内部字段
 - 将外部 I/O 封装在 adapter 或 extension 边界

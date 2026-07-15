@@ -77,6 +77,8 @@ private volatile int state;  // 0=未锁定，1=已锁定，n=重入次数
 
 ### 1.3 AQS 的模板方法
 
+> 📌 **Sighting**：模板方法模式完整讲解见 [模板方法](../../_fundamentals/06-design-patterns/14-template-method.md)。AQS 用「父类骨架 + 子类 tryAcquire」实现同步器扩展。
+
 AQS 定义了独占/共享两类模板方法：
 
 ```java
@@ -344,7 +346,7 @@ public class CyclicBarrierDemo {
 
 ### 3.1 Redisson 分布式锁的 AQS-like 实现
 
-> Redisson 的 `RLock` 内部用 **Redis Lua 脚本** 实现 AQS 类似的语义，但 AQS 本质上是单机 JVM 工具，Redisson 是分布式版本。
+> Redisson 的 `RLock` 内部用 **Redis Lua 脚本** 实现 AQS 类似的语义，但 AQS 本质上是单机 JVM 工具，Redisson 是分布式版本（分布式锁理论见 [分布式锁要求](../../_common/04-distributed-locks/01-requirements.md)，ruoyi 封装见 [17-distributed-lock](../03-spring-boot-starters/17-distributed-lock.md)）。
 
 **文件位置**：`/Users/xu/code/github/ruoyi-vue-pro/yudao-framework/yudao-spring-boot-starter-redis/src/main/java/cn/iocoder/yudao/framework/redis/config/YudaoRedisAutoConfiguration.java`
 

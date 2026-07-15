@@ -12,8 +12,8 @@
 
 ## 📚 前置知识
 
-- 07-rag-and-agent/24-workflow-engine.md
-- 07-rag-and-agent/25-workflow-nodes.md
+- [Workflow Engine](./24-workflow-engine.md)
+- [Workflow Nodes](./25-workflow-nodes.md)
 
 ## 1. 核心概念
 
@@ -276,7 +276,7 @@ def inject_default_system_variable_mappings(
 
 ### 练习 3：挑战（选做）
 
-设计一个会话变量持久化方案：把 Conversation Variables 存到 Redis，每次工作流启动时自动恢复。
+设计一个会话变量持久化方案：把 Conversation Variables 存到 Redis（详见 [Redis in dify](../04-cache-and-queue/13-redis-in-dify.md)），每次工作流启动时自动恢复。
 
 ## 6. 参考资料
 

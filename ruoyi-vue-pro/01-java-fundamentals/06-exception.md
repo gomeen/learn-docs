@@ -180,7 +180,7 @@ public final class ServiceException extends RuntimeException {
 - 第 1 行：`final` 类，禁止再被继承（统一异常处理策略）
 - 第 7 行：自定义 `code` 字段，避免只看 `message` 区分错误类型
 - 第 13 行：保留空构造方法避免 Jackson 反序列化失败
-- **设计意图**：业务代码只需 `throw new ServiceException(USER_NOT_EXISTS)`，全局异常处理器会捕获并返回 JSON 给前端
+- **设计意图**：业务代码只需 `throw new ServiceException(USER_NOT_EXISTS)`，全局异常处理器会捕获并返回 JSON 给前端（全局异常处理详见 [17-exception-handler](../02-spring-boot/17-exception-handler.md)）
 
 ### 3.2 错误码 `ErrorCode`
 
@@ -250,7 +250,7 @@ public class ErrorCode {
 
 ### 练习 3：挑战（选做）
 
-实现一个 `@ControllerAdvice` 风格的全局异常处理类（伪代码即可），捕获 `ServiceException` 后返回对应的 `CommonResult`。
+> 学完 [17-exception-handler](../02-spring-boot/17-exception-handler.md) 后再做：实现一个 `@ControllerAdvice` 风格的全局异常处理类（伪代码即可），捕获 `ServiceException` 后返回对应的 `CommonResult`。
 
 ## 6. 参考资料
 

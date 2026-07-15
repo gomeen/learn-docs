@@ -12,9 +12,9 @@
 
 ## 📚 前置知识
 
-- 阅读过 `10-velocity.md`、`11-java-template.md`
-- Vue 2 / Vue 3 基础
-- Element UI / Element Plus / Vben / Antd 基础概念
+- Velocity / Java 模板（详见 [Velocity](./10-velocity.md)、[Java 模板](./11-java-template.md)）
+- Vue 3 基础（详见 [Vue3 基础](../11-frontend/01-vue3-basics.md)）
+- Element Plus / Vben（详见 [Element Plus](../11-frontend/10-element-plus.md)、[Vben](../11-frontend/13-vben.md)）
 
 ## 1. 核心概念
 

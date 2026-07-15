@@ -12,9 +12,10 @@
 
 ## 📚 前置知识
 
-- 03-ruoyi-workflow.md（ruoyi 工作流架构）
-- 13-task-query.md（任务查询）
-- 02-flowable-concepts.md（Task）
+- ruoyi 工作流架构（详见 [ruoyi 工作流](./03-ruoyi-workflow.md)）
+- 任务查询（详见 [任务查询](./13-task-query.md)）
+- Task（详见 [Flowable 概念](./02-flowable-concepts.md)）
+- 角色 / 部门（详见 [角色](../07-business-modules/08-role.md)、[部门](../07-business-modules/10-dept.md)）
 
 ## 1. 核心概念
 

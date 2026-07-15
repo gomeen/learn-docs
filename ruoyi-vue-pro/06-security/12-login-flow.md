@@ -12,8 +12,9 @@
 
 ## 📚 前置知识
 
-- 04-user-details.md
-- 10-token-redis.md
+- HTTP 认证与 Session/Token 模型（详见 [HTTP 认证](../../_common/07-authentication/01-http-auth.md)）
+- Token + Redis（详见 [Token + Redis](./10-token-redis.md)）
+- 密码存储与校验（BCrypt 等，详见 [哈希](../../_common/06-encryption/03-hash.md)）
 - Hutool 工具库
 
 ## 1. 核心概念
@@ -38,6 +39,8 @@
     ↓
 [4] 后续请求带 access_token，自动通过 TokenAuthenticationFilter 鉴权
 ```
+
+> 📌 **Sighting**：社交登录（微信/钉钉）见 [社交登录](./13-social-login.md)；Token 工具封装见 [TokenUtils](./11-token-utils.md)。
 
 ### 1.2 登录失败处理
 

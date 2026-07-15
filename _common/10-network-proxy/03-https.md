@@ -12,8 +12,8 @@
 
 ## 📚 前置知识
 
-- 10.2 反向代理（Nginx 反代概念）
-- SSL/TLS 协议基本原理（不需要深入握手细节）
+- [10.2 反向代理](./02-reverse-proxy.md)（Nginx 反代概念）
+- SSL/TLS 协议基本原理（加密分工见 [对称](../06-encryption/01-symmetric.md) / [非对称](../06-encryption/02-asymmetric.md) / [签名](../06-encryption/04-digital-signature.md)）
 - DNS 与域名解析（要签 HTTPS 必须有域名）
 
 ## 1. 核心概念

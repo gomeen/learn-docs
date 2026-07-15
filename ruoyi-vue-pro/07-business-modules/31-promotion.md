@@ -12,8 +12,10 @@
 
 ## 📚 前置知识
 
-- 29-order.md（订单）
-- 28-cart.md（购物车）
+- Redis 库存预扣（详见 [Redis 数据结构](../../_common/01-redis/01-data-structures.md)、[分布式锁](../../_common/04-distributed-locks/02-redis-redlock.md)）
+- 消息队列异步下单（详见 [MQ 概念](../../_common/02-mq/01-concepts.md)）
+- 限流防刷（详见 [限流算法](../../_common/03-cache-patterns/04-rate-limiting.md)）
+- 订单 / 购物车（详见 [订单](./29-order.md)、[购物车](./28-cart.md)）
 
 ## 1. 核心概念
 

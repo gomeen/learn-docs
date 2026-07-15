@@ -149,7 +149,7 @@ def has_pair_sum(arr, target):
                 return True
     return False
 
-# 优化：O(n) 用哈希表
+# 优化：O(n) 用哈希表（详见 [13-hash-table](./13-hash-table.md)）
 def has_pair_sum_fast(arr, target):
     seen = set()           # O(n) 空间
     for x in arr:          # O(n)

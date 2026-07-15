@@ -8,11 +8,11 @@
 - 掌握 HTTP 各版本的关键改进
 - 理解 HTTP/2 的多路复用和 HPACK
 - 了解 HTTP/3 的 QUIC 协议
-- 能在 dify 中识别 HTTP 协议的应用
+- 能在 dify 中识别 HTTP 协议的应用；状态码见 [06-http-status](./06-http-status.md)，Header 见 [07-http-header](./07-http-header.md)，HTTPS 见 [08-https](./08-https.md)
 
 ## 📚 前置知识
 
-- 02-tcp-ip.md
+- [02-tcp-ip](./02-tcp-ip.md)
 
 ## 1. 核心概念
 

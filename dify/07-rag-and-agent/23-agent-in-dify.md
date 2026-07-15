@@ -12,8 +12,9 @@
 
 ## 📚 前置知识
 
-- 07-rag-and-agent/18-agent-concepts.md 至 22-advanced-agent.md
-- 07-rag-and-agent/24-workflow-engine.md（推荐先看）
+- Agent 系列（详见 [Agent 概念](./18-agent-concepts.md)、[ReAct 深入](./19-react-deep-dive.md)、[Advanced Agent](./22-advanced-agent.md)）
+- 工作流引擎（详见 [Workflow Engine](./24-workflow-engine.md)）
+- dify Function Calling Agent（详见 [Function Calling](../06-llm-and-ai/14-function-calling.md)、[工具系统](../06-llm-and-ai/19-tools-in-dify.md)）
 
 ## 1. 核心概念
 

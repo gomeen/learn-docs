@@ -12,8 +12,9 @@
 
 ## 📚 前置知识
 
-- 04-modeler.md（设计器与 Model）
-- 02-flowable-concepts.md（Deployment / ProcessDefinition）
+- 设计器与 Model（详见 [Modeler](./04-modeler.md)）
+- Deployment / ProcessDefinition（详见 [Flowable 概念](./02-flowable-concepts.md)）
+- 版本管理（详见 [版本](./06-version.md)）
 
 ## 1. 核心概念
 

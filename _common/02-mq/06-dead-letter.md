@@ -12,8 +12,8 @@
 
 ## 📚 前置知识
 
-- 消息队列基本概念（`02-mq/01-concepts.md`）
-- 消息可靠性语义（`02-mq/05-reliability.md`）
+- [消息队列基本概念](./01-concepts.md)
+- [消息可靠性语义](./05-reliability.md)
 - HTTP 重试与熔断基础
 
 ## 1. 核心概念

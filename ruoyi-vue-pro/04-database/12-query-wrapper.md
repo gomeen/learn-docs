@@ -12,8 +12,8 @@
 
 ## 📚 前置知识
 
-- 09-mybatis-vs-mp.md
-- Java Lambda 表达式
+- [09-mybatis-vs-mp.md](./09-mybatis-vs-mp.md)
+- Java Lambda 表达式（详见 [08-stream-lambda](../01-java-fundamentals/08-stream-lambda.md)）
 
 ## 1. 核心概念
 

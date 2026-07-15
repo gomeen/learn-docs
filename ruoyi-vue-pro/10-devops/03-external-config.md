@@ -12,9 +12,10 @@
 
 ## 📚 前置知识
 
-- Spring Boot 基础（`@SpringBootApplication`）
+- Spring Boot 基础（详见 [配置](../02-spring-boot/10-config.md)）
 - YAML 语法
-- `01-maven-build.md`
+- Maven 构建（详见 [Maven 多模块](./01-maven-build.md)）
+- Profile（详见 [Profile](../02-spring-boot/06-profile.md)、[Profile 构建](./04-profile-build.md)）
 
 ## 1. 核心概念
 

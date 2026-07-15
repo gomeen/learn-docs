@@ -12,8 +12,10 @@
 
 ## 📚 前置知识
 
-- 11-frontend/01-vue3-basics.md
-- 11-frontend/06-pinia.md
+- Vue3 基础（详见 [Vue3 基础](./01-vue3-basics.md)）
+- Pinia（详见 [Pinia](./06-pinia.md)）
+- Vue Router（详见 [Vue Router](./05-vue-router.md)）
+- Axios 拦截器（详见 [拦截器](./20-interceptor.md)）
 
 ## 1. 核心概念
 

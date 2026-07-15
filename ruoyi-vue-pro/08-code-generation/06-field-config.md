@@ -12,8 +12,7 @@
 
 ## 📚 前置知识
 
-- 阅读过 `01-overview.md`、`03-table-import.md`
-- 阅读过 `04-type-mapping.md`
+- 总览 / 导入表 / 类型映射（详见 [总览](./01-overview.md)、[导入表](./03-table-import.md)、[类型映射](./04-type-mapping.md)）
 
 ## 1. 核心概念
 

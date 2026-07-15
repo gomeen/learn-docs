@@ -40,7 +40,7 @@
 - `SpringApplication`：启动器
 - `ApplicationContext`：IoC 容器接口
 - `BeanFactory`：Bean 工厂（最底层接口）
-- `Environment`：环境（配置 + Profile）
+- `Environment`：环境（配置 + Profile，详见 [06-profile](./06-profile.md)）
 
 ### 1.3 启动失败常见原因
 
@@ -164,7 +164,7 @@ public class BannerApplicationRunner implements ApplicationRunner {
 ## 4. 关键要点总结
 
 - **启动流程**：main() → SpringApplication.run() → 准备环境 → 创建 Context → 加载 Bean → 刷新 Context → 启动 Tomcat
-- **`@SpringBootApplication` = `@Configuration` + `@EnableAutoConfiguration` + `@ComponentScan`**
+- **`@SpringBootApplication` = `@Configuration` + `@EnableAutoConfiguration` + `@ComponentScan`**（自动配置详见 [08-auto-config](./08-auto-config.md)）
 - **启动失败排查**：
   - 看启动日志（端口、Bean 错误）
   - 加 `--debug` 参数查看自动配置报告

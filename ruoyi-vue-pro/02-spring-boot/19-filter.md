@@ -12,7 +12,7 @@
 
 ## 📚 前置知识
 
-- 18-interceptor.md（上篇）
+- [18-interceptor.md](./18-interceptor.md)（上篇）
 
 ## 1. 核心概念
 
@@ -20,7 +20,7 @@
 
 Filter 是 Servlet 规范定义的**请求拦截器**，在请求到达 Servlet 之前 / 之后执行：
 - 多个 Filter 组成 Filter 链（按 `@Order` 排序）
-- 常用于：跨域（CORS）、请求体缓存、XSS 过滤、API 加密、字符编码
+- 常用于：跨域（CORS，详见 [CORS](../../_common/05-web-security/05-cors.md)）、请求体缓存、XSS 过滤（详见 [XSS](../../_common/05-web-security/02-xss.md)）、API 加密、字符编码
 
 ### 1.2 Filter 生命周期
 

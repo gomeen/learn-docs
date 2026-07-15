@@ -158,7 +158,7 @@ addopts = --cov=./api --cov-report=json --import-mode=importlib --cov-branch --c
 - `--cov=./api`：只统计 `api/` 目录下的代码覆盖率
 - `--cov-branch`：启用分支覆盖
 - `--cov-report=json`：输出 `coverage.json` 给 Codecov
-- `--cov-report=xml`：输出 `coverage.xml` 给 CI
+- `--cov-report=xml`：输出 `coverage.xml` 给 CI（详见 [CI/CD 概念](../../_common/11-cicd/01-concepts.md)）
 
 ## 3. dify 仓库源码解读
 

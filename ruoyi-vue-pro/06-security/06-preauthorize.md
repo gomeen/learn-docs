@@ -12,8 +12,9 @@
 
 ## 📚 前置知识
 
-- 03-security-config.md
+- Spring Security 与方法级权限（详见 [Spring Security](../03-spring-boot-starters/20-spring-security.md)、[RBAC](../../_common/08-authorization/01-rbac.md)）
 - SpEL 表达式基础
+- AOP 方法拦截（详见 [AOP](../02-spring-boot/03-aop.md)）
 
 ## 1. 核心概念
 
@@ -24,7 +25,7 @@ URL 级：通过 SecurityFilterChain 配置（如 .hasRole("ADMIN")）
     ↓
 方法级：通过 @PreAuthorize 注解（ruoyi 主要使用）
     ↓
-数据级：通过 @DataPermission 注解（自动加 WHERE 条件）
+数据级：通过 @DataPermission 注解（自动加 WHERE 条件，详见 [ruoyi 数据权限](./29-ruoyi-data-permission.md)）
 ```
 
 **@PreAuthorize 的优势**：

@@ -12,7 +12,8 @@
 
 ## 📚 前置知识
 
-- 01-ioc.md（AOP 基础，@Async 本质是 AOP）
+- [03-aop.md](./03-aop.md)（AOP 基础，`@Async` 本质是 AOP）
+- 线程池（详见 [22-thread-pool](../01-java-fundamentals/22-thread-pool.md)）
 - 04-transaction.md
 
 ## 1. 核心概念
@@ -34,7 +35,7 @@ public class MyApplication { ... }
 
 ### 1.3 `@Async` vs MQ
 
-| 特性 | `@Async` | MQ (Redis/RabbitMQ/Kafka) |
+| 特性 | `@Async` | MQ (Redis/RabbitMQ/Kafka，详见 [MQ 概念](../../_common/02-mq/01-concepts.md)) |
 |------|---------|--------------------------|
 | 作用范围 | 单 JVM | 跨 JVM |
 | 可靠性 | 应用重启任务丢失 | 持久化、可靠投递 |

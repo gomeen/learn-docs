@@ -9,8 +9,8 @@
 - 设计从 Issue、PR、CI 到 Tag 和 Release Notes 的发布流程
 - 理解 dify 的 PR 约束如何为发布归类和追踪奠定基础
 ## 📚 前置知识
-- Git Commit、Tag、Branch 与 Pull Request 基础
-- 持续集成与自动化测试的基本概念
+- Git Commit、Tag、Branch 与 Pull Request 基础（详见 [Git 进阶](../01-fundamentals/30-git-advanced.md)、[Conventional Commits / SemVer](../01-fundamentals/32-conventional-commits.md)）
+- 持续集成与自动化测试的基本概念（详见 [CI/CD 概念](../../_common/11-cicd/01-concepts.md)）
 - Markdown 链接、标题和列表语法
 - 建议先阅读 `./13-pr-best-practices.md`
 - 建议先阅读 `./20-contributing.md`
@@ -253,6 +253,8 @@ dify 是 monorepo，至少有 4 处声明版本号：
 ## 🤖 发布自动化的真实样貌
 dify 的发布是**半自动**的：核心构建由 CI 完成，但版本号、Tag、Release 由人创建。
 ### Docker 镜像 Tag 规则
+
+> 📌 **Sighting**：镜像 / 仓库基础见 [Docker 核心概念](../../_common/09-containerization/01-concepts.md)；此处只关心发布时的 Tag 约定。
 **文件位置**：`/Users/xu/code/github/dify/.github/workflows/build-push.yml`
 **核心代码**（行 210-214）：
 ```yaml

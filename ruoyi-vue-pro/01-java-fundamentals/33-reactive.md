@@ -460,7 +460,7 @@ public class UserController {
 ```
 
 **解读**：
-- **第 37 行 `Flux<ChatResponse>`**：适配器模式 —— 把 Spring AI 底层的响应式 API 直接转发给上层
+- **第 37 行 `Flux<ChatResponse>`**：适配器模式（详见 [适配器](../../_fundamentals/06-design-patterns/06-adapter.md)）—— 把 Spring AI 底层的响应式 API 直接转发给上层
 - **7 个 AI 厂商适配器**（Gemini、SiliconFlow、XingHuo、DouBao、Grok、HunYuan、BaiChuan）都用相同模式
 - **核心价值**：上层 Service 只依赖抽象 `ChatModel`，不用关心具体厂商；新增厂商只需写一个 30 行的适配器
 - **设计哲学**：ruoyi-vue-pro 在 AI 模块采用**响应式优先**设计，但混搭 Spring MVC 框架，是渐进式响应式改造的典型案例

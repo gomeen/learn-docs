@@ -59,7 +59,7 @@
 | `TreeMap`            | 按 key 排序，红黑树             |
 | `LinkedHashMap`      | 保留插入顺序                   |
 | `Hashtable`          | 线程安全（已过时）                |
-| `ConcurrentHashMap`  | 线程安全，高并发推荐               |
+| `ConcurrentHashMap`  | 线程安全，高并发推荐（原理与分段锁/CAS 详见 [26-concurrent-collections](./26-concurrent-collections.md)） |
 
 ### 1.5 不可变集合（Java 9+）
 

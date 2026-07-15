@@ -61,7 +61,7 @@ with MyContext() as ctx:
 
 ### 1.3 `@contextmanager`：用生成器写上下文管理器
 
-更简洁的写法——用 `contextlib.contextmanager` 把生成器函数"装饰"成上下文管理器：
+更简洁的写法——用 `contextlib.contextmanager` 把生成器函数"装饰"成上下文管理器（`@contextmanager` 本身是装饰器，详见 [10-decorator](./10-decorator.md)；`yield` / 生成器见 [14-generator](./14-generator.md)）：
 
 ```python
 from contextlib import contextmanager

@@ -12,7 +12,8 @@
 
 ## 📚 前置知识
 
-- 07-rag-and-agent/01-rag-overview.md 至 05-vector-db-index.md
+- RAG 索引链路（详见 [RAG 概览](./01-rag-overview.md)、[文档加载](./02-document-loading.md)、[Chunking](./03-chunking-strategies.md)、[Embedding 选型](./04-embedding-selection.md)、[向量索引](./05-vector-db-index.md)）
+- dify 向量库接入（详见 [VDB in dify](../03-database/28-vdb-in-dify.md)）
 
 ## 1. 核心概念
 

@@ -12,9 +12,9 @@
 
 ## 📚 前置知识
 
-- 13-task-query.md（任务查询）
-- 02-flowable-concepts.md（HistoryService）
-- 01-bpmn.md（BPMN 节点）
+- 任务查询（详见 [任务查询](./13-task-query.md)）
+- HistoryService（详见 [Flowable 概念](./02-flowable-concepts.md)）
+- BPMN 节点（详见 [BPMN](./01-bpmn.md)）
 
 ## 1. 核心概念
 

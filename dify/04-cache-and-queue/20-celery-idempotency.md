@@ -12,9 +12,9 @@
 
 ## 📚 前置知识
 
-- Celery 任务与重试
+- Celery 任务与重试（详见 [任务定义](./15-celery-tasks.md)、[任务重试](./21-celery-retry.md)）
 - 关系数据库事务
-- 10-distributed-lock.md、15-celery-tasks.md
+- 分布式锁原理（详见 [Redis 分布式锁](../../_common/04-distributed-locks/02-redis-redlock.md)）
 
 ## 1. 核心概念
 

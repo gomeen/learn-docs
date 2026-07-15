@@ -51,8 +51,8 @@ public class User {
 | `@EqualsAndHashCode`| 生成 equals / hashCode             |
 | `@NoArgsConstructor` | 无参构造                          |
 | `@AllArgsConstructor`| 全参构造                          |
-| `@Builder`          | 建造者模式                          |
-| `@Slf4j`            | 自动注入 `log` 静态字段               |
+| `@Builder`          | 建造者模式（详见 [建造者](../../_fundamentals/06-design-patterns/04-builder.md)） |
+| `@Slf4j`            | 自动注入 `log` 静态字段（日志框架见 [17-logging](./17-logging.md)） |
 | `@RequiredArgsConstructor` | 生成 final 字段的构造器          |
 
 ### 1.3 lombok.config

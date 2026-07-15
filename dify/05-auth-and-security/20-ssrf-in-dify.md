@@ -12,8 +12,8 @@
 
 ## 📚 前置知识
 
-- 17-ssrf.md
-- 06-async-asyncio.md（异步编程）
+- SSRF 攻击与防护原理（详见 [SSRF](../../_common/05-web-security/06-ssrf.md)）
+- 异步编程背景（详见 [async/asyncio](../01-fundamentals/12-async-asyncio.md)）——httpx 异步客户端场景
 
 ## 1. 核心概念
 

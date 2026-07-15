@@ -14,7 +14,7 @@
 
 - [10-data-permission.md](./10-data-permission.md)
 - MyBatis Plus 多租户插件
-- SaaS 多租户架构基础
+- SaaS 多租户架构基础（详见 [多租户](../../_common/08-authorization/05-multi-tenant.md)；应用 API 见 [33-tenant](./33-tenant.md)）
 
 ## 1. 核心概念
 

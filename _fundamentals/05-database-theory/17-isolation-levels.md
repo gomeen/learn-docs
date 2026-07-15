@@ -34,7 +34,7 @@
 | 可重复读（RR） | ✅ 解决 | ✅ 解决 | ⚠️ 部分解决* | 中 |
 | 串行化（Serializable） | ✅ 解决 | ✅ 解决 | ✅ 解决 | 最低 |
 
-*InnoDB 在 RR 级别通过 **Next-Key Lock** 大部分解决幻读。
+*InnoDB 在 RR 级别通过 **Next-Key Lock** 大部分解决幻读（锁机制详见 [19-locks](./19-locks.md)；多版本实现见 [18-mvcc](./18-mvcc.md)）。
 
 ### 1.3 各数据库默认隔离级别
 

@@ -6,13 +6,13 @@
 
 完成本文档后，你将能够：
 - 理解 ABAC 的四大属性（主体、客体、环境、操作）
-- 区分 ABAC 与 RBAC 的适用场景
+- 区分 ABAC 与 [RBAC](./01-rbac.md) 的适用场景
 - 掌握 ABAC 策略语言（XACML / Rego）
 - 在 dify 和 ruoyi 中识别 ABAC 的影子
 
 ## 📚 前置知识
 
-- 8.1 RBAC 模型
+- [8.1 RBAC 模型](./01-rbac.md)
 - 数据库基础
 - 任意一种规则引擎
 

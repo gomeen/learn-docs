@@ -15,9 +15,10 @@
 ## 📚 前置知识
 
 - Python 类、继承、组合与类型注解
-- `typing.Protocol` 的基本概念
+- `typing.Protocol` 的基本概念（详见 [Protocol 与 Generic](../01-fundamentals/09-protocol-generic.md)）
 - 依赖注入和单元测试基础
 - 已阅读 `06-refactor-basics.md` 与 `07-code-smells.md`
+- 设计模式总览中的 SOLID 对照（可选，详见 [SOLID 原则（模式篇）](../../_fundamentals/06-design-patterns/24-solid.md)）
 
 ## 🧱 核心概念
 

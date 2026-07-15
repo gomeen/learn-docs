@@ -12,7 +12,7 @@
 
 ## 📚 前置知识
 
-- Maven 多模块项目结构
+- Maven 多模块项目结构（详见 [11-maven-modules](./11-maven-modules.md)）
 - 11-maven-modules.md
 
 ## 1. 核心概念

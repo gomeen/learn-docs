@@ -12,9 +12,10 @@
 
 ## 📚 前置知识
 
-- 11-dict.md
-- WebSocket 基础概念
-- 06-common-result.md
+- 字典（详见 [字典](./11-dict.md)）
+- WebSocket 基础（详见 [WebSocket Starter](../03-spring-boot-starters/38-websocket.md)）
+- 统一响应（详见 [CommonResult](./06-common-result.md)）
+- 站内信对比（详见 [站内信](./20-in-site-message.md)）
 
 ## 1. 核心概念
 

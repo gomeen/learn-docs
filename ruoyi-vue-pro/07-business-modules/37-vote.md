@@ -12,8 +12,8 @@
 
 ## 📚 前置知识
 
-- 33-process-def.md、35-process-instance.md
-- BPMN 2.0 多实例任务
+- 流程定义 / 实例（详见 [流程定义](./33-process-def.md)、[流程实例](./35-process-instance.md)）
+- BPMN 2.0 多实例任务（详见 [多实例](../09-workflow/17-multi-instance.md)）
 
 ## 1. 核心概念
 

@@ -13,14 +13,15 @@
 ## 📚 前置知识
 
 - [09-pagination.md](./09-pagination.md)
-- AOP 基础（MethodInterceptor、Advisor）
+- AOP 基础（MethodInterceptor、Advisor；详见 [03-aop](../02-spring-boot/03-aop.md)）
 - JSqlParser 库（用于 SQL 解析）
+- 授权模型见 [RBAC](../../_common/08-authorization/01-rbac.md) / [资源归属](../../_common/08-authorization/04-resource-ownership.md)
 
 ## 1. 核心概念
 
 ### 1.1 什么是数据权限？
 
-**数据权限** 控制用户能"看到"哪些行（Row-Level Security），不同于"功能权限"控制"哪些按钮"。
+**数据权限** 控制用户能"看到"哪些行（Row-Level Security），不同于"功能权限"控制"哪些按钮"（功能权限见 [24-preauthorize](./24-preauthorize.md) / [RBAC](../../_common/08-authorization/01-rbac.md)）。
 
 例如：销售部经理只能看到销售部的订单。
 

@@ -12,9 +12,10 @@
 
 ## 📚 前置知识
 
-- 20-listener.md（监听器）
-- 16-process-vars.md（流程变量）
-- BPMN 定时器事件
+- 监听器（详见 [监听器](./20-listener.md)）
+- 流程变量（详见 [流程变量](./16-process-vars.md)）
+- BPMN 定时器事件（详见 [BPMN](./01-bpmn.md)）
+- 定时任务（可选，详见 [Scheduled](../02-spring-boot/23-scheduled.md)）
 
 ## 1. 核心概念
 

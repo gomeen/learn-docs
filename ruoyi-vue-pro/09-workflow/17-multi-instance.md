@@ -12,9 +12,9 @@
 
 ## 📚 前置知识
 
-- 18-gateway.md（网关）
-- 16-process-vars.md（流程变量）
-- BPMN 2.0 Multi-Instance Task 规范
+- 网关（详见 [网关](./18-gateway.md)）
+- 流程变量（详见 [流程变量](./16-process-vars.md)）
+- BPMN 2.0 Multi-Instance Task（详见 [BPMN](./01-bpmn.md)）
 
 ## 1. 核心概念
 

@@ -20,7 +20,7 @@
 
 ### 1.1 为什么需要 `Protocol`？
 
-传统接口用抽象基类（ABC），强制继承关系：
+传统接口用抽象基类（ABC，详见 [35-abc](./35-abc.md)），强制继承关系：
 
 ```python
 from abc import ABC, abstractmethod

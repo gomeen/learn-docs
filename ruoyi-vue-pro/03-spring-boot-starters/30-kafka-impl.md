@@ -14,7 +14,7 @@
 
 - [26-mq-starter.md](./26-mq-starter.md)
 - [27-message.md](./27-message.md)
-- Kafka 基础
+- Kafka 基础（详见 [Kafka](../../_common/02-mq/02-kafka.md)）
 
 ## 1. 核心概念
 

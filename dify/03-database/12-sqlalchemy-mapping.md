@@ -31,7 +31,7 @@
 
 ### 1.3 表级配置
 
-`__table_args__` 可集中声明主键、唯一约束、检查约束和索引。显式命名让 Alembic 迁移、报错和跨环境对比更稳定。
+`__table_args__` 可集中声明主键、唯一约束、检查约束和索引。显式命名让 Alembic 迁移、报错和跨环境对比更稳定（Alembic 详见 [Alembic 基础](./20-alembic-basics.md)）。
 
 ## 2. 代码示例
 
@@ -73,7 +73,7 @@ with Session(engine) as session:
     session.commit()
 ```
 
-**说明**：示例展示了类型化列、外键、索引、唯一约束和数据库端时间默认值；生产项目用 Alembic 管理表结构，不直接 `create_all`。
+**说明**：示例展示了类型化列、外键、索引、唯一约束和数据库端时间默认值；生产项目用 Alembic 管理表结构，不直接 `create_all`。`with Session(...)` 是会话上下文写法（详见 [Session 与 with](./16-sqlalchemy-session.md)）。
 
 ## 3. dify 仓库源码解读
 
@@ -98,7 +98,7 @@ class TypeBase(MappedAsDataclass, DeclarativeBase):
 
 **解读**：
 - `Base` 与 `TypeBase` 都绑定项目统一 metadata。
-- `TypeBase` 组合 `MappedAsDataclass`，让映射对象获得 dataclass 风格构造。
+- `TypeBase` 组合 `MappedAsDataclass`，让映射对象获得 dataclass 风格构造（dataclass 语言机制详见 [dataclass](../01-fundamentals/36-dataclasses.md)；dify 规范详见 [TypeBase](./18-typebase-model.md)）。
 - 注释说明 TypeBase 是迁移期间的过渡基类，阅读模型时需注意两个 registry。
 
 ### 3.2 类型化账户模型

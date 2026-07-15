@@ -14,7 +14,7 @@
 
 - Spring Boot 基础
 - 对象存储（S3、MinIO、OSS）基础
-- 策略模式 / 多态
+- 策略模式 / 多态（详见 [策略模式](../../_fundamentals/06-design-patterns/13-strategy.md)）
 
 ## 1. 核心概念
 

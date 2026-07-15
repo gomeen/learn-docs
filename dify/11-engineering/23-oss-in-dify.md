@@ -7,7 +7,7 @@
 - 从仓库协作文件还原 dify 的开源贡献路径
 - 分析 Issue 模板、PR 模板和 Contributing 指南之间的职责分工
 - 解释标签体系和优先级模型如何支持 Triage
-- 识别 Cloud、Docker 与 Source 三类部署对缺陷诊断的影响
+- 识别 Cloud、Docker（详见 [Docker 核心概念](../../_common/09-containerization/01-concepts.md)）与 Source 三类部署对缺陷诊断的影响
 - 总结 dify 社区运营的入口设计、仓库分流与质量门禁特点
 - 根据 dify 模式为其他大型开源项目设计协作闭环
 
@@ -193,7 +193,7 @@ collaboration:
 - A detailed description of the bug, including any error messages
 - Steps to reproduce the bug
 - Expected behavior
-- **Logs**, if available, for backend issues, this is really important, you can find them in docker-compose logs
+- **Logs**, if available, for backend issues, this is really important, you can find them in docker-compose logs（Compose 详见 [Docker Compose](../../_common/09-containerization/04-compose.md)）
 - Screenshots or videos, if applicable
 
 How we prioritize:

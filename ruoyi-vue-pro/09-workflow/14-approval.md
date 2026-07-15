@@ -12,9 +12,9 @@
 
 ## 📚 前置知识
 
-- 13-task-query.md（任务查询）
-- 12-start-process.md（启动流程）
-- 18-gateway.md（网关基础）
+- 任务查询（详见 [任务查询](./13-task-query.md)）
+- 启动流程（详见 [启动流程](./12-start-process.md)）
+- 网关基础（详见 [网关](./18-gateway.md)）
 
 ## 1. 核心概念
 

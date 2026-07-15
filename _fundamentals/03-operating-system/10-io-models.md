@@ -6,9 +6,9 @@
 
 完成本文档后，你将能够：
 - 区分 5 种 IO 模型
-- 理解 select/poll/epoll 的演进
+- 理解 select/poll/epoll 的演进（详解见 [11-io-multiplexing](./11-io-multiplexing.md)）
 - 知道 Linux 的 aio 和 io_uring
-- 能在 dify 中识别 IO 模型的应用（asyncio + epoll）
+- 能在 dify 中识别 IO 模型的应用（asyncio + epoll；同步/异步辨析见 [13-sync-async](./13-sync-async.md)）
 
 ## 📚 前置知识
 

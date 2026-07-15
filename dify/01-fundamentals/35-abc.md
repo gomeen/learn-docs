@@ -48,7 +48,7 @@ GoogleSearchTool()  # TypeError: Can't instantiate abstract class GoogleSearchTo
 
 ### 1.2 `ABC` 的本质
 
-`ABC` 是一个**辅助类**，它的元类是 `ABCMeta`：
+`ABC` 是一个**辅助类**，它的元类是 `ABCMeta`（元类原理见 [33-metaclass](./33-metaclass.md)）：
 
 ```python
 from abc import ABC, ABCMeta
@@ -103,7 +103,7 @@ class MyConfig(Config):
 MyConfig()  # OK
 ```
 
-> `@abstractmethod` 必须放在 `@property` **下面**才能正确地标记为抽象属性。
+> `@abstractmethod` 必须放在 `@property` **下面**才能正确地标记为抽象属性（`@property` 见 [10-decorator](./10-decorator.md) / [34-descriptor](./34-descriptor.md)）。
 
 ### 1.5 虚子类（Virtual Subclass）
 

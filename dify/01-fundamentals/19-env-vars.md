@@ -271,7 +271,7 @@ services:
 
 ### 练习 3：挑战（选做）
 
-用 `pydantic-settings` 写一个 `Settings` 类（详见下节），用环境变量和 `.env` 文件自动加载 dify 的所有 DB / Redis / Celery 配置。
+> 学完 [20-pydantic-settings](./20-pydantic-settings.md) 后再做：用 `pydantic-settings` 写一个 `Settings` 类，用环境变量和 `.env` 文件自动加载 dify 的所有 DB / Redis / Celery 配置。
 
 ## 6. 参考资料
 

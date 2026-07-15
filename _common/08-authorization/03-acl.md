@@ -6,13 +6,13 @@
 
 完成本文档后，你将能够：
 - 理解 ACL 的核心思想：把权限直接挂在资源上
-- 区分 ACL 与 RBAC 的适用场景
+- 区分 ACL 与 [RBAC](./01-rbac.md) 的适用场景
 - 在 Linux 文件系统、数据库中识别 ACL
 - 在 dify 和 ruoyi 中找到 ACL 的影子
 
 ## 📚 前置知识
 
-- 8.1 RBAC
+- [8.1 RBAC](./01-rbac.md)
 - Linux 文件权限基础
 - 数据库基础
 
@@ -34,7 +34,7 @@ ACL（Access Control List，访问控制列表）把**权限直接挂在资源**
 
 ### 1.2 ACL vs RBAC
 
-| 维度 | ACL | RBAC |
+| 维度 | ACL | [RBAC](./01-rbac.md) |
 |------|-----|------|
 | 权限挂载 | 资源 | 角色 |
 | 查询方向 | 资源 → 用户 | 用户 → 角色 → 权限 |

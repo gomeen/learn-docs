@@ -12,9 +12,9 @@
 
 ## 📚 前置知识
 
-- dify Tool Provider 体系（参见 `../01-fundamentals/` 系列）
-- 阅读 6.20-6.23 MCP 系列文档
-- Python 异步编程（参见 `../01-fundamentals/12-async-asyncio.md`）
+- MCP 系列（详见 [MCP 概述](./20-mcp-overview.md)、[MCP Server](./21-mcp-server.md)、[MCP Client](./22-mcp-client.md)、[MCP vs Function Calling](./23-mcp-vs-function-calling.md)）
+- Function Calling / 工具路由（详见 [Function Calling](./14-function-calling.md)、[多工具路由](./16-multi-tool-routing.md)）
+- Python 异步编程（详见 [async/asyncio](../01-fundamentals/12-async-asyncio.md)）
 
 ## 1. 核心概念
 

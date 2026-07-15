@@ -13,11 +13,13 @@
 ## 📚 前置知识
 
 - [15-redisson.md](./15-redisson.md)
-- 限流算法基础
+- 限流算法基础（详见 [限流](../../_common/03-cache-patterns/04-rate-limiting.md)）
 
 ## 1. 核心概念
 
 ### 1.1 常见限流算法
+
+> 📌 **Sighting**：更专业的接口保护见 [36-sentinel](./36-sentinel.md)。限流算法详见前置知识中的 `_common` 链接。
 
 | 算法 | 特点 | 适用场景 |
 |------|------|---------|

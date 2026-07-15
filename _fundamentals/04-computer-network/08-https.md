@@ -24,7 +24,7 @@ HTTP → 明文传输
 HTTPS → HTTP + TLS 加密传输
 ```
 
-**TLS（Transport Layer Security）**：
+**TLS（Transport Layer Security）**（握手细节亦见 [_fundamentals 编码与加密 12-tls](../07-encoding-and-crypto/12-tls.md)）：
 - 在 TCP 之上、应用层之下
 - 提供加密、认证、完整性
 

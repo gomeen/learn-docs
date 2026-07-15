@@ -12,9 +12,9 @@
 
 ## 📚 前置知识
 
-- 缓存策略（`03-cache-patterns/01-strategies.md`）
-- 缓存三大问题（`03-cache-patterns/02-three-problems.md`）
-- 消息队列基础（`02-mq/01-concepts.md`）
+- [缓存策略](./01-strategies.md)
+- [缓存三大问题](./02-three-problems.md)
+- [消息队列基础](../02-mq/01-concepts.md)
 
 ## 1. 核心概念
 

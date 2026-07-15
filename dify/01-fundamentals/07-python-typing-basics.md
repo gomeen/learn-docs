@@ -145,6 +145,8 @@ reveal_type(config["timeout"])  # mypy: Revealed type is "int"
 
 ### 2.3 复杂嵌套类型的可读性
 
+`TypedDict` 给字典加「形状」，完整用法见 [08-typeddict](./08-typeddict.md)；此处只作类型可读性示例。
+
 ```python
 from typing import TypedDict
 
@@ -200,6 +202,7 @@ class AsyncWorkflowService:
 ```
 
 **解读**：
+- `async def` 表示协程函数（异步机制见 [12-async-asyncio](./12-async-asyncio.md)）；本文只看**类型标注**
 - 第 11-14 行：参数全部标注类型，包括 `user: "Account"`（用字符串前向引用避免循环导入）
 - 第 13 行：`inputs: dict[str, Any]`——输入参数 schema 不固定，用 `Any`
 - 第 14 行：返回值 `str` 表示 run_id 是字符串
@@ -234,7 +237,7 @@ class HttpRequestNode(BaseNode):
 ```
 
 **解读**：
-- 第 18-22 行：构造函数参数使用自定义 TypedDict 类 `HttpRequestNodeConfig` / `HttpRequestNodeData`
+- 第 18-22 行：构造函数参数使用自定义 TypedDict 类 `HttpRequestNodeConfig` / `HttpRequestNodeData`（详见上文 TypedDict 链接）
 - 第 21 行：**kwargs: Any 表示接收任意额外关键字参数（因为父类可能扩展）
 - 第 22 行：返回值 `None` 显式标注（Python 推荐即使无返回也标注 `-> None`）
 

@@ -12,8 +12,8 @@
 
 ## 📚 前置知识
 
-- 02-backend/12-flask-hooks.md（请求钩子）
-- 02-backend/14-flask-in-dify.md（Controller 装饰器）
+- [请求钩子](./12-flask-hooks.md)
+- [Controller 装饰器](./14-flask-in-dify.md)
 - WSGI 协议基础
 
 ## 1. 核心概念
@@ -24,8 +24,10 @@
 |------|---------|---------|---------|
 | **WSGI 中间件** | 整个 HTTP 请求 | 最外层 | GZip、Sentry 错误上报 |
 | **Flask 扩展** | Flask app 级别 | 应用启动时初始化 | SQLAlchemy、Login |
-| **请求钩子** | 每个请求 | 视图前后 | 鉴权、日志、CORS |
-| **装饰器** | 单个 endpoint | 视图调用时 | RBAC、参数校验 |
+| **请求钩子** | 每个请求 | 视图前后 | 鉴权、日志、CORS（CORS 详见 [CORS](../../_common/05-web-security/05-cors.md)） |
+| **装饰器** | 单个 endpoint | 视图调用时 | RBAC、参数校验（装饰器原理详见 [装饰器](../01-fundamentals/10-decorator.md)；RBAC 详见 [`_common` RBAC](../../_common/08-authorization/01-rbac.md)） |
+
+责任链/管道思想也常用于中间件编排（详见 [责任链](../../_fundamentals/06-design-patterns/17-chain.md)）。
 
 ### 1.2 dify 的中间件模式
 
@@ -43,7 +45,7 @@ api/extensions/
 └── ...
 ```
 
-每个 `ext_*.py` 文件定义一个 `init_app(app: DifyApp)` 函数，在应用启动时被调用。
+每个 `ext_*.py` 文件定义一个 `init_app(app: DifyApp)` 函数，在应用启动时被调用。Redis / Celery 等扩展细节见 [Redis 与 Celery 系列](../04-cache-and-queue/)（如 [Celery 架构](../04-cache-and-queue/14-celery-architecture.md)）。
 
 ### 1.3 拦截器模式（Decorator-based Interceptor）
 
@@ -345,7 +347,7 @@ def init_app(app: DifyApp):
 ```
 
 要求：
-- 用 Redis 存储计数器（`redis_client.incr()`）
+- 用 Redis 存储计数器（`redis_client.incr()`；限流策略详见 [限流](../../_common/03-cache-patterns/04-rate-limiting.md)）
 - 白名单路径（`/health`、`/console/api/setup`）不限流
 - 超过限制返回 429 + `Retry-After` 头
 

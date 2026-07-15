@@ -12,8 +12,8 @@
 
 ## 📚 前置知识
 
-- 06-llm-and-ai 中关于 LLM 调用、Embedding 的基础
-- 03-database 中的向量数据库基础概念
+- LLM 调用与 Embedding（详见 [主流大模型对比](../06-llm-and-ai/01-llm-overview.md)、[Embedding 模型](../06-llm-and-ai/06-embedding-models.md)）
+- 向量检索与向量库（详见 [向量检索基础](../03-database/25-vector-search.md)、[向量数据库对比](../03-database/27-vector-databases.md)）
 
 ## 1. 核心概念
 
@@ -52,6 +52,8 @@
 回答阶段（在线）：
   用户问题 → Query 改写 → 向量化 → 检索 → 重排序 → Top-K 文档 → Prompt 拼装 → LLM 生成
 ```
+
+> 📌 **Sighting**：各阶段专篇入口——[文档加载](./02-document-loading.md) → [Chunking](./03-chunking-strategies.md) → [Embedding 选型](./04-embedding-selection.md) → [向量索引](./05-vector-db-index.md)；在线侧 [Query 改写](./10-query-rewriting.md) → [相似度检索](./07-similarity-search.md) → [Rerank](./09-rerank.md) → [检索管道](./12-retrieval-pipeline.md)。
 
 ## 2. 代码示例
 

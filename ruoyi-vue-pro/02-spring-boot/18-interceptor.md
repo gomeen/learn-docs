@@ -12,8 +12,8 @@
 
 ## 📚 前置知识
 
-- 17-exception-handler.md
-- 19-filter.md（下篇）
+- [17-exception-handler.md](./17-exception-handler.md)
+- [19-filter.md](./19-filter.md)（下篇）
 
 ## 1. 核心概念
 
@@ -24,6 +24,8 @@ HTTP 请求 → Filter 链 → DispatcherServlet → 拦截器链（preHandle）
 → Controller 方法 → 拦截器链（postHandle）→ 视图渲染
 → 拦截器链（afterCompletion）→ Filter 链（响应）
 ```
+
+> 📌 **Sighting**：Filter 专题见 [19-filter](./19-filter.md)。此处只需知道「Filter 更靠前、Interceptor 在 Spring MVC 内」。
 
 | 方法 | 触发时机 | 用途 |
 |------|---------|------|

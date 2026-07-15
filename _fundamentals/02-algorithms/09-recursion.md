@@ -8,12 +8,12 @@
 - 理解递归的两个关键：终止条件 + 递归方程
 - 掌握递归的优化方法（记忆化、尾递归）
 - 区分递归 vs 迭代的取舍
-- 能在 dify 中识别递归的应用
+- 能在 dify 中识别递归的应用；后续 [回溯](./10-backtracking.md)、[DFS](./11-dfs.md)、[DP](./13-dp-basics.md) 都建立在递归之上
 
 ## 📚 前置知识
 
 - Python 基础
-- 18-divide-conquer.md（推荐）
+- [18-divide-conquer](./18-divide-conquer.md)（推荐）
 
 ## 1. 核心概念
 

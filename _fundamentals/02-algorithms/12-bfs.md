@@ -7,13 +7,13 @@
 完成本文档后，你将能够：
 - 掌握 BFS 的队列实现和层级遍历
 - 理解 BFS 在最短路径、连通分量中的应用
-- 区分 BFS vs DFS 的应用场景
+- 区分 BFS vs [DFS](./11-dfs.md) 的应用场景
 - 能在 dify 中识别 BFS 的应用
 
 ## 📚 前置知识
 
-- 17-graph.md
-- 11-dfs.md
+- [17-graph](../01-data-structures/17-graph.md)
+- [11-dfs](./11-dfs.md)
 
 ## 1. 核心概念
 

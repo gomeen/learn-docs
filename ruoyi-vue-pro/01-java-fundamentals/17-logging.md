@@ -12,9 +12,9 @@
 
 ## 📚 前置知识
 
-- Lombok 注解
+- Lombok 注解（详见 [14-lombok](./14-lombok.md)）
 - Spring Boot 基础
-- 14-lombok.md
+- [14-lombok.md](./14-lombok.md)
 
 ## 1. 核心概念
 
@@ -27,7 +27,7 @@ Java 日志生态复杂，存在多种日志库：
 - `Logback`（与 SLF4J 同作者，性能更好）
 - `Commons-Logging`（Apache）
 
-为避免每个项目被绑死在某个日志库上，行业选择了**门面 + 实现** 模式：
+为避免每个项目被绑死在某个日志库上，行业选择了**门面 + 实现** 模式（门面模式详见 [门面](../../_fundamentals/06-design-patterns/09-facade.md)）：
 - **SLF4J**（Simple Logging Facade for Java）：纯粹的日志接口
 - **Logback / Log4j2**：具体日志实现
 

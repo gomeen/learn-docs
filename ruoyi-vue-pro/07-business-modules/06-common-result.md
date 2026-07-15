@@ -14,7 +14,7 @@
 
 - Java 泛型
 - Spring Boot 基础
-- HTTP 响应基础
+- HTTP 响应与统一包装（详见 [Result 包装](../02-spring-boot/16-result-wrapper.md)、[异常处理](../02-spring-boot/17-exception-handler.md)）
 
 ## 1. 核心概念
 

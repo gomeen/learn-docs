@@ -12,8 +12,8 @@
 
 ## 📚 前置知识
 
-- 14-approval.md（审批基础）
-- 13-task-query.md（任务查询）
+- 审批基础（详见 [审批](./14-approval.md)）
+- 任务查询（详见 [任务查询](./13-task-query.md)）
 - Flowable 任务 API
 
 ## 1. 核心概念

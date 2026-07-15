@@ -12,9 +12,9 @@
 
 ## 📚 前置知识
 
-- 11.1 CI/CD 概念与流水线设计
+- [11.1 CI/CD 概念与流水线设计](./01-concepts.md)
 - YAML 基础语法
-- Docker 基础
+- [Docker 基础](../09-containerization/01-concepts.md)
 
 ## 1. 核心概念
 

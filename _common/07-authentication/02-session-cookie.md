@@ -64,9 +64,9 @@ Set-Cookie: sessionid=abc123;
 
 | 属性 | 作用 |
 |------|------|
-| `HttpOnly` | JS 无法读取，防 XSS |
+| `HttpOnly` | JS 无法读取，防 [XSS](../05-web-security/02-xss.md) |
 | `Secure` | 仅 HTTPS，防明文传输 |
-| `SameSite=Strict` | 跨站请求不带，防 CSRF |
+| `SameSite=Strict` | 跨站请求不带，防 [CSRF](../05-web-security/04-csrf.md) |
 | `Path` / `Domain` | Cookie 作用范围 |
 | `Max-Age` / `Expires` | 过期时间 |
 
@@ -77,14 +77,14 @@ Set-Cookie: sessionid=abc123;
 | **会话固定** | 攻击者给受害者一个已知 SessionID | 登录后**强制更换 SessionID** |
 | **会话劫持** | XSS 偷 Cookie / 网络嗅探 | HttpOnly + Secure + HTTPS |
 | **会话超时** | 长期有效的会话被滥用 | 合理设置过期时间 |
-| **CSRF** | 跨站请求伪造 | SameSite + CSRF Token |
+| **CSRF** | 跨站请求伪造（详见 [04-csrf](../05-web-security/04-csrf.md)） | SameSite + CSRF Token |
 
 ### 1.6 dify 和 ruoyi 的会话方案
 
 | 项目 | 会话方案 | 存储 |
 |------|---------|------|
-| **dify** | Flask-Login + Session | 加密 Cookie 或 Redis |
-| **ruoyi** | Token (无 Cookie) | Redis |
+| **dify** | Flask-Login + Session | 加密 Cookie 或 [Redis](../01-redis/01-data-structures.md) |
+| **ruoyi** | Token (无 Cookie，见 [JWT](./03-jwt.md)) | Redis |
 
 **dify 用 Session**：浏览器场景天然适配，配合 CSRF Token 防护
 **ruoyi 用 Token**：前后端分离，移动端友好，天然防 CSRF

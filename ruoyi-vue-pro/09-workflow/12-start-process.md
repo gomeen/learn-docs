@@ -12,9 +12,9 @@
 
 ## 📚 前置知识
 
-- 02-flowable-concepts.md（ProcessInstance / RuntimeService）
-- 10-form-data.md（表单变量）
-- 04-modeler.md（流程设计）
+- ProcessInstance / RuntimeService（详见 [Flowable 概念](./02-flowable-concepts.md)）
+- 表单变量（详见 [表单数据](./10-form-data.md)）
+- 流程设计（详见 [Modeler](./04-modeler.md)）
 
 ## 1. 核心概念
 

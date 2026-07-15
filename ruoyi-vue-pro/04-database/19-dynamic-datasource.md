@@ -12,8 +12,9 @@
 
 ## 📚 前置知识
 
-- Spring Boot 数据库连接池
-- 02-mysql-transaction.md
+- Spring Boot 数据库连接池（Druid 见 [22-druid](./22-druid.md)，Hikari 见 [23-hikari](./23-hikari.md)）
+- [02-mysql-transaction.md](./02-mysql-transaction.md)
+- `@DS` 注解见 [20-ds-annotation](./20-ds-annotation.md)
 
 ## 1. 核心概念
 
@@ -22,7 +23,7 @@
 ```
 1. 读写分离：主库写、从库读，提升读性能
 2. 业务分库：订单库、用户库、商品库独立
-3. 多租户：每个租户独立数据库
+3. 多租户：每个租户独立数据库（多租户见 [多租户](../../_common/08-authorization/05-multi-tenant.md)）
 4. 多数据库类型：MySQL + PostgreSQL + Elasticsearch
 ```
 

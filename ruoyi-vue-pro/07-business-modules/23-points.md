@@ -12,8 +12,9 @@
 
 ## 📚 前置知识
 
-- 21-member-auth.md、22-member-level.md
-- Redis 基础
+- 会员认证 / 等级（详见 [会员认证](./21-member-auth.md)、[会员等级](./22-member-level.md)）
+- Redis 基础（详见 [Redis 数据结构](../../_common/01-redis/01-data-structures.md)）
+- 事务（详见 [事务](../02-spring-boot/04-transaction.md)）
 
 ## 1. 核心概念
 

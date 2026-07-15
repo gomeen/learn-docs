@@ -12,7 +12,7 @@
 
 ## 📚 前置知识
 
-- 01-fundamentals/01-type-hints.md
+- Python 类型注解（详见 [typing 基础](../01-fundamentals/07-python-typing-basics.md)）
 - 09-testing/01-testing-pyramid.md
 - 09-testing/04-aaa-pattern.md（推荐先看）
 

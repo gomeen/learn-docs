@@ -12,9 +12,9 @@
 
 ## 📚 前置知识
 
-- 7.5 OAuth 2.0 协议
-- 7.3 JWT 机制
-- HTTP 重定向与 Cookie
+- [7.5 OAuth 2.0 协议](./05-oauth2.md)
+- [7.3 JWT 机制](./03-jwt.md)
+- HTTP 重定向与 [Cookie](./02-session-cookie.md)
 
 ## 1. 核心概念
 

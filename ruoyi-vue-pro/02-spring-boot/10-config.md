@@ -122,6 +122,8 @@ yudao:
 
 ### 2.3 激活 Profile
 
+> 📌 **Sighting**：多环境 Profile 完整用法见 [06-profile](./06-profile.md)。
+
 ```yaml
 # application.yml
 spring:
@@ -202,6 +204,8 @@ yudao:
 ```
 
 ### 3.2 Cache 配置（Redis）
+
+> 📌 **Sighting**：Spring Cache 抽象见 [24-cache](./24-cache.md)；Redis 数据结构见 [Redis 数据结构](../../_common/01-redis/01-data-structures.md)。
 
 **文件位置**：`/Users/xu/code/github/ruoyi-vue-pro/yudao-framework/yudao-spring-boot-starter-redis/src/main/java/cn/iocoder/yudao/framework/redis/config/YudaoCacheAutoConfiguration.java`
 **核心代码**（行 26-50）：

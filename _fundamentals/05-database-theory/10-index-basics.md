@@ -12,7 +12,7 @@
 
 ## 📚 前置知识
 
-- 数据结构（B 树）
+- 数据结构（[B 树 / B+ 树](./11-b-plus-tree.md)，亦见 [01-data-structures/10-b-tree](../01-data-structures/10-b-tree.md)）
 - SQL WHERE、JOIN
 
 ## 1. 核心概念
@@ -26,7 +26,7 @@
 [id=2]
 ```
 
-**索引 = 有序数据结构 + 指向原数据的指针**
+**索引 = 有序数据结构 + 指向原数据的指针**（InnoDB 主键索引见 [B+ 树](./11-b-plus-tree.md)、[聚簇索引](./12-clustered-index.md)）
 
 ### 1.2 索引的核心作用
 

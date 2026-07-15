@@ -250,7 +250,7 @@ def register_nodes() -> None:
 ```
 
 **解读**：
-- 第 1 行：`maxsize=1`——只缓存 1 个结果，整个进程只执行一次
+- 第 1 行：`maxsize=1`——只缓存 1 个结果，整个进程只执行一次（`@lru_cache` 用法见 [38-functools](./38-functools.md)）
 - **为什么不缓存更多**：`register_nodes()` 是无参数函数，缓存一个结果足矣，更多只会浪费内存
 - **内存思考**：`@lru_cache` 的缓存是常驻的——如果不设 maxsize 或设得太大，会一直占用内存
 

@@ -35,6 +35,8 @@ Spring Cache 不直接提供缓存实现，而是定义一套**缓存接口**（
 
 ### 1.3 三大缓存问题
 
+> 📌 **Sighting**：穿透 / 击穿 / 雪崩完整策略见 [缓存三大问题](../../_common/03-cache-patterns/02-three-problems.md)；缓存读写策略见 [缓存策略](../../_common/03-cache-patterns/01-strategies.md)。
+
 | 问题 | 原因 | 解决方案 |
 |------|------|---------|
 | **穿透** | 查询不存在的数据（每次都查 DB） | 缓存空值、布隆过滤器 |
@@ -168,7 +170,7 @@ public RedisCacheManager redisCacheManager(RedisTemplate<String, Object> redisTe
 **解读**：
 - 第 6-7 行：`nonLockingRedisCacheWriter` + `BatchStrategies.scan` 提高批量操作性能
 - 第 9 行：`TimeoutRedisCacheManager` 是 ruoyi 自定义的 CacheManager，支持每个 cacheName 单独设置过期时间
-- **第 11-12 行** 关键注释：开启**事务感知**
+- **第 11-12 行** 关键注释：开启**事务感知**（`@Transactional` 详见 [04-transaction](./04-transaction.md)）
   - 在 `@Transactional` 方法内使用 `@CacheEvict` / `@CachePut`
   - 默认会**立即清缓存**，但事务还没提交，其他线程读到的可能是旧值（脏读）
   - 开启事务感知后，**延迟到事务 commit 后再清缓存**
@@ -204,7 +206,7 @@ public class DictServiceImpl {
   - 单冒号 Key 前缀（避免 RDM 多余空格）
   - 事务感知（避免脏读）
   - 自定义 `TimeoutRedisCacheManager`（支持每 cacheName 单独 TTL）
-- **三大问题**：穿透、击穿、雪崩
+- **三大问题**：穿透、击穿、雪崩（策略见上文 Sighting 链接）
 
 ## 5. 练习题
 
@@ -218,7 +220,7 @@ public class DictServiceImpl {
 
 ### 练习 3：挑战（选做）
 
-实现一个"防缓存击穿"功能：在 `@Cacheable` 标注的方法上加分布式锁（用 Redisson），缓存过期时只允许一个线程查 DB，其他线程等待。
+> 学完上文「三大缓存问题」与 [分布式锁](../../_common/04-distributed-locks/02-redis-redlock.md) 后再做：实现一个"防缓存击穿"功能：在 `@Cacheable` 标注的方法上加分布式锁（用 Redisson），缓存过期时只允许一个线程查 DB，其他线程等待。
 
 ## 6. 参考资料
 

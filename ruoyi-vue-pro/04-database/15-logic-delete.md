@@ -12,8 +12,8 @@
 
 ## 📚 前置知识
 
-- 09-mybatis-vs-mp.md
-- 14-auto-fill.md
+- [09-mybatis-vs-mp.md](./09-mybatis-vs-mp.md)
+- [14-auto-fill.md](./14-auto-fill.md)
 
 ## 1. 核心概念
 

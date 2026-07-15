@@ -5,16 +5,15 @@
 ## 🎯 学习目标
 
 完成本文档后，你将能够：
-- 理解协程、事件循环、Task、Future 的关系
+- 理解协程与事件循环的基本关系
 - 正确使用 `async/await` 编写异步代码
 - 识别并避免异步编程的常见陷阱（阻塞调用、忘记 await 等）
-- 能看懂 dify 中所有异步代码（如 `services/async_workflow_service.py`）
+- 能看懂 dify 中常见的异步代码（如 `services/async_workflow_service.py`）
 
 ## 📚 前置知识
 
 - Python 基础语法（函数、装饰器）
-- 生成器基础（可选）
-- 01-fundamentals/08-generator.md（推荐先看）
+- 生成器基础（可选，见 [14-generator](./14-generator.md)）
 
 ## 1. 核心概念
 
@@ -79,7 +78,7 @@ asyncio.run(main())
 
 ### 1.5 Task 与并发
 
-`asyncio.create_task(coro)` 把协程**包装成 Task**，使其立即开始执行（不阻塞当前协程）：
+`asyncio.create_task(coro)` 把协程**包装成 Task**，使其立即开始执行（不阻塞当前协程）。Task / Future / `gather` 的深入机制见 [13-async-task-future](./13-async-task-future.md)；本节只掌握「并发启动 + 等待」的用法：
 
 ```python
 import asyncio

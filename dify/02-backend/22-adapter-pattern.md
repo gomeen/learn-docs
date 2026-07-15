@@ -12,8 +12,9 @@
 
 ## 📚 前置知识
 
-- 02-backend/02-layered-architecture.md（分层架构）
-- Python 接口（Protocol、ABC）基础
+- [分层架构](./02-layered-architecture.md)
+- Python 接口（Protocol、ABC）基础（详见 [Protocol 与 Generic](../01-fundamentals/09-protocol-generic.md)、[抽象基类 ABC](../01-fundamentals/35-abc.md)）
+- 经典适配器模式（详见 [适配器](../../_fundamentals/06-design-patterns/06-adapter.md)）
 
 ## 1. 核心概念
 
@@ -322,7 +323,7 @@ def build_from_mapping(mapping: dict, tenant_id: str) -> File:
 - 第 7-22 行：根据 `transfer_method` 字段选择不同的适配路径
 - 第 12-13 行：远程 URL 适配为 `File.from_url()`
 - 第 14-15 行：本地文件 ID 适配为 `file_manager.fetch()`
-- **典型工厂 + 适配器组合**：根据输入类型选择不同的适配实现
+- **典型工厂 + 适配器组合**：根据输入类型选择不同的适配实现（工厂详见 [策略与工厂](./23-strategy-factory.md)）
 
 ## 4. 关键要点总结
 

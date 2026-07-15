@@ -12,8 +12,10 @@
 
 ## 📚 前置知识
 
-- 07-rag-and-agent/32-multi-agent.md
-- 07-rag-and-agent/33-agent-communication.md
+- [多 Agent](./32-multi-agent.md)
+- [Agent 间通信](./33-agent-communication.md)
+- Celery 任务队列（详见 [Celery 架构](../04-cache-and-queue/14-celery-architecture.md)、[任务路由](../04-cache-and-queue/17-celery-routing.md)）
+- Python 异步（详见 [async/asyncio](../01-fundamentals/12-async-asyncio.md)）
 
 ## 1. 核心概念
 
@@ -39,7 +41,7 @@ dify 的工作流是**确定性的任务分发**：
 - 引擎按拓扑顺序执行
 - 没有动态负载均衡
 
-但 Celery 任务队列层有负载均衡（多个 worker 抢任务）。
+但 Celery 任务队列层有负载均衡（多个 worker 抢任务；详见 [Celery 架构](../04-cache-and-queue/14-celery-architecture.md)、[任务路由](../04-cache-and-queue/17-celery-routing.md)）。
 
 ## 2. 代码示例
 

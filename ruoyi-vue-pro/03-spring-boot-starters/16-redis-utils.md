@@ -14,7 +14,8 @@
 
 - [14-redis-starter.md](./14-redis-starter.md)
 - [15-redisson.md](./15-redisson.md)
-- Java 泛型基础
+- Java 泛型基础（详见 [03-generics](../01-java-fundamentals/03-generics.md)）
+- 分布式锁工具见 [17-distributed-lock](./17-distributed-lock.md)
 
 ## 1. 核心概念
 

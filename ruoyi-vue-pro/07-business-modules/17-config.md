@@ -12,9 +12,10 @@
 
 ## 📚 前置知识
 
-- Spring `@Value` 注解
+- Spring 配置与 `@Value`（详见 [配置](../02-spring-boot/10-config.md)）
 - Nacos / Apollo 配置中心基础
-- 06-common-result.md
+- 统一响应（详见 [CommonResult](./06-common-result.md)）
+- 配置缓存（详见 [ruoyi 缓存场景](../05-cache-and-mq/11-ruoyi-cache-usage.md)）
 
 ## 1. 核心概念
 

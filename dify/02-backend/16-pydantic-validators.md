@@ -12,8 +12,8 @@
 
 ## 📚 前置知识
 
-- 02-backend/15-pydantic-basics.md（Pydantic BaseModel）
-- Python 函数与装饰器
+- [Pydantic BaseModel](./15-pydantic-basics.md)
+- Python 函数与装饰器（`@field_validator` 是装饰器写法，详见 [装饰器](../01-fundamentals/10-decorator.md)）
 
 ## 1. 核心概念
 

@@ -13,7 +13,7 @@
 ## 📚 前置知识
 
 - Python 基础：函数、迭代器协议
-- 01-fundamentals/06-async-asyncio.md
+- 异步生成器部分建议先读 [12-async-asyncio](./12-async-asyncio.md)
 
 ## 1. 核心概念
 
@@ -92,7 +92,7 @@ list(gen2())  # ['a', 1, 2, 'b']
 
 ### 1.5 异步生成器
 
-Python 3.6+ 支持 `async def` + `yield`，用于**异步数据流**：
+Python 3.6+ 支持 `async def` + `yield`，用于**异步数据流**（`async`/`await` 机制见 [12-async-asyncio](./12-async-asyncio.md)）：
 
 ```python
 import asyncio
@@ -249,7 +249,7 @@ class LargeLanguageModel:
 
 ### 练习 2：进阶
 
-阅读 `/Users/xu/code/github/dify/api/core/workflow/nodes/answer/answer_node.py`，列出所有使用 `yield` 的方法，画出流式响应的时序图（节点→引擎→Controller→SSE）。
+阅读 `/Users/xu/code/github/dify/api/core/workflow/nodes/answer/answer_node.py`，列出所有使用 `yield` 的方法，画出流式响应的时序图（节点→引擎→Controller→SSE；SSE 协议见 [28-sse](./28-sse.md)）。
 
 ### 练习 3：挑战（选做）
 

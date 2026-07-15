@@ -12,8 +12,8 @@
 
 ## 📚 前置知识
 
-- 07-rag-and-agent/24-workflow-engine.md 至 28-workflow-execution.md
-- YAML / JSON 基础
+- 工作流执行链路（详见 [Workflow Engine](./24-workflow-engine.md)、[Workflow Execution](./28-workflow-execution.md)）
+- YAML / JSON（详见 [配置文件格式](../01-fundamentals/18-config-file-format.md)、[JSON](../01-fundamentals/17-json-processing.md)）
 
 ## 1. 核心概念
 

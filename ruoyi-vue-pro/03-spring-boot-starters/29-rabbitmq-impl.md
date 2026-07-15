@@ -14,7 +14,7 @@
 
 - [26-mq-starter.md](./26-mq-starter.md)
 - [27-message.md](./27-message.md)
-- RabbitMQ 基础
+- RabbitMQ 基础（详见 [RabbitMQ](../../_common/02-mq/03-rabbitmq.md)；可靠性见 [可靠性](../../_common/02-mq/05-reliability.md)）
 
 ## 1. 核心概念
 

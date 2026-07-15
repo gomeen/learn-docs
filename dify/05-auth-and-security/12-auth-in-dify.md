@@ -12,10 +12,10 @@
 
 ## 📚 前置知识
 
-- 02-session-auth.md
-- 04-token-refresh.md
-- 08-rbac.md
-- 11-resource-ownership.md
+- Session / Cookie 与 Token 刷新（详见 [Session 与 Cookie](../../_common/07-authentication/02-session-cookie.md)、[Token 刷新](../../_common/07-authentication/04-token-refresh.md)）
+- RBAC（详见 [RBAC](../../_common/08-authorization/01-rbac.md)）
+- 租户隔离（详见 [资源所有权与租户隔离](./11-resource-ownership.md)）
+- 装饰器语法（详见 [装饰器](../01-fundamentals/10-decorator.md)）
 
 ## 1. 核心概念
 
@@ -57,6 +57,8 @@
   │                                        │
   │ ←─── 201 + {"token": "app-..."} ───────│
 ```
+
+> 📌 **Sighting**：CSRF 同步令牌 / 双重 Cookie 原理见 [CSRF](../../_common/05-web-security/04-csrf.md)；本篇只展示 dify 在登录装饰器里如何校验。
 
 ### 1.2 装饰器分层模型
 

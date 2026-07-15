@@ -12,9 +12,10 @@
 
 ## 📚 前置知识
 
-- 01-bpmn.md（BPMN 基础）
-- 02-flowable-concepts.md（事件类型）
-- 03-ruoyi-workflow.md（ruoyi 扩展）
+- BPMN 基础（详见 [BPMN](./01-bpmn.md)）
+- 事件类型（详见 [Flowable 概念](./02-flowable-concepts.md)）
+- ruoyi 扩展（详见 [ruoyi 工作流](./03-ruoyi-workflow.md)）
+- Spring Event（可选，详见 [Spring Event](../02-spring-boot/05-event.md)）
 
 ## 1. 核心概念
 

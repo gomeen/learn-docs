@@ -13,8 +13,9 @@
 ## 📚 前置知识
 
 - Java 基础（注解、泛型）
-- Spring Boot 基础（`@Service`、`@Resource`）
-- MyBatis-Plus 基础（`TableInfo`、`TableField`）
+- Spring Boot 基础（`@Service`、`@Resource`，详见 [IoC](../02-spring-boot/01-ioc.md)）
+- MyBatis-Plus 基础（`TableInfo`、`TableField`，详见 [MyBatis-Plus](../03-spring-boot-starters/07-mybatis-plus.md)）
+- 业务模块结构（详见 [模块结构](../07-business-modules/01-module-structure.md)）
 
 ## 1. 核心概念
 

@@ -12,9 +12,9 @@
 
 ## 📚 前置知识
 
-- 12.1 蓝绿部署
-- Nginx upstream / 负载均衡
-- /Users/xu/code/gomeen/learn-docs/_common/10-network-proxy/02-reverse-proxy.md
+- [12.1 蓝绿部署](./01-blue-green.md)
+- [Nginx upstream / 负载均衡](../10-network-proxy/02-reverse-proxy.md)
+- 滚动与 A/B 见 [03-rolling-and-ab](./03-rolling-and-ab.md)
 
 ## 1. 核心概念
 

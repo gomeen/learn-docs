@@ -12,9 +12,9 @@
 
 ## 📚 前置知识
 
-- 6.2 非对称加密（HMAC、RSA）
+- [非对称加密](../06-encryption/02-asymmetric.md) / [哈希与 HMAC](../06-encryption/03-hash.md)
 - Base64 编码
-- 7.2 Session 与 Cookie
+- [7.2 Session 与 Cookie](./02-session-cookie.md)
 
 ## 1. 核心概念
 

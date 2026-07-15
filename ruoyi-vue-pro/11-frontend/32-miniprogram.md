@@ -12,7 +12,7 @@
 
 ## 📚 前置知识
 
-- 11-frontend/30-uniapp.md
+- uni-app（详见 [uni-app](./30-uniapp.md)）
 - 微信小程序账号申请
 
 ## 1. 核心概念

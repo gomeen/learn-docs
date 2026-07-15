@@ -12,9 +12,10 @@
 
 ## 📚 前置知识
 
-- 03-ruoyi-workflow.md（架构）
-- 12-start-process.md（启动流程）
-- 16-process-vars.md（变量）
+- 架构（详见 [ruoyi 工作流](./03-ruoyi-workflow.md)）
+- 启动流程（详见 [启动流程](./12-start-process.md)）
+- 变量（详见 [流程变量](./16-process-vars.md)）
+- 业务模块分层（详见 [MVC 分层](../07-business-modules/02-mvc-layers.md)）
 
 ## 1. 核心概念
 

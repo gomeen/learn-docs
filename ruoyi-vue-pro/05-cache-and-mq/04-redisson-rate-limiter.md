@@ -12,8 +12,9 @@
 
 ## 📚 前置知识
 
-- Redis 基础（参见 `01-redis-basics.md`）
-- Redisson 客户端（参见 `02-redisson.md`）
+- Redis 基础（详见 [Redis 数据结构](../../_common/01-redis/01-data-structures.md)）
+- Redisson 客户端（详见 [Redisson 客户端](./02-redisson.md)）
+- 限流算法通用原理（详见 [限流算法](../../_common/03-cache-patterns/04-rate-limiting.md)）
 
 ## 1. 核心概念
 

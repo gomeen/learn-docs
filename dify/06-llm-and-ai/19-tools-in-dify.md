@@ -12,11 +12,9 @@
 
 ## 📚 前置知识
 
-- 06-llm-and-ai/14-function-calling.md
-- 06-llm-and-ai/15-tool-schema.md
-- 06-llm-and-ai/16-multi-tool-routing.md
-- DDD（领域驱动设计）基础概念
-- ABC 抽象基类、Pydantic 模型
+- [Function Calling](./14-function-calling.md)、[Tool Schema](./15-tool-schema.md)、[多工具路由](./16-multi-tool-routing.md)
+- DDD 基础（详见 [DDD 概念](../02-backend/01-ddd-concepts.md)）
+- ABC 抽象基类、Pydantic（详见 [ABC](../01-fundamentals/35-abc.md)、[Pydantic 基础](../02-backend/15-pydantic-basics.md)）
 
 ## 1. 核心概念
 

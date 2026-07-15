@@ -14,8 +14,8 @@
 
 - [Token、上下文窗口与计费](./03-tokens-context.md)
 - [模型参数](./04-model-parameters.md)
-- Python 环境变量、异常处理与生成器基础
-- HTTP 请求与 JSON 基础
+- Python 环境变量、异常处理与生成器（详见 [环境变量](../01-fundamentals/19-env-vars.md)、[异常](../01-fundamentals/06-python-exceptions.md)、[生成器](../01-fundamentals/14-generator.md)）
+- HTTP 请求与 JSON（详见 [HTTP 协议](../01-fundamentals/25-http-protocol.md)、[JSON](../01-fundamentals/17-json-processing.md)）
 
 ## 1. 核心概念
 
@@ -37,7 +37,7 @@ OpenAI Python SDK 通过客户端对象发起请求。客户端默认从 `OPENAI
 ### 1.2 同步、异步与流式调用
 
 - **同步非流式**：等待完整结果，适合脚本与后台批处理。
-- **异步非流式**：等待网络时不阻塞事件循环，适合高并发服务。
+- **异步非流式**：等待网络时不阻塞事件循环，适合高并发服务（详见 [async/asyncio](../01-fundamentals/12-async-asyncio.md)）。
 - **流式**：逐事件返回增量文本，首字延迟低，适合聊天界面。
 
 流式 Responses API 会产生多种事件。文本增量事件类型是 `response.output_text.delta`，增量内容位于 `event.delta`；客户端必须忽略不认识的事件类型。

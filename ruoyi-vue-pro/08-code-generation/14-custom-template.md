@@ -12,8 +12,8 @@
 
 ## 📚 前置知识
 
-- 阅读过 `10-velocity.md`、`11-java-template.md`、`12-vue-template.md`
-- 阅读过 `01-overview.md`
+- 模板引擎与生成模板（详见 [Velocity](./10-velocity.md)、[Java 模板](./11-java-template.md)、[Vue 模板](./12-vue-template.md)）
+- 总览（详见 [总览](./01-overview.md)）
 - Java 类加载机制
 
 ## 1. 核心概念

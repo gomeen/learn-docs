@@ -35,7 +35,7 @@ class Point:
         return isinstance(other, Point) and self.x == other.x and self.y == other.y
 ```
 
-`@dataclass` 帮你**自动生成**这些方法：
+`@dataclass` 是装饰器写法（装饰器原理见 [10-decorator](./10-decorator.md)），帮你**自动生成**这些方法：
 
 ```python
 from dataclasses import dataclass
@@ -79,7 +79,7 @@ class User:
     name: str
 ```
 
-`slots=True` 等价于手动 `__slots__ = ('id', 'name')`：
+`slots=True` 等价于手动 `__slots__ = ('id', 'name')`（内存管理见 [41-memory-management](./41-memory-management.md)）：
 - 节省内存（每个实例不再有 `__dict__`）
 - 加快属性访问
 - 不能再添加新属性

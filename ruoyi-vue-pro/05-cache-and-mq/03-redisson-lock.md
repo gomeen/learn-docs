@@ -12,15 +12,16 @@
 
 ## 📚 前置知识
 
-- Redis 基础（参见 `01-redis-basics.md`）
-- Redisson 客户端（参见 `02-redisson.md`）
+- Redis 基础（详见 [Redis 数据结构](../../_common/01-redis/01-data-structures.md)）
+- Redisson 客户端（详见 [Redisson 客户端](./02-redisson.md)）
 - Java 并发基础（Lock 接口）
+- 分布式锁核心要求（详见 [分布式锁要求](../../_common/04-distributed-locks/01-requirements.md)）
 
 ## 1. 核心概念
 
 ### 1.1 为什么需要分布式锁？
 
-单机下，`synchronized` / `ReentrantLock` 就能互斥。但在多 JVM 集群下，多个 JVM 进程并发改同一行 DB，单机锁失效。需要一个**所有进程共享的锁**，即分布式锁。
+单机下，`synchronized` / `ReentrantLock` 就能互斥。但在多 JVM 集群下，多个 JVM 进程并发改同一行 DB，单机锁失效。需要一个**所有进程共享的锁**，即分布式锁（通用原理详见 [Redis 分布式锁与 RedLock](../../_common/04-distributed-locks/02-redis-redlock.md)）。
 
 ### 1.2 Redisson 分布式锁特性
 

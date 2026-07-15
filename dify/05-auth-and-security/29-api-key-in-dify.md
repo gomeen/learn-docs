@@ -12,9 +12,9 @@
 
 ## 📚 前置知识
 
-- 28-api-key.md
-- 04-cache-and-queue/02-redis-cache.md
-- 11-resource-ownership.md
+- API Key 设计原则（详见 [API Key 与 Secret 管理](./28-api-key.md)）
+- 缓存策略（详见 [缓存策略](../../_common/03-cache-patterns/01-strategies.md)；dify Redis 场景见 [Redis in dify](../04-cache-and-queue/13-redis-in-dify.md)）
+- 租户隔离（详见 [资源所有权与租户隔离](./11-resource-ownership.md)）
 
 ## 1. 核心概念
 
@@ -47,6 +47,8 @@ dify 区分两类 API Key：
 | 应用 API Key（`ApiToken`） | DB 明文 + Redis 缓存 | DB-first + Redis 二级缓存 | 删 DB + 清缓存 |
 | 数据源 API Key | DB 加密 + 不缓存 | 直接查 DB | 删 DB |
 
+> 数据源 Key 的「加密存储」依赖对称加密与密钥管理（详见 [对称加密](../../_common/06-encryption/01-symmetric.md)、[密钥管理](../../_common/06-encryption/05-key-management.md)）。
+
 ### 1.3 ApiTokenCache 的设计
 
 ```
@@ -55,6 +57,8 @@ dify 区分两类 API Key：
                           
 删除 Key → DB 删 + Redis 清（先清缓存后删 DB，避免 stale cache）
 ```
+
+> 先清缓存再删 DB 是为了降低缓存与库不一致窗口；缓存三大问题背景见 [缓存三大问题](../../_common/03-cache-patterns/02-three-problems.md)。
 
 ## 2. 代码示例
 

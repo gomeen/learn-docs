@@ -12,8 +12,9 @@
 
 ## 📚 前置知识
 
-- Spring Cache 注解（参见 `09-cache-annotation.md`）
-- Redis 基础（参见 `01-redis-basics.md`）
+- Spring Cache 注解（详见 [@Cacheable 等](./09-cache-annotation.md)）
+- Redis 基础（详见 [Redis 数据结构](../../_common/01-redis/01-data-structures.md)）
+- 缓存策略选型（详见 [缓存策略](../../_common/03-cache-patterns/01-strategies.md)）
 
 ## 1. 核心概念
 
@@ -24,13 +25,15 @@
 | 字典项 dict | 本地 Cache | 5min | 读多写少、跨线程共享 |
 | 系统配置 | Redis | 30min | 需要跨实例同步 |
 | 用户权限 | Redis | 10min | 多实例必须一致 |
-| OAuth2 token | Redis | 跟随 token 过期 | 安全敏感 |
+| OAuth2 token | Redis | 跟随 token 过期 | 安全敏感（Token/JWT 详见 [JWT](../../_common/07-authentication/03-jwt.md)） |
 | 防重提交 token | Redis | 5min | 短时、跨实例 |
 
 ### 1.2 本地 vs Redis 选型原则
 
 - **本地缓存**：单实例高频读、不要求多实例一致（如字典项）
 - **Redis 缓存**：跨实例共享、有变更广播需求（如权限）
+
+> 📌 **Sighting**：跨实例 Session 类场景还可参考 [分布式 Session](../../_common/03-cache-patterns/05-distributed-session.md)。
 
 ## 2. 代码示例
 

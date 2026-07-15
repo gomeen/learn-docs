@@ -169,11 +169,11 @@ public class SemaphoreDemo {
 > ruoyi 仓库中 `CountDownLatch` 等同步工具主要在以下场景使用：
 - `yudao-spring-boot-starter-test`：单元测试等待异步任务
 - `yudao-spring-boot-starter-job`：Quartz 调度器内部使用
-- `yudao-spring-boot-starter-redis`：分布式场景用 Redisson 的 `RCountDownLatch`、`RSemaphore`
+- `yudao-spring-boot-starter-redis`：分布式场景用 Redisson 的 `RCountDownLatch`、`RSemaphore`（Redisson 实战见 [15-redisson](../03-spring-boot-starters/15-redisson.md)）
 
 ### 3.2 Redisson 的 `RSemaphore`：分布式信号量
 
-典型 ruoyi 场景：分布式限流（防止 N 个实例同时访问同一资源）：
+典型 ruoyi 场景：分布式限流（防止 N 个实例同时访问同一资源；限流算法与模式详见 [限流](../../_common/03-cache-patterns/04-rate-limiting.md)，ruoyi 封装见 [18-rate-limiter](../03-spring-boot-starters/18-rate-limiter.md)）：
 
 ```java
 // 伪代码：在 ruoyi 中通过 Redisson 客户端获取分布式信号量
@@ -231,7 +231,7 @@ public void asyncBatchLog(List<OperateLog> logs) {
 
 ### 练习 3：挑战（选做）
 
-实现一个简单的"分布式锁"（伪分布式）：用 Redis 的 `SETNX` 命令 + 过期时间，加上 `Semaphore` 的 tryAcquire 模拟并发限流。
+> 学完 [分布式锁要求](../../_common/04-distributed-locks/01-requirements.md) 与 [Redis Redlock](../../_common/04-distributed-locks/02-redis-redlock.md) 后再做：实现一个简单的"分布式锁"（伪分布式）：用 Redis 的 `SETNX` 命令 + 过期时间，加上 `Semaphore` 的 tryAcquire 模拟并发限流。
 
 ## 6. 参考资料
 

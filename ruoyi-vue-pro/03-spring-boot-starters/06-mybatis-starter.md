@@ -13,7 +13,7 @@
 ## 📚 前置知识
 
 - [01-starter-mechanism.md](./01-starter-mechanism.md)
-- MyBatis-Plus 基础（BaseMapper、LambdaQueryWrapper）
+- MyBatis-Plus 基础（BaseMapper、LambdaQueryWrapper；数据库篇见 [09-mybatis-vs-mp](../04-database/09-mybatis-vs-mp.md) / [10-base-mapper](../04-database/10-base-mapper.md)）
 - [02-auto-configuration.md](./02-auto-configuration.md)
 
 ## 1. 核心概念

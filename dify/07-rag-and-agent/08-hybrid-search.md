@@ -12,7 +12,7 @@
 
 ## 📚 前置知识
 
-- 07-rag-and-agent/07-similarity-search.md
+- 向量相似度检索（详见 [相似度检索](./07-similarity-search.md)）
 
 ## 1. 核心概念
 

@@ -13,7 +13,8 @@
 ## 📚 前置知识
 
 - 机器学习基础（Precision/Recall/F1）
-- 07-rag-and-agent/01-rag-overview.md
+- [RAG 概览](./01-rag-overview.md)
+- Prompt 评测思路可参考 [Prompt Evaluation](../06-llm-and-ai/11-prompt-evaluation.md)
 
 ## 1. 核心概念
 

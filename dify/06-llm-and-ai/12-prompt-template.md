@@ -12,7 +12,7 @@
 
 ## 📚 前置知识
 
-- 06-llm-and-ai/07-prompt-basics.md（Prompt 三要素）
+- Prompt 三要素（详见 [Prompt 基础](./07-prompt-basics.md)）
 - Python 正则表达式基础
 - 字符串 `str.format()` 和 `str.replace()` 的区别
 

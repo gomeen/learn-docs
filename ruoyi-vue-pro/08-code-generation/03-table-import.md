@@ -12,8 +12,8 @@
 
 ## 📚 前置知识
 
-- 阅读过 `01-overview.md` 和 `02-datasource.md`
-- 了解 MyBatis-Plus 的 `TableInfo` / `TableField` API
+- 总览与数据源（详见 [总览](./01-overview.md)、[数据源](./02-datasource.md)）
+- MyBatis-Plus 的 `TableInfo` / `TableField` API（详见 [MyBatis-Plus](../03-spring-boot-starters/07-mybatis-plus.md)）
 
 ## 1. 核心概念
 

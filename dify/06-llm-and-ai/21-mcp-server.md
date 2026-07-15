@@ -12,9 +12,9 @@
 
 ## 📚 前置知识
 
-- Python 异步编程（参见 `../01-fundamentals/12-async-asyncio.md`）
-- Pydantic 模型基础
-- 阅读 6.20 MCP 协议概述（`./20-mcp-overview.md`）
+- Python 异步编程（详见 [async/asyncio](../01-fundamentals/12-async-asyncio.md)）
+- Pydantic 模型基础（详见 [Pydantic 基础](../02-backend/15-pydantic-basics.md)）
+- MCP 协议概述（详见 [MCP 概述](./20-mcp-overview.md)）
 
 ## 1. 核心概念
 

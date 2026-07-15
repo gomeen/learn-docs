@@ -12,8 +12,8 @@
 
 ## 📚 前置知识
 
-- 12-start-process.md（流程实例基础）
-- 02-flowable-concepts.md（Task / HistoryService）
+- 流程实例基础（详见 [启动流程](./12-start-process.md)）
+- Task / HistoryService（详见 [Flowable 概念](./02-flowable-concepts.md)）
 - Flowable 的查询 API
 
 ## 1. 核心概念

@@ -36,7 +36,7 @@
 ### 1.2 上下文的三大挑战
 
 1. **线程隔离**：每个请求一个线程？用 `threading.local`
-2. **异步隔离**：asyncio 的多个 task？用 `contextvars`
+2. **异步隔离**：asyncio 的多个 task？用 `contextvars`（async 模型详见 [async/await 与 asyncio](../01-fundamentals/12-async-asyncio.md)）
 3. **自动注入**：每个 `logger.info()` 自动带上上下文？用 `logging.Filter`
 
 ### 1.3 Python `contextvars` 简介

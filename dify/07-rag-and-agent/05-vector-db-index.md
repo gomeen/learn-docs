@@ -12,8 +12,8 @@
 
 ## 📚 前置知识
 
-- 03-database 中向量数据库基础
-- 07-rag-and-agent/04-embedding-selection.md
+- 向量数据库与 pgvector（详见 [向量检索基础](../03-database/25-vector-search.md)、[pgvector](../03-database/26-pgvector.md)、[向量数据库对比](../03-database/27-vector-databases.md)）
+- Embedding 选型（详见 [Embedding 选型](./04-embedding-selection.md)）
 
 ## 1. 核心概念
 
@@ -24,6 +24,8 @@
 ```
 给定查询向量 q，在百万级向量库中找 top-K 个最相似的向量
 ```
+
+> 📌 **Sighting**：相似度度量与 ANN 数学基础见 [向量检索基础](../03-database/25-vector-search.md)；Postgres 扩展见 [pgvector](../03-database/26-pgvector.md)；多后端对比见 [向量数据库对比](../03-database/27-vector-databases.md)。
 
 ### 1.2 主流索引算法对比
 

@@ -14,7 +14,8 @@
 
 - [06-mybatis-starter.md](./06-mybatis-starter.md)
 - [07-mybatis-plus.md](./07-mybatis-plus.md)
-- Java 8 `default` 方法
+- Java 8 `default` 方法（接口见 [02-oop](../01-java-fundamentals/02-oop.md)）
+- 数据库篇对称讲解见 [10-base-mapper](../04-database/10-base-mapper.md)
 
 ## 1. 核心概念
 
@@ -134,7 +135,7 @@ default T selectFirstOne(SFunction<T, ?> field, Object value) {
 - 解决并发问题：两个请求都尝试插入相同业务数据，A 成功、B 失败；但 B 仍需要**拿到那条数据**
 - 不用 `selectOne`（多结果会抛 `TooManyResultsException`）
 - 取 `List` 第一条，避免异常
-- ruoyi 经典模式："**insert + selectFirstOne**" 替代分布式锁
+- ruoyi 经典模式："**insert + selectFirstOne**" 替代分布式锁（分布式锁见 [17-distributed-lock](./17-distributed-lock.md) / [分布式锁要求](../../_common/04-distributed-locks/01-requirements.md)）
 
 ### 3.3 insertBatch 的多数据库适配
 

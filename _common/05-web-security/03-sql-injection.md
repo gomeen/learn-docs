@@ -14,7 +14,7 @@
 
 - SQL 基础语法
 - 任一 ORM（SQLAlchemy / MyBatis）
-- 5.1 OWASP Top 10 概览
+- [5.1 OWASP Top 10 概览](./01-owasp-top10.md)
 
 ## 1. 核心概念
 

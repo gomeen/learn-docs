@@ -12,8 +12,9 @@
 
 ## 📚 前置知识
 
-- 01-mysql-basics.md
+- [01-mysql-basics.md](./01-mysql-basics.md)
 - SQL DDL 基本语法
+- 结构迁移工具见 [07-flyway](./07-flyway.md)
 
 ## 1. 核心概念
 

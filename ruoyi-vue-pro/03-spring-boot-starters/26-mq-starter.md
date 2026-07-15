@@ -13,8 +13,9 @@
 ## 📚 前置知识
 
 - Spring Messaging
-- Redis Pub/Sub / Stream
-- RabbitMQ / Kafka / RocketMQ 基础
+- MQ 通用概念（详见 [MQ 概念](../../_common/02-mq/01-concepts.md)）
+- Redis Pub/Sub / Stream（详见 [Redis Pub/Sub 与 Stream](../../_common/01-redis/06-pubsub-stream.md)）
+- RabbitMQ / Kafka / RocketMQ 基础（见 [RabbitMQ](../../_common/02-mq/03-rabbitmq.md) / [Kafka](../../_common/02-mq/02-kafka.md) / [RocketMQ](../../_common/02-mq/04-rocketmq.md)）
 
 ## 1. 核心概念
 

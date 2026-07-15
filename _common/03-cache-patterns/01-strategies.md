@@ -14,7 +14,7 @@
 
 - 缓存基本概念（命中率、过期时间）
 - 数据库事务与一致性基础
-- `01-redis/01-data-structures.md`（推荐）
+- [Redis 数据结构](../01-redis/01-data-structures.md)（推荐）
 
 ## 1. 核心概念
 

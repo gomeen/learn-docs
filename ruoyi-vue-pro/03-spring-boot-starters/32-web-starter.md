@@ -12,8 +12,8 @@
 
 ## 📚 前置知识
 
-- Spring MVC
-- 过滤器 / 拦截器
+- Spring MVC（详见 [13-controller](../02-spring-boot/13-controller.md)）
+- 过滤器 / 拦截器（详见 [18-interceptor](../02-spring-boot/18-interceptor.md) / [19-filter](../02-spring-boot/19-filter.md)）
 - HTTP 协议基础
 
 ## 1. 核心概念
@@ -22,13 +22,13 @@
 
 | 能力 | 组件 |
 |------|------|
-| 统一响应 | `CommonResult` + `GlobalResponseHandler` |
-| 统一异常 | `GlobalExceptionHandler` |
+| 统一响应 | `CommonResult` + `GlobalResponseHandler`（详见 [16-result-wrapper](../02-spring-boot/16-result-wrapper.md)） |
+| 统一异常 | `GlobalExceptionHandler`（详见 [17-exception-handler](../02-spring-boot/17-exception-handler.md)） |
 | 统一日志 | `ApiAccessLogFilter` + `ApiErrorLogFilter` |
-| 防 XSS | `XssFilter` |
-| 防重复提交 | `RepeatSubmitFilter` |
-| CORS | `CorsFilter` |
-| API 加密 | `ApiEncryptFilter` + `ApiEncryptProperties` |
+| 防 XSS | `XssFilter`（详见 [XSS](../../_common/05-web-security/02-xss.md)） |
+| 防重复提交 | `RepeatSubmitFilter`（防重放见 [重放攻击](../../_common/05-web-security/07-replay-attack.md)） |
+| CORS | `CorsFilter`（详见 [CORS](../../_common/05-web-security/05-cors.md)） |
+| API 加密 | `ApiEncryptFilter` + `ApiEncryptProperties`（加密见 [对称加密](../../_common/06-encryption/01-symmetric.md)） |
 | Swagger/Knife4j | `OpenApiConfiguration` |
 | 字典翻译 | `DictDataVOConvertSerializer` |
 | 数据脱敏 | `DesensitizeSerializer` |

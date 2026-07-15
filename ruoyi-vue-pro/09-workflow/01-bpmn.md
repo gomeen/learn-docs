@@ -14,7 +14,8 @@
 
 - XML 基础语法
 - Java 基础（了解 POJO、注解）
-- Spring Boot 基础（ruoyi 的运行环境）
+- Spring Boot 基础（详见 [IoC](../02-spring-boot/01-ioc.md)）
+- Flowable 对象模型（详见 [Flowable 概念](./02-flowable-concepts.md)）
 
 ## 1. 核心概念
 

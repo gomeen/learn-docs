@@ -55,7 +55,7 @@ poll(fds, nfds, timeout);
 
 ### 1.4 epoll（Linux 2.6+）
 
-**核心改进**：用**红黑树** + **就绪链表**
+**核心改进**：用**红黑树**（数据结构见 [红黑树](../01-data-structures/09-red-black-tree.md)） + **就绪链表**
 
 ```
 epoll_create() → 创建 epoll 实例

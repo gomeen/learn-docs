@@ -12,9 +12,9 @@
 
 ## 📚 前置知识
 
-- 阅读过 `01-overview.md`、`10-velocity.md`、`11-java-template.md`
-- 阅读过 `14-custom-template.md`
-- 阅读过 `17-gen-master-slave.md`
+- 总览 / Velocity / Java 模板（详见 [总览](./01-overview.md)、[Velocity](./10-velocity.md)、[Java 模板](./11-java-template.md)）
+- 自定义模板（详见 [自定义模板](./14-custom-template.md)）
+- 主子表生成（详见 [主子表生成](./17-gen-master-slave.md)）
 
 ## 1. 核心概念
 

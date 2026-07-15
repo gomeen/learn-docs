@@ -12,9 +12,9 @@
 
 ## 📚 前置知识
 
-- 02-backend/01-ddd-concepts.md（聚合根、领域对象）
-- 02-backend/02-layered-architecture.md（分层架构）
-- 02-backend/03-repository-pattern.md（仓储模式）
+- [聚合根、领域对象](./01-ddd-concepts.md)
+- [分层架构](./02-layered-architecture.md)
+- [仓储模式](./03-repository-pattern.md)
 
 ## 1. 核心概念
 
@@ -74,7 +74,11 @@ class DiscountPolicy:
 ```python
 class OrderApplicationService:
     def place_order(self, user_id: str, items: list[LineItem]) -> str:
-        """编排下单流程：加载用户、计算价格、扣库存、发邮件"""
+        """编排下单流程：加载用户、计算价格、扣库存、发邮件。
+
+        `with self.uow` 是上下文管理器写法（详见 [上下文管理器](../01-fundamentals/11-context-manager.md)），
+        此处只把它当作「进入事务 / 退出时提交或回滚」来理解。
+        """
         with self.uow:  # 事务边界
             user = self.user_repo.find_by_id(user_id)
             order = Order.create(items)
@@ -88,7 +92,7 @@ class OrderApplicationService:
 
 **应用服务的特征**：
 - 一个方法对应一个用例（use case）
-- 管理事务（`commit`/`rollback`）
+- 管理事务（`commit`/`rollback`；SQL 事务语义详见 [事务与隔离级别](../03-database/04-sql-transaction.md)）
 - 协调多个聚合、外部服务
 - 命名通常是动词 + 名词（`place_order`、`create_app`）
 
@@ -370,7 +374,7 @@ class AppService:
 把 dify 中"创建工作流"用例拆分为：
 1. `WorkflowApplicationService.create_workflow()`（应用服务，编排）
 2. `WorkflowValidationPolicy.validate()`（领域服务，校验规则）
-3. `Workflow` 聚合根的 `create()` 方法（工厂方法）
+3. `Workflow` 聚合根的 `create()` 方法（工厂方法；工厂模式详见 [策略与工厂](./23-strategy-factory.md)，学完后再对照实现）
 
 说明每一部分的职责和它们之间的调用顺序。
 

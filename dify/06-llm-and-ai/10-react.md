@@ -12,9 +12,9 @@
 
 ## 📚 前置知识
 
-- 06-llm-and-ai/07-prompt-basics.md（Prompt 三要素）
-- 06-llm-and-ai/08-few-shot.md（Few-Shot 示例）
-- 了解 Tool Use / Function Calling 概念
+- Prompt 三要素（详见 [Prompt 基础](./07-prompt-basics.md)）
+- Few-Shot 示例（详见 [Few-Shot](./08-few-shot.md)）
+- Tool Use / Function Calling 概念（详见 [Function Calling](./14-function-calling.md)；Agent 深化见 [Agent 概念](../07-rag-and-agent/18-agent-concepts.md)、[ReAct 深入](../07-rag-and-agent/19-react-deep-dive.md)）
 
 ## 1. 核心概念
 

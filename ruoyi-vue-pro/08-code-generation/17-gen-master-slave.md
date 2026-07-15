@@ -12,8 +12,7 @@
 
 ## 📚 前置知识
 
-- 阅读过 `05-template-group.md`、`09-relation-config.md`
-- 阅读过 `15-gen-single.md`
+- 模板分组 / 关联配置 / 单表生成（详见 [模板分组](./05-template-group.md)、[关联配置](./09-relation-config.md)、[单表生成](./15-gen-single.md)）
 
 ## 1. 核心概念
 

@@ -12,8 +12,8 @@
 
 ## 📚 前置知识
 
-- 06-llm-and-ai 中关于 LLM 基础
-- 07-rag-and-agent/01-rag-overview.md
+- LLM 与工具调用（详见 [主流大模型对比](../06-llm-and-ai/01-llm-overview.md)、[Function Calling](../06-llm-and-ai/14-function-calling.md)、[ReAct](../06-llm-and-ai/10-react.md)）
+- RAG 背景（详见 [RAG 概览](./01-rag-overview.md)）
 
 ## 1. 核心概念
 

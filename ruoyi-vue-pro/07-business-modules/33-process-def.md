@@ -12,9 +12,9 @@
 
 ## 📚 前置知识
 
-- 工作流基础（BPMN 2.0）
-- Flowable 引擎基础
-- 10-dept.md（树形结构）
+- 工作流基础（BPMN 2.0，详见 [BPMN](../09-workflow/01-bpmn.md)）
+- Flowable 引擎基础（详见 [Flowable 概念](../09-workflow/02-flowable-concepts.md)）
+- 树形结构（详见 [部门](./10-dept.md)）
 
 ## 1. 核心概念
 

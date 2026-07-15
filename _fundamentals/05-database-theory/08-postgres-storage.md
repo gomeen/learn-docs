@@ -6,7 +6,7 @@
 
 完成本文档后，你将能够：
 - 掌握 PostgreSQL 的存储结构（Heap 表、TOAST）
-- 理解 PostgreSQL 的 MVCC 实现（xmin/xmax）
+- 理解 PostgreSQL 的 MVCC 实现（xmin/xmax；通用 MVCC 见 [18-mvcc](./18-mvcc.md)）
 - 知道 WAL 在 PostgreSQL 中的作用
 - 在 dify 中识别 PostgreSQL 的特殊数据类型
 

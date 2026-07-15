@@ -5,7 +5,7 @@
 ## 🎯 学习目标
 
 完成本文档后，你将能够：
-- 用 `curl` 调用 dify REST API 并调试响应
+- 用 `curl` 调用 dify REST API（设计规范见 [26-rest-api-design](./26-rest-api-design.md)）并调试响应
 - 用 `ss` 替代 `netstat` 诊断端口和连接
 - 用 `wget` 下载文件或镜像
 - 用 `ping` / `traceroute` / `dig` 排查网络问题
@@ -176,6 +176,8 @@ kill 1234
 ```
 
 ### 2.3 流式调用（SSE）调试
+
+SSE 协议本身见 [28-sse](./28-sse.md)；本节只练 `curl -N` 调试手法。
 
 ```bash
 # dify 支持流式响应，用 curl 调试

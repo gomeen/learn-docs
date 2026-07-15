@@ -12,9 +12,9 @@
 
 ## 📚 前置知识
 
-- 6.2 非对称加密（RSA/ECC）
-- 6.3 哈希算法（SHA-256）
-- HTTPS / TLS 协议
+- [6.2 非对称加密](./02-asymmetric.md)（RSA/ECC）
+- [6.3 哈希算法](./03-hash.md)（SHA-256）
+- HTTPS / TLS 协议；密钥保管见 [05-key-management](./05-key-management.md)
 
 ## 1. 核心概念
 

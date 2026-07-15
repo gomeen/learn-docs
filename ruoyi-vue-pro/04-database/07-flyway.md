@@ -12,8 +12,8 @@
 
 ## 📚 前置知识
 
-- 01-mysql-basics.md
-- Maven 基础
+- [01-mysql-basics.md](./01-mysql-basics.md)
+- Maven 基础（详见 [11-maven-modules](../01-java-fundamentals/11-maven-modules.md) / [13-maven-lifecycle](../01-java-fundamentals/13-maven-lifecycle.md)）
 
 ## 1. 核心概念
 

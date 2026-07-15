@@ -13,8 +13,8 @@
 ## 📚 前置知识
 
 - Docker 基本命令（`docker run` / `docker ps`）
-- 9.1 - 9.3 节内容
-- /Users/xu/code/gomeen/learn-docs/_common/09-containerization/02-dockerfile.md
+- [9.1 概念](./01-concepts.md) / [9.2 Dockerfile](./02-dockerfile.md) / [9.3 多阶段构建](./03-multi-stage.md)
+- 网络与卷见 [05-network-volume](./05-network-volume.md)
 
 ## 1. 核心概念
 

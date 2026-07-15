@@ -12,8 +12,8 @@
 
 ## 📚 前置知识
 
-- 02-backend/02-layered-architecture.md（分层架构）
-- 02-backend/03-repository-pattern.md（Repository 模式）
+- [分层架构](./02-layered-architecture.md)
+- [Repository 模式](./03-repository-pattern.md)
 - Python 类与构造函数基础
 
 ## 1. 核心概念
@@ -69,14 +69,14 @@ dify 仓库中常见的注入方式：
            self._session_factory = session_factory
    ```
 
-2. **装饰器注入（Controller 层）**：通过 `@with_current_user`、`@get_app_model` 装饰器注入参数
+2. **装饰器注入（Controller 层）**：通过 `@with_current_user`、`@get_app_model` 装饰器注入参数（装饰器原理详见 [装饰器](../01-fundamentals/10-decorator.md)）
    ```python
    @with_current_user
    def get(self, current_user: Account):
        ...
    ```
 
-3. **全局单例（少量场景）**：`db.session`、`redis_client` 通过 `extensions/ext_*.py` 初始化为全局对象
+3. **全局单例（少量场景）**：`db.session`、`redis_client` 通过 `extensions/ext_*.py` 初始化为全局对象（单例模式详见 [单例](../../_fundamentals/06-design-patterns/01-singleton.md)）
 
 ### 1.4 DI 容器 vs 手动注入
 
@@ -92,7 +92,7 @@ dify 仓库中常见的注入方式：
 ```python
 from abc import ABC, abstractmethod
 
-# 定义接口
+# 定义接口（ABC 详见 [抽象基类 ABC](../01-fundamentals/35-abc.md)）
 class UserRepository(ABC):
     @abstractmethod
     def find_by_id(self, user_id: str): ...
@@ -241,6 +241,7 @@ def __init__(
 - 第 2-7 行：4 个参数全部通过构造函数注入
 - 第 3 行：`sessionmaker | Engine` 是 Union 类型——支持两种注入方式（sessionmaker 是工厂，Engine 是连接池）
 - 第 4 行：`Account | EndUser` 也是 Union 类型——不同调用场景注入不同用户类型
+- `app_id` 等上下文用于多租户隔离（详见 [多租户架构](./20-multi-tenancy.md)）
 - **优点**：测试时可以传入 `MockEngine`、`FakeUser`，无需修改任何业务代码
 
 ### 3.2 装饰器注入：`@with_current_user`
@@ -272,8 +273,8 @@ def with_current_user[T, **P, R](
 ```
 
 **解读**：
-- 第 1-3 行：装饰器签名使用泛型 `T, **P, R`，保证类型安全
-- 第 13 行：装饰器从 Flask context（`current_account_with_tenant()`）取出当前用户
+- 第 1-3 行：装饰器签名使用泛型 `T, **P, R`，保证类型安全（详见 [Protocol 与 Generic](../01-fundamentals/09-protocol-generic.md)）
+- 第 13 行：装饰器从 Flask context（`current_account_with_tenant()`）取出当前用户（上下文详见 [Flask 上下文](./09-flask-context.md)）
 - 第 14 行：把 `current_user` 注入到视图函数的参数列表中
 - **本质是方法参数注入**：每个请求都会被注入一个 `current_user` 参数
 

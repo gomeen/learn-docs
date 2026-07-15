@@ -14,7 +14,7 @@
 
 - Java/Python 多线程与锁
 - 网络通信基础（TCP / UDP）
-- Redis SETNX 命令
+- Redis SETNX 命令（数据结构见 [01-redis](../01-redis/01-data-structures.md)）
 
 ## 1. 核心概念
 
@@ -69,9 +69,9 @@ Martin Kleppmann 在《How to do distributed locking》中提出：
 |------|-------|------|-------|
 | **MySQL 行锁** | 强 | 低 | 低 |
 | **Redis SETNX** | 弱 | 高 | 低 |
-| **Redis RedLock** | 中 | 高 | 中 |
-| **Zookeeper** | 强 | 中 | 中 |
-| **etcd** | 强 | 中 | 中 |
+| **Redis [RedLock](./02-redis-redlock.md)** | 中 | 高 | 中 |
+| **[Zookeeper](./03-zookeeper-etcd.md)** | 强 | 中 | 中 |
+| **[etcd](./03-zookeeper-etcd.md)** | 强 | 中 | 中 |
 
 ## 2. 代码示例
 

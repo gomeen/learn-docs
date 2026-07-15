@@ -110,6 +110,8 @@ ByteBuf 由 readerIndex / writerIndex 两个指针划分：
 
 ### 1.6 ChannelPipeline 的责任链
 
+> 📌 **Sighting**：责任链模式完整讲解见 [责任链](../../_fundamentals/06-design-patterns/17-chain.md)。此处只看 Netty 里「Handler 串行处理入站/出站事件」的用法。
+
 ```
 Inbound（入站）：网络 → 应用
   ByteToMessageDecoder → MessageDecoder → BusinessHandler → ...

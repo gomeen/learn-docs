@@ -12,10 +12,9 @@
 
 ## 📚 前置知识
 
-- 10.1 Nginx 基础（server / location 块）
+- [10.1 Nginx 基础](./01-nginx-basics.md)（server / location 块）
 - HTTP 协议（请求方法、Header、状态码）
 - WebSocket 协议基础（Upgrade / Connection）
-- /Users/xu/code/gomeen/learn-docs/_common/10-network-proxy/01-nginx-basics.md
 
 ## 1. 核心概念
 
@@ -31,9 +30,9 @@
 
 **反向代理的核心能力**：
 1. **负载均衡**：多后端实例间分配流量
-2. **SSL 终结**：在代理处统一处理 HTTPS
+2. **SSL 终结**：在代理处统一处理 HTTPS（配置见 [03-https](./03-https.md)）
 3. **缓存**：静态文件 / API 响应缓存
-4. **限流 / WAF**：在网关层做防御
+4. **限流 / WAF**：在网关层做防御（限流算法见 [04-rate-limiting](../03-cache-patterns/04-rate-limiting.md)）
 5. **动静分离**：静态资源直接由 Nginx 返回，动态请求转发
 
 ### 1.2 proxy_pass：反向代理核心指令

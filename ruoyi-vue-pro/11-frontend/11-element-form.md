@@ -12,7 +12,7 @@
 
 ## 📚 前置知识
 
-- 11-frontend/10-element-plus.md
+- Element Plus 基础（详见 [Element Plus](./10-element-plus.md)）
 
 ## 1. 核心概念
 

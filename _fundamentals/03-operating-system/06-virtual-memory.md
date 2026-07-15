@@ -6,8 +6,8 @@
 
 完成本文档后，你将能够：
 - 理解虚拟内存的设计动机
-- 掌握分页机制（页表、TLB、缺页中断）
-- 了解虚拟内存的换页（swap）原理
+- 掌握分页机制（页表、TLB、缺页中断；与分段对比见 [08-paging-segmentation](./08-paging-segmentation.md)）
+- 了解虚拟内存的换页（swap）原理（置换算法见 [09-page-replacement](./09-page-replacement.md)）
 - 能在 dify 中识别虚拟内存的应用（数据库 Buffer Pool）
 
 ## 📚 前置知识

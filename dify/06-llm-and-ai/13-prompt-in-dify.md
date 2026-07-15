@@ -12,10 +12,9 @@
 
 ## 📚 前置知识
 
-- 06-llm-and-ai/07-prompt-basics.md（Prompt 三要素）
-- 06-llm-and-ai/12-prompt-template.md（变量替换语法）
-- 了解 SQLAlchemy ORM 基本概念
-- 阅读过 `core/model_runtime` 模块的入口（参见 `01-llm-overview.md`）
+- Prompt 三要素与模板（详见 [Prompt 基础](./07-prompt-basics.md)、[Prompt 模板](./12-prompt-template.md)）
+- SQLAlchemy ORM 基本概念（详见 [SQLAlchemy 映射](../03-database/12-sqlalchemy-mapping.md)）
+- 模型运行时入口（详见 [主流大模型对比](./01-llm-overview.md)、[模型适配层](./28-model-runtime.md)）
 
 ## 1. 核心概念
 

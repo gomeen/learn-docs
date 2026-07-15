@@ -12,9 +12,9 @@
 
 ## 📚 前置知识
 
-- 07-rag-and-agent/25-workflow-nodes.md
-- 07-rag-and-agent/24-workflow-engine.md
-- Pydantic 基础
+- [Workflow Nodes](./25-workflow-nodes.md)
+- [Workflow Engine](./24-workflow-engine.md)
+- Pydantic 基础（详见 [Pydantic 基础](../02-backend/15-pydantic-basics.md)）
 
 ## 1. 核心概念
 

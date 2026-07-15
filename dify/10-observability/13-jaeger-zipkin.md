@@ -14,7 +14,7 @@
 
 - 10.3.2 OpenTelemetry 标准（`12-opentelemetry.md`）
 - 10.3.1 链路追踪概念（`11-tracing-concepts.md`）
-- Docker 基础
+- Docker 基础（详见 [Docker 核心概念](../../_common/09-containerization/01-concepts.md)）
 
 ## 1. 核心概念
 

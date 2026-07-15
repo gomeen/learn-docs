@@ -14,6 +14,7 @@
 
 - [3.2.2 主键、外键、唯一约束](./08-database-keys.md)
 - [3.3.1 声明式映射](./12-sqlalchemy-mapping.md)
+- 关系加载策略（N+1 等，详见 [加载策略](./15-sqlalchemy-loading.md)）
 
 ## 1. 核心概念
 

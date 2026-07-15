@@ -12,9 +12,9 @@
 
 ## 📚 前置知识
 
-- LLM Function Calling / Tool Use 基础（参见 `./01-llm-overview.md`）
-- JSON-RPC 2.0 基础
-- 阅读 6.20 MCP 协议概述（`./20-mcp-overview.md`）
+- Function Calling / Tool Use（详见 [Function Calling](./14-function-calling.md)、[主流大模型对比](./01-llm-overview.md)）
+- JSON-RPC 2.0 基础（JSON 详见 [JSON](../01-fundamentals/17-json-processing.md)）
+- MCP 协议概述（详见 [MCP 概述](./20-mcp-overview.md)）
 
 ## 1. 核心概念
 

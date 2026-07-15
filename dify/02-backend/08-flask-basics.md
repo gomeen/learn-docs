@@ -12,8 +12,8 @@
 
 ## 📚 前置知识
 
-- Python 函数、装饰器基础
-- HTTP 协议基础（GET、POST、状态码）
+- Python 函数、装饰器基础（详见 [装饰器](../01-fundamentals/10-decorator.md)）
+- HTTP 协议基础（GET、POST、状态码；详见 [HTTP 协议](../01-fundamentals/25-http-protocol.md)）
 
 ## 1. 核心概念
 
@@ -46,8 +46,8 @@ Flask 应用（app）
 
 dify 的结构对应：
 - **Flask 应用**：`DifyApp`（`api/dify_app.py`）
-- **Blueprint**：`controllers/console/__init__.py` 中的 `bp = Blueprint("console", ...)`
-- **Resource**：用 `flask_restx.Namespace` + `Resource` 类
+- **Blueprint**：`controllers/console/__init__.py` 中的 `bp = Blueprint("console", ...)`（详见 [Blueprint](./10-flask-blueprint.md)）
+- **Resource**：用 `flask_restx.Namespace` + `Resource` 类（详见 [Flask-RESTX](./11-flask-restx.md)）
 - **Extension**：`extensions/ext_*.py` 下的各种扩展
 
 ### 1.3 dify 的 Flask 应用启动流程
@@ -218,9 +218,9 @@ def create_flask_app_with_configs() -> DifyApp:
 ```
 
 **解读**：
-- 第 7 行：创建 `DifyApp`（dify 自定义的 Flask 子类）
-- 第 8 行：从 `dify_config` 加载所有配置（Pydantic 模型）
-- 第 11-15 行：`before_request` 钩子——**每个请求**都会先经过这里
+- 第 7 行：创建 `DifyApp`（dify 自定义的 Flask 子类；应用工厂模式详见 [策略与工厂](./23-strategy-factory.md)）
+- 第 8 行：从 `dify_config` 加载所有配置（Pydantic 模型，详见 [Pydantic 基础](./15-pydantic-basics.md)）
+- 第 11-15 行：`before_request` 钩子——**每个请求**都会先经过这里（详见 [请求钩子](./12-flask-hooks.md)）
 - 第 17 行：初始化日志上下文
 - 第 21-30 行：企业版 license 校验（不在白名单的 API 请求都会被检查）
 

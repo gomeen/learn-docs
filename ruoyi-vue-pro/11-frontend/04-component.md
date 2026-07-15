@@ -11,8 +11,8 @@
 
 ## 📚 前置知识
 
-- 11-frontend/01-vue3-basics.md
-- TypeScript 接口基础
+- Vue3 基础（详见 [Vue3 基础](./01-vue3-basics.md)）
+- TypeScript 接口（详见 [TS 接口](./08-ts-interface.md)）
 
 ## 1. 核心概念
 

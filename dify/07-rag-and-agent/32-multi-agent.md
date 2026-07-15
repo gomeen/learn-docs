@@ -12,8 +12,8 @@
 
 ## 📚 前置知识
 
-- 07-rag-and-agent/18-agent-concepts.md
-- 07-rag-and-agent/24-workflow-engine.md
+- [Agent 概念](./18-agent-concepts.md)
+- [Workflow Engine](./24-workflow-engine.md)
 
 ## 1. 核心概念
 

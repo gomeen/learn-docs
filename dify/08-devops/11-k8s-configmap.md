@@ -14,7 +14,7 @@
 ## 📚 前置知识
 
 - `08-devops/08-k8s-concepts.md`
-- `01-fundamentals/19-env-vars.md`
+- 环境变量与 12-Factor（详见 [环境变量](../01-fundamentals/19-env-vars.md)）
 
 ## 1. 核心概念
 
@@ -154,7 +154,7 @@ LOG_LEVEL=INFO
 **解读**：
 - dify 把配置**按服务分类**到不同 `.env` 文件（api.env、worker.env、web.env、shared.env）
 - 敏感数据（API Key、密码）也直接放在 `.env` 文件，**生产环境应改用 Secret 或 Vault**
-- docker-compose 用 `env_file` 引用，K8s 中对应 `envFrom.configMapRef` / `envFrom.secretRef`
+- docker-compose 用 `env_file` 引用（详见 [Docker Compose](../../_common/09-containerization/04-compose.md)），K8s 中对应 `envFrom.configMapRef` / `envFrom.secretRef`
 
 ### 3.2 dify 的环境变量引用语法
 

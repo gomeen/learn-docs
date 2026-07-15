@@ -12,10 +12,8 @@
 
 ## 📚 前置知识
 
-- 08-dynamic-form.md（动态表单基础）
-- 09-form-components.md（表单组件）
-- 10-form-data.md（表单数据持久化）
-- Vue.js / form-create
+- 动态表单 / 组件 / 数据（详见 [动态表单](./08-dynamic-form.md)、[表单组件](./09-form-components.md)、[表单数据](./10-form-data.md)）
+- Vue.js / form-create（详见 [Vue3 基础](../11-frontend/01-vue3-basics.md)）
 
 ## 1. 核心概念
 

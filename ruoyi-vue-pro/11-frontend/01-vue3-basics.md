@@ -14,6 +14,7 @@
 
 - JavaScript ES6+ 基础（箭头函数、解构、模块化）
 - Vue2 基础（可选，便于对比）
+- 计算属性 / 监听（详见 [computed/watch](./02-computed-watch.md)）
 
 ## 1. 核心概念
 

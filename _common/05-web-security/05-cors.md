@@ -14,7 +14,7 @@
 
 - HTTP Header 基础
 - 浏览器同源策略（Same-Origin Policy）
-- 5.1 OWASP Top 10 概览
+- [5.1 OWASP Top 10 概览](./01-owasp-top10.md)；Cookie 场景常与 [CSRF](./04-csrf.md) 一起考虑
 
 ## 1. 核心概念
 

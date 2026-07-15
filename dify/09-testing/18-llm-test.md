@@ -72,9 +72,9 @@ def test_json_output():
 
 dify 用 **Mock + 关键路径集成测试** 的组合：
 
-- **单元测试**：完全 mock LLM 调用（MOCK_SWITCH=true）
+- **单元测试**：完全 mock LLM 调用（MOCK_SWITCH=true；mock 详见 [pytest Mock](./08-pytest-mock.md)）
 - **集成测试**：用真实 LLM，但用便宜的模型 + 限制 token
-- **CI 中禁用**：默认 `-p no:benchmark`，避免 LLM 调用拖慢 CI
+- **CI 中禁用**：默认 `-p no:benchmark`，避免 LLM 调用拖慢 CI（详见 [CI/CD 概念](../../_common/11-cicd/01-concepts.md)）
 
 ## 2. 代码示例
 

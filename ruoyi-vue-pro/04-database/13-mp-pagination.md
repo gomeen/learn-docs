@@ -12,9 +12,10 @@
 
 ## 📚 前置知识
 
-- 09-mybatis-vs-mp.md
-- 12-query-wrapper.md
+- [09-mybatis-vs-mp.md](./09-mybatis-vs-mp.md)
+- [12-query-wrapper.md](./12-query-wrapper.md)
 - MySQL LIMIT 语法
+- Starter 分页插件见 [09-pagination](../03-spring-boot-starters/09-pagination.md)
 
 ## 1. 核心概念
 

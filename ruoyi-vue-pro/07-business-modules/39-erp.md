@@ -12,9 +12,9 @@
 
 ## 📚 前置知识
 
-- 29-order.md（订单）
-- 数据库事务基础
-- 02-mvc-layers.md
+- 订单（详见 [订单](./29-order.md)）
+- 数据库事务（详见 [事务](../02-spring-boot/04-transaction.md)）
+- MVC 分层（详见 [MVC 分层](./02-mvc-layers.md)）
 
 ## 1. 核心概念
 

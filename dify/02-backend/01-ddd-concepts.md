@@ -12,8 +12,8 @@
 
 ## 📚 前置知识
 
-- Python 基础语法（dataclass、Pydantic BaseModel）
-- 01-fundamentals/02-typeddict.md（Pydantic 与 TypedDict 区别）
+- Python 基础语法（[`dataclass`](../01-fundamentals/36-dataclasses.md)、[Pydantic BaseModel](./15-pydantic-basics.md)）
+- [TypedDict](../01-fundamentals/08-typeddict.md)（与 Pydantic 的区别）
 - 了解面向对象设计基础（封装、继承）
 
 ## 1. 核心概念
@@ -93,6 +93,8 @@ class User:
 ## 2. 代码示例
 
 ### 2.1 实体 vs 值对象
+
+`@dataclass` 用于快速定义领域对象（机制见前置 [dataclass](../01-fundamentals/36-dataclasses.md)），此处只把它当作「带默认构造与可选不可变」的数据类。
 
 ```python
 from dataclasses import dataclass, field
@@ -244,6 +246,7 @@ class WorkflowRun(Base):
 ```
 
 **解读**：
+- `WorkflowRun` 继承 SQLAlchemy `Base` 做表映射（ORM 声明式映射详见 [SQLAlchemy 映射](../03-database/12-sqlalchemy-mapping.md)，此处不展开）
 - 第 14 行：`id` 是 UUID，是实体的身份标识
 - 第 18-20 行：外键字段（`tenant_id`、`app_id`、`workflow_id`），都是按 ID 引用其它聚合
 - 第 21-22 行：`status` 标识当前执行状态，会随生命周期变化（实体可变性的体现）
@@ -275,7 +278,7 @@ class RetrievalSourceMetadata(BaseModel):
 ```
 
 **解读**：
-- 第 8 行：继承 `BaseModel`，Pydantic 默认按值相等（值对象特性）
+- 第 8 行：继承 `BaseModel`，Pydantic 默认按值相等（值对象特性；机制详见 [Pydantic 基础](./15-pydantic-basics.md)）
 - 没有 `id` 字段——值对象不需要自己的身份
 - 第 16 行：没有 `frozen=True`，但作为 DTO 应该视作只读快照
 

@@ -12,8 +12,8 @@
 
 ## 📚 前置知识
 
-- 03-ruoyi-workflow.md（ruoyi BPM 模块结构）
-- 04-modeler.md（流程设计与 category 关联）
+- ruoyi BPM 模块结构（详见 [ruoyi 工作流](./03-ruoyi-workflow.md)）
+- 流程设计与 category（详见 [Modeler](./04-modeler.md)）
 
 ## 1. 核心概念
 

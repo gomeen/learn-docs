@@ -1,6 +1,6 @@
 # 1.1.10 Java 8 时间 API（java.time）
 
-> 掌握 `java.time` 包的时间日期类，理解 ruoyi 对 Hutool `LocalDateTimeUtil` 的二次封装与时区管理。
+> 掌握 `java.time` 包的时间日期类，理解 ruoyi 对 Hutool `LocalDateTimeUtil` 的二次封装与时区管理（Hutool 工具库详见 [16-hutool](./16-hutool.md)）。
 
 ## 🎯 学习目标
 

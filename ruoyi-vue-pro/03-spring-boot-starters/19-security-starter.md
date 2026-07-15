@@ -12,9 +12,9 @@
 
 ## 📚 前置知识
 
-- Spring Security 基础（Filter、Authentication）
-- RBAC 权限模型
-- [17-distributed-lock.md](./17-distributed-lock.md)
+- Spring Security 基础（Filter、Authentication；详见 [20-spring-security](./20-spring-security.md)）
+- RBAC 权限模型（详见 [RBAC](../../_common/08-authorization/01-rbac.md) / [22-rbac-model](./22-rbac-model.md)）
+- HTTP 认证概览见 [HTTP Auth](../../_common/07-authentication/01-http-auth.md)
 
 ## 1. 核心概念
 
@@ -24,18 +24,18 @@
 |------|------|
 | `YudaoSecurityAutoConfiguration` | 自动装配 |
 | `YudaoWebSecurityConfigurerAdapter` | Spring Security 配置（`SecurityFilterChain`） |
-| `TokenAuthenticationFilter` | Token 校验过滤器 |
+| `TokenAuthenticationFilter` | Token 校验过滤器（详见 [21-token-auth](./21-token-auth.md)） |
 | `LoginUser` | 当前登录用户 |
 | `SecurityFrameworkService` | 权限校验 API |
 | `SecurityProperties` | 配置（Token Header、Mock 开关） |
 | `AuthenticationEntryPointImpl` | 认证失败处理器 |
 | `AccessDeniedHandlerImpl` | 权限不足处理器 |
-| `TransmittableThreadLocalSecurityContextHolderStrategy` | TTL 上下文 |
+| `TransmittableThreadLocalSecurityContextHolderStrategy` | TTL 上下文（详见 [30-threadlocal](../01-java-fundamentals/30-threadlocal.md)） |
 
 ### 1.2 与 Spring Security 的关系
 
 yudao 不是替换 Spring Security，而是**在其基础上定制**：
-- 用 Token（OAuth2 风格）替代默认的 Session
+- 用 Token（OAuth2 风格，详见 [OAuth2](../../_common/07-authentication/05-oauth2.md)）替代默认的 Session（Session 见 [Session/Cookie](../../_common/07-authentication/02-session-cookie.md)）
 - 用 TTL 替代 ThreadLocal（线程池友好）
 - 用 RPC 校验 Token（微服务架构）
 

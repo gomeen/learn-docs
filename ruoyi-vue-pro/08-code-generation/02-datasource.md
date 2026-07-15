@@ -14,7 +14,7 @@
 
 - JDBC 基础
 - Spring Boot 多数据源（`HikariDataSource`）
-- 阅读过 `01-overview.md`
+- 代码生成总览（详见 [总览](./01-overview.md)）
 
 ## 1. 核心概念
 

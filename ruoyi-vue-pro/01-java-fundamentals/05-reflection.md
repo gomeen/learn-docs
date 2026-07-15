@@ -54,7 +54,7 @@ Class<?> c3 = Class.forName("cn.iocoder.yudao.entity.User");
 
 **优点**：
 - 编写通用框架（如 Spring、MyBatis）
-- 动态扩展功能、动态代理
+- 动态扩展功能、动态代理（代理模式详见 [代理](../../_fundamentals/06-design-patterns/08-proxy.md)；Spring AOP 里的 JDK/CGLIB 代理见 [03-aop](../02-spring-boot/03-aop.md)）
 
 **缺点**：
 - 性能开销大（比直接调用慢 10-100 倍）
@@ -163,7 +163,7 @@ private String password;
 - 反射是 Java 在**运行期**操作类信息的能力，核心是 `Class` 对象
 - `getDeclaredField()` + `setAccessible(true)` 突破 private 限制
 - 反射性能比直接调用慢得多，慎用于性能敏感路径
-- Spring、MyBatis、Lombok 等框架的核心都是反射
+- Spring、MyBatis、Lombok 等框架的核心都是反射（Lombok 编译期注解处理见 [14-lombok](./14-lombok.md)）
 
 ## 5. 练习题
 

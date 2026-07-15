@@ -12,9 +12,9 @@
 
 ## 📚 前置知识
 
-- 07-user.md、08-role.md
+- 用户 / 角色（详见 [用户](./07-user.md)、[角色](./08-role.md)）
 - 树形结构基础
-- RBAC 权限模型
+- RBAC 权限模型（详见 [RBAC](../../_common/08-authorization/01-rbac.md)）
 
 ## 1. 核心概念
 

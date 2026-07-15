@@ -114,7 +114,7 @@ Martin Fowler 在《Refactoring》中列举的常见坏味道,按 dify 实际场
 """
 技术债务登记簿：把「以后再优化」从口头承诺变成可追踪的 issue。
 """
-from dataclasses import dataclass, field
+from dataclasses import dataclass, field  # 详见 [dataclass](../01-fundamentals/36-dataclasses.md)
 from datetime import date
 from enum import Enum
 

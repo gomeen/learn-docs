@@ -7,7 +7,7 @@
 完成本文档后，你将能够：
 - 熟练使用条件语句（if/elif/else）、三元表达式、match-case
 - 熟练使用循环（for/while）、推导式、enumerate/zip
-- 理解 `with` 语句与上下文管理器（资源管理）
+- 掌握 `with` 语句的用法（资源管理；自定义上下文管理器见专题）
 - 能读懂 dify 中的复杂业务分支
 
 ## 📚 前置知识
@@ -164,6 +164,8 @@ sum_of_squares = sum(x * x for x in range(1000000))  # 不创建中间列表
 
 ### 2.2 上下文管理器：with 语句
 
+本文只掌握 **`with` 的用法**（自动释放资源）。自定义上下文管理器、`@contextmanager`、`__enter__` / `__exit__` 见 [11-context-manager](./11-context-manager.md)。
+
 ```python
 # 文件操作（自动关闭）
 with open("data.txt", "r") as f:
@@ -317,9 +319,8 @@ def session_scope() -> Iterator[Session]:
 ```
 
 **解读**：
-- 第 14 行：`@contextmanager` 装饰器把生成器函数转为上下文管理器
+- 源码里用 `@contextmanager` + `yield session` 实现事务安全的 session（实现细节见上文链到的上下文管理器篇；`yield` 见 [14-generator](./14-generator.md)；装饰器语法见 [10-decorator](./10-decorator.md)）
 - 第 22-29 行：try/except/finally 保证异常时回滚 + 关闭连接
-- 第 21 行：`yield session` 是关键——`with` 块内 `as` 拿到的就是这个 session
 - **dify 强制规范**：所有数据库操作必须用 `with session_scope()`，避免连接泄漏
 
 ## 4. 关键要点总结
@@ -327,7 +328,7 @@ def session_scope() -> Iterator[Session]:
 - Python 真值判断：`0`、`""`、`[]`、`{}`、`None` 都是 False
 - 三元表达式：`value_if_true if cond else value_if_false`
 - 推导式比循环更 Pythonic，但不要嵌套太深（>2 层可读性差）
-- `with` 语句是资源管理的最佳实践（文件、数据库、锁）
+- `with` 语句是资源管理的最佳实践（文件、数据库、锁）；自定义实现见上下文管理器专题
 - dify 风格：能用字典映射就不用 if/elif 链
 - 数据库操作必须用 `with session_scope()` 上下文管理器
 
@@ -355,7 +356,7 @@ output = classify_score(input)
 
 ### 练习 3：挑战（选做）
 
-实现一个自定义上下文管理器 `timer()`，记录代码块执行耗时：
+> 学完 [11-context-manager](./11-context-manager.md) 后再做：实现一个自定义上下文管理器 `timer()`，记录代码块执行耗时：
 
 ```python
 with timer() as t:

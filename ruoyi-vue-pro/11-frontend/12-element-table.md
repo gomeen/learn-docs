@@ -12,8 +12,7 @@
 
 ## 📚 前置知识
 
-- 11-frontend/10-element-plus.md
-- 11-frontend/11-element-form.md
+- Element Plus / Form（详见 [Element Plus](./10-element-plus.md)、[Element Form](./11-element-form.md)）
 
 ## 1. 核心概念
 

@@ -12,9 +12,9 @@
 
 ## 📚 前置知识
 
-- 02-backend/08-flask-basics.md 至 02-backend/13-flask-error-handling.md（Flask 全套）
-- 02-backend/11-flask-restx.md（Flask-RESTX）
-- 02-backend/15-pydantic-basics.md 至 02-backend/18-pydantic-config.md（Pydantic 系列）
+- [Flask 基础](./08-flask-basics.md) 至 [自定义错误处理](./13-flask-error-handling.md)（Flask 全套）
+- [Flask-RESTX](./11-flask-restx.md)
+- [Pydantic 基础](./15-pydantic-basics.md) 至 [Pydantic 配置](./18-pydantic-config.md)（Pydantic 系列）
 
 ## 1. 核心概念
 
@@ -39,6 +39,8 @@ class MyResource(Resource):
 ```
 
 ### 1.2 装饰器顺序的重要性
+
+多层 `@decorator` 叠加时，**从下往上**包一层（原理详见 [装饰器](../01-fundamentals/10-decorator.md)）：
 
 ```python
 # 装饰器从下往上执行

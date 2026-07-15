@@ -26,9 +26,9 @@ Redis 与 Memcached 的最大区别是**数据结构丰富**。同一个 key 可
 
 | 结构 | 命令示例 | 底层实现 | 典型场景 |
 |------|---------|----------|---------|
-| String | `SET` / `GET` / `INCR` | SDS（简单动态字符串） | 缓存值、计数器、分布式锁 |
-| Hash | `HSET` / `HGETALL` | listpack + dict | 对象属性、会话信息 |
-| List | `LPUSH` / `RPOP` | quicklist（双向链表） | 消息队列、最新列表 |
+| String | `SET` / `GET` / `INCR` | SDS（简单动态字符串） | 缓存值、计数器、[分布式锁](../04-distributed-locks/02-redis-redlock.md) |
+| Hash | `HSET` / `HGETALL` | listpack + dict | 对象属性、[会话信息](../03-cache-patterns/05-distributed-session.md) |
+| List | `LPUSH` / `RPOP` | quicklist（双向链表） | [消息队列](../02-mq/01-concepts.md)、最新列表 |
 | Set | `SADD` / `SMEMBERS` | intset + dict | 标签、共同好友、去重 |
 | Sorted Set (ZSet) | `ZADD` / `ZRANGE` | skiplist + dict + listpack | 排行榜、带权重的队列 |
 
@@ -36,8 +36,8 @@ Redis 与 Memcached 的最大区别是**数据结构丰富**。同一个 key 可
 
 最简单也最常用的结构。**value 不仅是字符串，也可以是整数 / 浮点数**，此时 Redis 提供原子自增（`INCR` / `DECR`）能力，常用于：
 - 计数器（文章阅读数、API 调用次数）
-- 分布式 ID（`INCR` + 业务前缀）
-- 分布式锁的占位符
+- [分布式 ID](../03-cache-patterns/06-distributed-id.md)（`INCR` + 业务前缀）
+- [分布式锁](../04-distributed-locks/02-redis-redlock.md)的占位符
 
 ```redis
 SET user:1001:name "alice"
@@ -86,7 +86,7 @@ SUNION user:1001:tags user:1002:tags
 每个成员关联一个 **score**，按 score 排序。底层是 **skiplist（跳跃表） + hash 表**，使范围查询达到 O(log N)。典型场景：
 - 排行榜（`ZADD score member`，`ZREVRANGE 0 9` 取 Top 10）
 - 延时队列（score = 执行时间戳，定时 `ZRANGEBYSCORE` 取到期任务）
-- 滑动窗口限流（score = 请求时间戳）
+- 滑动窗口[限流](../03-cache-patterns/04-rate-limiting.md)（score = 请求时间戳）
 
 ```redis
 ZADD leaderboard 95 "alice" 87 "bob" 99 "carol"

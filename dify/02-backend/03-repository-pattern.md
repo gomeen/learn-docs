@@ -12,10 +12,10 @@
 
 ## 📚 前置知识
 
-- 02-backend/01-ddd-concepts.md（DDD 聚合根概念）
-- 02-backend/02-layered-architecture.md（分层架构）
-- Python Protocol 类型（详见 01-fundamentals 系列）
-- SQLAlchemy ORM 基础
+- [DDD 聚合根概念](./01-ddd-concepts.md)
+- [分层架构](./02-layered-architecture.md)
+- Python Protocol 类型（详见 [Protocol 与 Generic](../01-fundamentals/09-protocol-generic.md)）
+- SQLAlchemy ORM 基础（详见 [SQLAlchemy 映射](../03-database/12-sqlalchemy-mapping.md)）
 
 ## 1. 核心概念
 
@@ -47,7 +47,7 @@ users = user_repository.find_all()
 
 dify 的 Repository 有两个特点：
 1. **接口用 Protocol 声明**（结构化子类型，不需要继承）
-2. **实现类通过配置动态加载**（类似 Django 的 `DATABASES`）
+2. **实现类通过配置动态加载**（工厂思想，详见 [策略与工厂](./23-strategy-factory.md)；此处只关心「按配置选实现」）
 
 ```python
 # Domain 层定义接口
@@ -65,7 +65,7 @@ CORE_WORKFLOW_EXECUTION_REPOSITORY = "core.repositories.sqlalchemy_workflow_exec
 
 ### 1.4 multi-tenancy 隔离
 
-dify 是 SaaS 产品，所有 Repository 方法都需要带 `tenant_id` 过滤，否则会跨租户泄漏数据：
+dify 是 SaaS 产品，所有 Repository 方法都需要带 `tenant_id` 过滤，否则会跨租户泄漏数据（详见 [多租户架构](./20-multi-tenancy.md)）：
 
 ```python
 # ✅ 正确的 Repository 方法
@@ -287,14 +287,14 @@ class SQLAlchemyWorkflowExecutionRepository(WorkflowExecutionRepository):
 **解读**：
 - 第 1 行：实现类显式声明 `WorkflowExecutionRepository`（满足 Protocol）
 - 第 7-8 行：注释明确说明该实现支持 multi-tenancy 隔离
-- 第 17 行：构造函数接受 `sessionmaker` 或 `Engine`（**依赖注入**：方便测试）
+- 第 17 行：构造函数接受 `sessionmaker` 或 `Engine`（**依赖注入**，详见 [依赖注入](./05-dependency-injection.md)：方便测试）
 - 第 20 行：构造函数保存 `user`、`app_id`、`triggered_from`——这些是上下文信息，每次操作都自动带上
 
 ## 4. 关键要点总结
 
 - Repository 把数据访问封装成"集合"语义：`find_by_id`、`save`、`delete`
 - **Protocol 接口** + **Factory 动态加载**是 dify 的核心抽象方式
-- Repository 返回**领域对象**，不返回 ORM 行（避免持久化泄漏）
+- Repository 返回**领域对象**，不返回 ORM 行（避免持久化泄漏；Pydantic/DTO 详见 [Pydantic 基础](./15-pydantic-basics.md)）
 - dify 所有 Repository 都支持 **multi-tenancy**：`tenant_id` 必须作为过滤条件
 - 测试时可注入 `InMemoryRepository`（dify 测试中有专门的 `factories` 目录生成测试数据）
 

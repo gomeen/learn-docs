@@ -12,8 +12,8 @@
 
 ## 📚 前置知识
 
-- 01-ioc.md（AOP 基础，事务本质是 AOP）
-- 数据库事务基础
+- [03-aop.md](./03-aop.md)（AOP 基础，事务本质是 AOP）
+- 数据库事务基础（MySQL 事务与隔离级别详见 [02-mysql-transaction](../04-database/02-mysql-transaction.md)）
 
 ## 1. 核心概念
 
@@ -66,7 +66,7 @@ public class OrderServiceImpl {
 ### 2.2 常见错误：自调用导致事务失效
 
 ```java
-// ❌ 错误：通过 this 调用，绕过 Spring 代理
+// ❌ 错误：通过 this 调用，绕过 Spring 代理（代理机制见 [03-aop](./03-aop.md)）
 @Service
 public class UserService {
     @Transactional

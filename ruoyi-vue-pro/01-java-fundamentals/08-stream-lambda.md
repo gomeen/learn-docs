@@ -12,9 +12,9 @@
 
 ## 📚 前置知识
 
-- 集合基础（List / Set / Map）
+- 集合基础（List / Set / Map）（详见 [07-collections](./07-collections.md)）
 - Lambda 前置：函数式接口
-- 07-collections.md
+- [07-collections.md](./07-collections.md)
 
 ## 1. 核心概念
 

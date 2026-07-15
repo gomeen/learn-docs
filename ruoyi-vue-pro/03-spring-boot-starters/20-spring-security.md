@@ -13,8 +13,8 @@
 ## 📚 前置知识
 
 - [19-security-starter.md](./19-security-starter.md)
-- Servlet Filter 基础
-- HTTP Basic / Digest 认证
+- Servlet Filter 基础（详见 [19-filter](../02-spring-boot/19-filter.md)）
+- HTTP Basic / Digest 认证（详见 [HTTP Auth](../../_common/07-authentication/01-http-auth.md)）
 
 ## 1. 核心概念
 
@@ -23,7 +23,7 @@
 | 组件 | 作用 |
 |------|------|
 | `SecurityFilterChain` | 过滤器链，替代旧版 `WebSecurityConfigurerAdapter` |
-| `SecurityContextHolder` | 存放当前线程的安全上下文 |
+| `SecurityContextHolder` | 存放当前线程的安全上下文（ThreadLocal 详见 [30-threadlocal](../01-java-fundamentals/30-threadlocal.md)） |
 | `Authentication` | 认证信息（用户、权限、是否已认证） |
 | `AuthenticationManager` | 认证管理器（`authenticate()`） |
 | `AuthenticationProvider` | 具体认证方式 |

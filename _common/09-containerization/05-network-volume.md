@@ -12,9 +12,8 @@
 
 ## 📚 前置知识
 
-- 9.4 Docker Compose（服务依赖与启动顺序）
+- [9.4 Docker Compose](./04-compose.md)（服务依赖与启动顺序）
 - Linux 网络基础（接口、路由、DNS）
-- /Users/xu/code/gomeen/learn-docs/_common/09-containerization/04-compose.md
 
 ## 1. 核心概念
 

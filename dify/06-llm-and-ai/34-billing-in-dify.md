@@ -14,7 +14,7 @@
 
 - [Token 用量统计与计费](./30-token-tracking.md)
 - [限流、配额管理与用户余额](./33-rate-limit-quota.md)
-- HTTP 客户端、TypedDict、Pydantic `TypeAdapter` 和 Redis 基础
+- HTTP 客户端、TypedDict、Pydantic 与 Redis（详见 [TypedDict](../01-fundamentals/08-typeddict.md)、[Pydantic 基础](../02-backend/15-pydantic-basics.md)、[Redis in dify](../04-cache-and-queue/13-redis-in-dify.md)）
 
 ## 1. 核心概念
 

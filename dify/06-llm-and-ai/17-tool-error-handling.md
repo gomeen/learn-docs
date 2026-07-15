@@ -12,9 +12,9 @@
 
 ## 📚 前置知识
 
-- 06-llm-and-ai/14-function-calling.md
-- 06-llm-and-ai/16-multi-tool-routing.md
-- Python 异常处理基础
+- [Function Calling](./14-function-calling.md)
+- [多工具路由](./16-multi-tool-routing.md)
+- Python 异常处理（详见 [异常](../01-fundamentals/06-python-exceptions.md)）
 
 ## 1. 核心概念
 

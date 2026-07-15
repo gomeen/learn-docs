@@ -12,9 +12,9 @@
 
 ## 📚 前置知识
 
-- Velocity / Freemarker 模板引擎
-- 01-module-structure.md
-- 02-mvc-layers.md
+- Velocity / Freemarker 模板引擎（完整生成器详见 [08-code-generation](../08-code-generation/)）
+- 模块结构（详见 [模块结构](./01-module-structure.md)）
+- MVC 分层（详见 [MVC 分层](./02-mvc-layers.md)）
 
 ## 1. 核心概念
 

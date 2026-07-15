@@ -12,8 +12,9 @@
 
 ## 📚 前置知识
 
-- 01-mysql-basics.md
-- 03-mysql-index.md
+- [01-mysql-basics.md](./01-mysql-basics.md)
+- [03-mysql-index.md](./03-mysql-index.md)
+- 应用侧慢 SQL 打印见 [12-slow-sql](../03-spring-boot-starters/12-slow-sql.md)；Druid 监控见 [22-druid](./22-druid.md)
 
 ## 1. 核心概念
 

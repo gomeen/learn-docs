@@ -5,6 +5,7 @@
 ## 🎯 学习目标
 
 完成本文档后，你将能够：
+
 - 熟练定义函数（def、参数、返回值、文档字符串）
 - 掌握各种参数形式：位置参数、关键字参数、默认参数、`*args` / `**kwargs`
 - 理解变量作用域（LEGB 规则）
@@ -29,6 +30,7 @@ print(message)  # "Hello, dify"
 ```
 
 三要素：
+
 - **def 关键字**：定义函数
 - **参数列表**：`name: str`
 - **返回值**：`-> str` + `return`
@@ -75,12 +77,12 @@ print(result)  # None
 
 Python 查找变量时按 **L → E → G → B** 顺序：
 
-| 层级 | 名称 | 示例 |
-|------|------|------|
-| L | Local 函数内部 | 函数内定义的变量 |
-| E | Enclosing 闭包 | 外层函数（嵌套时） |
-| G | Global 全局 | 模块级变量 |
-| B | Built-in 内建 | `print`、`len` 等 |
+| 层级 | 名称           | 示例               |
+| ---- | -------------- | ------------------ |
+| L    | Local 函数内部 | 函数内定义的变量   |
+| E    | Enclosing 闭包 | 外层函数（嵌套时） |
+| G    | Global 全局    | 模块级变量         |
+| B    | Built-in 内建  | `print`、`len` 等  |
 
 ```python
 x = "global"          # G
@@ -203,13 +205,14 @@ class AccountService:
 ```
 
 **解读**：
-- 第 11 行：`@staticmethod` 装饰器，标记为静态方法（不依赖实例状态）
+
+- 第 11 行：`@staticmethod` 是装饰器写法，此处只把它当作「挂在类上、不依赖实例的函数」来理解（装饰器专题见下节露面）
 - 第 15-21 行：**关键字-only 参数**（`*` 之后的参数必须用关键字传），防止误用位置
-- 第 22 行：**kwargs: Any 接收额外字段，子类或扩展时可灵活传入
+- 第 22 行：\*\*kwargs: Any 接收额外字段，子类或扩展时可灵活传入
 - 第 25 行：返回值用字符串 `"Account"` 前向引用，避免循环导入
 - **整体设计**：明确区分必填参数（前 3 个）和可选参数（关键字-only），API 友好
 
-### 3.2 装饰器在 dify 中的应用
+### 3.2 装饰器在 dify 中的应用（露面）
 
 **文件位置**：`/Users/xu/code/github/dify/api/controllers/console/wraps.py`
 **核心代码**（行 1-25）：
@@ -234,12 +237,13 @@ def account_initialization_required(view_func: Callable) -> Callable:
     return decorated
 ```
 
-**解读**：
-- 第 12 行：`@wraps(view_func)` **必须** 加，否则装饰后函数的 `__name__` 会变成 `"decorated"`
-- 第 13 行：`*args, **kwargs` 接收任意参数，让装饰器能适配所有视图函数
-- 第 15 行：在调用原函数**之前**插入检查逻辑
-- 第 18 行：返回包装后的函数（闭包）
-- **典型模式**：装饰器 = 高阶函数（接收函数，返回函数）+ `functools.wraps` + 包裹逻辑
+**解读（只认脸，不展开原理）**：
+
+- 这个装饰器挂在视图函数上：调用前检查账户是否已初始化，未通过则直接返回 403
+- 你能认出 `@wraps`、内层 `decorated`、最后 `return decorated` 即可
+- 此处**不展开**闭包、`@wraps`、带参装饰器等机制
+
+> 📌 **Sighting**：完整装饰器原理（闭包、`@wraps`、带参装饰器）见 [10-decorator](./10-decorator.md)。
 
 ## 4. 关键要点总结
 
@@ -247,8 +251,8 @@ def account_initialization_required(view_func: Callable) -> Callable:
 - 参数顺序：位置 → 默认 → `*args` → 关键字-only → `**kwargs`
 - 默认参数**绝不能用可变对象**（用 None 占位）
 - `*args` 收集元组，`**kwargs` 收集字典；调用时反过来用
-- 装饰器必须用 `@functools.wraps` 保留原函数元信息
 - dify 风格：关键字-only 参数用于"可选配置"，`**kwargs` 用于"扩展字段"
+- 阅读代码时会遇到装饰器写法；实现与原理见装饰器专题（上文 Sighting）
 
 ## 5. 练习题
 
@@ -257,6 +261,11 @@ def account_initialization_required(view_func: Callable) -> Callable:
 实现一个 `create_config` 函数，接收任意关键字参数，返回一个字典：
 
 ```python
+
+from typing import Any;
+
+def create_config(**kwargs: Any) -> dict[str, Any]:
+  return kwargs
 config = create_config(host="localhost", port=5432, debug=True)
 # {"host": "localhost", "port": 5432, "debug": True}
 ```
@@ -264,12 +273,13 @@ config = create_config(host="localhost", port=5432, debug=True)
 ### 练习 2：进阶
 
 阅读 `/Users/xu/code/github/dify/api/services/account_service.py` 中的 `generate_token`：
+
 1. 它是实例方法还是静态方法？
 2. 为什么 dify 选择这种风格？
 
 ### 练习 3：挑战（选做）
 
-写一个装饰器 `@timed`，记录函数执行耗时（毫秒），并通过 `logging` 输出：
+> 学完 [10-decorator](./10-decorator.md) 后再做：写一个装饰器 `@timed`，记录函数执行耗时（毫秒），并通过 `logging` 输出：
 
 ```python
 @timed

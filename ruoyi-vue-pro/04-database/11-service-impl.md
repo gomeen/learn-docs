@@ -12,9 +12,10 @@
 
 ## 📚 前置知识
 
-- 09-mybatis-vs-mp.md
-- 10-base-mapper.md
-- Spring 依赖注入
+- [09-mybatis-vs-mp.md](./09-mybatis-vs-mp.md)
+- [10-base-mapper.md](./10-base-mapper.md)
+- Spring 依赖注入（详见 [01-ioc](../02-spring-boot/01-ioc.md)）
+- 事务见 [04-transaction](../02-spring-boot/04-transaction.md)
 
 ## 1. 核心概念
 
@@ -25,6 +26,8 @@ BaseMapper：数据库原子操作（CRUD）
 Service   ：业务逻辑（事务控制、跨表操作、缓存、权限）
 Controller：HTTP 接口
 ```
+
+> 📌 **Sighting**：事务声明见 [04-transaction](../02-spring-boot/04-transaction.md)；缓存见 [24-cache](../02-spring-boot/24-cache.md)；权限见 [RBAC](../../_common/08-authorization/01-rbac.md)。
 
 ### 1.2 IService 接口能力
 

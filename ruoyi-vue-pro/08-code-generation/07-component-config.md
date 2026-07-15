@@ -12,8 +12,8 @@
 
 ## 📚 前置知识
 
-- 阅读过 `04-type-mapping.md`、`06-field-config.md`
-- 了解 ruoyi 的字典系统（`system_dict_type` / `system_dict_data`）
+- 类型映射 / 字段配置（详见 [类型映射](./04-type-mapping.md)、[字段配置](./06-field-config.md)）
+- ruoyi 字典系统（详见 [字典管理](../07-business-modules/11-dict.md)）
 
 ## 1. 核心概念
 

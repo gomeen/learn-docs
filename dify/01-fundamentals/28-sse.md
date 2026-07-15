@@ -28,6 +28,8 @@
 
 ### 1.2 SSE vs WebSocket
 
+WebSocket 专题见 [27-websocket](./27-websocket.md)。
+
 | 特性 | SSE | WebSocket |
 |---|---|---|
 | 通信方向 | 服务端 → 客户端（单向） | 双向 |
@@ -80,6 +82,8 @@ data: {"done": true}
 ## 2. 代码示例
 
 ### 2.1 Flask SSE 端点
+
+流式输出依赖**生成器** `yield`（详见 [14-generator](./14-generator.md)）；本文关注 SSE 协议格式。
 
 ```python
 from flask import Flask, Response, stream_with_context
@@ -135,6 +139,8 @@ source.close();
 ```
 
 ### 2.3 FastAPI SSE 端点
+
+异步版本使用 `async`/`await`（详见 [12-async-asyncio](./12-async-asyncio.md)）与异步生成器（生成器见上文链接）。
 
 ```python
 from fastapi import FastAPI

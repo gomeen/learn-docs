@@ -12,9 +12,9 @@
 
 ## 📚 前置知识
 
-- 7.3 JWT 机制
+- [7.3 JWT 机制](./03-jwt.md)
 - HTTP 重定向与回调
-- 7 认证系列前置
+- 系列后续：[OIDC / SSO](./06-oidc-sso.md)；Token 生命周期见 [04-token-refresh](./04-token-refresh.md)
 
 ## 1. 核心概念
 

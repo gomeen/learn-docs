@@ -15,7 +15,7 @@
 - [Token、上下文窗口与计费](./03-tokens-context.md)
 - [Token 用量统计与计费](./30-token-tracking.md)
 - [dify 的模型适配层](./28-model-runtime.md)
-- 哈希、TTL 和缓存失效基础
+- 哈希、TTL 和缓存失效（详见 [哈希算法](../../_common/06-encryption/03-hash.md)、[缓存策略](../../_common/03-cache-patterns/01-strategies.md)）
 
 ## 1. 核心概念
 

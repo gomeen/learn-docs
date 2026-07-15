@@ -12,7 +12,8 @@
 
 ## 📚 前置知识
 
-- 07-rag-and-agent/01-rag-overview.md 至 16-rag-failure-modes.md
+- 本模块 RAG 系列（详见 [RAG 概览](./01-rag-overview.md)、[检索管道](./12-retrieval-pipeline.md)、[知识库 in dify](./06-knowledge-base-in-dify.md)）
+- 向量库在 dify 中的接入（详见 [VDB in dify](../03-database/28-vdb-in-dify.md)）
 
 ## 1. 核心概念
 

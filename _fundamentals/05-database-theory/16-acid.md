@@ -23,7 +23,7 @@
 |------|------|------|---------|
 | 原子性 | Atomicity | 事务中的操作要么全成功，要么全失败 | undo log / 回滚 |
 | 一致性 | Consistency | 事务前后数据满足完整性约束 | 应用层 + 数据库约束 |
-| 隔离性 | Isolation | 并发事务互不干扰 | 锁 + MVCC |
+| 隔离性 | Isolation | 并发事务互不干扰 | [锁](./19-locks.md) + [MVCC](./18-mvcc.md)（级别见 [17-isolation-levels](./17-isolation-levels.md)） |
 | 持久性 | Durability | 事务提交后数据不丢失 | redo log + WAL |
 
 ### 1.2 原子性（Atomicity）
@@ -44,7 +44,7 @@ COMMIT;
 
 ### 1.4 隔离性（Isolation）
 
-通过锁（Lock）或 MVCC 实现：
+通过锁（Lock）或 MVCC 实现（详见 [17-isolation-levels](./17-isolation-levels.md)、[18-mvcc](./18-mvcc.md)、[19-locks](./19-locks.md)）：
 - 锁：悲观并发控制
 - MVCC：乐观并发控制
 

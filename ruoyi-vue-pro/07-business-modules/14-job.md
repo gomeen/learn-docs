@@ -12,9 +12,9 @@
 
 ## 📚 前置知识
 
-- Spring Boot 定时任务基础
+- Spring Boot 定时任务（详见 [Scheduled](../02-spring-boot/23-scheduled.md)）
 - Cron 表达式语法
-- Quartz 调度框架
+- Quartz / XXL-Job 调度（详见 [XXL-Job Starter](../03-spring-boot-starters/34-xxl-job.md)）
 
 ## 1. 核心概念
 

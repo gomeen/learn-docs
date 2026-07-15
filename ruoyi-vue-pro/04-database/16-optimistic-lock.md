@@ -12,9 +12,9 @@
 
 ## 📚 前置知识
 
-- 09-mybatis-vs-mp.md
-- Java 并发基础
-- 02-mysql-transaction.md
+- [09-mybatis-vs-mp.md](./09-mybatis-vs-mp.md)
+- Java 并发基础（CAS 详见 [28-atomic](../01-java-fundamentals/28-atomic.md)；本地锁见 [27-lock](../01-java-fundamentals/27-lock.md)）
+- [02-mysql-transaction.md](./02-mysql-transaction.md)
 
 ## 1. 核心概念
 

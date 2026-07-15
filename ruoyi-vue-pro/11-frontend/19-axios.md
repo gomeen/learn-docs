@@ -14,6 +14,7 @@
 
 - JavaScript Promise / async/await
 - HTTP 基础（请求方法、状态码、headers）
+- 拦截器（详见 [拦截器](./20-interceptor.md)）
 
 ## 1. 核心概念
 

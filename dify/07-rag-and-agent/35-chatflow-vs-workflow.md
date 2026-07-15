@@ -12,8 +12,9 @@
 
 ## 📚 前置知识
 
-- 07-rag-and-agent/24-workflow-engine.md
-- 07-rag-and-agent/26-workflow-variables.md
+- [Workflow Engine](./24-workflow-engine.md)
+- [变量系统](./26-workflow-variables.md)
+- 流式输出（详见 [SSE](../01-fundamentals/28-sse.md)、[流式输出](../06-llm-and-ai/27-streaming-sse.md)）
 
 ## 1. 核心概念
 

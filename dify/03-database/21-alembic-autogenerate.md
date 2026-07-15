@@ -23,7 +23,7 @@
 
 ### 1.2 审查清单
 
-1. 有没有误删表或列；2. nullable 改动对旧行是否安全；3. server_default 是否只是回填过渡；4. 索引是否会长时间锁表；5. downgrade 是否真实可逆；6. 多数据库方言是否兼容。
+1. 有没有误删表或列；2. nullable 改动对旧行是否安全；3. server_default 是否只是回填过渡；4. 索引是否会长时间锁表（锁代价详见 [乐观锁与悲观锁](./10-lock-strategy.md)）；5. downgrade 是否真实可逆；6. 多数据库方言是否兼容。数据回填策略见 [数据迁移](./22-alembic-data-migration.md)。
 
 ### 1.3 Dify 的空迁移抑制
 

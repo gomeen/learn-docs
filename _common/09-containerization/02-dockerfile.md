@@ -12,9 +12,9 @@
 
 ## 📚 前置知识
 
-- 9.1 Docker 核心概念：镜像 / 容器 / 层
+- [9.1 Docker 核心概念](./01-concepts.md)：镜像 / 容器 / 层
 - Shell 基础、apt 或 yum 包管理
-- /Users/xu/code/gomeen/learn-docs/_common/09-containerization/01-concepts.md
+- 多阶段构建见 [03-multi-stage](./03-multi-stage.md)
 
 ## 1. 核心概念
 

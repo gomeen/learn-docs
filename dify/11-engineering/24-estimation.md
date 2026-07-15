@@ -167,7 +167,7 @@ print(f"  最高={result['max_vote']}, 最低={result['min_vote']}, 中位数={r
 
 # 持有最低（carol=3）和最高（frank=13）的人各自陈述理由
 # carol: "我看 API 文档,字段就 username/password/jwt,2 天能写完"
-# frank: "得测并发登录、密码哈希、限流、CSRF、Remember Me、第三方登录"
+# frank: "得测并发登录、密码哈希、限流（详见 [限流](../../_common/03-cache-patterns/04-rate-limiting.md)）、CSRF（详见 [CSRF](../../_common/05-web-security/04-csrf.md)）、Remember Me、第三方登录"
 # 大家讨论后,carol 修订为 5,frank 修订为 8
 
 # 第二轮：收敛

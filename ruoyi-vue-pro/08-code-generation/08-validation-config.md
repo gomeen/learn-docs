@@ -12,8 +12,8 @@
 
 ## 📚 前置知识
 
-- 阅读过 `01-overview.md`、`04-type-mapping.md`
-- 了解 JSR-303 / JSR-380（Bean Validation）
+- 总览 / 类型映射（详见 [总览](./01-overview.md)、[类型映射](./04-type-mapping.md)）
+- Bean Validation（详见 [Validation](../02-spring-boot/21-validation.md)）
 
 ## 1. 核心概念
 

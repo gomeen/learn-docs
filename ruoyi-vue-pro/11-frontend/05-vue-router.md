@@ -12,8 +12,9 @@
 
 ## 📚 前置知识
 
-- 11-frontend/01-vue3-basics.md
+- Vue3 基础（详见 [Vue3 基础](./01-vue3-basics.md)）
 - ES6 模块化基础
+- 动态菜单路由（ruoyi，详见 [菜单动态路由](./24-ruoyi-menu.md)）
 
 ## 1. 核心概念
 

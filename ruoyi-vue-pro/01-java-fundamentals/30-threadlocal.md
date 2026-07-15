@@ -148,7 +148,7 @@ Runnable task = TtlRunnable.get(originalRunnable);
 
 ### 1.6 ruoyi-vue-pro 中的 TTL 实践
 
-ruoyi-vue-pro 在 **租户上下文、安全上下文、数据权限上下文** 三大场景统一使用 `TransmittableThreadLocal`，保证跨 `@Async` / MQ 消费者 / 定时任务时上下文不丢失。
+ruoyi-vue-pro 在 **租户上下文、安全上下文、数据权限上下文** 三大场景统一使用 `TransmittableThreadLocal`，保证跨 `@Async` / MQ 消费者 / 定时任务时上下文不丢失（多租户理论见 [多租户](../../_common/08-authorization/05-multi-tenant.md)，ruoyi 租户见 [33-tenant](../03-spring-boot-starters/33-tenant.md)；`@Async` 见 [22-async](../02-spring-boot/22-async.md)）。
 
 ## 2. 代码示例
 

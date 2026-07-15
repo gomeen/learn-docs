@@ -12,7 +12,7 @@
 
 ## 📚 前置知识
 
-- Redis ZSet / List 数据结构
+- [Redis ZSet / List 数据结构](../01-redis/01-data-structures.md)
 - 多线程与并发基础
 - HTTP API 设计基础
 

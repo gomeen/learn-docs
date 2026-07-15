@@ -15,7 +15,7 @@
 - [dify 的模型适配层](./28-model-runtime.md)
 - [Token 用量统计与计费](./30-token-tracking.md)
 - [工具错误处理](./17-tool-error-handling.md)
-- Redis、异常分类和可观测性基础
+- Redis 与异常分类（详见 [Redis 数据结构](../../_common/01-redis/01-data-structures.md)、[异常](../01-fundamentals/06-python-exceptions.md)）
 
 ## 1. 核心概念
 
@@ -32,7 +32,7 @@
 
 ### 1.2 哪些错误可以降级
 
-- **适合**：限流、连接超时、服务暂不可用、某个凭据健康状态异常。
+- **适合**：限流（详见 [限流算法](../../_common/03-cache-patterns/04-rate-limiting.md) 与本模块 [限流与配额](./33-rate-limit-quota.md)）、连接超时、服务暂不可用、某个凭据健康状态异常。
 - **谨慎**：鉴权错误。切换到另一个已配置凭据可能有效，但应报警。
 - **不适合**：Prompt 非法、上下文超限、内容安全拒绝、业务取消。换模型可能重复失败、增加费用或绕过策略。
 

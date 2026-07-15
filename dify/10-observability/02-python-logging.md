@@ -13,7 +13,7 @@
 ## 📚 前置知识
 
 - 10.1.1 日志级别（`01-log-levels.md`）
-- Python 基础语法（模块、装饰器）
+- Python 基础语法（模块；装饰器详见 [装饰器](../01-fundamentals/10-decorator.md)）
 
 ## 1. 核心概念
 
@@ -218,7 +218,7 @@ def init_app(app: DifyApp):
 
 **解读**：
 - 第 6-14 行：可选的 `RotatingFileHandler`，按大小切割日志（默认 20MB × 5 份）
-- 第 17-18 行：始终添加 stdout handler，方便容器化环境（Docker/K8s）收集
+- 第 17-18 行：始终添加 stdout handler，方便容器化环境（Docker/K8s；详见 [Docker 核心概念](../../_common/09-containerization/01-concepts.md)）收集
 - 第 24-25 行：用 `addFilter` 给所有 handler 注入 trace_id 和 user identity
 - 第 37-39 行：`force=True` 会重置已有配置，避免重复
 - 第 42 行：禁用 `sqlalchemy.engine` 的日志传播，避免 SQL 查询刷屏
@@ -272,7 +272,7 @@ class _TextFormatter(logging.Formatter):
 
 ### 练习 3：挑战（选做）
 
-实现一个 `AsyncSafeContextFilter`：在 asyncio 环境下，把当前的 `task_id` 和 `coroutine_name` 注入到 LogRecord。需要处理 `Task` 切换时上下文丢失的问题。
+> 学完 [async/await 与 asyncio](../01-fundamentals/12-async-asyncio.md) 后再做：实现一个 `AsyncSafeContextFilter`，在 asyncio 环境下把当前的 `task_id` 和 `coroutine_name` 注入到 LogRecord，并处理 `Task` 切换时上下文丢失的问题。
 
 ## 6. 参考资料
 

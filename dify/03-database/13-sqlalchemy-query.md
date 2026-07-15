@@ -14,6 +14,7 @@
 
 - [3.3.1 声明式映射](./12-sqlalchemy-mapping.md)
 - [3.1.2 多表查询](./02-sql-join.md)
+- Session 生命周期（详见 [Session 与 with](./16-sqlalchemy-session.md)）
 
 ## 1. 核心概念
 
@@ -145,7 +146,7 @@ with Session(engine) as session:
 
 **解读**：
 - `select(WorkflowRun)` 创建单实体查询，最终可用 `session.scalars`。
-- 状态、时间、租户、工作流和分片条件逐步追加。
+- 状态、时间、租户、工作流和分片条件逐步追加（`tenant_id` 过滤详见 [多租户查询](./19-multi-tenant-query.md)）。
 - 表达式避免手工拼值，也便于测试每个可选条件。
 
 ## 4. 关键要点总结

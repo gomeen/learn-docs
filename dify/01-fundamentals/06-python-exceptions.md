@@ -114,6 +114,8 @@ class AccountNotFoundError(ServiceError):
 
 ### 2.1 异常链：raise from
 
+`json.loads` 的用法详见 [17-json-processing](./17-json-processing.md)；此处只看异常链。
+
 ```python
 try:
     data = json.loads(raw_json)
@@ -123,6 +125,8 @@ except json.JSONDecodeError as e:
 ```
 
 ### 2.2 上下文管理器 + 异常
+
+`@contextmanager` / `yield` 的实现细节此处不展开（详见 [11-context-manager](./11-context-manager.md)），只需理解：异常时回滚、无论如何关闭连接。
 
 ```python
 @contextmanager
@@ -253,6 +257,7 @@ def handle_service_errors(view_func):
 ```
 
 **解读**：
+- 这是用装饰器统一捕获异常的写法（装饰器原理见 [10-decorator](./10-decorator.md)），本文关注 **try/except 映射 HTTP 状态码**
 - 第 23-32 行：把不同异常映射到不同 HTTP 状态码（404 / 500）
 - 第 33-35 行：**兜底异常**必须放最后（基类 ServiceError 在具体异常之后）
 - 第 36-38 行：`logger.exception()` 自动记录 traceback
@@ -305,7 +310,7 @@ def session_scope():
 - `raise from e` 保留原始异常链
 - 自定义异常继承 `Exception`，建立业务异常体系
 - dify 风格：服务层抛**业务异常**，HTTP 层**翻译为状态码**
-- 装饰器 `@handle_service_errors` 统一处理异常
+- 读代码时会看到用装饰器统一处理异常；装饰器实现见上文链接的专题
 
 ## 5. 练习题
 
@@ -326,7 +331,7 @@ def session_scope():
 
 ### 练习 3：挑战（选做）
 
-实现一个装饰器 `@retry_on_error(max_retries=3, exceptions=(ValueError,))`，在指定异常发生时自动重试指定次数。
+> 学完 [10-decorator](./10-decorator.md) 后再做：实现一个装饰器 `@retry_on_error(max_retries=3, exceptions=(ValueError,))`，在指定异常发生时自动重试指定次数。
 
 ## 6. 参考资料
 

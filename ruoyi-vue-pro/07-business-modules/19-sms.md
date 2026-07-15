@@ -12,9 +12,10 @@
 
 ## 📚 前置知识
 
-- 18-email.md
+- 邮件发送（详见 [邮件](./18-email.md)）
 - 阿里云/腾讯云短信平台基础
-- Redis 基础
+- Redis 基础（详见 [Redis 数据结构](../../_common/01-redis/01-data-structures.md)）
+- 接口限流（防刷验证码，详见 [限流算法](../../_common/03-cache-patterns/04-rate-limiting.md)）
 
 ## 1. 核心概念
 

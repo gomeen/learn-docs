@@ -210,7 +210,7 @@ app.autodiscover_tasks(["tasks"])
 # - 通过 Redis broker 通信
 # - 通过数据库 backend 存储结果
 
-# 进程间通信（IPC）方式：
+# 进程间通信（IPC）方式（详见 [03-ipc](./03-ipc.md)）：
 # 1. Redis pub/sub：任务分发
 # 2. PostgreSQL：结果存储
 # 3. 信号：进程控制（如优雅退出）

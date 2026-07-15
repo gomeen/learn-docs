@@ -53,14 +53,14 @@
 
 ### 1.3 Ingress：七层路由
 
-Ingress 是**七层（L7）反向代理**，基于 HTTP 主机名/路径路由：
+Ingress 是**七层（L7）反向代理**，基于 HTTP 主机名/路径路由（反向代理概念详见 [Nginx 反向代理与负载均衡](../../_common/10-network-proxy/02-reverse-proxy.md)）：
 
 ```yaml
 # example.com/api → api-svc
 # example.com/web → web-svc
 ```
 
-需要 Ingress Controller（Nginx、Traefik、HAProxy 等）配合。
+需要 Ingress Controller（Nginx、Traefik、HAProxy 等）配合（Nginx 配置详见 [Nginx 基础](../../_common/10-network-proxy/01-nginx-basics.md)）。
 
 ### 1.4 NetworkPolicy：网络隔离
 
@@ -273,7 +273,7 @@ networks:
 ```
 
 **解读**：
-- docker-compose 的 `internal: true` 网络 ≈ K8s 的 **NetworkPolicy**（拒绝所有出站）
+- docker-compose 的 `internal: true` 网络（详见 [Docker 网络与卷](../../_common/09-containerization/05-network-volume.md)）≈ K8s 的 **NetworkPolicy**（拒绝所有出站）
 - 三个网络对应 K8s 中三个 NetworkPolicy：
   - `api-egress`：限制 api 只能访问 db/redis/ssrf-proxy
   - `sandbox-egress`：限制 sandbox 只能访问特定网络
@@ -285,7 +285,7 @@ networks:
 - **Ingress** 集群外 HTTP 路由（七层）
 - **NetworkPolicy** 限制 Pod 间网络（L3/L4 防火墙）
 - dify 的 `internal: true` 网络 ≈ NetworkPolicy `policyTypes: [Egress]`
-- 外部 HTTPS 终止通常用 Ingress + cert-manager
+- 外部 HTTPS 终止通常用 Ingress + cert-manager（详见 [HTTPS / TLS / Let's Encrypt](../../_common/10-network-proxy/03-https.md)）
 - Nginx Ingress 是最常见的 Ingress Controller
 
 ## 5. 练习题

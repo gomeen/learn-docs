@@ -7,13 +7,13 @@
 完成本文档后，你将能够：
 - 掌握 Flask 的四种请求钩子（`before_request`、`before_first_request`、`after_request`、`teardown_*`）
 - 在 dify 中找到钩子的实际使用（`app_factory.py`、`ext_request_logging.py`）
-- 理解钩子与装饰器的区别（钩子是全局的，装饰器是局部的）
+- 理解钩子与装饰器的区别（钩子是全局的，装饰器是局部的；装饰器原理详见 [装饰器](../01-fundamentals/10-decorator.md)）
 - 通过钩子实现统一的鉴权、日志、异常处理
 
 ## 📚 前置知识
 
-- 02-backend/08-flask-basics.md（Flask 基础）
-- 02-backend/09-flask-context.md（Flask 上下文）
+- [Flask 基础](./08-flask-basics.md)
+- [Flask 上下文](./09-flask-context.md)
 
 ## 1. 核心概念
 

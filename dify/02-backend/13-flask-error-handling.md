@@ -12,9 +12,9 @@
 
 ## 📚 前置知识
 
-- 02-backend/08-flask-basics.md（Flask 基础）
-- Python 异常处理基础（try/except、raise）
-- 02-backend/12-flask-hooks.md（请求钩子）
+- [Flask 基础](./08-flask-basics.md)
+- Python 异常处理基础（try/except、raise；详见 [异常处理](../01-fundamentals/06-python-exceptions.md)）
+- [请求钩子](./12-flask-hooks.md)
 
 ## 1. 核心概念
 

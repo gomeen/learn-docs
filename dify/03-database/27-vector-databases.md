@@ -13,6 +13,7 @@
 ## 📚 前置知识
 
 - [3.5.1 向量检索基础](./25-vector-search.md)
+- PostgreSQL 内嵌向量方案对照（详见 [pgvector](./26-pgvector.md)）
 - 分布式系统和 HTTP/gRPC 基础
 
 ## 1. 核心概念
@@ -31,7 +32,7 @@
 
 ### 1.3 共同设计
 
-三者都保存向量和业务 metadata。Dify 统一保存 `doc_id`、`document_id` 等字段，删除和过滤才能定位记录；索引创建用 Redis 锁避免并发重复。
+三者都保存向量和业务 metadata。Dify 统一保存 `doc_id`、`document_id` 等字段，删除和过滤才能定位记录；索引创建用 Redis 锁避免并发重复（分布式锁详见 [Redis Redlock](../../_common/04-distributed-locks/02-redis-redlock.md)；Redis 在 dify 中的用法见 [Redis in dify](../04-cache-and-queue/13-redis-in-dify.md)）。
 
 ## 2. 代码示例
 

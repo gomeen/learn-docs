@@ -13,7 +13,7 @@
 ## 📚 前置知识
 
 - [dify 的模型适配层](./28-model-runtime.md)
-- Python 工厂模式、Pydantic 和枚举基础
+- Python 工厂模式、Pydantic 和枚举（详见 [Pydantic 基础](../02-backend/15-pydantic-basics.md)、[dataclass](../01-fundamentals/36-dataclasses.md)）
 - dify 插件系统基本概念
 
 ## 1. 核心概念

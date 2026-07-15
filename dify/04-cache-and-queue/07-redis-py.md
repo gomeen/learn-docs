@@ -13,8 +13,8 @@
 ## 📚 前置知识
 
 - Python 基础
-- Redis 命令行基础
-- 01-redis-data-structures.md
+- Redis 命令行基础（详见 [Redis 数据结构](../../_common/01-redis/01-data-structures.md)）
+- [Redis 事务与 Lua 脚本](./06-redis-transaction.md)（Pipeline / 事务背景）
 
 ## 1. 核心概念
 
@@ -43,7 +43,7 @@ import redis
 r = redis.Redis(...)
 r.set("k", "v")
 
-# 异步
+# 异步（async/await 机制详见 [async/asyncio](../01-fundamentals/12-async-asyncio.md)）
 import redis.asyncio as aioredis
 r = aioredis.Redis(...)
 await r.set("k", "v")
@@ -52,6 +52,8 @@ await r.set("k", "v")
 dify 主要用**同步**客户端（因为 Celery worker 是同步的）。
 
 ### 1.3 哨兵 / 集群客户端
+
+> 📌 **Sighting**：Sentinel / Cluster 的部署与故障转移原理见 [主从复制与 Sentinel](../../_common/01-redis/03-replication-sentinel.md)、[Redis Cluster](../../_common/01-redis/04-cluster.md)；此处只展示客户端如何连接。
 
 ```python
 # 哨兵

@@ -12,8 +12,9 @@
 
 ## 📚 前置知识
 
-- 11-frontend/06-pinia.md
+- Pinia（详见 [Pinia](./06-pinia.md)）
 - Vue3 自定义指令
+- RBAC / 按钮权限（详见 [RBAC](../../_common/08-authorization/01-rbac.md)、[@PreAuthorize](../06-security/06-preauthorize.md)）
 
 ## 1. 核心概念
 

@@ -12,8 +12,9 @@
 
 ## 📚 前置知识
 
-- 07-rag-and-agent/24-workflow-engine.md
-- 07-rag-and-agent/25-workflow-nodes.md
+- [Workflow Engine](./24-workflow-engine.md)
+- [Workflow Nodes](./25-workflow-nodes.md)
+- 异步执行与任务队列（Celery 背景详见 [Celery 架构](../04-cache-and-queue/14-celery-architecture.md)）
 
 ## 1. 核心概念
 

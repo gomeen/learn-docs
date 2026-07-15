@@ -11,8 +11,9 @@
 
 ## 📚 前置知识
 
-- 09-mybatis-vs-mp.md
-- Java 泛型
+- [09-mybatis-vs-mp.md](./09-mybatis-vs-mp.md)
+- Java 泛型（详见 [03-generics](../01-java-fundamentals/03-generics.md)）
+- Starter 侧 `BaseMapperX` 见 [08-base-mapper](../03-spring-boot-starters/08-base-mapper.md)
 
 ## 1. 核心概念
 

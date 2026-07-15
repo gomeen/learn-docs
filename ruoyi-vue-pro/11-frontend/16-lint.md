@@ -12,8 +12,8 @@
 
 ## 📚 前置知识
 
-- 11-frontend/15-vite.md
-- npm/pnpm 命令行基础
+- Vite（详见 [Vite](./15-vite.md)）
+- npm/pnpm 命令行基础（详见 [pnpm](./17-pnpm.md)）
 
 ## 1. 核心概念
 

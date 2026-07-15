@@ -12,9 +12,8 @@
 
 ## 📚 前置知识
 
-- Celery 基础架构
-- Python 装饰器
-- 14-celery-architecture.md
+- Celery 基础架构（详见 [Celery 架构](./14-celery-architecture.md)）
+- Python 装饰器（详见 [装饰器](../01-fundamentals/10-decorator.md)）——`@shared_task` 本质是带配置的装饰器
 
 ## 1. 核心概念
 
@@ -59,13 +58,13 @@ def my_task(self, x):
 | 参数 | 作用 |
 |------|------|
 | `bind=True` | 让任务能访问 self |
-| `max_retries` | 最大重试次数 |
+| `max_retries` | 最大重试次数（策略详见 [任务重试](./21-celery-retry.md)）|
 | `default_retry_delay` | 重试间隔（秒）|
 | `acks_late` | 任务执行成功后才 ack |
 | `autoretry_for` | 自动重试的异常类型 |
 | `retry_backoff` | 指数退避 |
-| `ignore_result` | 不存结果 |
-| `queue` | 默认队列 |
+| `ignore_result` | 不存结果（详见 [任务结果存储](./19-celery-result.md)）|
+| `queue` | 默认队列（详见 [任务路由](./17-celery-routing.md)）|
 
 ### 1.4 acks_late：防止任务丢失
 
@@ -80,7 +79,7 @@ def important_task(x):
     process(x)
 ```
 
-**代价**：可能重复执行（如果任务不幂等）。需要任务幂等性设计（详见 4.3.7）。
+**代价**：可能重复执行（如果任务不幂等）。需要任务幂等性设计（详见 [任务幂等性设计](./20-celery-idempotency.md)）。
 
 ### 1.5 任务队列分配
 

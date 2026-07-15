@@ -128,7 +128,7 @@ $ mvn -pl yudao-common -am install
 **核心代码**（行 76-100）：
 
 ```xml
-<!-- maven-compiler-plugin 插件，解决 spring-boot-configuration-processor + Lombok + MapStruct 组合 -->
+<!-- maven-compiler-plugin 插件，解决 spring-boot-configuration-processor + Lombok + MapStruct 组合（Lombok 见 [14-lombok](./14-lombok.md)，MapStruct 见 [15-mapstruct](./15-mapstruct.md)） -->
 <!-- https://stackoverflow.com/questions/33483697/re-run-spring-boot-configuration-processor-to-update-generated-metada -->
 <plugin>
     <groupId>org.apache.maven.plugins</groupId>

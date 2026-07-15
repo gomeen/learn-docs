@@ -12,9 +12,9 @@
 
 ## 📚 前置知识
 
-- Celery 任务定义、调用、路由
+- Celery 任务定义、调用、路由（详见 [Celery 架构](./14-celery-architecture.md)、[任务路由](./17-celery-routing.md)）
+- 任务结果与幂等（详见 [任务结果存储](./19-celery-result.md)、[任务幂等性](./20-celery-idempotency.md)）
 - dify 整体架构
-- 14-21 章节的全部内容
 
 ## 1. 核心概念
 
@@ -43,8 +43,8 @@ Celery Worker 执行
 
 **关键特性**：
 - **非阻塞**：API 立即返回
-- **队列路由**：按订阅级别分配队列
-- **配额管理**：任务前预留，失败回滚
+- **队列路由**：按订阅级别分配队列（详见 [任务路由](./17-celery-routing.md)）
+- **配额管理**：任务前预留，失败回滚（限流 / 配额语义详见 [限流算法](../../_common/03-cache-patterns/04-rate-limiting.md)）
 - **状态追踪**：trigger_log 完整记录
 
 ### 1.2 三大组件协作

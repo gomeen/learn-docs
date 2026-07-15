@@ -12,8 +12,8 @@
 
 ## 📚 前置知识
 
-- 07-rag-and-agent/19-react-deep-dive.md
-- 07-rag-and-agent/20-plan-execute.md
+- [ReAct 深入](./19-react-deep-dive.md)
+- [Plan-and-Execute](./20-plan-execute.md)
 
 ## 1. 核心概念
 

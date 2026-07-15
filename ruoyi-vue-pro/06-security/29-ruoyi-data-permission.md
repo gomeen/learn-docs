@@ -12,9 +12,9 @@
 
 ## 📚 前置知识
 
-- 27-data-permission.md
-- 28-data-permission-annotation.md
-- MyBatis-Plus 多数据权限插件
+- RBAC 与资源范围控制（详见 [RBAC](../../_common/08-authorization/01-rbac.md)、[资源所有权](../../_common/08-authorization/04-resource-ownership.md)）
+- 多租户隔离（详见 [多租户](../../_common/08-authorization/05-multi-tenant.md)）
+- MyBatis-Plus 数据权限插件（详见 [数据权限](../03-spring-boot-starters/10-data-permission.md)、[数据权限注解](../03-spring-boot-starters/25-data-permission-annotation.md)）
 
 ## 1. 核心概念
 

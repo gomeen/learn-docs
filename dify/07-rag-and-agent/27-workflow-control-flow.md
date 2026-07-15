@@ -12,9 +12,9 @@
 
 ## 📚 前置知识
 
-- 07-rag-and-agent/24-workflow-engine.md
-- 07-rag-and-agent/25-workflow-nodes.md
-- Python asyncio 基础
+- [Workflow Engine](./24-workflow-engine.md)
+- [Workflow Nodes](./25-workflow-nodes.md)
+- Python asyncio（详见 [async/asyncio](../01-fundamentals/12-async-asyncio.md)）
 
 ## 1. 核心概念
 

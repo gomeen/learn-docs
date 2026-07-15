@@ -227,6 +227,8 @@ def init_flask_instrumentor(app: DifyApp) -> None:
 
 ### 3.2 dify 的数据库/Redis/HTTP 客户端自动埋点
 
+> 📌 **Sighting**：Redis 客户端与数据结构本身见 [Redis 数据结构](../../_common/01-redis/01-data-structures.md)；此处只关心 OTEL 自动埋点。
+
 **文件位置**：`/Users/xu/code/github/dify/api/extensions/otel/instrumentation.py`
 **核心代码**（行 141-163）：
 

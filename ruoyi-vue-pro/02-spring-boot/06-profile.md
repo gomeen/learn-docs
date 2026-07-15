@@ -12,8 +12,8 @@
 
 ## 📚 前置知识
 
-- Spring 基础配置
-- Maven 多模块项目
+- Spring 基础配置（application.yml 详见 [10-config](./10-config.md)）
+- Maven 多模块项目（详见 [11-maven-modules](../01-java-fundamentals/11-maven-modules.md)）
 
 ## 1. 核心概念
 

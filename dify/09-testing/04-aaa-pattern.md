@@ -25,6 +25,7 @@
 def test_xxx():
     # ===== Arrange（准备）=====
     # 准备测试数据、mock、fixture
+    # mock 详见 [pytest Mock](./08-pytest-mock.md)；fixture 详见 [pytest Fixture](./06-pytest-fixture.md)
 
     # ===== Act（执行）=====
     # 调用被测代码（通常只有一行）

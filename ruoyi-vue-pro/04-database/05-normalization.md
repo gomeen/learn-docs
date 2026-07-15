@@ -12,7 +12,8 @@
 
 ## 📚 前置知识
 
-- 01-mysql-basics.md
+- [01-mysql-basics.md](./01-mysql-basics.md)
+- 多租户冗余字段设计见 [多租户](../../_common/08-authorization/05-multi-tenant.md)
 
 ## 1. 核心概念
 

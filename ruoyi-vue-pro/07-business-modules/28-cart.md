@@ -12,9 +12,10 @@
 
 ## 📚 前置知识
 
-- 21-member-auth.md
-- 26-spu-sku.md
-- Redis 基础
+- 会员认证（详见 [会员认证](./21-member-auth.md)）
+- SPU/SKU（详见 [SPU/SKU](./26-spu-sku.md)）
+- Redis 基础（详见 [Redis 数据结构](../../_common/01-redis/01-data-structures.md)）
+- 缓存策略（详见 [缓存策略](../../_common/03-cache-patterns/01-strategies.md)）
 
 ## 1. 核心概念
 

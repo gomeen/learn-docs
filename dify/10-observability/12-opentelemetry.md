@@ -319,7 +319,7 @@ def init_instruments(app: DifyApp) -> None:
 - 第 2-5 行：Flask + Celery 互相独立（Celery worker 不需要 Flask 路由）
 - 第 7 行：异常日志 hook
 - 第 8 行：SQLAlchemy 自动埋点（数据库查询）
-- 第 9 行：Redis 自动埋点（缓存调用）
+- 第 9 行：Redis 自动埋点（缓存调用；Redis 本身详见 [Redis 数据结构](../../_common/01-redis/01-data-structures.md)）
 - 第 10 行：HTTPX 自动埋点（外部 HTTP 请求）
 - **关键设计**：通过 OTEL instrumentor，dify 无需手动给每个调用加埋点
 
@@ -336,7 +336,7 @@ def init_instruments(app: DifyApp) -> None:
 
 ### 练习 1：基础（必做）
 
-启动一个本地 OTEL Collector（用 Docker），把 dify 配置为 gRPC 模式（`OTEL_EXPORTER_TYPE=otlp`、`OTEL_EXPORTER_OTLP_PROTOCOL=grpc`），观察 trace 是否成功推送。
+启动一个本地 OTEL Collector（用 Docker，详见 [Docker 核心概念](../../_common/09-containerization/01-concepts.md)），把 dify 配置为 gRPC 模式（`OTEL_EXPORTER_TYPE=otlp`、`OTEL_EXPORTER_OTLP_PROTOCOL=grpc`），观察 trace 是否成功推送。
 
 ### 练习 2：进阶
 

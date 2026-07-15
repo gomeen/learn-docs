@@ -12,11 +12,11 @@
 
 ## 📚 前置知识
 
-- 02-backend/01-ddd-concepts.md（实体、值对象、聚合根）
-- 02-backend/02-layered-architecture.md（分层架构）
-- 02-backend/03-repository-pattern.md（Repository 模式）
-- 02-backend/04-domain-service.md（领域服务 vs 应用服务）
-- 02-backend/06-domain-event.md（领域事件）
+- [实体、值对象、聚合根](./01-ddd-concepts.md)
+- [分层架构](./02-layered-architecture.md)
+- [Repository 模式](./03-repository-pattern.md)
+- [领域服务 vs 应用服务](./04-domain-service.md)
+- [领域事件](./06-domain-event.md)
 
 ## 1. 核心概念
 
@@ -61,7 +61,7 @@
 | 领域服务 | `SimplePromptTransform`、`InputModeration` |
 | 应用服务 | `WorkflowService`、`AppService` |
 | Repository | `WorkflowExecutionRepository` (Protocol) |
-| 工厂 | `DifyNodeFactory`、`WorkflowAppGenerator` |
+| 工厂 | `DifyNodeFactory`、`WorkflowAppGenerator`（详见 [策略与工厂](./23-strategy-factory.md)） |
 | 事件 | `app_was_created`、`app_was_published` |
 
 ### 1.3 执行模式

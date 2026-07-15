@@ -12,8 +12,8 @@
 
 ## 📚 前置知识
 
-- 02-backend/08-flask-basics.md（Flask 基础）
-- Python 模块化基础
+- [Flask 基础](./08-flask-basics.md)
+- Python 模块化基础（详见 [模块与导入](../01-fundamentals/04-python-modules-and-imports.md)）
 
 ## 1. 核心概念
 

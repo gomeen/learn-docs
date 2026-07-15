@@ -24,7 +24,7 @@
 | 创建 | `INSERT` | 插入一行或多行 |
 | 查询 | `SELECT` | 支持条件、排序、分组 |
 | 更新 | `UPDATE` | 修改现有记录 |
-| 删除 | `DELETE` | 物理删除（注意与逻辑删除的区别） |
+| 删除 | `DELETE` | 物理删除（注意与逻辑删除的区别；逻辑删除见 [15-logic-delete](./15-logic-delete.md)） |
 
 ### 1.2 JOIN 类型对比
 
@@ -35,6 +35,8 @@ RIGHT JOIN：与 LEFT 相反（实际很少用）
 ```
 
 ### 1.3 索引的核心作用
+
+> 📌 **Sighting**：B+Tree、最左前缀、索引失效见 [03-mysql-index](./03-mysql-index.md)。此处只建立「索引能加速查询」的直觉。
 
 - **B-Tree 索引**（最常见）：加速等值查询和范围查询（`=`、`>`、`<`、`BETWEEN`）
 - **主键索引**：唯一且非空，每张表只能有一个
@@ -123,8 +125,8 @@ CREATE TABLE `system_role` (
 **解读**：
 - 第 1-13 行：列定义使用 `utf8mb4` 字符集，能存 emoji 和复杂中文
 - 第 14 行：`creator/updater` 使用 `varchar(64)` 而不是 BIGINT，原因见 `BaseDO.java` 注释「未来可能会存在非数值的情况」
-- 第 17-19 行：索引设计——主键 + 业务索引 `idx_code`（按角色编码查找）+ 租户索引 `idx_tenant_id`（多租户隔离）
-- **关键设计**：`deleted bit(1) NOT NULL DEFAULT b'0'` —— MyBatis Plus 逻辑删除字段
+- 第 17-19 行：索引设计——主键 + 业务索引 `idx_code`（按角色编码查找）+ 租户索引 `idx_tenant_id`（多租户隔离，详见 [多租户](../../_common/08-authorization/05-multi-tenant.md)）
+- **关键设计**：`deleted bit(1) NOT NULL DEFAULT b'0'` —— MyBatis Plus 逻辑删除字段（详见 [15-logic-delete](./15-logic-delete.md)）
 
 ### 3.2 角色-菜单关联表
 
