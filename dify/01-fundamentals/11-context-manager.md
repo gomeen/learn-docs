@@ -5,6 +5,7 @@
 ## 🎯 学习目标
 
 完成本文档后，你将能够：
+
 - 理解 `with` 语句解决的"资源泄漏"问题
 - 实现自定义上下文管理器（类形式与生成器形式）
 - 使用 `contextlib` 简化实现
@@ -207,6 +208,7 @@ class db:
 ```
 
 **解读**：
+
 - 第 12-22 行：`@contextmanager` 把生成器函数转成上下文管理器
 - 第 18 行：正常退出时自动 `commit`
 - 第 19-21 行：异常时 `rollback` 并重新抛出
@@ -236,6 +238,7 @@ def temp_file(suffix: str = ".tmp") -> BinaryIO:
 ```
 
 **解读**：
+
 - 第 7 行：使用系统调用创建临时文件，返回 fd（文件描述符）
 - 第 9 行：用 with 嵌套确保文件句柄关闭
 - 第 11 行：finally 中删除临时文件，即使 yield 块抛异常也能清理
@@ -256,6 +259,23 @@ def temp_file(suffix: str = ".tmp") -> BinaryIO:
 
 实现一个 `@contextmanager` 装饰的 `timer()` 上下文管理器：进入时打印"开始"、退出时打印"耗时 X 秒"。要求使用 try/finally 确保一定打印耗时。
 
+```python
+import time
+from contextlib import contextmanager
+@contextmanager
+def timer():
+  start = time.perf.counter()
+  print("开始")
+  try:
+    yield
+  finally:
+    elapsed = time.perf_counter() - start
+    print(f"耗时{elapsed:.f}s")
+
+with timer():
+  time.sleep(0.2)
+```
+
 ### 练习 2：进阶
 
 阅读 `/Users/xu/code/github/dify/api/extensions/ext_database.py`，画出 `db.session_scope()` 的执行流程（正常情况 + 异常情况）。
@@ -275,3 +295,4 @@ def temp_file(suffix: str = ".tmp") -> BinaryIO:
 
 **文档版本**：v1.0
 **最后更新**：2026-07-13
+

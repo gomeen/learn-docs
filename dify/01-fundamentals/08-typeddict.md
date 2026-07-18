@@ -5,6 +5,7 @@
 ## 🎯 学习目标
 
 完成本文档后，你将能够：
+
 - 理解 `TypedDict` 与普通 `dict` 的区别
 - 使用 `TypedDict` 为复杂 JSON / 配置定义类型
 - 用 `NotRequired` 标记可选字段
@@ -68,15 +69,16 @@ class UserPartial(TypedDict):
 
 ### 1.4 `TypedDict` vs `dataclass` vs `Pydantic BaseModel`
 
-| 特性 | TypedDict | dataclass | Pydantic |
-|---|---|---|---|
-| 运行时验证 | 无 | 无 | 有 |
-| 类型提示 | 有 | 有 | 有 |
-| 性能开销 | 零 | 零 | 有（验证） |
-| 序列化支持 | 需手动 | 需手动 | 内置 |
-| 适用场景 | 配置/JSON 传递 | 内部数据模型 | API 入参/出参 |
+| 特性       | TypedDict      | dataclass    | Pydantic      |
+| ---------- | -------------- | ------------ | ------------- |
+| 运行时验证 | 无             | 无           | 有            |
+| 类型提示   | 有             | 有           | 有            |
+| 性能开销   | 零             | 零           | 有（验证）    |
+| 序列化支持 | 需手动         | 需手动       | 内置          |
+| 适用场景   | 配置/JSON 传递 | 内部数据模型 | API 入参/出参 |
 
 **dify 中常见模式**：
+
 - **TypedDict**：节点配置、跨层数据传输
 - **dataclass**（详见 [36-dataclasses](./36-dataclasses.md)）：简单数据容器
 - **Pydantic**：API Schema、外部数据验证
@@ -161,6 +163,7 @@ class HttpRequestNodeData(TypedDict):
 ```
 
 **解读**：
+
 - 第 6-10 行：`HttpRequestNodeConfig` 描述节点的**身份信息**（id、tenant_id 等）
 - 第 12-21 行：`HttpRequestNodeData` 描述节点的**业务数据**（url、method 等）
 - `NotRequired` 用于"老数据可能没有该字段"的兼容场景
@@ -189,6 +192,7 @@ class HttpRequestNodeData(BaseNodeData):
 ```
 
 **解读**：
+
 - 第 8 行：继承自 `BaseNodeData`，复用通用字段（title、desc 等）
 - 第 12 行：`Mapping[str, int]` 表示只读映射，比 `dict` 更宽松
 - **关键设计**：通过 TypedDict 继承形成"节点配置 schema 体系"，便于校验和 IDE 跳转
@@ -206,6 +210,20 @@ class HttpRequestNodeData(BaseNodeData):
 ### 练习 1：基础（必做）
 
 定义一个 `WorkflowRunDict` 类型，包含字段：`id` (str)、`status` (str)、`inputs` (dict)、`outputs` (NotRequired[dict])、`created_at` (int)。
+
+```python
+from typing import TypedDict, NotRequired
+class WorkflowRunDict(TypedDict):
+  id: str
+  status: str
+  inupts: dict
+  outputs: NotRequired[dict]
+  created_at: int
+```
+
+```
+
+```
 
 ### 练习 2：进阶
 
@@ -226,3 +244,4 @@ class HttpRequestNodeData(BaseNodeData):
 
 **文档版本**：v1.0
 **最后更新**：2026-07-13
+

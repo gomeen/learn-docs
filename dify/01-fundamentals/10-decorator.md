@@ -318,6 +318,23 @@ def retry(
 1. 用 `functools.wraps` 保留元信息
 2. 支持任意参数（`*args, **kwargs`）
 
+```python
+from functools import wraps
+
+def cache(func):
+
+  store: dict[tuple[tuple[Any, ...], tuple[tuple[str, Any], ...]]] = {}
+
+  @wraps(func)
+  def wrapper(*args:Any, **kwargs:Any) -> Any:
+    key = (args, tuple(sorted(kwarts.items())))
+    if key not in store:
+      store[key] = func(*args, **kwargs)
+    return store[key]
+  return wrapper
+
+```
+
 ### 练习 2：进阶
 
 阅读 `/Users/xu/code/github/dify/api/libs/login.py`，列出所有装饰器函数，并说明它们检查了哪些用户状态。
@@ -337,4 +354,3 @@ def retry(
 
 **文档版本**：v1.0
 **最后更新**：2026-07-13
-

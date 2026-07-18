@@ -5,6 +5,7 @@
 ## 🎯 学习目标
 
 完成本文档后，你将能够：
+
 - 理解为什么 Python 需要类型提示（动态语言的可读性与可维护性）
 - 掌握 `typing` 模块中常用类型：`List`、`Dict`、`Optional`、`Union`、`Any`
 - 理解现代语法：`list[str]`、`str | None`（PEP 604）
@@ -121,6 +122,7 @@ def create_user(
 ```
 
 **说明**：
+
 - `*` 之后的参数只能通过关键字传入，防止误用
 - `Optional[dict] = None` 等价于 `dict | None = None`
 - 返回类型 `dict[str, str | int]` 表示 value 是 str 或 int
@@ -202,6 +204,7 @@ class AsyncWorkflowService:
 ```
 
 **解读**：
+
 - `async def` 表示协程函数（异步机制见 [12-async-asyncio](./12-async-asyncio.md)）；本文只看**类型标注**
 - 第 11-14 行：参数全部标注类型，包括 `user: "Account"`（用字符串前向引用避免循环导入）
 - 第 13 行：`inputs: dict[str, Any]`——输入参数 schema 不固定，用 `Any`
@@ -237,8 +240,9 @@ class HttpRequestNode(BaseNode):
 ```
 
 **解读**：
+
 - 第 18-22 行：构造函数参数使用自定义 TypedDict 类 `HttpRequestNodeConfig` / `HttpRequestNodeData`（详见上文 TypedDict 链接）
-- 第 21 行：**kwargs: Any 表示接收任意额外关键字参数（因为父类可能扩展）
+- 第 21 行：\*\*kwargs: Any 表示接收任意额外关键字参数（因为父类可能扩展）
 - 第 22 行：返回值 `None` 显式标注（Python 推荐即使无返回也标注 `-> None`）
 
 ## 4. 关键要点总结
@@ -256,8 +260,8 @@ class HttpRequestNode(BaseNode):
 为以下函数补充完整的类型注解：
 
 ```python
-def calc_stats(scores, threshold=60):
-    passed = [s for s in scores if s >= threshold]
+def calc_stats(scores: list[int], threshold:int=60) => dict[str, int | float]:
+    passed:list[int] = [s for s in scores if s >= threshold]
     return {
         "total": len(scores),
         "passed": len(passed),
@@ -268,6 +272,7 @@ def calc_stats(scores, threshold=60):
 ### 练习 2：进阶
 
 阅读 `/Users/xu/code/github/dify/api/services/async_workflow_service.py` 中的 `trigger_workflow_async`，列出：
+
 1. 哪些参数用了 `Optional` / `Any`
 2. 为什么 `user` 用字符串前向引用 `"Account"` 而不是直接 `import Account`
 
@@ -287,3 +292,4 @@ def calc_stats(scores, threshold=60):
 
 **文档版本**：v1.0
 **最后更新**：2026-07-13
+

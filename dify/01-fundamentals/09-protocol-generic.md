@@ -5,6 +5,7 @@
 ## 🎯 学习目标
 
 完成本文档后，你将能够：
+
 - 理解 `Protocol`（结构化子类型）与传统继承的区别
 - 定义和使用 `Generic[T]` 类
 - 识别 dify 中"行为接口"的设计模式
@@ -205,6 +206,7 @@ class BaseNode(Generic[_NodeDataT]):
 ```
 
 **解读**：
+
 - 第 13 行：`TypeVar("_NodeDataT", bound=BaseNodeData)` 限制类型变量必须是 `BaseNodeData` 子类
 - 第 17 行：`Generic[_NodeDataT]` 让每个子类保留自己的节点数据类型
 - **关键设计**：通过泛型基类实现"不同节点类型有不同 data 类型"，避免 `Any` 滥用
@@ -242,6 +244,7 @@ assert isinstance(RedisCache(), Cache)  # ✅ runtime_checkable
 ```
 
 **解读**：
+
 - 第 3 行：`@runtime_checkable` 让 Protocol 支持 `isinstance` 检查
 - **关键设计**：dify 中多种缓存实现（Redis、本地内存）通过 Protocol 抽象，运行时无需关心具体类型
 
@@ -258,6 +261,34 @@ assert isinstance(RedisCache(), Cache)  # ✅ runtime_checkable
 ### 练习 1：基础（必做）
 
 定义一个 `Serializable` Protocol，要求有 `to_dict() -> dict` 和 `from_dict(data: dict) -> Self` 方法，然后定义两个不继承该 Protocol 但满足形状的类，证明 `isinstance` 检查通过。
+
+```python
+from typing import Protocol, runtime_checkable, Self
+
+@runtime_checkable
+class Serializable(Protocol):
+
+  def to_dict(self) -> dict:
+    ...
+
+  @classmethod
+  def from_dict(cls, data:dict) => Self
+    ...
+
+class A:
+  def __init__(self, name:str, age:int) -> None:
+    self.name = name
+    self.age = age
+
+  def to_dict(self) -> dict:
+    return {"name": self.name, "age":self.age}
+
+  @classmethod
+  def from_dict(cls, data:dict) => Self
+    return cls(data['name'],data['age'])
+
+assert isinstance(A('alice', 30),Serializable)
+```
 
 ### 练习 2：进阶
 
@@ -278,3 +309,4 @@ assert isinstance(RedisCache(), Cache)  # ✅ runtime_checkable
 
 **文档版本**：v1.0
 **最后更新**：2026-07-13
+
