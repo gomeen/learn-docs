@@ -16,7 +16,7 @@
 ## 📚 前置知识
 
 - Markdown 基础语法：标题、列表、链接和代码块
-- Git 与 Pull Request 的基本流程（详见 [Git 工作流](../01-fundamentals/31-git-workflow.md)）
+- Git 与 Pull Request 的基本流程（详见 [Git 工作流](../../_common/15-git/02-git-workflow.md)）
 - 软件项目中的开发、测试、部署和故障处理常识
 - 建议先浏览 `/Users/xu/code/github/dify/README.md`
 

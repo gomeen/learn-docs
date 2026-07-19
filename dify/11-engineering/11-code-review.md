@@ -14,7 +14,7 @@
 
 ## 📚 前置知识
 
-- Git 的分支、提交、推送与合并基础（详见 [Git 工作流](../01-fundamentals/31-git-workflow.md)）
+- Git 的分支、提交、推送与合并基础（详见 [Git 工作流](../../_common/15-git/02-git-workflow.md)）
 - GitHub Pull Request 的基本操作
 - 能阅读 Markdown 文档
 - 了解单元测试、Lint 和 Type Check 的基本作用

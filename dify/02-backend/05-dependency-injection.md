@@ -92,7 +92,7 @@ dify 仓库中常见的注入方式：
 ```python
 from abc import ABC, abstractmethod
 
-# 定义接口（ABC 详见 [抽象基类 ABC](../01-fundamentals/35-abc.md)）
+# 定义接口（ABC 详见 [抽象基类 ABC](../01-fundamentals/19-abc.md)）
 class UserRepository(ABC):
     @abstractmethod
     def find_by_id(self, user_id: str): ...

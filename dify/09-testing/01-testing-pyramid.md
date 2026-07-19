@@ -14,7 +14,7 @@
 
 - Python 基础语法
 - 了解 Web 应用的基本架构
-- 01-fundamentals/02-typeddict.md
+- 01-fundamentals/08-typeddict.md
 
 ## 1. 核心概念
 

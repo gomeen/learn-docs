@@ -114,7 +114,7 @@ class AccountNotFoundError(ServiceError):
 
 ### 2.1 异常链：raise from
 
-`json.loads` 的用法详见 [17-json-processing](./17-json-processing.md)；此处只看异常链。
+`json.loads` 的用法详见 [27-json-processing](./27-json-processing.md)；此处只看异常链。
 
 ```python
 try:

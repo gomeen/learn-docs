@@ -14,7 +14,7 @@
 
 - [3.1.4 事务与隔离级别](./04-sql-transaction.md)
 - HTTP 冲突响应与重试基础
-- 进程并发基础（详见 [并发模型](../01-fundamentals/39-concurrency.md)）
+- 进程并发基础（详见 [并发模型](../01-fundamentals/23-concurrency.md)）
 
 ## 1. 核心概念
 

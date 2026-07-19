@@ -12,7 +12,7 @@
 
 ## 📚 前置知识
 
-- Git 基础（commit、hook；进阶命令详见 [Git 进阶](../01-fundamentals/30-git-advanced.md)）
+- Git 基础（commit、hook；进阶命令详见 [Git 进阶](../../_common/15-git/01-git-advanced.md)）
 - 09-testing/19-lint-tools.md
 - 09-testing/20-type-check.md
 

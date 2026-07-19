@@ -9,7 +9,7 @@
 - 设计从 Issue、PR、CI 到 Tag 和 Release Notes 的发布流程
 - 理解 dify 的 PR 约束如何为发布归类和追踪奠定基础
 ## 📚 前置知识
-- Git Commit、Tag、Branch 与 Pull Request 基础（详见 [Git 进阶](../01-fundamentals/30-git-advanced.md)、[Conventional Commits / SemVer](../01-fundamentals/32-conventional-commits.md)）
+- Git Commit、Tag、Branch 与 Pull Request 基础（详见 [Git 进阶](../../_common/15-git/01-git-advanced.md)、[Conventional Commits / SemVer](../../_common/15-git/03-conventional-commits.md)）
 - 持续集成与自动化测试的基本概念（详见 [CI/CD 概念](../../_common/11-cicd/01-concepts.md)）
 - Markdown 链接、标题和列表语法
 - 建议先阅读 `./13-pr-best-practices.md`

@@ -14,7 +14,7 @@
 
 - [主流大模型对比](./01-llm-overview.md)
 - [OpenAI API 使用](./26-openai-api.md)
-- Python 抽象接口、类型注解与生成器（详见 [Protocol / Generic](../01-fundamentals/09-protocol-generic.md)、[类型注解](../01-fundamentals/07-python-typing-basics.md)、[生成器](../01-fundamentals/14-generator.md)、[dataclass](../01-fundamentals/36-dataclasses.md)）
+- Python 抽象接口、类型注解与生成器（详见 [Protocol / Generic](../01-fundamentals/09-protocol-generic.md)、[类型注解](../01-fundamentals/07-python-typing-basics.md)、[生成器](../01-fundamentals/14-generator.md)、[dataclass](../01-fundamentals/20-dataclasses.md)）
 - dify 插件系统的基本概念
 
 ## 1. 核心概念

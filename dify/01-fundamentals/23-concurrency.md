@@ -14,7 +14,7 @@
 
 - Python 基础：函数、类
 - 01-fundamentals/12-async-asyncio.md
-- 01-fundamentals/40-gil.md（推荐先看或并行看）
+- 01-fundamentals/24-gil.md（推荐先看或并行看）
 
 ## 1. 核心概念
 
@@ -41,7 +41,7 @@
 
 ### 1.3 GIL 的影响
 
-Python 的 CPython 解释器有 **GIL（全局解释器锁）**——同一时刻只有一个线程能执行 Python 字节码（深入机制见 [40-gil](./40-gil.md)）。这意味着：
+Python 的 CPython 解释器有 **GIL（全局解释器锁）**——同一时刻只有一个线程能执行 Python 字节码（深入机制见 [24-gil](./24-gil.md)）。这意味着：
 - **多线程**对 CPU 密集型任务**没有加速**
 - **多线程**对 I/O 密集型任务**有效**（I/O 等待时 GIL 释放）
 - **多进程**能真正利用多核 CPU（每个进程有独立 GIL）

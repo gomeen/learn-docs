@@ -34,7 +34,7 @@
 
 ### 2.1 封装强制租户作用域的仓储
 
-仓储模式把过滤封装在数据访问层（详见 [仓储模式](../02-backend/03-repository-pattern.md)）；此处用 `@dataclass` 承载查询上下文（详见 [dataclass](../01-fundamentals/36-dataclasses.md)）。
+仓储模式把过滤封装在数据访问层（详见 [仓储模式](../02-backend/03-repository-pattern.md)）；此处用 `@dataclass` 承载查询上下文（详见 [dataclass](../01-fundamentals/20-dataclasses.md)）。
 
 ```python
 from dataclasses import dataclass

@@ -1,4 +1,4 @@
-# 1.4.4 Server-Sent Events（SSE）与流式响应
+# 14.4 Server-Sent Events（SSE）与流式响应
 
 > 掌握 SSE 协议，能用 dify 的流式响应能力，让前端实时看到 LLM 生成的每个 token。
 
@@ -12,8 +12,8 @@
 
 ## 📚 前置知识
 
-- 01-fundamentals/19-http-protocol.md
-- 01-fundamentals/08-generator.md（生成器）
+- _common/14-api-protocols/01-http-protocol.md
+- 01-fundamentals/14-generator.md（生成器）
 
 ## 1. 核心概念
 
@@ -28,7 +28,7 @@
 
 ### 1.2 SSE vs WebSocket
 
-WebSocket 专题见 [27-websocket](./27-websocket.md)。
+WebSocket 专题见 [23-websocket](./03-websocket.md)。
 
 | 特性 | SSE | WebSocket |
 |---|---|---|
@@ -83,7 +83,7 @@ data: {"done": true}
 
 ### 2.1 Flask SSE 端点
 
-流式输出依赖**生成器** `yield`（详见 [14-generator](./14-generator.md)）；本文关注 SSE 协议格式。
+流式输出依赖**生成器** `yield`（详见 [14-generator](../../dify/01-fundamentals/14-generator.md)）；本文关注 SSE 协议格式。
 
 ```python
 from flask import Flask, Response, stream_with_context
@@ -140,7 +140,7 @@ source.close();
 
 ### 2.3 FastAPI SSE 端点
 
-异步版本使用 `async`/`await`（详见 [12-async-asyncio](./12-async-asyncio.md)）与异步生成器（生成器见上文链接）。
+异步版本使用 `async`/`await`（详见 [12-async-asyncio](../../dify/01-fundamentals/12-async-asyncio.md)）与异步生成器（生成器见上文链接）。
 
 ```python
 from fastapi import FastAPI

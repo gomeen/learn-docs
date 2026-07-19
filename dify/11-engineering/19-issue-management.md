@@ -8,8 +8,8 @@
 - 区分 `kind/bug`、`enhancement`、`needs-triage`、`good-first-issue` 与 `help-wanted`
 - 看懂 dify 的 Bug 与 Feature Request 模板如何提升反馈质量
 ## 📚 前置知识
-- Git 与 GitHub 的基本使用（进阶详见 [Git 进阶](../01-fundamentals/30-git-advanced.md)）
-- YAML 的缩进、列表和键值对语法（详见 [配置文件格式](../01-fundamentals/18-config-file-format.md)）
+- Git 与 GitHub 的基本使用（进阶详见 [Git 进阶](../../_common/15-git/01-git-advanced.md)）
+- YAML 的缩进、列表和键值对语法（详见 [配置文件格式](../01-fundamentals/28-config-file-format.md)）
 - 了解软件缺陷、功能需求与技术债务的区别
 - 建议先阅读 `./13-pr-best-practices.md`
 ## 🧭 核心概念

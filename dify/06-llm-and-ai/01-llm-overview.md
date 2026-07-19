@@ -12,7 +12,7 @@
 
 ## 📚 前置知识
 
-- HTTP 协议基础（详见 [HTTP 协议](../01-fundamentals/25-http-protocol.md)）
+- HTTP 协议基础（详见 [HTTP 协议](../../_common/14-api-protocols/01-http-protocol.md)）
 - 了解 dify 是一个 LLM 应用平台（参见仓库根目录 `README.md`）
 
 ## 1. 核心概念
@@ -58,7 +58,7 @@ mindmap
       内容审核
 ```
 
-> 📌 **Sighting**：后文专题入口——工具调用 / Function Calling 见 [Function Calling](./14-function-calling.md)；流式输出协议见 [SSE](../01-fundamentals/28-sse.md) 与本模块 [流式输出](./27-streaming-sse.md)；Embedding 选型见 [Embedding 模型](./06-embedding-models.md)；Token 与上下文见 [Tokens 与上下文](./03-tokens-context.md)。
+> 📌 **Sighting**：后文专题入口——工具调用 / Function Calling 见 [Function Calling](./14-function-calling.md)；流式输出协议见 [SSE](../../_common/14-api-protocols/04-sse.md) 与本模块 [流式输出](./27-streaming-sse.md)；Embedding 选型见 [Embedding 模型](./06-embedding-models.md)；Token 与上下文见 [Tokens 与上下文](./03-tokens-context.md)。
 
 **为什么 dify 要支持这么多供应商？**
 - 避免厂商锁定（vendor lock-in）

@@ -19,7 +19,7 @@
 
 ### 1.1 ConfigDict 的关键配置
 
-Pydantic v2 用 `ConfigDict` 配置模型行为。其中 `frozen=True` 让实例不可变，语义类似 `@dataclass(frozen=True)`（dataclass 详见 [dataclass](../01-fundamentals/36-dataclasses.md)）：
+Pydantic v2 用 `ConfigDict` 配置模型行为。其中 `frozen=True` 让实例不可变，语义类似 `@dataclass(frozen=True)`（dataclass 详见 [dataclass](../01-fundamentals/20-dataclasses.md)）：
 
 ```python
 from pydantic import BaseModel, ConfigDict

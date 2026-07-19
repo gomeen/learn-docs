@@ -1,4 +1,4 @@
-# 1.4.5 gRPC 与 Protocol Buffers 入门
+# 14.5 gRPC 与 Protocol Buffers 入门
 
 > 了解 gRPC 与 Protobuf 的基本概念，能阅读涉及 gRPC 的代码，理解 dify 中可能用到的场景。
 
@@ -12,14 +12,14 @@
 
 ## 📚 前置知识
 
-- 01-fundamentals/19-http-protocol.md
+- _common/14-api-protocols/01-http-protocol.md
 - 命令行基础
 
 ## 1. 核心概念
 
 ### 1.1 为什么需要 gRPC？
 
-REST + JSON 是 Web API 主流（REST 见 [26-rest-api-design](./26-rest-api-design.md)，JSON 见 [17-json-processing](./17-json-processing.md)），但有局限：
+REST + JSON 是 Web API 主流（REST 见 [22-rest-api-design](./02-rest-api-design.md)，JSON 见 [17-json-processing](../../dify/01-fundamentals/27-json-processing.md)），但有局限：
 
 | 问题 | gRPC 的解决方案 |
 |---|---|
@@ -183,7 +183,7 @@ class ChatServicer(chat_pb2_grpc.ChatServiceServicer):
         )
 
     def StreamMessage(self, request, context):
-        """服务端流实现：逐 token 输出（`yield` 生成器见 [14-generator](./14-generator.md)）。"""
+        """服务端流实现：逐 token 输出（`yield` 生成器见 [14-generator](../../dify/01-fundamentals/14-generator.md)）。"""
         for word in f"你说：{request.query}".split():
             yield chat_pb2.MessageChunk(delta=word, done=False)
         yield chat_pb2.MessageChunk(delta="", done=True)
@@ -251,7 +251,7 @@ message User {
 
 ### 3.1 dify 中 gRPC 的使用现状
 
-**dify 后端主要以 REST API + WebSocket/SSE 为主**（WebSocket 见 [27-websocket](./27-websocket.md)，SSE 见 [28-sse](./28-sse.md)）。gRPC 主要出现在以下场景：
+**dify 后端主要以 REST API + WebSocket/SSE 为主**（WebSocket 见 [23-websocket](./03-websocket.md)，SSE 见 [24-sse](./04-sse.md)）。gRPC 主要出现在以下场景：
 
 **文件位置**：`/Users/xu/code/github/dify/api/dify_agent/`
 

@@ -13,7 +13,7 @@
 ## 📚 前置知识
 
 - [分层架构](./02-layered-architecture.md)
-- Python 接口（Protocol、ABC）基础（详见 [Protocol 与 Generic](../01-fundamentals/09-protocol-generic.md)、[抽象基类 ABC](../01-fundamentals/35-abc.md)）
+- Python 接口（Protocol、ABC）基础（详见 [Protocol 与 Generic](../01-fundamentals/09-protocol-generic.md)、[抽象基类 ABC](../01-fundamentals/19-abc.md)）
 - 经典适配器模式（详见 [适配器](../../_fundamentals/06-design-patterns/06-adapter.md)）
 
 ## 1. 核心概念

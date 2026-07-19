@@ -14,7 +14,7 @@
 
 - Python 基础：函数、装饰器
 - 01-fundamentals/10-decorator.md
-- 01-fundamentals/34-descriptor.md
+- [1.1.18 描述符](./18-descriptor.md)
 
 ## 1. 核心概念
 
@@ -96,7 +96,7 @@ print(hello.__doc__)   # 'Say hello.'
 
 ### 1.5 `@cached_property`：缓存属性
 
-`@cached_property` 是基于描述符的属性缓存（描述符协议见 [34-descriptor](./34-descriptor.md)），第一次访问时计算，之后用缓存：
+`@cached_property` 是基于描述符的属性缓存（描述符协议见 [18-descriptor](./18-descriptor.md)），第一次访问时计算，之后用缓存：
 
 ```python
 from functools import cached_property

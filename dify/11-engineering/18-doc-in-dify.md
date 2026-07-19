@@ -171,7 +171,7 @@ dify 的典型例子包括：
 **示例行号**：第 1-35 行
 
 ```python
-from dataclasses import dataclass  # 详见 [dataclass](../01-fundamentals/36-dataclasses.md)
+from dataclasses import dataclass  # 详见 [dataclass](../01-fundamentals/20-dataclasses.md)
 
 
 @dataclass(frozen=True)

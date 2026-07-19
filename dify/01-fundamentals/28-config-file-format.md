@@ -13,13 +13,13 @@
 ## 📚 前置知识
 
 - Python 基础：字典、列表
-- 01-fundamentals/11-json-processing.md（推荐）
+- 01-fundamentals/27-json-processing.md（推荐）
 
 ## 1. 核心概念
 
 ### 1.1 为什么需要配置文件？
 
-代码与配置分离（[12-Factor](./19-env-vars.md) 原则）：
+代码与配置分离（[12-Factor](./29-env-vars.md) 原则）：
 - **代码**：逻辑，写一次
 - **配置**：环境相关，每个环境不同
 
@@ -134,7 +134,7 @@ tomli_w.dump(config, open("out.toml", "wb"))
 
 ### 1.4 YAML vs TOML vs JSON 对比
 
-JSON 专题见 [17-json-processing](./17-json-processing.md)。
+JSON 专题见 [27-json-processing](./27-json-processing.md)。
 
 | 特性 | YAML | TOML | JSON |
 |---|---|---|---|

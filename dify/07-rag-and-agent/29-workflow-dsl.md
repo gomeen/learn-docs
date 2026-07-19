@@ -13,7 +13,7 @@
 ## 📚 前置知识
 
 - 工作流执行链路（详见 [Workflow Engine](./24-workflow-engine.md)、[Workflow Execution](./28-workflow-execution.md)）
-- YAML / JSON（详见 [配置文件格式](../01-fundamentals/18-config-file-format.md)、[JSON](../01-fundamentals/17-json-processing.md)）
+- YAML / JSON（详见 [配置文件格式](../01-fundamentals/28-config-file-format.md)、[JSON](../01-fundamentals/27-json-processing.md)）
 
 ## 1. 核心概念
 

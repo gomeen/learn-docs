@@ -19,7 +19,7 @@
 
 ## 📚 前置知识
 
-- {依赖的其他文档路径，例如：../01-fundamentals/02-typeddict.md}
+- {依赖的其他文档路径，例如：../01-fundamentals/08-typeddict.md}
 - {需要的外部基础，例如：Python 基础语法}
 
 ## 1. 核心概念

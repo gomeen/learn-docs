@@ -13,7 +13,7 @@
 ## 📚 前置知识
 
 - Python 基础：函数、模块
-- 01-fundamentals/39-concurrency.md（推荐）
+- 01-fundamentals/23-concurrency.md（推荐）
 - 操作系统的「CPU 时间 vs 墙钟时间」概念
 
 ## 1. 核心概念
@@ -93,8 +93,8 @@ python -m timeit '"-".join(str(n) for n in range(100))'
 | 列表推导代替循环 append | ~10-30% |
 | `dict.get()` 代替 `try/except KeyError` | ~3x |
 | 局部变量代替全局变量 | ~10-20% |
-| `__slots__` 节省内存（见 [41-memory-management](./41-memory-management.md)） | ~30% 内存 |
-| `lru_cache` 缓存重复计算（见 [38-functools](./38-functools.md)） | 数量级加速 |
+| `__slots__` 节省内存（见 [25-memory-management](./25-memory-management.md)） | ~30% 内存 |
+| `lru_cache` 缓存重复计算（见 [22-functools](./22-functools.md)） | 数量级加速 |
 | 用 C 扩展（numpy、pandas） | 10x-100x |
 
 > **永远先 profile，再优化**——大多数优化的「直觉」都是错的。

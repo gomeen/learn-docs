@@ -35,7 +35,7 @@
 
 ### 2.1 确定性哈希路由
 
-路由配置可用 `@dataclass` 承载（详见 [dataclass](../01-fundamentals/36-dataclasses.md)）：
+路由配置可用 `@dataclass` 承载（详见 [dataclass](../01-fundamentals/20-dataclasses.md)）：
 
 ```python
 from dataclasses import dataclass

@@ -72,7 +72,7 @@ print(result.get(timeout=10))  # 8
 
 ### 1.4 gevent 并发模式
 
-> 📌 **Sighting**：进程 / 线程 / 协程等并发模型对比见 [并发模型](../01-fundamentals/39-concurrency.md)；此处只说明 dify Worker 选用 gevent 的原因。
+> 📌 **Sighting**：进程 / 线程 / 协程等并发模型对比见 [并发模型](../01-fundamentals/23-concurrency.md)；此处只说明 dify Worker 选用 gevent 的原因。
 
 dify 用 **gevent** 协程而不是多进程：
 

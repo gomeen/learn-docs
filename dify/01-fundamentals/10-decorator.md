@@ -14,7 +14,7 @@
 ## 📚 前置知识
 
 - Python 基础：函数、闭包
-- 01-fundamentals/01-python-typing-basics.md
+- 01-fundamentals/07-python-typing-basics.md
 
 ## 1. 核心概念
 

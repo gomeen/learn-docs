@@ -13,7 +13,7 @@
 ## 📚 前置知识
 
 - Function Calling / Tool Use（详见 [Function Calling](./14-function-calling.md)、[主流大模型对比](./01-llm-overview.md)）
-- JSON-RPC 2.0 基础（JSON 详见 [JSON](../01-fundamentals/17-json-processing.md)）
+- JSON-RPC 2.0 基础（JSON 详见 [JSON](../01-fundamentals/27-json-processing.md)）
 - MCP 协议概述（详见 [MCP 概述](./20-mcp-overview.md)）
 
 ## 1. 核心概念

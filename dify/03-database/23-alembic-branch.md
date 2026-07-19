@@ -13,13 +13,13 @@
 ## 📚 前置知识
 
 - [3.4.1 Alembic 基础](./20-alembic-basics.md)
-- Git 分支基础：[`../01-fundamentals/30-git-advanced.md`](../01-fundamentals/30-git-advanced.md)
+- Git 分支基础：[`../../_common/15-git/01-git-advanced.md`](../../_common/15-git/01-git-advanced.md)
 
 ## 1. 核心概念
 
 ### 1.1 为什么会有多个 head
 
-两个开发分支都从 revision A 创建新迁移 B、C，合并代码后版本图出现两个 head（Git 分支与协作详见前置 [Git 进阶](../01-fundamentals/30-git-advanced.md)）。不要偷偷把其中一个 `down_revision` 改成另一个：那会重写已发布历史，并可能让已升级环境无法对齐。
+两个开发分支都从 revision A 创建新迁移 B、C，合并代码后版本图出现两个 head（Git 分支与协作详见前置 [Git 进阶](../../_common/15-git/01-git-advanced.md)）。不要偷偷把其中一个 `down_revision` 改成另一个：那会重写已发布历史，并可能让已升级环境无法对齐。
 
 ### 1.2 合并版本
 

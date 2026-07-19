@@ -33,7 +33,7 @@ user = User(name="Alice", age=30)  # OK
 user = User(name="Alice", age="abc")  # ValidationError
 ```
 
-**对比 dataclass**（详见 [dataclass](../01-fundamentals/36-dataclasses.md)）：
+**对比 dataclass**（详见 [dataclass](../01-fundamentals/20-dataclasses.md)）：
 
 | 维度 | dataclass | Pydantic BaseModel |
 |------|-----------|-------------------|

@@ -13,7 +13,7 @@
 ## 📚 前置知识
 
 - Python 基础语法
-- `01-fundamentals/06-modules-and-imports.md`（了解 import 机制）
+- `01-fundamentals/04-python-modules-and-imports.md`（了解 import 机制）
 
 ## 1. 核心概念
 

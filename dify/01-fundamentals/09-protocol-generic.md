@@ -13,7 +13,7 @@
 
 ## 📚 前置知识
 
-- 01-fundamentals/01-python-typing-basics.md
+- 01-fundamentals/07-python-typing-basics.md
 - 02-typeddict.md
 - 面向对象基础：继承、多态
 
@@ -21,7 +21,7 @@
 
 ### 1.1 为什么需要 `Protocol`？
 
-传统接口用抽象基类（ABC，详见 [35-abc](./35-abc.md)），强制继承关系：
+传统接口用抽象基类（ABC，详见 [19-abc](./19-abc.md)），强制继承关系：
 
 ```python
 from abc import ABC, abstractmethod

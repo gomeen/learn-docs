@@ -249,7 +249,7 @@ class LargeLanguageModel:
 
 ### 练习 2：进阶
 
-阅读 `/Users/xu/code/github/dify/api/core/workflow/nodes/answer/answer_node.py`，列出所有使用 `yield` 的方法，画出流式响应的时序图（节点→引擎→Controller→SSE；SSE 协议见 [28-sse](./28-sse.md)）。
+阅读 `/Users/xu/code/github/dify/api/core/workflow/nodes/answer/answer_node.py`，列出所有使用 `yield` 的方法，画出流式响应的时序图（节点→引擎→Controller→SSE；SSE 协议见 [24-sse](../../_common/14-api-protocols/04-sse.md)）。
 
 ### 练习 3：挑战（选做）
 

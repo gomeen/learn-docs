@@ -13,8 +13,8 @@
 ## 📚 前置知识
 
 - Python 基础：类的继承、方法重写
-- 01-fundamentals/03-classes-basics.md（类基础）
-- 01-fundamentals/33-metaclass.md（元类，推荐了解）
+- 01-fundamentals/03-python-classes-basics.md（类基础）
+- [1.1.17 元类](./17-metaclass.md)（推荐了解）
 
 ## 1. 核心概念
 
@@ -48,7 +48,7 @@ GoogleSearchTool()  # TypeError: Can't instantiate abstract class GoogleSearchTo
 
 ### 1.2 `ABC` 的本质
 
-`ABC` 是一个**辅助类**，它的元类是 `ABCMeta`（元类原理见 [33-metaclass](./33-metaclass.md)）：
+`ABC` 是一个**辅助类**，它的元类是 `ABCMeta`（元类原理见 [17-metaclass](./17-metaclass.md)）：
 
 ```python
 from abc import ABC, ABCMeta
@@ -103,7 +103,7 @@ class MyConfig(Config):
 MyConfig()  # OK
 ```
 
-> `@abstractmethod` 必须放在 `@property` **下面**才能正确地标记为抽象属性（`@property` 见 [10-decorator](./10-decorator.md) / [34-descriptor](./34-descriptor.md)）。
+> `@abstractmethod` 必须放在 `@property` **下面**才能正确地标记为抽象属性（`@property` 见 [10-decorator](./10-decorator.md) / [18-descriptor](./18-descriptor.md)）。
 
 ### 1.5 虚子类（Virtual Subclass）
 

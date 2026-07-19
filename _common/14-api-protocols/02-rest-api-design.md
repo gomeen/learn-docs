@@ -1,4 +1,4 @@
-# 1.4.2 REST API 设计规范与最佳实践
+# 14.2 REST API 设计规范与最佳实践
 
 > 掌握 REST 风格 API 的设计原则，能读懂和设计 dify 的所有接口。
 
@@ -7,12 +7,12 @@
 完成本文档后，你将能够：
 - 理解 REST 的六大约束
 - 掌握 RESTful 资源命名规范
-- 设计符合 REST 的 API（路径、HTTP 方法、状态码；HTTP 细节见 [25-http-protocol](./25-http-protocol.md)）
+- 设计符合 REST 的 API（路径、HTTP 方法、状态码；HTTP 细节见 [21-http-protocol](./01-http-protocol.md)）
 - 识别 dify 中 REST 设计的优点与不足
 
 ## 📚 前置知识
 
-- 01-fundamentals/19-http-protocol.md
+- _common/14-api-protocols/01-http-protocol.md
 - 基础 Web 概念
 
 ## 1. 核心概念
@@ -289,7 +289,7 @@ class WorkflowRunApi(Resource):
 
         返回：
         - blocking 模式：完整结果
-        - streaming 模式：SSE 流（详见 [28-sse](./28-sse.md)）
+        - streaming 模式：SSE 流（详见 [24-sse](./04-sse.md)）
         """
         ...
 

@@ -12,7 +12,7 @@
 ## 📚 前置知识
 
 - Python 基础：解释器、字节码概念
-- 01-fundamentals/39-concurrency.md
+- 01-fundamentals/23-concurrency.md
 - 操作系统的「互斥锁」基础（推荐）
 
 ## 1. 核心概念
@@ -28,7 +28,7 @@ print(sys.getswitchinterval())  # 默认 0.005 秒（线程切换间隔）
 
 ### 1.2 GIL 的存在原因
 
-CPython 使用**引用计数**管理内存（`sys.getrefcount`；内存管理全景见 [41-memory-management](./41-memory-management.md)）：
+CPython 使用**引用计数**管理内存（`sys.getrefcount`；内存管理全景见 [25-memory-management](./25-memory-management.md)）：
 
 ```python
 a = [1, 2, 3]  # refcount = 1

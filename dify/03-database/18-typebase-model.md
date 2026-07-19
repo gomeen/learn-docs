@@ -13,7 +13,7 @@
 ## 📚 前置知识
 
 - [3.3.1 声明式映射](./12-sqlalchemy-mapping.md)
-- Python dataclass 基础（详见 [dataclass](../01-fundamentals/36-dataclasses.md)）
+- Python dataclass 基础（详见 [dataclass](../01-fundamentals/20-dataclasses.md)）
 
 ## 1. 核心概念
 

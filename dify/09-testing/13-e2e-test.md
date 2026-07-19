@@ -13,7 +13,7 @@
 ## 📚 前置知识
 
 - 09-testing/01-testing-pyramid.md
-- Web 前端基础（HTTP 详见 [HTTP 协议](../01-fundamentals/25-http-protocol.md)、DOM）
+- Web 前端基础（HTTP 详见 [HTTP 协议](../../_common/14-api-protocols/01-http-protocol.md)、DOM）
 
 ## 1. 核心概念
 

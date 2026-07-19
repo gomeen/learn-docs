@@ -12,10 +12,10 @@
 
 ## 📚 前置知识
 
-- SSE 协议基础（详见 [SSE](../01-fundamentals/28-sse.md)）——本篇侧重 LLM 流式与 dify 编码
+- SSE 协议基础（详见 [SSE](../../_common/14-api-protocols/04-sse.md)）——本篇侧重 LLM 流式与 dify 编码
 - [Python 异步编程](../01-fundamentals/12-async-asyncio.md)
 - [OpenAI API 使用](./26-openai-api.md)
-- HTTP 响应头、生成器和 JSON（详见 [HTTP 协议](../01-fundamentals/25-http-protocol.md)、[生成器](../01-fundamentals/14-generator.md)、[JSON](../01-fundamentals/17-json-processing.md)）
+- HTTP 响应头、生成器和 JSON（详见 [HTTP 协议](../../_common/14-api-protocols/01-http-protocol.md)、[生成器](../01-fundamentals/14-generator.md)、[JSON](../01-fundamentals/27-json-processing.md)）
 
 ## 1. 核心概念
 
@@ -44,7 +44,7 @@ JSON 只是 `data` 的常见编码，并不是 SSE 协议本身。
 
 ### 1.2 SSE 与 WebSocket
 
-| 维度 | SSE | WebSocket（详见 [WebSocket](../01-fundamentals/27-websocket.md)） |
+| 维度 | SSE | WebSocket（详见 [WebSocket](../../_common/14-api-protocols/03-websocket.md)） |
 | --- | --- | --- |
 | 方向 | 服务器到客户端 | 双向 |
 | 协议 | 普通 HTTP 流 | HTTP Upgrade 后的帧协议 |

@@ -1,11 +1,11 @@
-# 1.3.4 网络命令：`curl` / `wget` / `netstat` / `ss`
+# 13.4 网络命令：`curl` / `wget` / `netstat` / `ss`
 
-> 掌握常用网络命令，能用 curl 调用 dify API、用 ss 诊断端口占用、用 wget 下载资源。
+> 掌握常用网络命令，能用 curl 调试 HTTP API、用 ss 诊断端口占用、用 wget 下载资源。
 
 ## 🎯 学习目标
 
 完成本文档后，你将能够：
-- 用 `curl` 调用 dify REST API（设计规范见 [26-rest-api-design](./26-rest-api-design.md)）并调试响应
+- 用 `curl` 调用 REST API 并调试响应
 - 用 `ss` 替代 `netstat` 诊断端口和连接
 - 用 `wget` 下载文件或镜像
 - 用 `ping` / `traceroute` / `dig` 排查网络问题
@@ -13,7 +13,7 @@
 ## 📚 前置知识
 
 - HTTP 基础（GET/POST、状态码）
-- 01-fundamentals/15-linux-commands.md
+- [13.1 Linux 常用命令](./01-linux-commands.md)
 
 ## 1. 核心概念
 
@@ -177,7 +177,7 @@ kill 1234
 
 ### 2.3 流式调用（SSE）调试
 
-SSE 协议本身见 [28-sse](./28-sse.md)；本节只练 `curl -N` 调试手法。
+SSE 协议本身另见项目文档中的 SSE 专题；本节只练 `curl -N` 调试手法。
 
 ```bash
 # dify 支持流式响应，用 curl 调试

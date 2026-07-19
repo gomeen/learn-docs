@@ -12,7 +12,7 @@
 
 ## 📚 前置知识
 
-- Python 基础语法（生成器详见 [生成器](../01-fundamentals/14-generator.md)；JSON 详见 [JSON](../01-fundamentals/17-json-processing.md)）
+- Python 基础语法（生成器详见 [生成器](../01-fundamentals/14-generator.md)；JSON 详见 [JSON](../01-fundamentals/27-json-processing.md)）
 - LLM 的消息结构（system / user / assistant / tool；详见 [Prompt 基础](./07-prompt-basics.md)）
 - dify 的 LLM 抽象层（详见 [主流大模型对比](./01-llm-overview.md)）
 

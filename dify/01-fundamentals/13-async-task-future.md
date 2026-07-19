@@ -587,9 +587,9 @@ run_id = task.id          # 类似「订单号」
 ## 7. 参考资料
 
 - 上一篇：[12-async-asyncio](./12-async-asyncio.md)
-- 多线程 / 多进程 / 异步对比：[39-concurrency](./39-concurrency.md)
-- WebSocket 推送结果（可选）：[27-websocket](./27-websocket.md)
-- SSE 流式：[28-sse](./28-sse.md)
+- 多线程 / 多进程 / 异步对比：[23-concurrency](./23-concurrency.md)
+- WebSocket 推送结果（可选）：[23-websocket](../../_common/14-api-protocols/03-websocket.md)
+- SSE 流式：[24-sse](../../_common/14-api-protocols/04-sse.md)
 - Python 官方 Task API：https://docs.python.org/3/library/asyncio-task.html
 - Celery AsyncResult：https://docs.celeryq.dev/en/stable/reference/celery.result.html
 

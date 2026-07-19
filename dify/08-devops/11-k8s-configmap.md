@@ -14,7 +14,7 @@
 ## 📚 前置知识
 
 - `08-devops/08-k8s-concepts.md`
-- 环境变量与 12-Factor（详见 [环境变量](../01-fundamentals/19-env-vars.md)）
+- 环境变量与 12-Factor（详见 [环境变量](../01-fundamentals/29-env-vars.md)）
 
 ## 1. 核心概念
 

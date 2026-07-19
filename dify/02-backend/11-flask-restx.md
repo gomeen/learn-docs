@@ -15,7 +15,7 @@
 - [Flask 基础](./08-flask-basics.md)
 - [Blueprint](./10-flask-blueprint.md)
 - [Pydantic BaseModel](./15-pydantic-basics.md)
-- REST 设计基础（详见 [REST API 设计](../01-fundamentals/26-rest-api-design.md)）
+- REST 设计基础（详见 [REST API 设计](../../_common/14-api-protocols/02-rest-api-design.md)）
 
 ## 1. 核心概念
 

@@ -99,7 +99,7 @@ print(top_k([1.0, 0.0], vectors, 1))
 ```
 
 **解读**：
-- `@abstractmethod` 声明抽象契约（详见 [抽象基类 ABC](../01-fundamentals/35-abc.md)），所有后端必须实现创建、追加、存在检查和删除。
+- `@abstractmethod` 声明抽象契约（详见 [抽象基类 ABC](../01-fundamentals/19-abc.md)），所有后端必须实现创建、追加、存在检查和删除。
 - metadata 字段删除也被纳入统一接口。
 - 上层无需知道具体 SDK（dify 适配层详见 [向量库适配层](./28-vdb-in-dify.md)）。
 

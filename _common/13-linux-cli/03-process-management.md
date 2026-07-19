@@ -1,6 +1,6 @@
-# 1.3.3 进程管理：`ps` / `top` / `kill` / `systemctl`
+# 13.3 进程管理：`ps` / `top` / `kill` / `systemctl`
 
-> 掌握 Linux 进程查看、监控、终止与服务管理，能诊断 dify 后端的运行状态。
+> 掌握 Linux 进程查看、监控、终止与服务管理，能诊断服务进程的常见运行问题。
 
 ## 🎯 学习目标
 
@@ -8,12 +8,12 @@
 - 用 `ps` / `top` / `htop` 查看进程信息
 - 用 `kill` 发送信号终止进程
 - 用 `systemctl` 管理 systemd 服务
-- 诊断 dify 后端进程的常见问题（CPU 高、内存泄漏、僵尸进程）
+- 诊断后端进程的常见问题（CPU 高、内存泄漏、僵尸进程）
 
 ## 📚 前置知识
 
 - 命令行基础
-- 01-fundamentals/16-shell-scripting.md
+- [13.2 Shell 脚本](./02-shell-scripting.md)
 
 ## 1. 核心概念
 

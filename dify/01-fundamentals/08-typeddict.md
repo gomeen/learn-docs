@@ -13,7 +13,7 @@
 
 ## 📚 前置知识
 
-- 01-fundamentals/01-python-typing-basics.md
+- 01-fundamentals/07-python-typing-basics.md
 - Python 基础：字典、类
 
 ## 1. 核心概念
@@ -80,7 +80,7 @@ class UserPartial(TypedDict):
 **dify 中常见模式**：
 
 - **TypedDict**：节点配置、跨层数据传输
-- **dataclass**（详见 [36-dataclasses](./36-dataclasses.md)）：简单数据容器
+- **dataclass**（详见 [20-dataclasses](./20-dataclasses.md)）：简单数据容器
 - **Pydantic**：API Schema、外部数据验证
 
 ## 2. 代码示例

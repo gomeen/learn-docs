@@ -13,7 +13,7 @@
 ## 📚 前置知识
 
 - Python 函数、装饰器基础（详见 [装饰器](../01-fundamentals/10-decorator.md)）
-- HTTP 协议基础（GET、POST、状态码；详见 [HTTP 协议](../01-fundamentals/25-http-protocol.md)）
+- HTTP 协议基础（GET、POST、状态码；详见 [HTTP 协议](../../_common/14-api-protocols/01-http-protocol.md)）
 
 ## 1. 核心概念
 

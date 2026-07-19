@@ -12,7 +12,7 @@
 
 ## 📚 前置知识
 
-- HTTP / JSON 基础（详见 [HTTP 协议](../01-fundamentals/25-http-protocol.md)、[JSON](../01-fundamentals/17-json-processing.md)）
+- HTTP / JSON 基础（详见 [HTTP 协议](../../_common/14-api-protocols/01-http-protocol.md)、[JSON](../01-fundamentals/27-json-processing.md)）
 - MCP vs Function Calling（详见 [MCP vs Function Calling](./23-mcp-vs-function-calling.md)）
 - Anthropic 模型家族（详见 [主流大模型对比](./01-llm-overview.md)）
 
@@ -46,7 +46,7 @@ Body:
 | `messages` | 对话历史，role 必须是 `user` / `assistant`（不能 `system`！） |
 | `system` | 系统提示，独立字段（不在 messages 里） |
 | `tools` | 工具定义（Function Calling，详见 [Function Calling](./14-function-calling.md)） |
-| `stream` | true 时返回 SSE 流（协议详见 [SSE](../01-fundamentals/28-sse.md)；实践见 [流式输出](./27-streaming-sse.md)） |
+| `stream` | true 时返回 SSE 流（协议详见 [SSE](../../_common/14-api-protocols/04-sse.md)；实践见 [流式输出](./27-streaming-sse.md)） |
 | `temperature` / `top_p` / `top_k` | 采样参数 |
 | `stop_sequences` | 自定义停止符 |
 

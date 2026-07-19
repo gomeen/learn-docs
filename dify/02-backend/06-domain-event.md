@@ -24,7 +24,7 @@
 
 **核心思想**：当一个聚合状态改变时，发布一个事件，**其他模块订阅并响应**。发布者不知道订阅者是谁，解耦业务逻辑（观察者模式详见 [观察者](../../_fundamentals/06-design-patterns/15-observer.md)）。
 
-事件体常用不可变数据载体表达（`@dataclass` 详见 [dataclass](../01-fundamentals/36-dataclasses.md)）：
+事件体常用不可变数据载体表达（`@dataclass` 详见 [dataclass](../01-fundamentals/20-dataclasses.md)）：
 
 ```python
 # 事件定义

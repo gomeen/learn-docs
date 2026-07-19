@@ -411,7 +411,7 @@ async def app_detail(app_id: str):
 
 ### 3.5 场景 D：流式响应（聊天打字机效果）
 
-产品要求「模型一边生成，前端一边显示」。连接会挂很久，适合异步 + 流式协议（SSE 见 [28-sse](./28-sse.md)）：
+产品要求「模型一边生成，前端一边显示」。连接会挂很久，适合异步 + 流式协议（SSE 见 [24-sse](../../_common/14-api-protocols/04-sse.md)）：
 
 ```python
 async def stream_chat(query: str):
@@ -581,8 +581,8 @@ async def get_text(url: str) -> str:
 ## 7. 参考资料
 
 - 下一篇（Task / Future / 调度细节）：[13-async-task-future](./13-async-task-future.md)
-- 并发模型总览：[39-concurrency](./39-concurrency.md)
-- 流式响应：[28-sse](./28-sse.md)
+- 并发模型总览：[23-concurrency](./23-concurrency.md)
+- 流式响应：[24-sse](../../_common/14-api-protocols/04-sse.md)
 - Python 官方：https://docs.python.org/3/library/asyncio.html
 - Real Python 入门：https://realpython.com/async-io-python/
 - dify 参考目录（按你本机路径调整）：`api/services/`、`api/core/helper/`

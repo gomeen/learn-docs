@@ -33,7 +33,7 @@
 **核心思想**：把可变的算法封装成独立的对象，可以互相替换（本篇讲 dify 落地；经典定义详见前置中的 [策略](../../_fundamentals/06-design-patterns/13-strategy.md)）。
 
 ```python
-# 业务场景：定价策略（ABC 详见 [抽象基类 ABC](../01-fundamentals/35-abc.md)）
+# 业务场景：定价策略（ABC 详见 [抽象基类 ABC](../01-fundamentals/19-abc.md)）
 class PricingStrategy(ABC):
     def calculate(self, order): ...
 

@@ -13,7 +13,7 @@
 ## 📚 前置知识
 
 - Prompt 三要素与 Few-Shot（详见 [Prompt 基础](./07-prompt-basics.md)、[Few-Shot](./08-few-shot.md)）
-- JSON、SQL 基础（详见 [JSON](../01-fundamentals/17-json-processing.md)）
+- JSON、SQL 基础（详见 [JSON](../01-fundamentals/27-json-processing.md)）
 
 ## 1. 核心概念
 

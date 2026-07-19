@@ -25,10 +25,13 @@
 | **10** | 网络代理 | [`10-network-proxy/`](./10-network-proxy/) |
 | **11** | CI/CD | [`11-cicd/`](./11-cicd/) |
 | **12** | 部署策略 | [`12-deploy-strategies/`](./12-deploy-strategies/) |
+| **13** | Linux 命令行与 Shell | [`13-linux-cli/`](./13-linux-cli/) |
+| **14** | API 与应用层协议 | [`14-api-protocols/`](./14-api-protocols/) |
+| **15** | Git 与协作规范 | [`15-git/`](./15-git/) |
 
 ## 🔗 与项目目录的关系
 
-- **dify**（Python）：`../dify/04-cache-and-queue/`、`05-auth-and-security/`、`08-devops/` 都有指向这里的链接
+- **dify**（Python）：`../dify/01-fundamentals/`、`04-cache-and-queue/`、`05-auth-and-security/`、`08-devops/` 都有指向这里的链接
 - **ruoyi-vue-pro**（Java）：`../ruoyi-vue-pro/05-cache-and-mq/`、`06-security/`、`10-devops/` 都有指向这里的链接
 
 ## 💡 使用建议

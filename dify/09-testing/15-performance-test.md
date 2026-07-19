@@ -12,7 +12,7 @@
 
 ## 📚 前置知识
 
-- HTTP 基础（详见 [HTTP 协议](../01-fundamentals/25-http-protocol.md)）
+- HTTP 基础（详见 [HTTP 协议](../../_common/14-api-protocols/01-http-protocol.md)）
 - 09-testing/01-testing-pyramid.md
 
 ## 1. 核心概念

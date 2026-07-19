@@ -12,7 +12,7 @@
 
 ## 📚 前置知识
 
-- Python 基础语法（[`dataclass`](../01-fundamentals/36-dataclasses.md)、[Pydantic BaseModel](./15-pydantic-basics.md)）
+- Python 基础语法（[`dataclass`](../01-fundamentals/20-dataclasses.md)、[Pydantic BaseModel](./15-pydantic-basics.md)）
 - [TypedDict](../01-fundamentals/08-typeddict.md)（与 Pydantic 的区别）
 - 了解面向对象设计基础（封装、继承）
 
@@ -94,7 +94,7 @@ class User:
 
 ### 2.1 实体 vs 值对象
 
-`@dataclass` 用于快速定义领域对象（机制见前置 [dataclass](../01-fundamentals/36-dataclasses.md)），此处只把它当作「带默认构造与可选不可变」的数据类。
+`@dataclass` 用于快速定义领域对象（机制见前置 [dataclass](../01-fundamentals/20-dataclasses.md)），此处只把它当作「带默认构造与可选不可变」的数据类。
 
 ```python
 from dataclasses import dataclass, field

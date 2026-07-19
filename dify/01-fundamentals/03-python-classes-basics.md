@@ -166,7 +166,7 @@ class ApiKey:
 
 ### 2.2 属性装饰器 `@property`
 
-`@property` 同样是装饰器写法（原理见上文链接的装饰器篇）；底层描述符机制见 [34-descriptor](./34-descriptor.md)。此处只掌握「方法当属性用」。
+`@property` 同样是装饰器写法（原理见上文链接的装饰器篇）；底层描述符机制见 [18-descriptor](./18-descriptor.md)。此处只掌握「方法当属性用」。
 
 ```python
 class Temperature:

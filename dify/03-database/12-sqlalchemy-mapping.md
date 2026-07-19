@@ -98,7 +98,7 @@ class TypeBase(MappedAsDataclass, DeclarativeBase):
 
 **解读**：
 - `Base` 与 `TypeBase` 都绑定项目统一 metadata。
-- `TypeBase` 组合 `MappedAsDataclass`，让映射对象获得 dataclass 风格构造（dataclass 语言机制详见 [dataclass](../01-fundamentals/36-dataclasses.md)；dify 规范详见 [TypeBase](./18-typebase-model.md)）。
+- `TypeBase` 组合 `MappedAsDataclass`，让映射对象获得 dataclass 风格构造（dataclass 语言机制详见 [dataclass](../01-fundamentals/20-dataclasses.md)；dify 规范详见 [TypeBase](./18-typebase-model.md)）。
 - 注释说明 TypeBase 是迁移期间的过渡基类，阅读模型时需注意两个 registry。
 
 ### 3.2 类型化账户模型

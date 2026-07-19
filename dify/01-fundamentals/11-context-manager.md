@@ -14,7 +14,7 @@
 ## 📚 前置知识
 
 - Python 基础：类、`__enter__`/`__exit__` 魔术方法
-- 01-fundamentals/01-dunder-methods.md（推荐）
+- 01-fundamentals/16-dunder-methods.md（推荐）
 
 ## 1. 核心概念
 

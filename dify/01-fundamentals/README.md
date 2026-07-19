@@ -1,6 +1,15 @@
-# 01 - 编程语言与基础工具
+# 01 - Python 语言与工程基础
 
-> 全栈后端开发的「地基」。所有其他分类的知识都依赖这里的内容。
+> dify 后端的 **Python 语言与配置** 地基。跨语言通用技能见 `_common` / `_fundamentals`。
+
+## 学习顺序（文件号 = 阅读顺序）
+
+```
+01–06  Python 入门
+07–16  Python 核心（类型 / 异步 / 包管理 / 魔术方法）
+17–26  Python 进阶（元类 → 性能调优）
+27–30  序列化与配置
+```
 
 ## 📚 前置知识：Python 基础（必读）
 
@@ -25,44 +34,61 @@
 - [ ] [1.1.14 生成器与 `yield`、异步生成器](./14-generator.md)
 - [ ] [1.1.15 Python 包管理：`uv` 与 `pyproject.toml`](./15-uv-package-management.md)
 - [ ] [1.1.16 魔术方法：`__init__` / `__repr__` / `__str__` / `__eq__`](./16-dunder-methods.md)
-- [ ] [1.1.17 元类（Metaclass）与类创建过程](./33-metaclass.md)
-- [ ] [1.1.18 描述符（Descriptor）协议](./34-descriptor.md)
-- [ ] [1.1.19 抽象基类（abc 模块）](./35-abc.md)
-- [ ] [1.1.20 `dataclass` 数据类](./36-dataclasses.md)
-- [ ] [1.1.21 `itertools` 模块：迭代器工具箱](./37-itertools.md)
-- [ ] [1.1.22 `functools` 模块：`lru_cache` / `partial` / `reduce` / `wraps`](./38-functools.md)
-- [ ] [1.1.23 多线程 vs 多进程 vs 异步](./39-concurrency.md)
-- [ ] [1.1.24 GIL 全局解释器锁](./40-gil.md)
-- [ ] [1.1.25 Python 内存管理与 GC](./41-memory-management.md)
-- [ ] [1.1.26 Python 性能调优：`cProfile` / `timeit` / `perf_counter`](./42-performance-tuning.md)
+- [ ] [1.1.17 元类（Metaclass）与类创建过程](./17-metaclass.md)
+- [ ] [1.1.18 描述符（Descriptor）协议](./18-descriptor.md)
+- [ ] [1.1.19 抽象基类（abc 模块）](./19-abc.md)
+- [ ] [1.1.20 `dataclass` 数据类](./20-dataclasses.md)
+- [ ] [1.1.21 `itertools` 模块：迭代器工具箱](./21-itertools.md)
+- [ ] [1.1.22 `functools` 模块：`lru_cache` / `partial` / `reduce` / `wraps`](./22-functools.md)
+- [ ] [1.1.23 多线程 vs 多进程 vs 异步](./23-concurrency.md)
+- [ ] [1.1.24 GIL 全局解释器锁](./24-gil.md)
+- [ ] [1.1.25 Python 内存管理与 GC](./25-memory-management.md)
+- [ ] [1.1.26 Python 性能调优：`cProfile` / `timeit` / `perf_counter`](./26-performance-tuning.md)
 
 ## 模块 1.2 数据序列化与配置
 
-- [ ] [1.2.1 JSON 处理：序列化、反序列化、嵌套结构](./17-json-processing.md)
-- [ ] [1.2.2 YAML / TOML 配置文件](./18-config-file-format.md)
-- [ ] [1.2.3 环境变量与 12-Factor 配置原则](./19-env-vars.md)
-- [ ] [1.2.4 `pydantic-settings`：类型安全的配置管理](./20-pydantic-settings.md)
+- [ ] [1.2.1 JSON 处理：序列化、反序列化、嵌套结构](./27-json-processing.md)
+- [ ] [1.2.2 YAML / TOML 配置文件](./28-config-file-format.md)
+- [ ] [1.2.3 环境变量与 12-Factor 配置原则](./29-env-vars.md)
+- [ ] [1.2.4 `pydantic-settings`：类型安全的配置管理](./30-pydantic-settings.md)
 
-## 模块 1.3 命令行与 Shell
+## 🌐 公共部分（已迁出）
 
-- [ ] [1.3.1 Linux 常用命令：`grep` / `awk` / `sed` / `find`](./21-linux-commands.md)
-- [ ] [1.3.2 Shell 脚本：变量、条件、循环、函数](./22-shell-scripting.md)
-- [ ] [1.3.3 进程管理：`ps` / `top` / `kill` / `systemctl`](./23-process-management.md)
-- [ ] [1.3.4 网络命令：`curl` / `wget` / `netstat` / `ss`](./24-network-commands.md)
+> 以下为跨语言通用技能，不绑定 Python / dify。
 
-## 模块 1.4 网络协议基础
+### Linux / Shell
 
-- [ ] [1.4.1 HTTP/HTTPS 协议：方法、状态码、Header、Cookie](./25-http-protocol.md)
-- [ ] [1.4.2 REST API 设计规范与最佳实践](./26-rest-api-design.md)
-- [ ] [1.4.3 WebSocket 协议](./27-websocket.md)
-- [ ] [1.4.4 Server-Sent Events（SSE）与流式响应](./28-sse.md)
-- [ ] [1.4.5 gRPC 与 Protocol Buffers 入门](./29-grpc-protobuf.md)
+| 主题 | 文档 |
+|------|------|
+| Linux 文本处理与查找 | [`_common/13-linux-cli/01-linux-commands`](../../_common/13-linux-cli/01-linux-commands.md) |
+| Shell 脚本 | [`_common/13-linux-cli/02-shell-scripting`](../../_common/13-linux-cli/02-shell-scripting.md) |
+| 进程管理 | [`_common/13-linux-cli/03-process-management`](../../_common/13-linux-cli/03-process-management.md) |
+| 网络命令 | [`_common/13-linux-cli/04-network-commands`](../../_common/13-linux-cli/04-network-commands.md) |
 
-## 模块 1.5 版本控制与协作
+→ [`_common/13-linux-cli/`](../../_common/13-linux-cli/README.md)
 
-- [ ] [1.5.1 Git 进阶：`rebase` / `cherry-pick` / `bisect`](./30-git-advanced.md)
-- [ ] [1.5.2 Git 工作流：Git Flow / GitHub Flow / Trunk-based](./31-git-workflow.md)
-- [ ] [1.5.3 Conventional Commits 与语义化版本](./32-conventional-commits.md)
+### API 与应用层协议
+
+| 主题 | 文档 |
+|------|------|
+| HTTP/HTTPS | [`_common/14-api-protocols/01-http-protocol`](../../_common/14-api-protocols/01-http-protocol.md) |
+| REST API 设计 | [`_common/14-api-protocols/02-rest-api-design`](../../_common/14-api-protocols/02-rest-api-design.md) |
+| WebSocket | [`_common/14-api-protocols/03-websocket`](../../_common/14-api-protocols/03-websocket.md) |
+| SSE 流式响应 | [`_common/14-api-protocols/04-sse`](../../_common/14-api-protocols/04-sse.md) |
+| gRPC / Protobuf | [`_common/14-api-protocols/05-grpc-protobuf`](../../_common/14-api-protocols/05-grpc-protobuf.md) |
+
+→ [`_common/14-api-protocols/`](../../_common/14-api-protocols/README.md)  
+网络理论另见 [`_fundamentals/04-computer-network/`](../../_fundamentals/04-computer-network/)
+
+### Git 与协作
+
+| 主题 | 文档 |
+|------|------|
+| Git 进阶 | [`_common/15-git/01-git-advanced`](../../_common/15-git/01-git-advanced.md) |
+| Git 工作流 | [`_common/15-git/02-git-workflow`](../../_common/15-git/02-git-workflow.md) |
+| Conventional Commits / SemVer | [`_common/15-git/03-conventional-commits`](../../_common/15-git/03-conventional-commits.md) |
+
+→ [`_common/15-git/`](../../_common/15-git/README.md)
 
 ## 🎯 dify 仓库对应位置
 

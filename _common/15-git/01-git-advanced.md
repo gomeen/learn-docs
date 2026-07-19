@@ -1,4 +1,4 @@
-# 1.5.1 Git 进阶：`rebase` / `cherry-pick` / `bisect`
+# 15.1 Git 进阶：`rebase` / `cherry-pick` / `bisect`
 
 > 掌握 Git 高级命令，能优雅地整理提交历史、移植补丁、定位引入 bug 的提交。
 

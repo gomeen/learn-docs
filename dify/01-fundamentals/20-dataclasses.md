@@ -79,7 +79,7 @@ class User:
     name: str
 ```
 
-`slots=True` 等价于手动 `__slots__ = ('id', 'name')`（内存管理见 [41-memory-management](./41-memory-management.md)）：
+`slots=True` 等价于手动 `__slots__ = ('id', 'name')`（内存管理见 [25-memory-management](./25-memory-management.md)）：
 - 节省内存（每个实例不再有 `__dict__`）
 - 加快属性访问
 - 不能再添加新属性

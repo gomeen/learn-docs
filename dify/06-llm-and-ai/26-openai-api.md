@@ -14,8 +14,8 @@
 
 - [Token、上下文窗口与计费](./03-tokens-context.md)
 - [模型参数](./04-model-parameters.md)
-- Python 环境变量、异常处理与生成器（详见 [环境变量](../01-fundamentals/19-env-vars.md)、[异常](../01-fundamentals/06-python-exceptions.md)、[生成器](../01-fundamentals/14-generator.md)）
-- HTTP 请求与 JSON（详见 [HTTP 协议](../01-fundamentals/25-http-protocol.md)、[JSON](../01-fundamentals/17-json-processing.md)）
+- Python 环境变量、异常处理与生成器（详见 [环境变量](../01-fundamentals/29-env-vars.md)、[异常](../01-fundamentals/06-python-exceptions.md)、[生成器](../01-fundamentals/14-generator.md)）
+- HTTP 请求与 JSON（详见 [HTTP 协议](../../_common/14-api-protocols/01-http-protocol.md)、[JSON](../01-fundamentals/27-json-processing.md)）
 
 ## 1. 核心概念
 

@@ -92,7 +92,7 @@
 
 **三种粒度**：
 
-1. **自然语言描述**："请用 JSON 格式返回，字段包括 name、age" —— 最简单但模型可能不严格遵守（JSON 处理详见 [JSON](../01-fundamentals/17-json-processing.md)）
+1. **自然语言描述**："请用 JSON 格式返回，字段包括 name、age" —— 最简单但模型可能不严格遵守（JSON 处理详见 [JSON](../01-fundamentals/27-json-processing.md)）
 2. **Schema 约束**：用 JSON Schema 描述输出结构（dify 的 `SYSTEM_STRUCTURED_OUTPUT_GENERATE`）
 3. **工具调用**（Function Calling，详见 [Function Calling](./14-function-calling.md)）：把输出绑定到函数签名，模型只能按签名填充
 
