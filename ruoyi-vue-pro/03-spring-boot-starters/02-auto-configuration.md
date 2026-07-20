@@ -14,7 +14,7 @@
 
 - [01-starter-mechanism.md](./01-starter-mechanism.md)
 - Spring 条件注解（@ConditionalOnClass、@ConditionalOnBean；详见 [04-conditional](./04-conditional.md)）
-- Spring Boot 启动流程（详见 [07-startup](../02-spring-boot/07-startup.md) / [08-auto-config](../02-spring-boot/08-auto-config.md)）
+- Spring Boot 启动流程（详见 [07-startup](../02-spring-boot/08-startup.md) / [08-auto-config](../02-spring-boot/09-auto-config.md)）
 
 ## 1. 核心概念
 
@@ -101,101 +101,13 @@ public DataSource dataSource() {
 }
 ```
 
-## 3. ruoyi 仓库源码解读
-
-### 3.1 yudao MyBatis 自动配置
-
-**文件位置**：`/Users/xu/code/github/ruoyi-vue-pro/yudao-framework/yudao-spring-boot-starter-mybatis/src/main/java/cn/iocoder/yudao/framework/mybatis/config/YudaoMybatisAutoConfiguration.java`
-**核心代码**（行 34-54）：
-
-```java
-@AutoConfiguration(before = MybatisPlusAutoConfiguration.class)
-@MapperScan(value = "${yudao.info.base-package}", annotationClass = Mapper.class,
-        lazyInitialization = "${mybatis.lazy-initialization:false}")
-public class YudaoMybatisAutoConfiguration {
-
-    static {
-        JsqlParserGlobal.setJsqlParseCache(new JdkSerialCaffeineJsqlParseCache(
-                (cache) -> cache.maximumSize(1024)
-                        .expireAfterWrite(5, TimeUnit.SECONDS))
-        );
-    }
-
-    @Bean
-    public MybatisPlusInterceptor mybatisPlusInterceptor() {
-        MybatisPlusInterceptor mybatisPlusInterceptor = new MybatisPlusInterceptor();
-        mybatisPlusInterceptor.addInnerInterceptor(new PaginationInnerInterceptor());
-        return mybatisPlusInterceptor;
-    }
-
-    @Bean
-    public MetaObjectHandler defaultMetaObjectHandler() {
-        return new DefaultDBFieldHandler();
-    }
-}
-```
-
-**解读**：
-- 第 34 行：`before = MybatisPlusAutoConfiguration.class` 强制本配置先于 MP 加载，保证 `@MapperScan` 先注册
-- 第 39-45 行：static 块在类加载时设置 JsqlParser 全局缓存，加速 SQL 解析
-- 第 48-54 行：注册分页拦截器（PaginationInnerInterceptor），这是 MyBatis Plus 分页的核心
-- 第 57-59 行：注册 `MetaObjectHandler` 用于自动填充 `createTime`、`creator` 等字段
-
-### 3.2 多数据源自动配置
-
-**文件位置**：`/Users/xu/code/github/ruoyi-vue-pro/yudao-framework/yudao-spring-boot-starter-mybatis/src/main/java/cn/iocoder/yudao/framework/datasource/config/YudaoDataSourceAutoConfiguration.java`
-
-**核心代码**（节选）：
-
-```java
-@AutoConfiguration(before = YudaoMybatisAutoConfiguration.class)
-@EnableConfigurationProperties(DataSourceProperties.class)
-public class YudaoDataSourceAutoConfiguration {
-
-    @Bean
-    public DynamicDataSourceAnnotationAdvisor dynamicDataSourceAnnotationAdvisor() {
-        // 注册 @DS 注解的 AOP 切面
-    }
-}
-```
-
-**解读**：
-- `before = YudaoMybatisAutoConfiguration.class` 保证数据源在 MyBatis 之前装配
-- 通过 `@DS` 注解实现多数据源切换（ruoyi 经典特性）
-- 整个 Starter 的装配顺序：`DataSource → Mybatis → Tenant → DataPermission`
-
-## 4. 关键要点总结
+## 3. 关键要点总结
 
 - **`@AutoConfiguration`** 是 Spring Boot 3.x 专门为 Starter 设计的注解
 - **`AutoConfiguration.imports`**（META-INF/spring/）替代了 Spring Boot 2.x 的 `spring.factories`
 - **`@ConditionalOnMissingBean`** 让业务方可以**覆盖** starter 提供的 Bean，是 starter 可扩展的关键
 - **装配顺序**由 `@AutoConfiguration(before = X.class)` 控制——ruoyi Starter 之间有严格顺序
 - **避免**直接在 starter 中写业务逻辑，应通过 `@Conditional` 决定是否生效
-
-## 5. 练习题
-
-### 练习 1：基础（必做）
-
-阅读 `YudaoMybatisAutoConfiguration` 的 `@Bean` 方法，回答：
-- `mybatisPlusInterceptor` 的作用？
-- `defaultMetaObjectHandler` 的作用？
-- 能否通过 `application.yml` 关闭分页插件？
-
-### 练习 2：进阶
-
-给 `YudaoMybatisAutoConfiguration` 加一个开关（`mybatis-plus.print-sql`），开启后打印完整 SQL。提示：使用 `@ConditionalOnProperty`。
-
-### 练习 3：挑战（选做）
-
-阅读 `yudao-spring-boot-starter-biz-tenant` 的 `YudaoTenantAutoConfiguration`，画出"用户请求 → Tenant 装配 → DB 拦截器"的时序图。
-
-## 6. 参考资料
-
-- `/Users/xu/code/github/ruoyi-vue-pro/yudao-framework/yudao-spring-boot-starter-mybatis/src/main/java/cn/iocoder/yudao/framework/mybatis/config/YudaoMybatisAutoConfiguration.java`
-- `/Users/xu/code/github/ruoyi-vue-pro/yudao-framework/yudao-spring-boot-starter-mybatis/src/main/java/cn/iocoder/yudao/framework/datasource/config/YudaoDataSourceAutoConfiguration.java`
-- `/Users/xu/code/github/ruoyi-vue-pro/yudao-framework/yudao-spring-boot-starter-mybatis/src/main/resources/META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports`
-- Spring Boot 自动装配源码：`org.springframework.boot.autoconfigure.AutoConfigurationImportSelector`
-- Spring Boot 文档：https://docs.spring.io/spring-boot/docs/current/reference/html/features.html#features.developing.auto-configuration
 
 ---
 

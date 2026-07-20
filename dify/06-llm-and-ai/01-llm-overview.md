@@ -58,7 +58,7 @@ mindmap
       内容审核
 ```
 
-> 📌 **Sighting**：后文专题入口——工具调用 / Function Calling 见 [Function Calling](./14-function-calling.md)；流式输出协议见 [SSE](../../_common/14-api-protocols/04-sse.md) 与本模块 [流式输出](./27-streaming-sse.md)；Embedding 选型见 [Embedding 模型](./06-embedding-models.md)；Token 与上下文见 [Tokens 与上下文](./03-tokens-context.md)。
+> 📌 **Sighting**：后文专题入口——工具调用 / Function Calling 见 [Function Calling](./17-function-calling.md)；流式输出协议见 [SSE](../../_common/14-api-protocols/04-sse.md) 与本模块 [流式输出](./32-streaming-sse.md)；Embedding 选型见 [Embedding 模型](./06-embedding-models.md)；Token 与上下文见 [Tokens 与上下文](./03-tokens-context.md)。
 
 **为什么 dify 要支持这么多供应商？**
 - 避免厂商锁定（vendor lock-in）
@@ -135,120 +135,12 @@ model_instance = ModelManager.for_tenant(tenant_id).get_model_instance(
 resp = model_instance.invoke_llm(prompt_messages=[...], model_parameters={...})
 ```
 
-## 3. dify 仓库源码解读
-
-### 3.1 模型供应商工厂
-
-**文件位置**：`/Users/xu/OrbStack/docker/images/langgenius/dify-api:2.0.0-beta.2/app/api/core/model_runtime/model_providers/model_provider_factory.py`
-**核心代码**（行 33-72）：
-
-```python
-class ModelProviderFactory:
-    provider_position_map: dict[str, int]
-
-    def __init__(self, tenant_id: str) -> None:
-        from core.plugin.impl.model import PluginModelClient
-
-        self.provider_position_map = {}
-        self.tenant_id = tenant_id
-        self.plugin_model_manager = PluginModelClient()
-
-        if not self.provider_position_map:
-            # get the path of current classes
-            current_path = os.path.abspath(__file__)
-            model_providers_path = os.path.dirname(current_path)
-
-            # get _position.yaml file path
-            self.provider_position_map = get_provider_position_map(model_providers_path)
-
-    def get_providers(self) -> Sequence[ProviderEntity]:
-        """
-        Get all providers
-        :return: list of providers
-        """
-        # Fetch plugin model providers
-        plugin_providers = self.get_plugin_model_providers()
-        # Convert PluginModelProviderEntity to ModelProviderExtension
-        model_provider_extensions = []
-        for provider in plugin_providers:
-            model_provider_extensions.append(ModelProviderExtension(plugin_model_provider_entity=provider))
-
-        sorted_extensions = sort_to_dict_by_position_map(
-            position_map=self.provider_position_map,
-            data=model_provider_extensions,
-            name_func=lambda x: x.plugin_model_provider_entity.declaration.provider,
-        )
-        return [extension.plugin_model_provider_entity.declaration for extension in sorted_extensions.values()]
-```
-
-**解读**：
-- 第 36 行：构造函数接受 `tenant_id`，每个租户可以独立配置自己的供应商
-- 第 50 行：读取 `_position.yaml` 文件来控制供应商在 UI 上的显示顺序
-- 第 65-69 行：用 position map 给供应商排序，业务上用于"默认推荐的供应商排在最前"
-- **整体设计意图**：通过插件机制（`PluginModelClient`）动态加载供应商，新增一个厂商只需要写一个插件，不用改 dify 主仓库
-
-### 3.2 dify 的 PluginModelClient 调用入口
-
-**文件位置**：`/Users/xu/code/github/dify/api/core/plugin/impl/model_runtime.py`
-**核心代码**（行 1-50）：
-
-```python
-class PluginModelClient:
-    def fetch_model_providers(self, tenant_id: str) -> Sequence[PluginModelProviderEntity]:
-        """
-        Fetch model providers for a tenant.
-        """
-        try:
-            resp = self._request(
-                method="GET",
-                path="plugin/model/providers",
-                params={"tenant_id": tenant_id},
-            )
-            return [PluginModelProviderEntity(**provider) for provider in resp["data"]]
-        except Exception:
-            raise PluginDaemonClientSideError(code=...) from None
-
-    def invoke_llm(self, tenant_id, provider, model, credentials, prompt_messages, ...):
-        # 通过 plugin daemon 进程转发调用，统一鉴权/限流/审计
-        ...
-```
-
-**解读**：
-- dify 把模型调用放到一个独立的"plugin daemon"进程（Go 写的），Python 端通过 HTTP 转发
-- 这种架构的好处是：插件崩溃不会拖垮主进程，且 Go 端可以做更严格的资源隔离
-- 上层 Python 业务只看到 `invoke_llm` 这一个方法
-
-## 4. 关键要点总结
+## 3. 关键要点总结
 
 - dify 不直接集成各厂商 SDK，而是通过 plugin daemon 统一调度
 - `ModelProvider` 是抽象层，`ModelType` 区分 LLM/Embedding/Rerank 等不同模态
 - 选模型时要权衡能力、价格、上下文窗口、合规四要素
 - 同一业务可配置多个供应商，按任务类型路由
-
-## 5. 练习题
-
-### 练习 1：基础（必做）
-
-阅读 `/Users/xu/OrbStack/docker/images/langgenius/dify-api:2.0.0-beta.2/app/api/core/model_runtime/model_providers/__base/ai_model.py`，画出 `AIModel` 抽象类的继承树，列出所有继承它的子类名称。
-
-**参考答案**：见 `solutions/01-providers.md`
-
-### 练习 2：进阶
-
-在 dify 的 Web 后端（`/web/`）找到"模型供应商"配置页面，描述从用户点击"添加供应商"到最终 `PluginModelClient.fetch_model_providers` 调用的完整链路。
-
-### 练习 3：挑战（选做）
-
-设计一个"按任务类型自动路由模型"的方案：写代码判断用户的请求是"闲聊"还是"代码生成"或"长文档总结"，分别用 Haiku 4.5、Sonnet 5、Opus 4.8。提示：用关键词分类或先调一次小模型做意图识别。
-
-## 6. 参考资料
-
-- `/Users/xu/OrbStack/docker/images/langgenius/dify-api:2.0.0-beta.2/app/api/core/model_runtime/`
-- `/Users/xu/OrbStack/docker/images/langgenius/dify-api:2.0.0-beta.2/app/api/core/model_runtime/model_providers/model_provider_factory.py`
-- `/Users/xu/code/github/dify/api/core/plugin/impl/model_runtime.py`
-- Anthropic 模型目录：https://docs.anthropic.com/en/docs/about-claude/models/overview
-- OpenAI 模型列表：https://platform.openai.com/docs/models
-- Gemini 模型：https://ai.google.dev/gemini-api/docs/models
 
 ---
 

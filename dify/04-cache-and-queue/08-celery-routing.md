@@ -1,0 +1,195 @@
+# 4.3.4 任务路由与队列优先级
+
+> 多队列可以让不同优先级的任务互不干扰，是 Celery 实现 SLA 的关键。
+
+## 🎯 学习目标
+
+完成本文档后，你将能够：
+- 配置 Celery 任务路由（按任务名分发到不同队列）
+- 用 Worker 并发控制实现资源隔离
+- 理解 RabbitMQ 优先级队列 vs Redis Sorted Set
+- 掌握 dify 的多队列设计（订阅级别）
+
+## 📚 前置知识
+
+- Celery 任务定义与调用（详见 [Celery 架构](./05-celery-architecture.md)、[任务定义](./06-celery-tasks.md)、[任务调用](./07-celery-invoke.md)）
+- 队列概念（详见 [MQ 核心概念](../../_common/02-mq/01-concepts.md)）
+
+## 1. 核心概念
+
+### 1.1 为什么需要多队列？
+
+单队列的问题：
+- **优先级缺失**：所有任务一视同仁
+- **资源争抢**：重任务阻塞轻任务
+- **故障扩散**：一个任务堆积影响所有任务
+
+多队列的好处：
+- **按业务隔离**：邮件、报表、数据处理互不干扰
+- **按优先级**：VIP 任务优先处理
+- **按资源类型**：CPU 密集 vs I/O 密集分队列
+
+### 1.2 任务路由配置
+
+**全局配置**：
+```python
+app.conf.task_routes = {
+    "tasks.email.*": {"queue": "email"},
+    "tasks.report.*": {"queue": "report"},
+    "tasks.urgent.*": {"queue": "priority", "priority": 9},
+}
+```
+
+**任务装饰器配置**（推荐；`@shared_task` 写法详见 [装饰器](../01-fundamentals/11-decorator.md)）：
+```python
+@shared_task(queue="email", bind=True)
+def send_email(self, to):
+    pass
+```
+
+### 1.3 Worker 消费指定队列
+
+```bash
+# Worker 1：只处理邮件
+celery worker -Q email --concurrency=4
+
+# Worker 2：只处理报表
+celery worker -Q report --concurrency=2
+
+# Worker 3：VIP 队列（高并发）
+celery worker -Q priority --concurrency=20
+```
+
+### 1.4 队列优先级
+
+**RabbitMQ**：原生支持队列优先级（`x-max-priority`；详见 [RabbitMQ](../../_common/02-mq/03-rabbitmq.md)）。
+**Redis**：不支持原生优先级，但可以用 Sorted Set 模拟（详见 [Redis 数据结构](../../_common/01-redis/01-data-structures.md)）。
+
+dify 的"订阅级别"队列本质上是一种**业务优先级**：
+- PROFESSIONAL 队列资源最多
+- SANDBOX 队列资源最少
+
+### 1.5 任务优先级（task priority）
+
+```python
+@shared_task(queue="email", bind=True)
+def send_email(self, to, priority=5):
+    pass
+
+# 调用时设置
+send_email.apply_async(("alice@x.com",), priority=9)  # VIP 邮件
+send_email.apply_async(("bob@x.com",), priority=0)    # 普通邮件
+```
+
+**注意**：Redis Broker 实际忽略此参数（按 FIFO 处理）。
+
+### 1.6 队列深度监控
+
+```bash
+# Redis：查看队列长度
+redis-cli LLEN celery
+
+# RabbitMQ：查看队列消息数
+rabbitmqctl list_queues
+```
+
+## 2. 代码示例
+
+### 2.1 多队列配置
+
+```python
+# celery_config.py
+from celery import Celery
+
+app = Celery("tasks", broker="redis://localhost:6379/0")
+
+# 路由配置
+app.conf.task_routes = {
+    "tasks.email.*": {"queue": "email"},
+    "tasks.report.*": {"queue": "report"},
+    "tasks.ml.*": {"queue": "ml"},
+}
+```
+
+```python
+# tasks/email.py
+@shared_task(queue="email")
+def send_email(to, subject, body):
+    smtp.send(to, subject, body)
+```
+
+```python
+# tasks/report.py
+@shared_task(queue="report")
+def generate_report(report_id):
+    data = db.query(f"SELECT * FROM reports WHERE id = {report_id}")
+    # 生成 PDF...
+```
+
+### 2.2 Worker 分级
+
+```bash
+# 邮件 worker：低并发（IO 密集，gevent）
+celery worker -Q email -P gevent --concurrency=50
+
+# 报表 worker：CPU 密集，预留多进程
+celery worker -Q report -P prefork --concurrency=4
+
+# ML 推理：GPU 独占
+celery worker -Q ml -P solo --concurrency=1
+```
+
+### 2.3 优先级队列（RabbitMQ）
+
+```python
+# 创建优先级队列（需 RabbitMQ 配置 x-max-priority）
+app.conf.broker_transport_options = {
+    "priority_steps": list(range(10)),
+    "queue_order_strategy": "priority",
+}
+
+# 调用时设置
+send_email.apply_async(
+    ("vip@example.com", "Important", "Hello"),
+    priority=9,  # 最高
+)
+```
+
+### 2.4 任务路由动态化
+
+```python
+def route_task(name, args, kwargs, options, task_type=None, **kw):
+    """根据参数动态决定队列"""
+    if name == "tasks.email.send_email":
+        if "vip" in args[0]:
+            return {"queue": "priority"}
+        return {"queue": "email"}
+    return {"queue": "default"}
+
+app.conf.task_routes = (route_task,)
+```
+
+### 2.5 常见错误：Worker 没监听对应队列
+
+```python
+# ❌ 错误：任务指定 queue="vip"，但 Worker 没启动时监听
+@shared_task(queue="vip")
+def vip_task():
+    pass
+
+# 启动：celery worker （没 -Q vip）
+# 结果：任务堆积在 Redis，无人处理
+```
+
+## 3. 关键要点总结
+
+- 多队列实现**业务隔离 + 资源隔离**
+- 任务装饰器 `queue="..."` 是最简单的路由方式
+- Worker 用 `-Q queue1,queue2` 监听多个队列
+- RabbitMQ 原生支持优先级，Redis 不支持
+- dify 的 **3 订阅队列 + 多功能队列** 实现资源分级
+
+---
+
+**文档版本**：v1.0
+**最后更新**：2026-07-13

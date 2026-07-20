@@ -45,3 +45,11 @@
 - **性能优化**：TCP 调优 / HTTP/2 多路复用
 - **安全**：HTTPS / CSRF Token
 - **微服务**：服务间通信（HTTP / gRPC）
+
+## 📐 与 `_common` 的分工
+
+| 本目录（Mastery） | 工程公共 [`../../_common/14-api-protocols/`](../../_common/14-api-protocols/) |
+|-------------------|-----------------------------------------------------------------------------|
+| TCP/HTTP 协议语义、版本演进、Header/状态码详解、HTTPS 握手、WebSocket 协议 | REST 设计、SSE、gRPC 选型；HTTP 工程速查 |
+
+学习顺序建议：先本目录 4.2 应用层协议 → 再 `_common/14` 做接口设计。

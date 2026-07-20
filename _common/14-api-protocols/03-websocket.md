@@ -1,4 +1,4 @@
-# 14.3 WebSocket 协议
+# 1.4.3 WebSocket 协议
 
 > 掌握 WebSocket 双向通信协议，能用 dify 的实时日志、对话推送能力。
 
@@ -12,14 +12,14 @@
 
 ## 📚 前置知识
 
-- _common/14-api-protocols/01-http-protocol.md
-- 01-fundamentals/12-async-asyncio.md
+- [HTTP 协议](./01-http-protocol.md)
+- [asyncio](../../dify/01-fundamentals/12-async-asyncio.md)（可选）
 
 ## 1. 核心概念
 
 ### 1.1 为什么需要 WebSocket？
 
-与 SSE 的对比见下文表格；SSE 专题见 [24-sse](./04-sse.md)。HTTP 基础见 [21-http-protocol](./01-http-protocol.md)。
+与 SSE 的对比见下文表格；SSE 专题见 [SSE](./04-sse.md)。HTTP 基础见 [HTTP 协议](./01-http-protocol.md)。
 
 HTTP 是**请求-响应**模式：客户端必须主动请求才能获取数据。如果需要服务端**主动推送**（实时消息、行情数据），传统方案：
 
@@ -103,7 +103,7 @@ WebSocket 通信以**帧**为单位：
 
 ### 2.1 Python WebSocket 客户端
 
-示例使用 `async`/`await`（机制见 [12-async-asyncio](../../dify/01-fundamentals/12-async-asyncio.md)）；本文关注 WebSocket API。
+示例使用 `async`/`await`（机制见 [asyncio](../../dify/01-fundamentals/12-async-asyncio.md)）；本文关注 WebSocket API。
 
 ```python
 import asyncio

@@ -13,7 +13,7 @@
 ## 📚 前置知识
 
 - Redis 基础（详见 [Redis 数据结构](../../_common/01-redis/01-data-structures.md)）
-- Redisson 客户端（详见 [Redisson 客户端](./02-redisson.md)）
+- Redisson 客户端（详见 [Redisson 客户端](./01-redisson.md)）
 - 限流算法通用原理（详见 [限流算法](../../_common/03-cache-patterns/04-rate-limiting.md)）
 
 ## 1. 核心概念
@@ -104,75 +104,12 @@ public class SmsController {
 }
 ```
 
-## 3. ruoyi 仓库源码解读
-
-### 3.1 ruoyi 限流模块入口
-
-ruoyi 在 `yudao-spring-boot-starter-protection` 中实现了限流器，基于 Redis 但**不直接用 Redisson**。它通过 AOP + 自定义注解实现，底层用 Redis Lua 脚本保证原子性。
-
-**文件位置**：`/Users/xu/code/github/ruoyi-vue-pro/yudao-framework/yudao-spring-boot-starter-protection/src/main/java/cn/iocoder/yudao/framework/ratelimiter/config/YudaoRateLimiterConfiguration.java`
-**核心代码**（示例片段）：
-
-```java
-@AutoConfiguration
-public class YudaoRateLimiterConfiguration {
-
-    @Bean
-    public RateLimiterRedisDAO rateLimiterRedisDAO(RedisTemplate<String, ?> redisTemplate) {
-        return new RateLimiterRedisDAO(redisTemplate);
-    }
-
-}
-```
-
-**解读**：
-- ruoyi 选择自己实现限流（而非 Redisson `RRateLimiter`），是为了能配合 `@RateLimiter` 注解 + AOP 做**声明式限流**
-- 这是一种"业务优先"的设计：注解即配置，使用方零感知
-
-### 3.2 ruoyi 限流 Redis DAO（基于 Lua 脚本）
-
-**文件位置**：`/Users/xu/code/github/ruoyi-vue-pro/yudao-framework/yudao-spring-boot-starter-protection/src/main/java/cn/iocoder/yudao/framework/ratelimiter/core/redis/RateLimiterRedisDAO.java`
-
-```java
-public class RateLimiterRedisDAO {
-    // 核心：用 Lua 脚本在 Redis 内原子执行 INCR + EXPIRE
-    // Lua 脚本略，可直接看源码
-}
-```
-
-**解读**：
-- ruoyi 用 Lua 脚本在 Redis 单线程内做"计数+过期"，避免竞态
-- 这是和 Redisson 令牌桶**等价**的实现思路：依赖 Redis 单线程 + Lua 原子性
-- 选 Redisson 还是自研？看团队是否需要注解/AOP/分布式 ID 维度等业务定制
-
-## 4. 关键要点总结
+## 3. 关键要点总结
 
 - 限流算法：固定窗口、滑动窗口、令牌桶、漏桶
 - `RRateLimiter` 是 Redisson 的令牌桶实现，`OVERALL` 是分布式限流
 - `tryAcquire()` 非阻塞获取令牌，失败直接拒绝
 - ruoyi 自研限流器走 AOP + Redis Lua，更适合业务声明式使用
-
-## 5. 练习题
-
-### 练习 1：基础（必做）
-
-写一段代码创建 `RRateLimiter`，要求每秒最多放行 5 次。
-
-### 练习 2：进阶
-
-思考：为什么 ruoyi 不直接用 `RRateLimiter` 而要自研？看 `YudaoRateLimiterConfiguration` 的设计，回答以下问题：
-- 注解式 vs 命令式哪个更适合 Web 场景？
-- 如果让你加一个"按用户维度限流"，Redisson 和 ruoyi 方案哪个更容易？
-
-### 练习 3：挑战（选做）
-
-用 `RRateLimiter` 实现"验证码 1 分钟只能发 1 次"，key 用手机号作为后缀。
-
-## 6. 参考资料
-
-- `/Users/xu/code/github/ruoyi-vue-pro/yudao-framework/yudao-spring-boot-starter-protection/src/main/java/cn/iocoder/yudao/framework/ratelimiter/config/YudaoRateLimiterConfiguration.java`
-- `/Users/xu/code/github/ruoyi-vue-pro/yudao-framework/yudao-spring-boot-starter-protection/src/main/java/cn/iocoder/yudao/framework/ratelimiter/core/redis/RateLimiterRedisDAO.java`
-- Redisson 限流文档：https://redisson.org/docs/data-and-services/rate-limiter/
 
 ---
 

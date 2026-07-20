@@ -13,9 +13,9 @@
 ## 📚 前置知识
 
 - Spring IoC 容器基本概念（详见 [01-ioc](../02-spring-boot/01-ioc.md)）
-- Maven 多模块项目结构（详见 [11-maven-modules](../01-java-fundamentals/11-maven-modules.md)）
+- Maven 多模块项目结构（详见 [11-maven-modules](../01-java-fundamentals/13-maven-modules.md)）
 - Java 注解基础（详见 [04-annotation](../01-java-fundamentals/04-annotation.md)）
-- 自动配置入门见 [08-auto-config](../02-spring-boot/08-auto-config.md) / [09-custom-starter](../02-spring-boot/09-custom-starter.md)
+- 自动配置入门见 [08-auto-config](../02-spring-boot/09-auto-config.md) / [09-custom-starter](../02-spring-boot/10-custom-starter.md)
 
 ## 1. 核心概念
 
@@ -151,94 +151,13 @@ public class DemoController {
 </dependency>
 ```
 
-## 3. ruoyi 仓库源码解读
-
-### 3.1 mybatis starter 的目录结构
-
-**文件位置**：`/Users/xu/code/github/ruoyi-vue-pro/yudao-framework/yudao-spring-boot-starter-mybatis/`
-**目录结构**：
-
-```
-yudao-spring-boot-starter-mybatis/
-├── pom.xml
-└── src/main/java/cn/iocoder/yudao/framework/
-    ├── datasource/        # 多数据源配置
-    ├── mybatis/           # MyBatis 增强（核心）
-    │   ├── config/        # AutoConfiguration 类
-    │   ├── core/          # BaseMapperX、LambdaQueryWrapperX 等
-    │   └── package-info.java
-    └── translate/         # 翻译组件
-```
-
-### 3.2 AutoConfiguration 入口类
-
-**文件位置**：`/Users/xu/code/github/ruoyi-vue-pro/yudao-framework/yudao-spring-boot-starter-mybatis/src/main/java/cn/iocoder/yudao/framework/mybatis/config/YudaoMybatisAutoConfiguration.java`
-**核心代码**（行 34-37）：
-
-```java
-@AutoConfiguration(before = MybatisPlusAutoConfiguration.class) // 目的：先于 MyBatis Plus 自动配置
-@MapperScan(value = "${yudao.info.base-package}", annotationClass = Mapper.class,
-        lazyInitialization = "${mybatis.lazy-initialization:false}")
-public class YudaoMybatisAutoConfiguration {
-    // ... Bean 定义
-}
-```
-
-**解读**：
-- 第 34 行：`@AutoConfiguration(before = ...)` 声明本自动配置类在 MyBatis Plus 官方自动配置**之前**生效
-- 第 35 行：`@MapperScan` 扫描 `${yudao.info.base-package}` 包下的 `@Mapper` 注解接口
-- 第 36 行：支持通过 `mybatis.lazy-initialization=true` 启用 Mapper 懒加载（仅用于单元测试）
-
-### 3.3 AutoConfiguration.imports 注册文件
-
-**文件位置**：`/Users/xu/code/github/ruoyi-vue-pro/yudao-framework/yudao-spring-boot-starter-mybatis/src/main/resources/META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports`
-**内容**：
-
-```
-cn.iocoder.yudao.framework.datasource.config.YudaoDataSourceAutoConfiguration
-cn.iocoder.yudao.framework.mybatis.config.YudaoMybatisAutoConfiguration
-cn.iocoder.yudao.framework.mybatis.config.IdTypeEnvironmentPostProcessor
-cn.iocoder.yudao.framework.translate.config.YudaoTranslateAutoConfiguration
-```
-
-**解读**：
-- Spring Boot 3.x 之后，自动配置类**不再**注册到 `META-INF/spring.factories`
-- 改用 `META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports`
-- 每行一个 AutoConfiguration 全限定类名
-- Spring 启动时会自动读取并加载
-
-## 4. 关键要点总结
+## 3. 关键要点总结
 
 - **Starter = autoconfigure + 传递依赖**：用户引入 starter，自动获得全部能力
 - **命名规则**：第三方 `xxx-spring-boot-starter`，官方 `spring-boot-starter-xxx`
 - **Spring Boot 3.x 注册方式**：用 `META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports`（替代旧版 `spring.factories`）
 - **ruoyi 的 15+ Starter** 覆盖了企业开发的所有通用能力：DB、缓存、消息、权限、租户、限流、定时任务等
 - **`@AutoConfiguration`** 是新注解，语义与 `@Configuration` 相似，但**仅用于自动装配**场景
-
-## 5. 练习题
-
-### 练习 1：基础（必做）
-
-在 `yudao-framework` 下新建一个 `yudao-spring-boot-starter-hello` 模块，包含 `HelloService`（返回 `"Hello, " + name`），并完成自动装配。运行 yudao-server（任一模块），验证 Bean 注入成功。
-
-### 练习 2：进阶
-
-阅读 `yudao-spring-boot-starter-mybatis` 的 `pom.xml`，列出它依赖了哪些其他 starter。理解"Starter 嵌套"的设计——例如 redis starter 被谁依赖。
-
-### 练习 3：挑战（选做）
-
-设计一个 `yudao-spring-boot-starter-cache`（如果不存在），统一封装本地缓存（Caffeine）+ 分布式缓存（Redis）。要求：
-- 通过 `@Cached` 注解支持
-- 支持 TTL 配置
-- 支持 key 前缀
-
-## 6. 参考资料
-
-- `/Users/xu/code/github/ruoyi-vue-pro/yudao-framework/yudao-spring-boot-starter-mybatis/`
-- `/Users/xu/code/github/ruoyi-vue-pro/yudao-framework/yudao-spring-boot-starter-mybatis/pom.xml`
-- `/Users/xu/code/github/ruoyi-vue-pro/yudao-framework/yudao-spring-boot-starter-mybatis/src/main/resources/META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports`
-- Spring Boot 官方文档：https://docs.spring.io/spring-boot/docs/current/reference/html/features.html#features.developing.auto-configuration
-- Spring Boot 3.x 自动装配源码：`org.springframework.boot.autoconfigure.AutoConfiguration.imports`
 
 ---
 

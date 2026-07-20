@@ -13,7 +13,7 @@
 ## 📚 前置知识
 
 - Redis 基础（详见 [Redis 数据结构](../../_common/01-redis/01-data-structures.md)）
-- Redisson 客户端（详见 [Redisson 客户端](./02-redisson.md)）
+- Redisson 客户端（详见 [Redisson 客户端](./01-redisson.md)）
 - Java 并发基础（Lock 接口）
 - 分布式锁核心要求（详见 [分布式锁要求](../../_common/04-distributed-locks/01-requirements.md)）
 
@@ -97,92 +97,13 @@ try {
 }
 ```
 
-## 3. ruoyi 仓库源码解读
-
-### 3.1 RedisPendingMessageResendJob 抢占锁防止重复执行
-
-**文件位置**：`/Users/xu/code/github/ruoyi-vue-pro/yudao-framework/yudao-spring-boot-starter-mq/src/main/java/cn/iocoder/yudao/framework/mq/redis/core/job/RedisPendingMessageResendJob.java`
-**核心代码**（行 46-62）：
-
-```java
-/**
- * 一分钟执行一次,这里选择每分钟的 35 秒执行，是为了避免整点任务过多的问题
- */
-@Scheduled(cron = "35 * * * * ?")
-public void messageResend() {
-    RLock lock = redissonClient.getLock(resendLockKey);
-    if (lock.tryLock()) {
-        try {
-            execute();
-        } catch (Exception ex) {
-            log.error("[messageResend][执行异常][lockKey={}]", resendLockKey, ex);
-        } finally {
-            if (lock.isHeldByCurrentThread()) {
-                lock.unlock();
-            }
-        }
-    } else {
-        log.debug("[messageResend][未获取到锁，跳过本轮][lockKey={}]", resendLockKey);
-    }
-}
-```
-
-**解读**：
-- 第 48 行：`getLock("redis:stream:pending-message-resend:lock")` 是**全局唯一**的锁 key
-- 第 49 行：`tryLock()` 非阻塞获取——如果多个实例都部署了定时任务，只有抢到锁的那个会执行重发逻辑
-- 第 55 行：`isHeldByCurrentThread()` 检查锁是否还归当前线程持有，避免因超时导致误删别人的锁
-- **设计意图**：分布式定时任务"只让一个实例干活"，避免重复消费消息
-
-### 3.2 ruoyi 的 lockKey 常量设计
-
-**文件位置**：`/Users/xu/code/github/ruoyi-vue-pro/yudao-framework/yudao-spring-boot-starter-mq/src/main/java/cn/iocoder/yudao/framework/mq/redis/core/job/RedisPendingMessageResendJob.java`
-**核心代码**（行 26-28）：
-
-```java
-public static final String DEFAULT_RESEND_LOCK_KEY = "redis:stream:pending-message-resend:lock";
-
-public static final String IOT_RESEND_LOCK_KEY = "redis:stream:pending-message-resend:lock:iot";
-```
-
-**解读**：
-- DEFAULT 与 IOT 两个常量：因为 IoT 模块有专属的 Stream，单独用一个锁 key，避免影响主流程
-- 这是一种**业务隔离**的实践——同名锁容易导致业务互相阻塞
-
-## 4. 关键要点总结
+## 3. 关键要点总结
 
 - Redisson 分布式锁基于 Redis 实现，支持可重入、自动续期
 - `tryLock(timeout, leaseTime, unit)` 推荐：可控超时、自动过期
 - 不传 `leaseTime` 触发看门狗自动续期，适合长任务
 - 释放锁前必须判断 `isHeldByCurrentThread()`
 - ruoyi 在定时任务里用 `RLock` 保证集群下"只有一个实例干活"
-
-## 5. 练习题
-
-### 练习 1：基础（必做）
-
-写一个 `tryLock(3, 10, TimeUnit.SECONDS)` 的调用，说明：
-1. 等待时间和锁过期时间分别是多少？
-2. 如果 3 秒后还拿不到锁，行为是什么？
-
-**参考答案**：等待 3 秒、过期 10 秒；3 秒后拿不到锁则返回 false 不阻塞。
-
-### 练习 2：进阶
-
-阅读 `RedisPendingMessageResendJob.messageResend()`，思考：
-- 为什么用 `tryLock()` 而不是 `lock()`？
-- 如果不用分布式锁，多个实例同时跑这个定时任务会出什么问题？
-
-### 练习 3：挑战（选做）
-
-实现一个"商品秒杀"扣库存方法，要求：
-- 用 `RLock` 防止超卖
-- 锁 key 是 `seckill:product:{productId}`
-- 业务异常时正确释放锁
-
-## 6. 参考资料
-
-- `/Users/xu/code/github/ruoyi-vue-pro/yudao-framework/yudao-spring-boot-starter-mq/src/main/java/cn/iocoder/yudao/framework/mq/redis/core/job/RedisPendingMessageResendJob.java`
-- Redisson 分布式锁文档：https://redisson.org/docs/data-and-services/locks-and-synchronizers/
 
 ---
 

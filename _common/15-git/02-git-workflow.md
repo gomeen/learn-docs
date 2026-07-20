@@ -1,4 +1,4 @@
-# 15.2 Git 工作流：Git Flow / GitHub Flow / Trunk-based
+# 1.5.2 Git 工作流：Git Flow / GitHub Flow / Trunk-based
 
 > 掌握主流 Git 工作流模式，能根据团队规模选择合适的工作流，能读懂 dify 的协作模式。
 
@@ -12,7 +12,7 @@
 
 ## 📚 前置知识
 
-- [15.1 Git 进阶](./01-git-advanced.md)
+- [Git 进阶](./01-git-advanced.md)
 - Git 基础命令
 
 ## 1. 核心概念

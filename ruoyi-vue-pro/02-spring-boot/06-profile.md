@@ -12,8 +12,8 @@
 
 ## 📚 前置知识
 
-- Spring 基础配置（application.yml 详见 [10-config](./10-config.md)）
-- Maven 多模块项目（详见 [11-maven-modules](../01-java-fundamentals/11-maven-modules.md)）
+- Spring 基础配置（application.yml 详见 [10-config](./11-config.md)）
+- Maven 多模块项目（详见 [11-maven-modules](../01-java-fundamentals/13-maven-modules.md)）
 
 ## 1. 核心概念
 
@@ -98,61 +98,7 @@ public FilterRegistrationBean<DemoFilter> demoFilter() {
 - `@ConditionalOnProperty` 比 `@Profile` 更细粒度（基于配置项值）
 - `yudao.demo=true` 在 dev 环境配置，prod 不配置则不启用演示模式
 
-## 3. ruoyi-vue-pro 仓库源码解读
-
-### 3.1 启动类的多包扫描
-
-**文件位置**：`/Users/xu/code/github/ruoyi-vue-pro/yudao-server/src/main/java/cn/iocoder/yudao/server/YudaoServerApplication.java`
-**核心代码**（行 14-24）：
-
-```java
-@SuppressWarnings("SpringComponentScan") // 忽略 IDEA 无法识别 ${yudao.info.base-package}
-@SpringBootApplication(scanBasePackages = {"${yudao.info.base-package}.server", "${yudao.info.base-package}.module"})
-public class YudaoServerApplication {
-
-    public static void main(String[] args) {
-        // 如果你碰到启动的问题，请认真阅读 https://doc.iocoder.cn/quick-start/ 文章
-        SpringApplication.run(YudaoServerApplication.class, args);
-    }
-}
-```
-
-**解读**：
-- 第 3 行：`scanBasePackages` 用占位符 `${yudao.info.base-package}` 动态指定扫描路径
-- 占位符在 `pom.xml` 的 `<properties>` 中定义（如 `yudao.info.base-package=cn.iocoder.yudao`）
-- **Profile 关联**：在 dev/prod 环境下可以覆盖这个属性（如 `cn.iocoder.yudao.cn` vs `cn.iocoder.yudao.com`），实现"同一份代码部署到不同租户"
-
-### 3.2 Web 配置中的条件 Bean
-
-**文件位置**：`/Users/xu/code/github/ruoyi-vue-pro/yudao-framework/yudao-spring-boot-starter-web/src/main/java/cn/iocoder/yudao/framework/web/config/YudaoWebAutoConfiguration.java`
-**核心代码**（行 132-136）：
-
-```java
-@Bean
-@ConditionalOnProperty(value = "yudao.demo", havingValue = "true")
-public FilterRegistrationBean<DemoFilter> demoFilter() {
-    return createFilterBean(new DemoFilter(), WebFilterOrderEnum.DEMO_FILTER);
-}
-```
-
-**解读**：
-- 第 2 行：`@ConditionalOnProperty` 让 `DemoFilter` 只在 `yudao.demo=true` 时注册
-- **典型应用**：
-  - `application-dev.yml`：`yudao.demo: true`（演示模式，所有写操作返回假成功）
-  - `application-prod.yml`：不配置此属性（生产环境严格校验）
-- **设计意图**：防止开发环境的"演示模式"误带到生产环境，避免数据被误删
-
-### 3.3 Profile 隔离的目录
-
-ruoyi-vue-pro 在 `yudao-server/src/main/resources/` 下提供：
-- `application.yml`（公共）
-- `application-dev.yaml`（开发）
-- `application-prod.yaml`（生产）
-- `application-local.yaml`（本地）
-
-**激活方式**：在 IDEA 的 `Run/Debug Configurations` 中设置 `Active profiles = dev`。
-
-## 4. 关键要点总结
+## 3. 关键要点总结
 
 - **Profile = 环境隔离**，dev / test / prod 各自一套配置
 - **3 种激活方式**：配置文件、启动参数、环境变量
@@ -160,27 +106,6 @@ ruoyi-vue-pro 在 `yudao-server/src/main/resources/` 下提供：
 - **粗粒度控制用 `@Profile`**（按环境名判断）
 - ruoyi-vue-pro 用 `application-{profile}.yml` 分离环境配置
 - ruoyi 的 `DemoFilter` 是 `@ConditionalOnProperty` 的典型应用
-
-## 5. 练习题
-
-### 练习 1：基础（必做）
-
-创建 `application-dev.yml` 和 `application-prod.yml`，分别配置不同的 MySQL 数据源 URL。激活 dev 后启动项目，验证生效。
-
-### 练习 2：进阶
-
-在 `YudaoServerApplication` 中增加 `@Profile("dev")` 标注的 `CommandLineRunner`，在 dev 环境启动时输出"开发环境已激活"。
-
-### 练习 3：挑战（选做）
-
-在 ruoyi-vue-pro 中搜索 `application-{profile}.yml`，列出所有环境的配置文件，并分析每个环境的特殊配置（如日志级别、监控端点）。
-
-## 6. 参考资料
-
-- `/Users/xu/code/github/ruoyi-vue-pro/yudao-server/src/main/java/cn/iocoder/yudao/server/YudaoServerApplication.java`
-- `/Users/xu/code/github/ruoyi-vue-pro/yudao-framework/yudao-spring-boot-starter-web/src/main/java/cn/iocoder/yudao/framework/web/config/YudaoWebAutoConfiguration.java`
-- Spring Profile 官方文档：https://docs.spring.io/spring-boot/docs/current/reference/html/features.html#features.profiles
-- 芋道多环境配置：https://doc.iocoder.cn/spring-boot-profile/
 
 ---
 

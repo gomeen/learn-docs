@@ -12,9 +12,9 @@
 
 ## 📚 前置知识
 
-- Spring Boot Web（详见 [Controller](../02-spring-boot/13-controller.md)、[参数绑定](../02-spring-boot/15-param-binding.md)）
+- Spring Boot Web（详见 [Controller](../02-spring-boot/15-controller.md)、[参数绑定](../02-spring-boot/17-param-binding.md)）
 - 事务（详见 [事务](../02-spring-boot/04-transaction.md)）
-- MyBatis 基础（详见 [MyBatis Starter](../03-spring-boot-starters/06-mybatis-starter.md)）
+- MyBatis 基础（详见 [MyBatis Starter](../03-spring-boot-starters/07-mybatis-starter.md)）
 - 模块划分（详见 [模块结构](./01-module-structure.md)）
 
 ## 1. 核心概念
@@ -182,102 +182,7 @@ public CommonResult<Long> createUser(@Valid @RequestBody UserSaveReqVO reqVO) {
 }
 ```
 
-## 3. ruoyi 仓库源码解读
-
-### 3.1 Controller 层：用户管理
-
-**文件位置**：`/Users/xu/code/github/ruoyi-vue-pro/yudao-module-system/src/main/java/cn/iocoder/yudao/module/system/controller/admin/user/UserController.java`
-
-**核心代码**（行 52-58）：
-
-```java
-@PostMapping("/create")
-@Operation(summary = "新增用户")
-@PreAuthorize("@ss.hasPermission('system:user:create')")
-public CommonResult<Long> createUser(@Valid @RequestBody UserSaveReqVO reqVO) {
-    Long id = userService.createUser(reqVO);
-    return success(id);
-}
-```
-
-**解读**：
-- 第 1 行：`@PostMapping("/create")` 定义路由
-- 第 3 行：`@PreAuthorize` 鉴权，需要 `system:user:create` 权限（详见 [@PreAuthorize](../06-security/06-preauthorize.md)）
-- 第 4 行：`@Valid` 自动校验 `UserSaveReqVO` 的字段约束（详见 [Validation](../02-spring-boot/21-validation.md)）
-- 第 5 行：调用 Service，**不做任何业务**
-
-### 3.2 Service 层：用户创建
-
-**文件位置**：`/Users/xu/code/github/ruoyi-vue-pro/yudao-module-system/src/main/java/cn/iocoder/yudao/module/system/service/user/AdminUserServiceImpl.java`
-
-**核心代码**（行 50-80）：
-
-```java
-@Override
-@Transactional(rollbackFor = Exception.class)
-public Long createUser(UserSaveReqVO reqVO) {
-    // 1. 校验用户名唯一
-    validateUserUsernameUnique(reqVO.getId(), reqVO.getUsername());
-    // 2. 校验手机号唯一
-    validateUserMobileUnique(reqVO.getId(), reqVO.getMobile());
-    // 3. 校验部门
-    deptService.validateDeptList(reqVO.getDeptIds());
-    // 4. 转换 VO -> DO
-    AdminUserDO user = UserConvert.INSTANCE.convert(reqVO);
-    if (reqVO.getPassword() == null) {
-        user.setPassword(encodePassword("123456"));  // 默认密码
-    } else {
-        user.setPassword(encodePassword(reqVO.getPassword()));
-    }
-    // 5. 插入数据库
-    userMapper.insert(user);
-    return user.getId();
-}
-```
-
-**解读**：
-- 第 2 行：`@Transactional` 开启事务，任何异常都会回滚（详见 [事务](../02-spring-boot/04-transaction.md)）
-- 第 4-6 行：业务校验（唯一性、关联性）
-- 第 10 行：调用 `UserConvert` 进行对象转换（详见 [DTO/VO/DO](./04-dto-vo-do.md)）
-- 第 11-15 行：业务规则（默认密码）
-- 第 17 行：调用 Mapper 写入数据库
-- **Service 层只关心"业务"，不关心 HTTP**
-
-### 3.3 Mapper 层：MyBatis 操作
-
-**文件位置**：`/Users/xu/code/github/ruoyi-vue-pro/yudao-module-system/src/main/java/cn/iocoder/yudao/module/system/dal/mysql/user/AdminUserMapper.java`
-
-**核心代码**（行 1-30）：
-
-```java
-@Mapper
-public interface AdminUserMapper extends BaseMapperX<AdminUserDO> {
-
-    default AdminUserDO selectByUsername(String username) {
-        return selectOne(AdminUserDO::getUsername, username);
-    }
-
-    default PageResult<AdminUserDO> selectPage(UserPageReqVO reqVO) {
-        return selectPage(reqVO, this::buildQuery);
-    }
-
-    private MPJLambdaWrapper<AdminUserDO> buildQuery(UserPageReqVO reqVO) {
-        return new LambdaQueryWrapperX<AdminUserDO>()
-                .likeIfPresent(AdminUserDO::getUsername, reqVO.getUsername())
-                .eqIfPresent(AdminUserDO::getStatus, reqVO.getStatus())
-                .betweenIfPresent(AdminUserDO::getCreateTime, reqVO.getCreateTime());
-    }
-}
-```
-
-**解读**：
-- 第 2 行：继承 `BaseMapperX`，自动获得单表 CRUD 能力
-- 第 4-6 行：使用 `default` 方法实现单表查询，无需写 XML
-- 第 8-10 行：分页查询
-- 第 12-17 行：构建动态查询条件（`likeIfPresent` 当字段非空时拼接）
-- **Mapper 层只关心"SQL 怎么写"，不关心"业务怎么算"**
-
-## 4. 关键要点总结
+## 3. 关键要点总结
 
 - ruoyi 严格遵循 Controller / Service / Mapper 三层架构
 - **Controller**：只做 HTTP 路由、参数校验、权限校验
@@ -285,27 +190,6 @@ public interface AdminUserMapper extends BaseMapperX<AdminUserDO> {
 - **Mapper**：纯数据访问，封装 SQL
 - 三层单向依赖：Controller → Service → Mapper
 - 业务逻辑必须下沉到 Service，便于复用和测试
-
-## 5. 练习题
-
-### 练习 1：基础（必做）
-
-打开 `UserController.java`、`AdminUserServiceImpl.java`、`AdminUserMapper.java`，跟踪 `getUserPage` 方法的完整调用链路，画出时序图。
-
-### 练习 2：进阶
-
-阅读 `DeptController.java` 中的 `createDept` 方法，找出对应的 Service 实现和 Mapper 调用，理解部门树形结构是如何处理的。
-
-### 练习 3：挑战（选做）
-
-思考：如果在 Controller 中直接调用 Mapper 而不经过 Service，会有什么坏处？列举 3 个实际场景中的问题。
-
-## 6. 参考资料
-
-- `/Users/xu/code/github/ruoyi-vue-pro/yudao-module-system/src/main/java/cn/iocoder/yudao/module/system/controller/admin/user/UserController.java`
-- `/Users/xu/code/github/ruoyi-vue-pro/yudao-module-system/src/main/java/cn/iocoder/yudao/module/system/service/user/AdminUserServiceImpl.java`
-- `/Users/xu/code/github/ruoyi-vue-pro/yudao-module-system/src/main/java/cn/iocoder/yudao/module/system/dal/mysql/user/AdminUserMapper.java`
-- `/Users/xu/code/github/ruoyi-vue-pro/yudao-framework/yudao-spring-boot-starter-mybatis/`
 
 ---
 

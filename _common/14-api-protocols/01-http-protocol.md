@@ -1,4 +1,4 @@
-# 14.1 HTTP/HTTPS 协议：方法、状态码、Header、Cookie
+# 1.4.1 HTTP/HTTPS 协议：方法、状态码、Header、Cookie
 
 > 掌握 HTTP 协议的核心概念，能阅读 dify 中所有 HTTP 请求与响应，理解 Web 通信基础。
 
@@ -242,7 +242,7 @@ def login_required(func):
 ```
 
 **解读**：
-- 用装饰器统一检查 Header（装饰器原理见 [10-decorator](../../dify/01-fundamentals/10-decorator.md)）；本文关注 **Authorization Header 语义**
+- 用装饰器统一检查 Header（装饰器原理见 [装饰器](../../dify/01-fundamentals/10-decorator.md)）；本文关注 **Authorization Header 语义**
 - 第 12 行：所有受保护端点必须带 `Authorization: Bearer <key>`
 - 第 13-14 行：缺失或格式错误返回 401 Unauthorized
 - 第 16-18 行：API key 无效返回 401

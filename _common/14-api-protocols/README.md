@@ -1,23 +1,28 @@
-# 14 - API 与应用层协议
+# 14 - API 与应用层协议（工程向）
 
-> HTTP/REST、WebSocket、SSE、gRPC 等**应用层通信协议**与 API 设计实践。  
-> 跨语言通用；与 `_fundamentals/04-computer-network`（OSI/TCP/IP 等理论）互补。
+> 接口设计与实时通信的**工程用法**。  
+> HTTP/TCP 协议栈与报文语义的 **Mastery** 在 [`../../_fundamentals/04-computer-network/`](../../_fundamentals/04-computer-network/)。
+
+## 📐 分层
+
+| 内容 | 归属 |
+|------|------|
+| OSI/TCP、HTTP 版本演进、状态码/Header 全解、HTTPS 握手、WebSocket 协议细节 | `_fundamentals/04-computer-network` |
+| REST 设计、SSE 流式、gRPC 选型与用法；HTTP 工程速查 | **本分类** |
 
 ## 知识点
 
-- [ ] [14.1 HTTP/HTTPS 协议：方法、状态码、Header、Cookie](./01-http-protocol.md)
-- [ ] [14.2 REST API 设计规范与最佳实践](./02-rest-api-design.md)
-- [ ] [14.3 WebSocket 协议](./03-websocket.md)
-- [ ] [14.4 Server-Sent Events（SSE）与流式响应](./04-sse.md)
-- [ ] [14.5 gRPC 与 Protocol Buffers 入门](./05-grpc-protobuf.md)
+- [ ] [1.1 HTTP/HTTPS 工程速查](./01-http-protocol.md) · 深入见 [计算机网络 · HTTP](../../_fundamentals/04-computer-network/)
+- [ ] [1.2 REST API 设计规范与最佳实践](./02-rest-api-design.md) ← **本层 Mastery**
+- [ ] [1.3 WebSocket（工程）](./03-websocket.md) · 协议细节见 [fundamentals WebSocket](../../_fundamentals/04-computer-network/09-websocket.md)
+- [ ] [1.4 Server-Sent Events（SSE）与流式响应](./04-sse.md) ← **本层 Mastery**
+- [ ] [1.5 gRPC 与 Protocol Buffers 入门](./05-grpc-protobuf.md) ← **本层 Mastery**
 
-## 🔗 相关章节
+## 🔗 项目特定实现
 
-- 计算机网络理论：[`../../_fundamentals/04-computer-network/`](../../_fundamentals/04-computer-network/)
-- Linux 网络排障命令：[`../13-linux-cli/04-network-commands`](../13-linux-cli/04-network-commands.md)
-- 反向代理 / HTTPS 终结：[`../10-network-proxy/`](../10-network-proxy/)
+- **dify（Python）**：LLM 流式 [`../../dify/06-llm-and-ai/`](../../dify/06-llm-and-ai/)；Flask 路由 [`../../dify/02-backend/`](../../dify/02-backend/)
 
-## 🔗 项目中的实践场景
+## 🔗 相关分类
 
-- **dify（Python）**：Flask REST API、对话流式 SSE、实时推送
-- **ruoyi-vue-pro（Java）**：Spring MVC REST、前后端分离接口约定
+- 命令行调试：[`../13-linux-shell/04-network-commands.md`](../13-linux-shell/04-network-commands.md)
+- 认证：[`../07-authentication/`](../07-authentication/)

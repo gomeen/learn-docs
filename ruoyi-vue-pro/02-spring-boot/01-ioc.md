@@ -13,7 +13,7 @@
 ## 📚 前置知识
 
 - Java 基础语法（注解详见 [04-annotation](../01-java-fundamentals/04-annotation.md)，反射详见 [05-reflection](../01-java-fundamentals/05-reflection.md)，泛型详见 [03-generics](../01-java-fundamentals/03-generics.md)）
-- Maven 多模块项目结构（详见 [11-maven-modules](../01-java-fundamentals/11-maven-modules.md)）
+- Maven 多模块项目结构（详见 [11-maven-modules](../01-java-fundamentals/13-maven-modules.md)）
 
 ## 1. 核心概念
 
@@ -47,7 +47,7 @@ public class UserService {
 | **Setter 注入** | `@Autowired void setXxx(Xxx xxx) {...}` | 灵活、可选依赖 | 容易忘记注入导致 NPE |
 | **字段注入** | `@Autowired private Xxx xxx;` | 简洁 | 不易测试、隐藏依赖、不可变对象无法用 |
 
-**最佳实践**：强制依赖用构造器注入，可选依赖用 Setter，**避免字段注入**（ruoyi-vue-pro 大量使用 Lombok `@RequiredArgsConstructor` 实现构造器注入，详见 [14-lombok](../01-java-fundamentals/14-lombok.md)）。
+**最佳实践**：强制依赖用构造器注入，可选依赖用 Setter，**避免字段注入**（ruoyi-vue-pro 大量使用 Lombok `@RequiredArgsConstructor` 实现构造器注入，详见 [14-lombok](../01-java-fundamentals/17-lombok.md)）。
 
 ### 1.3 常用注入注解
 
@@ -100,106 +100,13 @@ public class B {
 
 **解决**：抽取公共依赖到 C，或使用 `@Lazy` 延迟注入，或改用 Setter 注入。
 
-## 3. ruoyi-vue-pro 仓库源码解读
-
-### 3.1 全局异常处理器的依赖注入
-
-**文件位置**：`/Users/xu/code/github/ruoyi-vue-pro/yudao-framework/yudao-spring-boot-starter-web/src/main/java/cn/iocoder/yudao/framework/web/core/handler/GlobalExceptionHandler.java`
-**核心代码**（行 54-67）：
-
-```java
-@RestControllerAdvice
-@AllArgsConstructor  // Lombok 生成包含所有 final 字段的构造器
-@Slf4j
-public class GlobalExceptionHandler {
-
-    /**
-     * 忽略的 ServiceException 错误提示，避免打印过多 logger
-     */
-    public static final Set<String> IGNORE_ERROR_MESSAGES = SetUtils.asSet("无效的刷新令牌");
-
-    @SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")
-    private final String applicationName;
-
-    private final ApiErrorLogCommonApi apiErrorLogApi;
-```
-
-**解读**：
-- 第 55 行：`@AllArgsConstructor`（来自 Lombok）生成全参构造器，Spring 通过构造器自动注入
-- 第 65 行：`applicationName` 在 `YudaoWebAutoConfiguration` 中通过 `@Value("${spring.application.name}")` 注入，再传给此类的构造器
-- 第 67 行：`ApiErrorLogCommonApi` 是 RPC 接口，Spring 会从容器中找到唯一 Bean 注入
-- **设计意图**：避免字段注入，把所有依赖显式列在构造器中，方便测试时 Mock
-
-### 3.2 Web 自动配置的 Bean 注册
-
-**文件位置**：`/Users/xu/code/github/ruoyi-vue-pro/yudao-framework/yudao-spring-boot-starter-web/src/main/java/cn/iocoder/yudao/framework/web/config/YudaoWebAutoConfiguration.java`
-**核心代码**（行 83-99）：
-
-```java
-@Bean
-@SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")
-public GlobalExceptionHandler globalExceptionHandler(ApiErrorLogCommonApi apiErrorLogApi) {
-    return new GlobalExceptionHandler(applicationName, apiErrorLogApi);
-}
-
-@Bean
-public GlobalResponseBodyHandler globalResponseBodyHandler() {
-    return new GlobalResponseBodyHandler();
-}
-
-@Bean
-@SuppressWarnings("InstantiationOfUtilityClass")
-public WebFrameworkUtils webFrameworkUtils(WebProperties webProperties) {
-    // 由于 WebFrameworkUtils 需要使用到 webProperties 属性，所以注册为一个 Bean
-    return new WebFrameworkUtils(webProperties);
-}
-```
-
-**解读**：
-- 第 84 行：`@Bean` 注解告诉 Spring：这个方法的返回值是一个 Bean，请注册到容器
-- 第 85 行：方法参数 `ApiErrorLogCommonApi` 由 Spring 自动注入
-- 第 87 行：`@SuppressWarnings` 抑制 IDEA 对"非 @Component 但被 @Bean 注入"的告警
-- **关键设计**：使用 Java Config（`@Bean`）代替 XML，把所有 Web 相关 Bean 集中在 `YudaoWebAutoConfiguration` 中，符合 ruoyi 的"按模块自动装配"风格（自动配置原理详见 [08-auto-config](./08-auto-config.md)）
-
-## 4. 关键要点总结
+## 3. 关键要点总结
 
 - **IoC 本质**：对象生命周期由 Spring 容器管理，开发者只声明"需要什么"
 - **推荐使用构造器注入**（配合 Lombok `@RequiredArgsConstructor`）
 - `@Autowired` 按类型匹配，`@Resource` 按名称匹配
 - ruoyi-vue-pro 大量使用 `@Bean` + Java Config 实现自动装配（`YudaoXxxAutoConfiguration`）
 - ruoyi 通过 `@RestControllerAdvice` / `@Service` / `@Component` / `@Configuration` 标注 Bean
-
-## 5. 练习题
-
-### 练习 1：基础（必做）
-
-用 `@RequiredArgsConstructor` 改写以下代码为构造器注入：
-
-```java
-@Service
-public class OrderService {
-    @Autowired
-    private OrderDao orderDao;
-
-    @Autowired
-    private UserService userService;
-}
-```
-
-### 练习 2：进阶
-
-阅读 `YudaoWebAutoConfiguration`，列出其中所有 `@Bean` 方法，标注每个 Bean 的作用（全局异常处理、CORS 过滤器、RestTemplate 等）。
-
-### 练习 3：挑战（选做）
-
-解释为什么 ruoyi 在 `GlobalExceptionHandler` 中用 `@AllArgsConstructor` 而不直接用 `@Autowired` 字段注入？给出 3 个原因。
-
-## 6. 参考资料
-
-- `/Users/xu/code/github/ruoyi-vue-pro/yudao-framework/yudao-spring-boot-starter-web/src/main/java/cn/iocoder/yudao/framework/web/core/handler/GlobalExceptionHandler.java`
-- `/Users/xu/code/github/ruoyi-vue-pro/yudao-framework/yudao-spring-boot-starter-web/src/main/java/cn/iocoder/yudao/framework/web/config/YudaoWebAutoConfiguration.java`
-- Spring 官方文档：https://docs.spring.io/spring-framework/reference/core/beans/dependencies/factory-collaborators.html
-- 芋道 Spring Boot 依赖注入：https://doc.iocoder.cn/spring-boot-dependency-inject/
 
 ---
 

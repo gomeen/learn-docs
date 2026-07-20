@@ -14,7 +14,7 @@
 ## 📚 前置知识
 
 - [01-llm-overview.md](./01-llm-overview.md)
-- [08-generator.md](../01-fundamentals/14-generator.md)
+- [08-generator.md](../01-fundamentals/16-generator.md)
 - 外部基础：矩阵乘法、点积、Softmax 和神经网络前向传播
 
 ## 1. 核心概念
@@ -87,70 +87,13 @@ for index, output in enumerate(causal_attention(tokens)):
 
 **说明**：示例为便于观察，直接令 Q、K、V 等于输入向量。`visible` 只包含当前位置及之前的 token，这就是因果掩码的效果；真实模型还会使用投影矩阵、多头拆分和批量矩阵运算。
 
-## 3. dify 仓库源码解读
-
-### 3.1 通过统一入口调用 decoder-only 模型
-
-**文件位置**：`/Users/xu/code/github/dify/api/core/llm_generator/llm_generator.py`  
-**核心代码**（行 154-171）：
-
-```python
-        model_manager = ModelManager.for_tenant(tenant_id=tenant_id)
-        model_instance = model_manager.get_default_model_instance(
-            tenant_id=tenant_id,
-            model_type=ModelType.LLM,
-        )
-        prompts: list[PromptMessage] = [UserPromptMessage(content=prompt)]
-
-        with measure_time() as timer:
-            response: LLMResult = model_instance.invoke_llm(
-                prompt_messages=list(prompts), model_parameters={"max_tokens": 500, "temperature": 1}, stream=False
-            )
-        answer = response.message.get_text_content()
-        if answer == "":
-            return ""
-        try:
-            result_dict = json.loads(answer)
-        except json.JSONDecodeError:
-            result_dict = json_repair.loads(answer)
-```
-
-**解读**：
-- 第 154-158 行：按租户获取默认 LLM；dify 只依赖 `ModelType.LLM`，不直接操作模型内部的注意力层。
-- 第 159-164 行：把提示消息和生成参数交给统一的 `invoke_llm`；具体 Transformer 实现由模型供应商负责。
-- 第 165-171 行：自回归输出最终被抽象成文本，再由业务代码解析。
-- 整体设计意图：dify 负责应用编排和统一调用，模型服务负责 tokenizer、Transformer 前向计算、KV Cache 与采样。
-
-## 4. 关键要点总结
+## 3. 关键要点总结
 
 - 自注意力使用 Q/K/V 根据相关性聚合整段上下文
 - 因果掩码保证 decoder-only 模型只能依据已有 token 预测后续 token
 - 多头注意力、FFN、残差连接和归一化共同组成 Transformer 块
 - 标准注意力对序列长度是 $O(n^2)$，长上下文会增加计算与显存开销
 - dify 不实现 Transformer，而是通过统一模型运行时调用不同供应商的 LLM
-
-## 5. 练习题
-
-### 练习 1：基础（必做）
-
-修改示例中的第三个 token，并观察为什么前两个位置的输出不会变化。用“因果掩码”解释结果。
-
-**参考答案**：见 `solutions/02-transformer.md`
-
-### 练习 2：进阶
-
-为示例加入独立的 Q、K、V 投影矩阵，并把一个 4 维向量拆成两个 attention heads，最后拼接两个 head 的输出。
-
-### 练习 3：挑战（选做）
-
-阅读 dify 的模型插件调用链，画出从 `LLMGenerator.generate_conversation_name` 到供应商模型服务的时序图，并标出 tokenizer、Transformer 推理、采样分别发生在哪一侧。
-
-## 6. 参考资料
-
-- `/Users/xu/code/github/dify/api/core/llm_generator/llm_generator.py`
-- Attention Is All You Need：https://arxiv.org/abs/1706.03762
-- The Illustrated Transformer：https://jalammar.github.io/illustrated-transformer/
-- Stanford CS224N：https://web.stanford.edu/class/cs224n/
 
 ---
 

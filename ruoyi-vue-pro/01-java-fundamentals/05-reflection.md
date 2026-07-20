@@ -14,7 +14,7 @@
 
 - 面向对象基础（类、对象、构造器）
 - 异常体系
-- 02-oop.md、04-annotation.md、06-exception.md
+- 02-oop.md、04-annotation.md、07-exception.md
 
 ## 1. 核心概念
 
@@ -118,73 +118,12 @@ class AdminService {
 }
 ```
 
-## 3. ruoyi-vue-pro 仓库源码解读
-
-### 3.1 Bean Validation 反射机制
-
-**文件位置**：`/Users/xu/code/github/ruoyi-vue-pro/yudao-framework/yudao-common/src/main/java/cn/iocoder/yudao/framework/common/validation/InEnumValidator.java`
-**核心代码**（典型实现，未直接展示，需参考 Bean Validation）：
-- Bean Validation 引擎使用 `Class#getDeclaredFields()` 反射遍历所有字段
-- 字段上的 `@NotNull` / `@Pattern` 等约束通过运行时注解读取并逐个校验
-
-**解读**：
-- Spring Boot 启动时会注册 `MethodValidationPostProcessor`，对所有 `@Validated` 的 Bean 做 AOP 增强
-- 收到请求时，框架通过反射读取方法参数类（如 `AdminUserSaveReqVO`）的所有字段
-- 检查每个字段上的约束注解，调用对应的 `Validator#isValid()` 方法
-- ruoyi 的 `InEnum`、`Mobile`、`Telephone` 都是自定义约束，配合 `ConstraintValidator` 完成
-
-### 3.2 DO 字段反射映射（MyBatis-Plus 思路）
-
-**文件位置**：`/Users/xu/code/github/ruoyi-vue-pro/yudao-module-system/src/main/java/cn/iocoder/yudao/module/system/dal/dataobject/user/AdminUserDO.java`
-**核心代码**（行 33-43）：
-
-```java
-@TableId
-private Long id;
-/**
- * 用户账号
- */
-private String username;
-/**
- * 加密后的密码
- *
- * 因为目前使用 {@link BCryptPasswordEncoder} 加密器，所以无需自己处理 salt 盐
- */
-private String password;
-```
-
-**解读**：
-- MyBatis-Plus 通过反射读取 `AdminUserDO.class.getDeclaredFields()` 获取所有字段
-- 字段上的 `@TableId`、`@TableField(typeHandler = ...)` 在运行时被读取，决定主键策略 / 自定义转换器
-- **典型应用场景**：数据库列名是 `username`，Java 字段也是 `username` 时，MP 自动转换为下划线风格 `username`（无需任何映射配置）
-
-## 4. 关键要点总结
+## 3. 关键要点总结
 
 - 反射是 Java 在**运行期**操作类信息的能力，核心是 `Class` 对象
 - `getDeclaredField()` + `setAccessible(true)` 突破 private 限制
 - 反射性能比直接调用慢得多，慎用于性能敏感路径
-- Spring、MyBatis、Lombok 等框架的核心都是反射（Lombok 编译期注解处理见 [14-lombok](./14-lombok.md)）
-
-## 5. 练习题
-
-### 练习 1：基础（必做）
-
-写一个工具方法 `copyFields(Object source, Object target)`：用反射将 `source` 的所有字段值复制到 `target` 同名字段（无需 getter/setter）。
-
-### 练习 2：进阶
-
-阅读 `Bean Validation` 官方文档，模仿实现一个 `InEnum` 注解 + `InEnumValidator`（要求输入是枚举值之一）。
-
-### 练习 3：挑战（选做）
-
-阅读 MyBatis-Plus 的核心类 `TableInfoHelper`，理解它是如何在 `Bean 初始化阶段` 通过反射一次性缓存表结构信息的（这样 SQL 执行阶段就不需要反复反射）。
-
-## 6. 参考资料
-
-- `/Users/xu/code/github/ruoyi-vue-pro/yudao-module-system/src/main/java/cn/iocoder/yudao/module/system/dal/dataobject/user/AdminUserDO.java`
-- `/Users/xu/code/github/ruoyi-vue-pro/yudao-framework/yudao-common/src/main/java/cn/iocoder/yudao/framework/common/pojo/PageParam.java`
-- 《Java 核心技术 卷 I》第 9 章：反射
-- Java 反射官方教程：https://docs.oracle.com/javase/tutorial/reflect/
+- Spring、MyBatis、Lombok 等框架的核心都是反射（Lombok 编译期注解处理见 [14-lombok](./17-lombok.md)）
 
 ---
 

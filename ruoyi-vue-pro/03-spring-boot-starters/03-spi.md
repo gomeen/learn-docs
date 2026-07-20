@@ -12,8 +12,8 @@
 
 ## 📚 前置知识
 
-- Java 类加载机制（ClassLoader，详见 [20-classloader](../01-java-fundamentals/20-classloader.md)）
-- Spring Boot 启动流程（详见 [07-startup](../02-spring-boot/07-startup.md)）
+- Java 类加载机制（ClassLoader，详见 [20-classloader](../01-java-fundamentals/24-classloader.md)）
+- Spring Boot 启动流程（详见 [07-startup](../02-spring-boot/08-startup.md)）
 - [01-starter-mechanism.md](./01-starter-mechanism.md)
 
 ## 1. 核心概念
@@ -115,74 +115,13 @@ public class MyAutoConfiguration { }
 public class MyAutoConfiguration { }
 ```
 
-## 3. ruoyi 仓库源码解读
-
-### 3.1 mybatis starter 的 imports 文件
-
-**文件位置**：`/Users/xu/code/github/ruoyi-vue-pro/yudao-framework/yudao-spring-boot-starter-mybatis/src/main/resources/META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports`
-**内容**：
-
-```
-cn.iocoder.yudao.framework.datasource.config.YudaoDataSourceAutoConfiguration
-cn.iocoder.yudao.framework.mybatis.config.YudaoMybatisAutoConfiguration
-cn.iocoder.yudao.framework.mybatis.config.IdTypeEnvironmentPostProcessor
-cn.iocoder.yudao.framework.translate.config.YudaoTranslateAutoConfiguration
-```
-
-**解读**：
-- Spring Boot 3.x 启动时扫描该文件
-- 按顺序加载 4 个 AutoConfiguration
-- `IdTypeEnvironmentPostProcessor` 实现了 `EnvironmentPostProcessor`（另一种扩展点）
-
-### 3.2 tenant starter 的 imports 文件
-
-**文件位置**：`/Users/xu/code/github/ruoyi-vue-pro/yudao-framework/yudao-spring-boot-starter-biz-tenant/src/main/resources/META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports`
-
-**内容**：
-
-```
-cn.iocoder.yudao.framework.tenant.config.YudaoTenantAutoConfiguration
-```
-
-**解读**：
-- 单一 AutoConfiguration 入口
-- ruoyi 大量使用**嵌套 `@Configuration` 类**组织内部 Bean（见 `YudaoTenantAutoConfiguration` 内的 `TenantRedisMQConfiguration` 等）
-
-### 3.3 SpringFactoriesLoader 的其他用途
-
-**文件位置**：`/Users/xu/code/github/ruoyi-vue-pro/yudao-framework/yudao-spring-boot-starter-monitor/src/main/resources/META-INF/spring.factories`
-
-虽然 Spring Boot 3.x 移除了 AutoConfiguration 在 `spring.factories` 的注册，但 `spring.factories` 仍可用于注册其他 SPI，例如 `org.springframework.context.ApplicationListener`、`org.springframework.boot.env.EnvironmentPostProcessor` 等。
-
-## 4. 关键要点总结
+## 3. 关键要点总结
 
 - **SPI = 面向接口编程 + 配置文件注册**
 - **Spring Boot 3.x**：AutoConfiguration 用 `META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports`
 - **Spring Boot 2.x**：AutoConfiguration 用 `META-INF/spring.factories` 的 `EnableAutoConfiguration` 键
 - **`spring.factories` 在 3.x 仍可使用**，用于其他扩展点（Listener、PostProcessor）
 - **ruoyi 的 starter 全部用 3.x 新机制**
-
-## 5. 练习题
-
-### 练习 1：基础（必做）
-
-在 `yudao-framework/` 下用 `find` 命令找出所有 `AutoConfiguration.imports` 文件，列出每个 starter 的自动配置类。
-
-### 练习 2：进阶
-
-写一段代码，遍历 yudao-server 的 classpath，读取所有 `META-INF/spring.factories` 的内容。
-
-### 练习 3：挑战（选做）
-
-尝试用 JDK SPI 实现一个"多支付渠道"系统：定义 `PaymentProvider` 接口，提供 `AlipayProvider`、`WechatProvider` 实现，通过 `ServiceLoader` 加载。
-
-## 6. 参考资料
-
-- `/Users/xu/code/github/ruoyi-vue-pro/yudao-framework/yudao-spring-boot-starter-mybatis/src/main/resources/META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports`
-- `/Users/xu/code/github/ruoyi-vue-pro/yudao-framework/yudao-spring-boot-starter-biz-tenant/src/main/resources/META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports`
-- Spring 源码：`org.springframework.core.io.support.SpringFactoriesLoader`
-- Spring Boot 源码：`org.springframework.boot.autoconfigure.AutoConfigurationImportSelector`
-- JDK SPI 文档：https://docs.oracle.com/javase/tutorial/sound/SPI-intro.html
 
 ---
 

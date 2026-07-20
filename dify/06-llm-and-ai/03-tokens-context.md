@@ -15,7 +15,7 @@
 
 - [01-llm-overview.md](./01-llm-overview.md)
 - [02-transformer.md](./02-transformer.md)
-- [02-typeddict.md](../01-fundamentals/08-typeddict.md)
+- [02-typeddict.md](../01-fundamentals/09-typeddict.md)
 - 外部基础：Decimal、小数乘法与基本 API 计费概念
 
 ## 1. 核心概念
@@ -92,105 +92,13 @@ print(budget)
 
 **说明**：请求虽然希望输出 48,000 token，但上下文只剩 36,000 token，所以必须限制输出或缩短输入。示例用 `Decimal` 避免浮点数在金额累计时产生不必要误差。
 
-## 3. dify 仓库源码解读
-
-### 3.1 `LLMUsage` 明确拆分输入与输出用量
-
-**文件位置**：`/Users/xu/OrbStack/docker/images/langgenius/dify-api:2.0.0-beta.2/app/api/core/model_runtime/entities/llm_entities.py`  
-**核心代码**（行 42-58）：
-
-```python
-class LLMUsage(ModelUsage):
-    """
-    Model class for llm usage.
-    """
-
-    prompt_tokens: int
-    prompt_unit_price: Decimal
-    prompt_price_unit: Decimal
-    prompt_price: Decimal
-    completion_tokens: int
-    completion_unit_price: Decimal
-    completion_price_unit: Decimal
-    completion_price: Decimal
-    total_tokens: int
-    total_price: Decimal
-    currency: str
-    latency: float
-```
-
-**解读**：
-- 第 47-50 行：输入 token、输入单价单位和输入金额独立保存。
-- 第 51-54 行：输出也使用独立单价，避免把高价输出错误地按输入价计算。
-- 第 55-58 行：总 token、总金额、币种和延迟一起构成一次调用的可观测数据。
-- 整体设计意图：把不同供应商返回的 usage 统一为精确、可累计的领域对象。
-
-### 3.2 缺失总 token 时进行兼容计算
-
-**文件位置**：`/Users/xu/OrbStack/docker/images/langgenius/dify-api:2.0.0-beta.2/app/api/core/model_runtime/entities/llm_entities.py`  
-**核心代码**（行 88-109）：
-
-```python
-        prompt_tokens = metadata.get("prompt_tokens", 0)
-        completion_tokens = metadata.get("completion_tokens", 0)
-        total_tokens = metadata.get("total_tokens", 0)
-
-        # If total_tokens is not provided but prompt and completion tokens are,
-        # calculate total_tokens
-        if total_tokens == 0 and (prompt_tokens > 0 or completion_tokens > 0):
-            total_tokens = prompt_tokens + completion_tokens
-
-        return cls(
-            prompt_tokens=prompt_tokens,
-            completion_tokens=completion_tokens,
-            total_tokens=total_tokens,
-            prompt_unit_price=Decimal(str(metadata.get("prompt_unit_price", 0))),
-            completion_unit_price=Decimal(str(metadata.get("completion_unit_price", 0))),
-            total_price=Decimal(str(metadata.get("total_price", 0))),
-            currency=metadata.get("currency", "USD"),
-            prompt_price_unit=Decimal(str(metadata.get("prompt_price_unit", 0))),
-            completion_price_unit=Decimal(str(metadata.get("completion_price_unit", 0))),
-            prompt_price=Decimal(str(metadata.get("prompt_price", 0))),
-            completion_price=Decimal(str(metadata.get("completion_price", 0))),
-            latency=metadata.get("latency", 0.0),
-        )
-```
-
-**解读**：
-- 第 88-95 行：供应商未返回 `total_tokens` 时，dify 用输入与输出之和补齐。
-- 第 97-109 行：所有金额先转为字符串再构造 `Decimal`，减少二进制浮点误差。
-- 整体设计意图：兼容供应商字段差异，同时保持下游计费与统计接口稳定。
-
-## 4. 关键要点总结
+## 3. 关键要点总结
 
 - token 是 tokenizer 的离散单位，不等同于字符或单词
 - 上下文窗口包含提示、历史、工具信息和输出等全部有效上下文
 - `max_tokens` 限制输出长度，不能解决输入超出上下文的问题
 - 输入与输出价格通常不同，必须分开计算成本
 - dify 用 `LLMUsage` 统一记录 token、金额、币种和延迟
-
-## 5. 练习题
-
-### 练习 1：基础（必做）
-
-某请求输入 80,000 token、输出 4,000 token，输入价为 2 美元/百万 token，输出价为 8 美元/百万 token。计算总成本。
-
-**参考答案**：见 `solutions/03-tokens-context.md`
-
-### 练习 2：进阶
-
-扩展示例，使其分别接收系统提示、历史、检索资料、工具定义和用户输入的 token 数，并在剩余输出不足 1,024 token 时给出压缩建议。
-
-### 练习 3：挑战（选做）
-
-阅读 `LLMUsage.plus`，设计一个多步骤 Agent 的用量聚合器，并说明为什么累计时要同时关注总成本、总延迟以及每一步使用的单价。
-
-## 6. 参考资料
-
-- `/Users/xu/OrbStack/docker/images/langgenius/dify-api:2.0.0-beta.2/app/api/core/model_runtime/entities/llm_entities.py`
-- `/Users/xu/code/github/dify/api/services/billing_service.py`
-- Hugging Face Tokenizers：https://huggingface.co/docs/tokenizers/
-- Anthropic Token Counting：https://platform.claude.com/docs/en/build-with-claude/token-counting
 
 ---
 

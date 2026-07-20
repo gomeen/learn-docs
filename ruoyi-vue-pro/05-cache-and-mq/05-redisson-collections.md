@@ -13,7 +13,7 @@
 ## 📚 前置知识
 
 - Redis 基础数据结构（详见 [Redis 数据结构](../../_common/01-redis/01-data-structures.md)）
-- Redisson 客户端（详见 [Redisson 客户端](./02-redisson.md)）
+- Redisson 客户端（详见 [Redisson 客户端](./01-redisson.md)）
 - Java 集合框架
 
 ## 1. 核心概念
@@ -94,62 +94,12 @@ public void queueDemo() throws InterruptedException {
 }
 ```
 
-## 3. ruoyi 仓库源码解读
-
-### 3.1 分布式锁锁集合（IoT RTC 通话）
-
-**文件位置**：`/Users/xu/code/github/ruoyi-vue-pro/yudao-module-im/src/main/java/cn/iocoder/yudao/module/im/dal/redis/rtc/ImRtcCallLockRedisDAO.java`
-
-```java
-@Repository
-public class ImRtcCallLockRedisDAO {
-    @Resource
-    private RedissonClient redissonClient;
-
-    public boolean lock(Long callId, Long timeoutMillis) {
-        RLock lock = redissonClient.getLock("im:rtc:call:lock:" + callId);
-        try {
-            return lock.tryLock(0, timeoutMillis, TimeUnit.MILLISECONDS);
-        } catch (InterruptedException e) {
-            return false;
-        }
-    }
-}
-```
-
-**解读**：
-- ruoyi 在 IoT/IM 模块使用 RedissonClient 提供的 `RLock`，确保同一通通话只有一个端能加锁
-- 这就是 Redisson 集合（锁也是一种集合对象）的真实业务场景
-
-### 3.2 ruoyi 缓存抽象走 RedisTemplate
-
-注意：ruoyi 在**业务层**主要用 `RedisTemplate`（Spring Data Redis API）而非 Redisson 集合。原因是 Spring Cache 注解体系更通用。Redisson 集合用于**特定高性能场景**（如 IoT RTC）。
-
-## 4. 关键要点总结
+## 3. 关键要点总结
 
 - Redisson 集合是 Redis 数据结构的 Java 封装，跨 JVM 共享
 - `RBucket` / `RMap` / `RQueue` / `RSet` / `RScoredSortedSet` 对应 Redis 五大类型
 - 支持监听器和本地缓存扩展
 - ruoyi 业务层以 `RedisTemplate` 为主，Redisson 集合在分布式锁/IoT 等场景使用
-
-## 5. 练习题
-
-### 练习 1：基础（必做）
-
-写代码：用 `RMap` 存 3 个商品库存，key 是 productId，value 是库存数。
-
-### 练习 2：进阶
-
-思考：什么场景下用 `RMap`，什么场景下用 `RedisTemplate.opsForHash()`？两者底层都是 Redis Hash，有什么区别？
-
-### 练习 3：挑战（选做）
-
-用 `RScoredSortedSet` 实现文章点赞排行榜：分数 = 点赞数，取 Top 10。
-
-## 6. 参考资料
-
-- `/Users/xu/code/github/ruoyi-vue-pro/yudao-module-im/src/main/java/cn/iocoder/yudao/module/im/dal/redis/rtc/ImRtcCallLockRedisDAO.java`
-- Redisson 数据集合文档：https://redisson.org/docs/data-and-services/collections/
 
 ---
 

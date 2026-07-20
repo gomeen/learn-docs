@@ -16,7 +16,7 @@
 - [主流大模型对比](./01-llm-overview.md)
 - [Transformer](./02-transformer.md)
 - [Tokens 与上下文](./03-tokens-context.md)
-- 向量检索与相似度度量（详见 [向量检索基础](../03-database/25-vector-search.md)）
+- 向量检索与相似度度量（详见 [向量检索基础](../03-database/19-vector-search.md)）
 
 ## 1. 核心概念
 
@@ -30,7 +30,7 @@ $$
 \operatorname{cos}(a,b)=\frac{a\cdot b}{\|a\|\|b\|}
 $$
 
-若向量已归一化，余弦相似度就等于点积。Embedding 擅长快速召回，但它把整段文本压缩成一个向量，细粒度条件可能丢失。因此 RAG（详见 [RAG 概览](../07-rag-and-agent/01-rag-overview.md)）常采用“两阶段检索”：Embedding 从大量文档中召回候选，Rerank 模型再同时阅读 query-document 对并精排（详见 [Rerank](../07-rag-and-agent/09-rerank.md)）。
+若向量已归一化，余弦相似度就等于点积。Embedding 擅长快速召回，但它把整段文本压缩成一个向量，细粒度条件可能丢失。因此 RAG（详见 [RAG 概览](../07-rag-and-agent/01-rag-overview.md)）常采用“两阶段检索”：Embedding 从大量文档中召回候选，Rerank 模型再同时阅读 query-document 对并精排（详见 [Rerank](../07-rag-and-agent/10-rerank.md)）。
 
 ### 1.2 模型选型与生命周期
 
@@ -85,98 +85,13 @@ print(search([0.90, 0.08, 0.15], document_vectors))
 
 **说明**：向量数值在真实系统中由 Embedding 模型生成。示例只展示检索阶段；大规模场景会使用向量数据库的近似最近邻索引，而不是遍历所有文档。
 
-## 3. dify 仓库源码解读
-
-### 3.1 模型运行时区分 Embedding 与 Rerank
-
-**文件位置**：`/Users/xu/OrbStack/docker/images/langgenius/dify-api:2.0.0-beta.2/app/api/core/model_runtime/entities/model_entities.py`  
-**核心代码**（行 9-19）：
-
-```python
-class ModelType(Enum):
-    """
-    Enum class for model type.
-    """
-
-    LLM = "llm"
-    TEXT_EMBEDDING = "text-embedding"
-    RERANK = "rerank"
-    SPEECH2TEXT = "speech2text"
-    MODERATION = "moderation"
-    TTS = "tts"
-```
-
-**解读**：
-- 第 14-16 行：生成、向量召回与精排是三种不同模型能力，不能互相替代。
-- 第 17-19 行：同一运行时还统一描述语音、审核和合成模型。
-- 整体设计意图：上层业务按能力选择模型，而不是把所有 AI 请求都塞进 LLM 接口。
-
-### 3.2 Embedding 响应包含二维向量列表与用量
-
-**文件位置**：`/Users/xu/OrbStack/docker/images/langgenius/dify-api:2.0.0-beta.2/app/api/core/model_runtime/entities/text_embedding_entities.py`  
-**核心代码**（行 7-28）：
-
-```python
-class EmbeddingUsage(ModelUsage):
-    """
-    Model class for embedding usage.
-    """
-
-    tokens: int
-    total_tokens: int
-    unit_price: Decimal
-    price_unit: Decimal
-    total_price: Decimal
-    currency: str
-    latency: float
-
-
-class TextEmbeddingResult(BaseModel):
-    """
-    Model class for text embedding result.
-    """
-
-    model: str
-    embeddings: list[list[float]]
-    usage: EmbeddingUsage
-```
-
-**解读**：
-- 第 12-18 行：Embedding 同样记录 token、价格和延迟，便于评估批量建库成本。
-- 第 26-28 行：一次调用可返回多个文本对应的二维向量列表，并绑定具体模型和 usage。
-- 整体设计意图：对不同供应商输出建立统一结果类型，让知识库流程不依赖专有 SDK。
-
-## 4. 关键要点总结
+## 3. 关键要点总结
 
 - Embedding 把文本映射到向量空间，用距离近似语义相关性
 - 余弦相似度适合比较方向；归一化向量时可直接使用点积
 - Embedding 负责高效召回，Rerank 负责对少量候选做更精细判断
 - 选型必须使用自有语料评测，并权衡维度、成本、语言和上下文长度
 - 更换 Embedding 模型通常需要重建全部文档向量和索引
-
-## 5. 练习题
-
-### 练习 1：基础（必做）
-
-手算向量 `[1, 0]` 与 `[1, 1]` 的余弦相似度，并解释为什么它不等于 1。
-
-**参考答案**：见 `solutions/06-embedding-models.md`
-
-### 练习 2：进阶
-
-扩展示例，加入文档元数据过滤与相似度阈值；当没有候选超过阈值时返回“无可靠资料”，而不是强行返回最近文档。
-
-### 练习 3：挑战（选做）
-
-为 dify 知识库设计 Embedding 模型迁移方案：包含双索引、全量回填、Recall@K 对比、灰度切换、回滚和旧索引清理步骤。
-
-## 6. 参考资料
-
-- `/Users/xu/OrbStack/docker/images/langgenius/dify-api:2.0.0-beta.2/app/api/core/model_runtime/entities/model_entities.py`
-- `/Users/xu/OrbStack/docker/images/langgenius/dify-api:2.0.0-beta.2/app/api/core/model_runtime/entities/text_embedding_entities.py`
-- Sentence-BERT：https://arxiv.org/abs/1908.10084
-- BEIR Benchmark：https://arxiv.org/abs/2104.08663
-- Faiss：https://faiss.ai/
 
 ---
 

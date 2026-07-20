@@ -44,7 +44,7 @@ print(user.greet())  # "Hello, I'm Alice"
 
 ### 1.2 三种方法类型
 
-`@classmethod` / `@staticmethod` 是装饰器写法（详见 [装饰器](./10-decorator.md)），此处只把它们当作「挂在类上的方法标记」来理解。
+`@classmethod` / `@staticmethod` 是装饰器写法（详见 [装饰器](./11-decorator.md)），此处只把它们当作「挂在类上的方法标记」来理解。
 
 ```python
 class Counter:
@@ -166,7 +166,7 @@ class ApiKey:
 
 ### 2.2 属性装饰器 `@property`
 
-`@property` 同样是装饰器写法（原理见上文链接的装饰器篇）；底层描述符机制见 [18-descriptor](./18-descriptor.md)。此处只掌握「方法当属性用」。
+`@property` 同样是装饰器写法（原理见上文链接的装饰器篇）；底层描述符机制见 [22-descriptor](./24-descriptor.md)。此处只掌握「方法当属性用」。
 
 ```python
 class Temperature:
@@ -190,104 +190,7 @@ print(t.kelvin)      # 298.15
 
 `@property` 把方法**伪装成属性**：调用时不需要加括号，但内部执行计算逻辑。
 
-## 3. dify 仓库源码解读
-
-### 3.1 Model 类的典型结构
-
-**文件位置**：`/Users/xu/code/github/dify/api/models/account.py`
-**核心代码**（行 1-50）：
-
-```python
-from datetime import datetime
-from typing import Any
-
-from sqlalchemy.orm import Mapped, mapped_column
-
-from models.base import TypeBase
-
-
-class Account(TypeBase):
-    """账户表：存储用户账号信息。
-
-    继承自 TypeBase（dify 自定义的 SQLAlchemy 2.x 风格基类）。
-    """
-
-    __tablename__ = "accounts"
-
-    # 主键
-    id: Mapped[str] = mapped_column(
-        StringUUID, primary_key=True, default=lambda: str(uuid.uuid4())
-    )
-
-    # 业务字段
-    email: Mapped[str] = mapped_column(String(255), unique=True)
-    name: Mapped[str] = mapped_column(String(255))
-    password: Mapped[str] = mapped_column(String(255))
-    interface_language: Mapped[str] = mapped_column(String(255), default="en-US")
-    status: Mapped[str] = mapped_column(String(16), default="uninitialized")
-
-    # 时间戳
-    created_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow)
-    updated_at: Mapped[datetime] = mapped_column(
-        DateTime, default=datetime.utcnow, onupdate=datetime.utcnow
-    )
-
-    # 关系字段（省略）
-```
-
-**解读**：
-
-- 第 14 行：`__tablename__` 是 SQLAlchemy 必需的，指定数据库表名
-- 第 17-18 行：`Mapped[str]` 是 SQLAlchemy 2.x 新风格类型注解
-- 第 20-25 行：每个字段都用 `mapped_column(...)` 声明类型与约束
-- 第 29 行：`onupdate=datetime.utcnow` 在更新时自动设置时间
-- **整体设计**：把数据库表结构映射为 Python 类，ORM 自动处理 CRUD
-
-### 3.2 Service 类的业务方法
-
-**文件位置**：`/Users/xu/code/github/dify/api/services/account_service.py`
-**核心代码**（行 100-140）：
-
-```python
-class AccountService:
-    """账户业务服务（无继承，组合方式）。"""
-
-    @staticmethod
-    def authenticate(email: str, password: str) -> "Account | None":
-        """验证用户登录。
-
-        Returns:
-            成功返回 Account 对象，失败返回 None
-        """
-        from models.account import Account
-        from extensions.ext_database import db
-
-        account = db.session.query(Account).filter_by(email=email).first()
-        if account is None:
-            return None
-
-        if not account.check_password(password):
-            return None
-
-        return account
-
-    @staticmethod
-    def logout(account: "Account") -> None:
-        """用户登出。"""
-        from libs.login import logout_user
-        logout_user(account)
-```
-
-**解读**：
-
-- 第 4 行：`AccountService` 是普通类（无继承），所有方法都是 `@staticmethod`
-- **为什么不继承 BaseService？** dify 选择简洁——服务类只是「业务方法集合」，不需要共享状态
-- 第 17 行：`filter_by(email=email)` 是 SQLAlchemy 的过滤语法
-- 第 21 行：`check_password` 是 Account 模型上的方法（领域逻辑）
-- 第 30 行：`logout_user` 是 dify 封装的辅助函数（`api/libs/login.py`）
-- **设计意图**：Service 层只负责**编排**——调用模型方法 + 调用库函数，不写复杂业务逻辑
-
-## 4. 关键要点总结
+## 3. 关键要点总结
 
 - `__init__` 是构造方法，`self` 指代当前实例
 - 三种方法：实例方法（self）、类方法（cls）、静态方法（无）
@@ -295,52 +198,6 @@ class AccountService:
 - `_` 单下划线是约定私有，`__` 双下划线触发名称改写
 - dify 的 Model 继承 `TypeBase`（SQLAlchemy 基类）
 - dify 的 Service 通常是**静态方法集合**，不依赖实例状态
-
-## 5. 练习题
-
-### 练习 1：基础（必做）
-
-定义一个 `ApiKey` 类（参考 2.1 示例），并写一个 `@classmethod` 工厂方法 `generate()`，生成的 key 必须以 `dify_` 开头。
-
-```python
-from typing import ClassVar
-import secrets
-
-class ApiKey:
-
-    PREFIX: ClassVar[str] = 'dify_'
-    def __init__(self, tenant_id:str, key: str, created_by:str) => None:
-      self.tenant_id : str = tenant_id;
-
-  '''apikey类'''
-  @classmethod
-  def generate(cls, tenant_id: str, created_by: str) => "ApiKey":
-    return f'dify_{key}'
-
-```
-
-```
-
-```
-
-### 练习 2：进阶
-
-阅读 `/Users/xu/code/github/dify/api/models/account.py` 中的 `Account` 类：
-
-1. 它继承自哪个类？
-2. 哪些字段有 `default`？
-3. `status` 字段默认值是什么？
-
-### 练习 3：挑战（选做）
-
-实现一个 `@property` 装饰的温度类 `Temperature`，支持摄氏、华氏、开尔文三种单位的**双向**转换（用 `@xxx.setter`）。
-
-## 6. 参考资料
-
-- `/Users/xu/code/github/dify/api/models/account.py`
-- `/Users/xu/code/github/dify/api/services/account_service.py`
-- Python 官方文档：https://docs.python.org/3/tutorial/classes.html
-- SQLAlchemy 2.x 类型注解：https://docs.sqlalchemy.org/en/20/orm/declarative_styles.html
 
 ---
 

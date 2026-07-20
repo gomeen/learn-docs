@@ -1,4 +1,4 @@
-# 15.3 Conventional Commits 与语义化版本
+# 1.5.3 Conventional Commits 与语义化版本
 
 > 掌握 Conventional Commits 规范与 SemVer（语义化版本），能为 dify 贡献符合规范的提交。
 
@@ -13,7 +13,7 @@
 ## 📚 前置知识
 
 - Git 基础：`commit`、`tag`
-- _common/15-git/02-git-workflow.md
+- [Git 工作流](./02-git-workflow.md)
 
 ## 1. 核心概念
 

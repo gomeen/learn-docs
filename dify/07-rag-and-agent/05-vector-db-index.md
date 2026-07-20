@@ -12,7 +12,7 @@
 
 ## 📚 前置知识
 
-- 向量数据库与 pgvector（详见 [向量检索基础](../03-database/25-vector-search.md)、[pgvector](../03-database/26-pgvector.md)、[向量数据库对比](../03-database/27-vector-databases.md)）
+- 向量数据库与 pgvector（详见 [向量检索基础](../03-database/19-vector-search.md)、[pgvector](../03-database/20-pgvector.md)、[向量数据库对比](../03-database/21-vector-databases.md)）
 - Embedding 选型（详见 [Embedding 选型](./04-embedding-selection.md)）
 
 ## 1. 核心概念
@@ -25,7 +25,7 @@
 给定查询向量 q，在百万级向量库中找 top-K 个最相似的向量
 ```
 
-> 📌 **Sighting**：相似度度量与 ANN 数学基础见 [向量检索基础](../03-database/25-vector-search.md)；Postgres 扩展见 [pgvector](../03-database/26-pgvector.md)；多后端对比见 [向量数据库对比](../03-database/27-vector-databases.md)。
+> 📌 **Sighting**：相似度度量与 ANN 数学基础见 [向量检索基础](../03-database/19-vector-search.md)；Postgres 扩展见 [pgvector](../03-database/20-pgvector.md)；多后端对比见 [向量数据库对比](../03-database/21-vector-databases.md)。
 
 ### 1.2 主流索引算法对比
 
@@ -147,84 +147,12 @@ results = index.search(np.random.randn(384))  # 距离计算会出错
 assert query.shape[0] == index.dim
 ```
 
-## 3. dify 仓库源码解读
-
-### 3.1 Vector 抽象基类
-
-**文件位置**：`/Users/xu/code/github/dify/api/core/rag/datasource/vector_factory.py`（近似位置）
-**核心思路**：
-
-```python
-class Vector(ABC):
-    """所有向量数据库后端的统一接口。
-
-    dify 通过 Vector 抽象，让上层代码不依赖具体数据库。
-    """
-
-    @abstractmethod
-    def create(self, texts: list[Document], embeddings: list[list[float]], **kwargs):
-        """创建/插入向量"""
-        pass
-
-    @abstractmethod
-    def search_by_vector(self, query_embedding: list[float], **kwargs) -> list[Document]:
-        """按向量检索"""
-        pass
-
-    @abstractmethod
-    def delete_by_metadata_field(self, key: str, value: str):
-        """按元数据删除"""
-        pass
-```
-
-### 3.2 IndexStructureType 索引类型常量
-
-**文件位置**：`/Users/xu/code/github/dify/api/core/rag/index_processor/constant/index_type.py`
-**核心代码**（节选）：
-
-```python
-class IndexStructureType(StrEnum):
-    PARAGRAPH = "paragraph"
-    PARENT_CHILD = "parent_child"
-    QA = "qa"
-
-class IndexTechniqueType(StrEnum):
-    HIGH_QUALITY = "high_quality"   # 向量 + Embedding
-    ECONOMY = "economy"             # 倒排索引，省钱
-```
-
-**解读**：
-- `IndexStructureType` 描述"文档如何组织"（段落 / 父子 / QA）
-- `IndexTechniqueType` 描述"用什么检索技术"（高质量 vs 经济）
-- 经济模式不调 Embedding，节省成本但精度低
-
-## 4. 关键要点总结
+## 3. 关键要点总结
 
 - 向量数据库专门解决"top-K 相似度检索"
 - 主流索引：Flat（精确慢）/ IVF（聚类快）/ HNSW（图结构很快）
 - dify 通过 Vector 抽象支持 Weaviate、Qdrant、Milvus、PGVector 等多种后端
 - 索引类型选择是精度/速度/内存的权衡
-
-## 5. 练习题
-
-### 练习 1：基础（必做）
-
-实现一个 Flat 索引（暴力），随机生成 10000 个 128 维向量，做一次 top-10 检索，记录耗时。
-
-### 练习 2：进阶
-
-安装 `faiss-cpu`，用 `faiss.IndexFlatL2` 和 `faiss.IndexHNSWFlat` 分别做同样的检索，对比耗时和精度差异。
-
-### 练习 3：挑战（选做）
-
-阅读 dify 中 `core/rag/datasource/` 下某个具体后端（如 Qdrant）的实现，画出"插入文档 → 建立索引 → 检索"的全流程。
-
-## 6. 参考资料
-
-- `/Users/xu/code/github/dify/api/core/rag/datasource/`
-- `/Users/xu/code/github/dify/api/core/rag/index_processor/constant/index_type.py`
-- FAISS 官方文档：https://faiss.ai/
-- HNSW 论文：https://arxiv.org/abs/1603.09320
 
 ---
 

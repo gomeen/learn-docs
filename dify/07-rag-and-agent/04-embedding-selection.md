@@ -14,7 +14,7 @@
 
 - Embedding 原理与选型（详见 [Embedding 模型](../06-llm-and-ai/06-embedding-models.md)）
 - 切片策略（详见 [Chunking 策略](./03-chunking-strategies.md)）
-- 向量空间与相似度（详见 [向量检索基础](../03-database/25-vector-search.md)）
+- 向量空间与相似度（详见 [向量检索基础](../03-database/19-vector-search.md)）
 
 ## 1. 核心概念
 
@@ -118,106 +118,12 @@ for text in texts:
 vectors = client.embed_batch(texts, batch_size=64)
 ```
 
-## 3. dify 仓库源码解读
-
-### 3.1 CacheEmbedding 缓存实现
-
-**文件位置**：`/Users/xu/code/github/dify/api/core/rag/embedding/cached_embedding.py`
-**核心代码**（行 24-50）：
-
-```python
-class CacheEmbedding(Embeddings):
-    def __init__(self, model_instance: ModelInstance):
-        self._model_instance = model_instance
-
-    @override
-    def embed_documents(self, texts: list[str]) -> list[list[float]]:
-        """Embed search docs in batches of 10."""
-        # use doc embedding cache or store if not exists
-        text_embeddings: list[Any] = [None for _ in range(len(texts))]
-        embedding_queue_indices = []
-        for i, text in enumerate(texts):
-            hash = helper.generate_text_hash(text)
-            embedding = db.session.scalar(
-                select(Embedding)
-                .where(
-                    Embedding.model_name == self._model_instance.model_name,
-                    Embedding.hash == hash,
-                    Embedding.provider_name == self._model_instance.provider,
-                )
-                .limit(1)
-            )
-            if embedding:
-                text_embeddings[i] = embedding.get_embedding()
-            else:
-                embedding_queue_indices.append(i)
-```
-
-**解读**：
-- 第 30 行：先分配一个 `None` 列表占位
-- 第 34-44 行：遍历每个文本，先查数据库的 `Embedding` 表
-- 第 45-48 行：如果数据库里有缓存，直接用；否则加入"待计算队列"
-- 这是经典的"先查后算"模式，最大限度复用历史 Embedding
-
-### 3.2 Embedding 与切片的协同
-
-**文件位置**：`/Users/xu/code/github/dify/api/core/rag/splitter/fixed_text_splitter.py`
-**核心代码**（行 15-45）：
-
-```python
-class EnhanceRecursiveCharacterTextSplitter(RecursiveCharacterTextSplitter):
-    """
-    This class is used to implement from_gpt2_encoder, to prevent using of tiktoken
-    """
-
-    @classmethod
-    def from_encoder[T: EnhanceRecursiveCharacterTextSplitter](
-        cls: type[T],
-        embedding_model_instance: ModelInstance | None,
-        allowed_special: Literal["all"] | AbstractSet[str] = frozenset(),
-        disallowed_special: Literal["all"] | AbstractSet[str] = "all",
-        **kwargs: Any,
-    ) -> T:
-        def _token_encoder(texts: list[str]) -> list[int]:
-            if not texts:
-                return []
-            if embedding_model_instance:
-                return embedding_model_instance.get_text_embedding_num_tokens(texts=texts)
-            else:
-                return [GPT2Tokenizer.get_num_tokens(text) for text in texts]
-```
-
-**解读**：
-- 让切片器使用**与 Embedding 模型一致的 tokenizer** 来计数长度
-- 这样切片大小精确匹配 Embedding 模型的最大输入长度
-- 防止"切片后超出模型限制被截断"
-
-## 4. 关键要点总结
+## 3. 关键要点总结
 
 - Embedding 模型把文本变稠密向量，相似文本向量距离近
 - dify 通过数据库缓存（`Embedding` 表）避免重复计算
 - Embedding 与切片器必须协同：用 Embedding 模型的 tokenizer 计算长度
 - 批量调用效率远高于逐条调用
-
-## 5. 练习题
-
-### 练习 1：基础（必做）
-
-用 sentence-transformers 加载 `BAAI/bge-small-zh-v1.5`，对 5 条中文句子做 Embedding，计算两两余弦相似度。
-
-### 练习 2：进阶
-
-阅读 `cached_embedding.py` 完整实现，回答：如果 Embedding 模型升级了（比如从 `text-embedding-3-small` 升级到 `text-embedding-3-large`），旧缓存会失效吗？怎么改进？
-
-### 练习 3：挑战（选做）
-
-实现一个 Embedding 缓存的两级缓存（内存 LRU + 数据库），给出接口设计。
-
-## 6. 参考资料
-
-- `/Users/xu/code/github/dify/api/core/rag/embedding/cached_embedding.py`
-- `/Users/xu/code/github/dify/api/core/rag/embedding/embedding_base.py`
-- `/Users/xu/code/github/dify/api/core/rag/splitter/fixed_text_splitter.py`
 
 ---
 

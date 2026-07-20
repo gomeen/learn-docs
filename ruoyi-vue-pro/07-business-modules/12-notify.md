@@ -13,9 +13,9 @@
 ## 📚 前置知识
 
 - 字典（详见 [字典](./11-dict.md)）
-- WebSocket 基础（详见 [WebSocket Starter](../03-spring-boot-starters/38-websocket.md)）
-- 统一响应（详见 [CommonResult](./06-common-result.md)）
-- 站内信对比（详见 [站内信](./20-in-site-message.md)）
+- WebSocket 基础（详见 [WebSocket Starter](../03-spring-boot-starters/46-websocket.md)）
+- 统一响应（详见 [CommonResult](./05-common-result.md)）
+- 站内信对比（详见 [站内信](./22-in-site-message.md)）
 
 ## 1. 核心概念
 
@@ -108,110 +108,13 @@ public CommonResult<Boolean> push(@RequestParam("id") Long id) {
 }
 ```
 
-## 3. ruoyi 仓库源码解读
-
-### 3.1 NoticeController 完整代码
-
-**文件位置**：`/Users/xu/code/github/ruoyi-vue-pro/yudao-module-system/src/main/java/cn/iocoder/yudao/module/system/controller/admin/notice/NoticeController.java`
-
-**核心代码**（行 27-100）：
-
-```java
-@Tag(name = "管理后台 - 通知公告")
-@RestController
-@RequestMapping("/admin-api/system/notice")
-@Validated
-public class NoticeController {
-
-    @Resource
-    private NoticeService noticeService;
-
-    @Resource
-    private WebSocketSenderApi webSocketSenderApi;
-
-    @PostMapping("/create")
-    @Operation(summary = "创建通知公告")
-    @PreAuthorize("@ss.hasPermission('system:notice:create')")
-    public CommonResult<Long> createNotice(@Valid @RequestBody NoticeSaveReqVO createReqVO) {
-        Long noticeId = noticeService.createNotice(createReqVO);
-        return success(noticeId);
-    }
-
-    @GetMapping("/page")
-    @Operation(summary = "获取通知公告列表")
-    @PreAuthorize("@ss.hasPermission('system:notice:query')")
-    public CommonResult<PageResult<NoticeRespVO>> getNoticePage(@Validated NoticePageReqVO pageReqVO) {
-        PageResult<NoticeDO> pageResult = noticeService.getNoticePage(pageReqVO);
-        return success(BeanUtils.toBean(pageResult, NoticeRespVO.class));
-    }
-
-    @PostMapping("/push")
-    @Operation(summary = "推送通知公告", description = "只发送给 websocket 连接在线的用户")
-    @Parameter(name = "id", description = "编号", required = true, example = "1024")
-    @PreAuthorize("@ss.hasPermission('system:notice:update')")
-    public CommonResult<Boolean> push(@RequestParam("id") Long id) {
-        NoticeDO notice = noticeService.getNotice(id);
-        Assert.notNull(notice, "公告不能为空");
-        // 通过 websocket 推送给在线的用户
-        webSocketSenderApi.sendObject(UserTypeEnum.ADMIN.getValue(), "notice-push", notice);
-        return success(true);
-    }
-}
-```
-
-**解读**：
-- 第 6-9 行：标准 Controller
-- 第 11-12 行：除了 NoticeService，还注入了 `WebSocketSenderApi`
-- 第 15-19 行：创建公告
-- 第 24-28 行：分页查询
-- 第 31-38 行：**WebSocket 推送公告**给所有在线管理员
-
-### 3.2 NoticeService 业务方法
-
-```java
-@Override
-@Transactional(rollbackFor = Exception.class)
-public Long createNotice(NoticeSaveReqVO createReqVO) {
-    // 1. 转换 VO -> DO
-    NoticeDO notice = BeanUtils.toBean(createReqVO, NoticeDO.class);
-    // 2. 插入数据库
-    noticeMapper.insert(notice);
-    return notice.getId();
-}
-
-@Override
-public PageResult<NoticeDO> getNoticePage(NoticePageReqVO reqVO) {
-    return noticeMapper.selectPage(reqVO);
-}
-```
-
-## 4. 关键要点总结
+## 3. 关键要点总结
 
 - 通知公告是系统级消息，推送给所有用户
 - 通过 WebSocket 实现实时推送
 - `WebSocketSenderApi` 是 RPC 接口，由 infra 模块实现
 - 公告有"草稿/发布/关闭"状态
 - 推送消息会经过 `notice-push` 消息类型标识
-
-## 5. 练习题
-
-### 练习 1：基础（必做）
-
-打开 `NoticeDO.java`，列出所有字段，理解每个字段的含义。
-
-### 练习 2：进阶
-
-阅读 `WebSocketSenderApi.java`（在 `yudao-module-infra` 下），理解它提供的 sendObject 方法的参数。
-
-### 练习 3：挑战（选做）
-
-思考：如果要给"通知公告"添加"定时发布"功能（到点自动发布并推送），需要修改哪些文件？列出具体方案。
-
-## 6. 参考资料
-
-- `/Users/xu/code/github/ruoyi-vue-pro/yudao-module-system/src/main/java/cn/iocoder/yudao/module/system/controller/admin/notice/NoticeController.java`
-- `/Users/xu/code/github/ruoyi-vue-pro/yudao-module-system/src/main/java/cn/iocoder/yudao/module/system/dal/dataobject/notice/NoticeDO.java`
-- `/Users/xu/code/github/ruoyi-vue-pro/yudao-module-infra/src/main/java/cn/iocoder/yudao/module/infra/api/websocket/WebSocketSenderApi.java`
 
 ---
 

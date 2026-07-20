@@ -14,7 +14,7 @@
 
 - Java 基础语法
 - Maven 多模块项目基础
-- Spring Boot 基础概念（详见 [IoC](../02-spring-boot/01-ioc.md)、[自动配置](../02-spring-boot/08-auto-config.md)）
+- Spring Boot 基础概念（详见 [IoC](../02-spring-boot/01-ioc.md)、[自动配置](../02-spring-boot/09-auto-config.md)）
 
 ## 1. 核心概念
 
@@ -138,99 +138,13 @@ yudao-module-demo/                    # 一个最小化的业务模块
 </dependencies>
 ```
 
-## 3. ruoyi 仓库源码解读
-
-### 3.1 业务模块的 pom.xml 配置
-
-**文件位置**：`/Users/xu/code/github/ruoyi-vue-pro/yudao-module-system/pom.xml`
-
-**核心代码**（行 1-30）：
-
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <parent>
-        <groupId>cn.iocoder.yudao</groupId>
-        <artifactId>yudao</artifactId>
-        <version>${revision}</version>
-    </parent>
-    <modelVersion>4.0.0</modelVersion>
-    <artifactId>yudao-module-system</artifactId>
-    <packaging>jar</packaging>
-
-    <name>${project.artifactId}</name>
-    <description>系统模块</description>
-
-    <dependencies>
-        <!-- 内部依赖 -->
-        <dependency>
-            <groupId>cn.iocoder.yudao</groupId>
-            <artifactId>yudao-spring-boot-starter-security</artifactId>
-        </dependency>
-        <!-- ... 框架依赖 -->
-    </dependencies>
-</project>
-```
-
-**解读**：
-- 第 8 行：父 POM 是 yudao 根工程，统一管理版本号
-- 第 21 行：使用 `jar` 打包，业务模块是 jar 包形式
-- 第 28 行：依赖 `yudao-spring-boot-starter-security`，使用 RBAC 权限控制
-
-### 3.2 包注释 package-info.java
-
-**文件位置**：`/Users/xu/code/github/ruoyi-vue-pro/yudao-module-system/src/main/java/cn/iocoder/yudao/module/system/package-info.java`
-
-**核心代码**：
-
-```java
-/**
- * system 模块的 package-info.java，负责管理后台（管理员）的用户、角色、菜单、部门、字典、SSO 等功能。
- *
- * 1. Controller URL：以 /admin-api/ 开头，避免和其它 Module 冲突
- * 2. DataObject：以 DO 结尾，且和数据库表名一一对应
- * 3. VO：以 RespVO / ReqVO 结尾，方便区分请求和响应
- *
- * @author 芋道源码
- */
-package cn.iocoder.yudao.module.system;
-```
-
-**解读**：
-- 这是 ruoyi 的**强约定**：通过 package-info.java 写下每个模块的命名规范
-- `/admin-api/` 前缀：避免不同模块的 URL 冲突
-- `DO` / `ReqVO` / `RespVO` 后缀：明确区分对象类型
-
-## 4. 关键要点总结
+## 3. 关键要点总结
 
 - ruoyi-vue-pro 使用 Maven 多模块架构，业务模块独立打包
 - 业务模块（`yudao-module-*`）与框架（`yudao-framework`）解耦
 - 每个业务模块都遵循 `controller/service/dal` 三层架构
 - 通过 `yudao-server` 启动模块统一聚合所有业务
 - `package-info.java` 写明每个模块的命名规范
-
-## 5. 练习题
-
-### 练习 1：基础（必做）
-
-在 ruoyi-vue-pro 仓库中，列出 `yudao-module-bpm` 的子目录结构（至少 3 层），并解释 `controller/admin/` 和 `controller/app/` 的区别。
-
-### 练习 2：进阶
-
-如果想新增一个业务模块 `yudao-module-pay`，需要做哪些事？列出至少 3 个步骤。
-
-### 练习 3：挑战（选做）
-
-阅读 `yudao-module-mall/pom.xml`，它本身是聚合工程（包含 4 个子模块）。请解释为什么 mall 模块需要拆分成 4 个子模块？这样做有什么好处？
-
-## 6. 参考资料
-
-- `/Users/xu/code/github/ruoyi-vue-pro/pom.xml`（根 POM）
-- `/Users/xu/code/github/ruoyi-vue-pro/yudao-module-system/pom.xml`
-- `/Users/xu/code/github/ruoyi-vue-pro/yudao-module-system/src/main/java/cn/iocoder/yudao/module/system/package-info.java`
-- `/Users/xu/code/github/ruoyi-vue-pro/yudao-server/pom.xml`
 
 ---
 

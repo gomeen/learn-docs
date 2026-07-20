@@ -1,67 +1,81 @@
-# Dify 全栈后端学习路径
+# Dify 后端学习（learn-docs）
 
-本目录是基于 [dify](https://github.com/langgenius/dify) 仓库的全栈后端学习索引。**不含前端知识**。
+基于本地仓库 [`/Users/xu/code/github/dify`](file:///Users/xu/code/github/dify) 的后端学习材料。**不含前端 `web/` 精读。**
 
-## 🎯 使用方式
+## 从这里开始
 
-每个知识点对应一份待生成的学习文档，文件命名格式：`./<序号>-<主题>.md`。
+### 主路径（唯一推荐顺序）
 
-### 让 AI 生成学习文档的 Prompt 模板
+→ **[`LEARNING-PLAN.md`](./LEARNING-PLAN.md)**（索引）  
+→ 分册在 [`plan/`](./plan/)：先 [`00-guide`](./plan/00-guide.md)，再只开当前 Phase（如 [`phase-0-docker`](./plan/phase-0-docker.md)）
+
+按 Phase 0 → 6 推进：Docker → Python 够用 + 地图 → 主链路竖切 → 贡献 → RAG → Workflow/Agent → 广覆盖。
+
+- 有阶段**毕业门禁**；未毕业不进入下一 Phase  
+- 文档是**点菜**，不是 01→11 通读  
+- 进度勾选：[`plan/progress.md`](./plan/progress.md)  
+- 通用后端会/不会：[`../CHECKLIST-understand.md`](../CHECKLIST-understand.md)（阶段末回填）
+
+### 三层知识库
+
+| 层 | 目录 | 何时用 |
+|----|------|--------|
+| 学科基础 | [`../_fundamentals/`](../_fundamentals/) | 机制卡壳时下钻 |
+| 工程公共 | [`../_common/`](../_common/) | Docker / HTTP / 鉴权 / SQL / Redis… |
+| 项目实战 | **本目录** | Python + Flask + Dify 源码向 |
+
+归属与 Sighting：[`../_common/SIGHTING.md`](../_common/SIGHTING.md)。
+
+---
+
+## 目录角色（扩展库，服从主计划）
+
+下列分类是**素材库**。是否阅读、读哪几篇，以 [`LEARNING-PLAN.md`](./LEARNING-PLAN.md) 的「必读 / 卡壳再读 / 延后」为准。
+
+| 目录 | 内容 | 在主计划中的位置 |
+|------|------|------------------|
+| [`01-fundamentals/`](./01-fundamentals/) | Python 语言 | Phase 1 必读子集；后半多延后 |
+| [`02-backend/`](./02-backend/) | Flask / 分层 / 多租户 | Phase 2.1、2.3 |
+| [`03-database/`](./03-database/) | SQLAlchemy / 向量 | Phase 2.6、4 |
+| [`04-cache-and-queue/`](./04-cache-and-queue/) | Redis / Celery | Phase 2.7、2.8 |
+| [`05-auth-and-security/`](./05-auth-and-security/) | 鉴权与安全（Dify） | Phase 2.2、3+ |
+| [`06-llm-and-ai/`](./06-llm-and-ai/) | LLM / 流式 / provider | Phase 2.4、2.5；provider 只跟 1 条 |
+| [`07-rag-and-agent/`](./07-rag-and-agent/) | RAG / Agent / Workflow | Phase 4–5 |
+| [`08-devops/`](./08-devops/) | Docker 等 | Phase 0 |
+| [`09-testing/`](./09-testing/) | pytest | Phase 3 |
+| [`10-observability/`](./10-observability/) | 日志等 | Phase 3、6 |
+| [`11-engineering/`](./11-engineering/) | 协作 / PR | Phase 3、6 |
+
+生成单篇时的模板：[`_template.md`](./_template.md)。
+
+---
+
+## 单篇约定（写新文档时）
+
+- 知识点：`NN-<主题>.md`  
+- 章节小验证：`NN-*-<主题>.md`（插在对应组后）  
+- 结构见 [`_template.md`](./_template.md)；Sighting 见 [`../_common/SIGHTING.md`](../_common/SIGHTING.md)  
+- **不要**在计划未要求时批量新增「全书覆盖」型目录  
+
+### 生成文档 Prompt（精简）
 
 ```
-根据 /Users/xu/code/gomeen/learn-docs/dify/<分类>/README.md 中的目录，
-请为「<知识点名称>」生成学习文档，
-保存到 /Users/xu/code/gomeen/learn-docs/dify/<分类>/<序号>-<主题>.md
-
-要求：
-1. 理论讲解（概念、原理、适用场景、与同类方案对比）
-2. 代码示例（Python 为主，必要时附 TypeScript/SQL/Shell）
-3. 结合 dify 仓库实际代码（/Users/xu/code/github/dify）
-4. 列出参考代码文件和行号
-5. 2-3 个练习题
-6. 遵循 Sighting 原则（见 `_common/SIGHTING.md` 与 `_template.md`）：
-   - 出现其他专题才讲授的概念时，首次显著处加「详见 [标题](相对路径)」
-   - 学习目标/关键要点/练习不得要求掌握后置专题
+按 /Users/xu/code/gomeen/learn-docs/dify/LEARNING-PLAN.md 当前 Phase 需要，
+为「<知识点>」写一篇快扫文档到 dify/<分类>/，遵循 _template.md 与 Sighting。
+只服务主计划竖切；不要写超长源码精读；练习放 NN-*-*.md。
 ```
 
-## 📚 知识分类总览
-
-| 分类 | 主题 | 目录 |
-|------|------|------|
-| **01** | 编程语言与基础工具 | [`01-fundamentals/`](./01-fundamentals/) |
-| **02** | 后端架构与框架 | [`02-backend/`](./02-backend/) |
-| **03** | 数据库与 ORM | [`03-database/`](./03-database/) |
-| **04** | 缓存与消息队列 | [`04-cache-and-queue/`](./04-cache-and-queue/) |
-| **05** | 认证与安全 | [`05-auth-and-security/`](./05-auth-and-security/) |
-| **06** | LLM 应用开发 | [`06-llm-and-ai/`](./06-llm-and-ai/) |
-| **07** | RAG 与 Agent | [`07-rag-and-agent/`](./07-rag-and-agent/) |
-| **08** | DevOps 与部署 | [`08-devops/`](./08-devops/) |
-| **09** | 测试与质量保障 | [`09-testing/`](./09-testing/) |
-| **10** | 可观测性 | [`10-observability/`](./10-observability/) |
-| **11** | 工程实践与协作 | [`11-engineering/`](./11-engineering/) |
-
-## 📖 推荐学习顺序
-
-> 编号顺序 ≠ 严格学习顺序。同一分类内的知识通常有依赖，跨分类可并行。
+### 生成 checkpoint Prompt（精简）
 
 ```
-01-fundamentals（基础） 
-    ↓
-02-backend（架构） + 03-database（数据库）
-    ↓
-04-cache-and-queue（缓存队列） + 05-auth-and-security（安全）
-    ↓
-06-llm-and-ai（LLM 基础）
-    ↓
-07-rag-and-agent（RAG 与 Agent）
-    ↓
-08-devops（部署） + 09-testing（测试） + 10-observability（监控）
-    ↓
-11-engineering（工程实践贯穿始终）
+按 LEARNING-PLAN 当前切片，为「<小组>」写 NN-*-slug.md：
+背景 / 可执行需求 / 提示 / 验收标准。优先改 dify 仓库小点或本地可跑脚本。禁止「请总结」。
 ```
 
-## 🔗 参考资源
+---
 
-- dify 仓库：`/Users/xu/code/github/dify`
-- dify 官方文档：https://docs.dify.ai
-- 后端架构指南：`/Users/xu/code/github/dify/api/AGENTS.md`
+## 上游参考
+
+- 源码：`/Users/xu/code/github/dify`  
+- API 协作约定：`/Users/xu/code/github/dify/api/AGENTS.md`  
+- 官方文档：https://docs.dify.ai  

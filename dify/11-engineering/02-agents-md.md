@@ -113,16 +113,11 @@ Dify 是一个非常棒的开源 LLM 平台，由 langgenius 公司开发，
 # 一旦改一个规则，所有引用都得改
 ```
 
-## 3. dify 仓库源码解读
-
-### 3.1 后端 `AGENTS.md`：必读章节 + 注释即规范
+### 3.1 后端 `api/AGENTS.md`：Notes for Agent（节选）
 
 **文件位置**：`/Users/xu/code/github/dify/api/AGENTS.md`
-**核心代码**（行 1-50，Notes for Agent 整段）：
 
 ```markdown
-# API Agent Guide
-
 ## Notes for Agent (must-check)
 
 Before changing any backend code under `api/`, you MUST read the surrounding docstrings and comments. These notes contain required context (invariants, edge cases, trade-offs) and are treated as part of the spec.
@@ -201,37 +196,13 @@ In this section, "notes" means module/class/function docstrings plus any relevan
 - 第 22 行：**"when touching existing callers, migrate them"** —— 不仅禁止新增，还要求迁移存量，体现渐进式重构思想
 - 整个段落非常短，但每条都是**可执行的硬约束**，没有模糊空间
 
-## 4. 关键要点总结
+## 3. 关键要点总结
 
 - `AGENTS.md` 写给 AI Agent，`README.md` 写给人——目标受众不同
 - `AGENTS.md` 的黄金结构：**范围 / 必读 / 风格 / 架构 / 测试 / 反模式 / 工具链命令**
 - 用**强语义词**（Mandatory、MUST、Do not）而非"建议"——给 Agent 明确的边界
 - dify 的 `api/AGENTS.md` 是行业最佳实践范本：分层注释规范（模块 / 类 / 函数 / 段落）、架构边界（controller → service → core）
 - 写完 `AGENTS.md` 后，**实际跑一次 Agent 看会不会违反规则**——这是检验 AGENTS.md 是否真的有效的唯一方法
-
-## 5. 练习题
-
-### 练习 1：基础（必做）
-
-通读 `/Users/xu/code/github/dify/api/AGENTS.md`，列出它定义了哪些章节，每个章节解决什么问题。
-
-**参考答案**：见 `solutions/02-agents-md.md`
-
-### 练习 2：进阶
-
-为你自己的项目（学生项目 / 公司项目）起草一份 `AGENTS.md`，覆盖：工作范围、必读章节、代码风格、测试规范、禁止项 5 个部分。
-
-### 练习 3：挑战（选做）
-
-阅读 `/Users/xu/code/github/dify/web/CLAUDE.md` 的 "Automated Test Generation" 段落，结合 `web/docs/test.md`，写一份"Agent 写测试时必须遵守"的 checklist。
-
-## 6. 参考资料
-
-- `/Users/xu/code/github/dify/api/AGENTS.md`
-- `/Users/xu/code/github/dify/web/CLAUDE.md`
-- `/Users/xu/code/github/dify/web/docs/test.md`
-- `/Users/xu/code/github/dify/web/docs/lint.md`
-- AGENTS.md 约定官网：https://agents.md/
 
 ---
 
